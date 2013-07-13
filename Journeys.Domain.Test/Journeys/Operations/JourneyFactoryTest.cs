@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Journeys.Domain.Test.Journeys.Operations
 {
     [TestClass]
-    class JourneyFactoryTest
+    public class JourneyFactoryTest
     {
         [TestMethod]
         public void ShouldBeAbleToSetDateOfJourney()
