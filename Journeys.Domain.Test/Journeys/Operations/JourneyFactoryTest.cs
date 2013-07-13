@@ -1,6 +1,8 @@
 ﻿using Journeys.Domain.Exceptions;
 using Journeys.Domain.Identities;
+using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
+using Journeys.Domain.People;
 using Journeys.Domain.Routes.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -23,7 +25,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
         {
             var factory = new JourneyFactory();
 
-            factory.AddLift(new Lift());
+            factory.AddLift(new Id<Person>(1), new Distance(1m, DistanceUnit.Kilometer));
         }
 
         [TestMethod]
@@ -41,7 +43,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
 
             factory.SetDateOfOccurence(new DateTime());
             factory.SetRoute(new Id<Route>(1));
-            factory.AddLift(new Lift());
+            factory.AddLift(new Id<Person>(1), new Distance(1m, DistanceUnit.Kilometer));
 
             factory.BuildJourney();
         }

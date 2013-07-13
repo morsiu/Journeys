@@ -120,6 +120,9 @@
   <data name="DateOfOccurenceMustBeProvidedForNewJourney" xml:space="preserve">
     <value>Date of occurence must be provided for new journey.</value>
   </data>
+  <data name="DistanceAmountMustNotBeNegative" xml:space="preserve">
+    <value>Distance amount must not be negative.</value>
+  </data>
   <data name="RouteMustBeProvidedForNewJourney" xml:space="preserve">
     <value>Route must be provided for new journey.</value>
   </data>

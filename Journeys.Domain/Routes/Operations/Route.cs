@@ -2,7 +2,7 @@
 
 namespace Journeys.Domain.Routes.Operations
 {
-    [Entity]
+    [Aggregate]
     public class Route
     {
     }

@@ -70,6 +70,15 @@ namespace Journeys.Domain.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Distance amount must not be negative..
+        /// </summary>
+        internal static string DistanceAmountMustNotBeNegative {
+            get {
+                return ResourceManager.GetString("DistanceAmountMustNotBeNegative", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Route must be provided for new journey..
         /// </summary>
         internal static string RouteMustBeProvidedForNewJourney {

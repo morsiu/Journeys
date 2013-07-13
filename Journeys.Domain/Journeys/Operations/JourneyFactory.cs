@@ -1,7 +1,9 @@
 ﻿using Journeys.Domain.Exceptions;
 using Journeys.Domain.Identities;
+using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Markers;
 using Journeys.Domain.Messages;
+using Journeys.Domain.People;
 using Journeys.Domain.Routes.Operations;
 using System;
 using System.Collections.Generic;
@@ -25,8 +27,9 @@ namespace Journeys.Domain.Journeys.Operations
             _routeId = routeId;
         }
 
-        public void AddLift(Lift lift)
+        public void AddLift(Id<Person> personId, Distance distance)
         {
+            var lift = new Lift(personId, distance);
             _lifts.Add(lift);
         }
 
