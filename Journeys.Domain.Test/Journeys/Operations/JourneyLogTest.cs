@@ -12,7 +12,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
     public class JourneyLogTest
     {
         [TestMethod]
-        public void AddingJourneyToLogShouldIncreaseJourneyCount()
+        public void AddingJourneyToJourneyLogShouldIncreaseJourneyCountByOne()
         {
             var journeyLog = new JourneyLog();
             var journey = new Journey();
@@ -23,7 +23,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
         }
 
         [TestMethod]
-        public void EmptyJourneyLogShouldHaveZeroJourneys()
+        public void EmptyJourneyLogShouldHaveZeroJourneyCount()
         {
             var journeyLog = new JourneyLog();
 
