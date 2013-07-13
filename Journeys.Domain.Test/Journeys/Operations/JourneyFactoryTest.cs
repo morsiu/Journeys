@@ -1,4 +1,5 @@
-﻿using Journeys.Domain.Identities;
+﻿using Journeys.Domain.Exceptions;
+using Journeys.Domain.Identities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.Routes.Operations;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -45,6 +46,26 @@ namespace Journeys.Domain.Test.Journeys.Operations
             factory.SetDateOfOccurence(new DateTime());
             factory.SetRoute(new Id<Route>(1));
             factory.AddLift(new Lift());
+
+            factory.BuildJourney();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityBuildException))]
+        public void ShouldNotBuildWithoutDateOfOccurence()
+        {
+            var factory = new JourneyFactory();
+            factory.SetRoute(new Id<Route>(1));
+
+            factory.BuildJourney();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityBuildException))]
+        public void ShouldNotBuildWithoutRouteId()
+        {
+            var factory = new JourneyFactory();
+            factory.SetDateOfOccurence(new DateTime());
 
             factory.BuildJourney();
         }
