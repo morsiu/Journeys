@@ -30,5 +30,15 @@ namespace Journeys.Domain.Journeys.Operations
         {
             _lifts.Add(lift);
         }
+
+        public Journey BuildJourney()
+        {
+            var journey = new Journey(_dateOfOccurence, _routeId);
+            foreach (var lift in _lifts)
+            {
+                journey.AddLift(lift);
+            }
+            return journey;
+        }
     }
 }

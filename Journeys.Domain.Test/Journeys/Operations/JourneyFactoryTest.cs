@@ -36,5 +36,17 @@ namespace Journeys.Domain.Test.Journeys.Operations
 
             factory.SetRoute(new Id<Route>(1));
         }
+
+        [TestMethod]
+        public void ShouldBeAbleToBuildJourney()
+        {
+            var factory = new JourneyFactory();
+
+            factory.SetDateOfOccurence(new DateTime());
+            factory.SetRoute(new Id<Route>(1));
+            factory.AddLift(new Lift());
+
+            factory.BuildJourney();
+        }
     }
 }
