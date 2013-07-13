@@ -17,6 +17,6 @@ namespace Journeys.Domain.Journeys.Operations
             _journeys.Add(journey);
         }
 
-        public object JourneyCount { get { return _journeys.Count; } }
+        public int JourneyCount { get { return _journeys.Count; } }
     }
 }
