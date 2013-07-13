@@ -41,7 +41,6 @@
   <ItemGroup>
     <Compile Include="Journeys\Operations\Journey.cs" />
     <Compile Include="Markers\AggregateAttribute.cs" />
-    <Compile Include="Journeys\Operations\JourneyLog.cs" />
     <Compile Include="Markers\EntityAttribute.cs" />
     <Compile Include="Markers\ValueObjectAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
