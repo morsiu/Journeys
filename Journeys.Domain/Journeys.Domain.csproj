@@ -7,8 +7,8 @@
     <ProjectGuid>{7BA6E88B-4158-462A-9394-EC312D67306A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journey.Domain</RootNamespace>
-    <AssemblyName>Journey.Domain</AssemblyName>
+    <RootNamespace>Journeys.Domain</RootNamespace>
+    <AssemblyName>Journeys.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,8 +39,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Journeys\Operations\Journey.cs" />
+    <Compile Include="Markers\AggregateAttribute.cs" />
+    <Compile Include="Journeys\Operations\JourneyLog.cs" />
+    <Compile Include="Markers\EntityAttribute.cs" />
+    <Compile Include="Markers\ValueObjectAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

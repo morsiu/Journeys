@@ -6,8 +6,8 @@
     <ProjectGuid>{0867E115-6B32-4CE5-8091-9DF005C088EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journey.Domain.Test</RootNamespace>
-    <AssemblyName>Journey.Domain.Test</AssemblyName>
+    <RootNamespace>Journeys.Domain.Test</RootNamespace>
+    <AssemblyName>Journeys.Domain.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,7 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Journeys\Operations\JourneyLogTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
+      <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
+      <Name>Journeys.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
