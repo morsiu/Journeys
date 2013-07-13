@@ -39,11 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Identities\Id.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
+    <Compile Include="Journeys\Operations\JourneyFactory.cs" />
+    <Compile Include="Journeys\Operations\Lift.cs" />
+    <Compile Include="Journeys\Operations\TestClass.cs" />
     <Compile Include="Markers\AggregateAttribute.cs" />
     <Compile Include="Markers\EntityAttribute.cs" />
+    <Compile Include="Markers\FactoryAttribute.cs" />
     <Compile Include="Markers\ValueObjectAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Routes\Operations\Route.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
