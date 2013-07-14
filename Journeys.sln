@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain", "Journeys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Test", "Journeys.Domain.Test\Journeys.Domain.Test.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application", "Journeys.Application\Journeys.Application.csproj", "{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0867E115-6B32-4CE5-8091-9DF005C088EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0867E115-6B32-4CE5-8091-9DF005C088EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0867E115-6B32-4CE5-8091-9DF005C088EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
