@@ -24,6 +24,11 @@ namespace Journeys.Domain.Journeys.Capabilities
             return Equals((Distance)obj);
         }
 
+        public override int GetHashCode()
+        {
+            return _amount.GetHashCode() * 37 + _unit.GetHashCode();
+        }
+
         public bool Equals(Distance other)
         {
             return _amount == other._amount;
