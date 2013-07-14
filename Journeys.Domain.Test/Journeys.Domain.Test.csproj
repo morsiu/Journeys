@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Journeys\Capabilities\DistanceTest.cs" />
+    <Compile Include="Journeys\Capabilities\LiftTest.cs" />
     <Compile Include="Journeys\Operations\JourneyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
