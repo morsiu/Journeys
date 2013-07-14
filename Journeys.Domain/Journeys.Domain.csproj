@@ -45,7 +45,7 @@
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
-    <Compile Include="Journeys\Operations\Lift.cs" />
+    <Compile Include="Journeys\Capabilities\Lift.cs" />
     <Compile Include="Markers\AggregateAttribute.cs" />
     <Compile Include="Markers\EntityAttribute.cs" />
     <Compile Include="Markers\FactoryAttribute.cs" />
