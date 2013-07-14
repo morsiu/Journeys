@@ -117,13 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DateOfOccurenceMustBeProvidedForNewJourney" xml:space="preserve">
-    <value>Date of occurence must be provided for new journey.</value>
+  <data name="CannotAddLiftWithDistanceLargerThanJourneyDistance" xml:space="preserve">
+    <value>Cannot add lift with distance larget than journey distance.</value>
   </data>
   <data name="DistanceAmountMustNotBeNegative" xml:space="preserve">
     <value>Distance amount must not be negative.</value>
   </data>
-  <data name="RouteMustBeProvidedForNewJourney" xml:space="preserve">
-    <value>Route must be provided for new journey.</value>
+  <data name="JourneyAlreadyContainsLiftWithSamePerson" xml:space="preserve">
+    <value>Journey already contains lift with same person.</value>
   </data>
 </root>

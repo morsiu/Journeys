@@ -61,11 +61,11 @@ namespace Journeys.Domain.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Date of occurence must be provided for new journey..
+        ///   Looks up a localized string similar to Cannot add lift with distance larget than journey distance..
         /// </summary>
-        internal static string DateOfOccurenceMustBeProvidedForNewJourney {
+        internal static string CannotAddLiftWithDistanceLargerThanJourneyDistance {
             get {
-                return ResourceManager.GetString("DateOfOccurenceMustBeProvidedForNewJourney", resourceCulture);
+                return ResourceManager.GetString("CannotAddLiftWithDistanceLargerThanJourneyDistance", resourceCulture);
             }
         }
         
@@ -79,11 +79,11 @@ namespace Journeys.Domain.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Route must be provided for new journey..
+        ///   Looks up a localized string similar to Journey already contains lift with same person..
         /// </summary>
-        internal static string RouteMustBeProvidedForNewJourney {
+        internal static string JourneyAlreadyContainsLiftWithSamePerson {
             get {
-                return ResourceManager.GetString("RouteMustBeProvidedForNewJourney", resourceCulture);
+                return ResourceManager.GetString("JourneyAlreadyContainsLiftWithSamePerson", resourceCulture);
             }
         }
     }

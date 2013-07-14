@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Journeys.Domain.Journeys.Capabilities
 {
     [ValueObject]
-    public struct Distance
+    public struct Distance : IComparable<Distance>
     {
         private decimal _amount;
         private DistanceUnit _unit;
@@ -19,6 +19,11 @@ namespace Journeys.Domain.Journeys.Capabilities
             if (amount < 0m) throw new ArgumentException(FailureMessages.DistanceAmountMustNotBeNegative, "amount");
             _amount = amount;
             _unit = unit;
+        }
+
+        public int CompareTo(Distance other)
+        {
+            return _amount.CompareTo(other._amount);
         }
     }
 }
