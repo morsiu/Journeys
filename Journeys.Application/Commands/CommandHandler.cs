@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Journeys.Application.Commands
 {
-    public delegate void CommandHandler<TCommand>(TCommand command);
+    internal delegate void CommandHandler<TCommand>(TCommand command);
 }
