@@ -28,7 +28,7 @@ namespace Journeys.Application.Commands
         private Action<object> GetHandler(object command)
         {
             var commandType = command.GetType();
-            if (!_handlers.ContainsKey(commandType)) throw new ArgumentException(string.Format(FailureMessages.NoHandlerRegisteredForCommandOfType, commandType));
+            if (!_handlers.ContainsKey(commandType)) throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForCommandOfType, commandType));
             var untypedHandler = _handlers[commandType];
             return untypedHandler;
         }

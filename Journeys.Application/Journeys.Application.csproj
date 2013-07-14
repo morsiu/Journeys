@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
+    <Compile Include="Events\EventBus.cs" />
+    <Compile Include="Events\EventHandler.cs" />
+    <Compile Include="Events\EventPublisher.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
