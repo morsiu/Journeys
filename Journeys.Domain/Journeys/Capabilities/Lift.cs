@@ -8,8 +8,8 @@ namespace Journeys.Domain.Journeys.Capabilities
     [ValueObject]
     public class Lift
     {
-        private Id<Person> _personId;
-        private Distance _distance;
+        private readonly Id<Person> _personId;
+        private readonly Distance _distance;
 
         public Lift(Id<Person> personId, Distance distance)
         {

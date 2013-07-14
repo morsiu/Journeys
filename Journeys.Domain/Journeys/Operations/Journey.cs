@@ -13,12 +13,14 @@ namespace Journeys.Domain.Journeys.Operations
     [Entity]
     public class Journey
     {
-        private DateTime _dateOfOccurence;
-        private Distance _routeDistance; 
-        private List<Lift> _lifts = new List<Lift>();
+        private readonly Id<Journey> _id;
+        private readonly DateTime _dateOfOccurence;
+        private readonly Distance _routeDistance;
+        private readonly List<Lift> _lifts = new List<Lift>();
 
-        public Journey(DateTime dateOfOccurence, Distance routeDistance)
+        internal Journey(Id<Journey> id, DateTime dateOfOccurence, Distance routeDistance)
         {
+            _id = id;
             _dateOfOccurence = dateOfOccurence;
             _routeDistance = routeDistance;
         }

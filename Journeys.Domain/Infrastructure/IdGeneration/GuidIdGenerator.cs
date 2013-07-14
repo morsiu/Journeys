@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Journeys.Domain.Infrastructure.IdGeneration
+{
+    internal class GuidIdGenerator<TEntity> : IIdGenerator<TEntity>
+    {
+        public Id<TEntity> GetNext()
+        {
+            var guid = Guid.NewGuid();
+            return new Id<TEntity>(guid);
+        }
+    }
+}

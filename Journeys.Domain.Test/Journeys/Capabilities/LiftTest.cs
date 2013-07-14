@@ -13,20 +13,23 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
     [TestClass]
     public class LiftTest
     {
+        public static readonly Id<Person> PersonId = new Id<Person>(new Guid());
+        public static readonly Id<Person> AnotherPersonId = new Id<Person>(Guid.NewGuid());
+
         [TestMethod]
         public void LiftWithPersonIdShouldBeEqualByPersonToThatId()
         {
-            var lift = new Lift(new Id<Person>(1), new Distance(1m, DistanceUnit.Kilometer));
+            var lift = new Lift(PersonId, new Distance(1m, DistanceUnit.Kilometer));
 
-            Assert.IsTrue(lift.EqualsByPerson(new Id<Person>(1)));
+            Assert.IsTrue(lift.EqualsByPerson(PersonId));
         }
 
         [TestMethod]
         public void LiftWithPersonIdShouldNotBeEqualByPersonToOtherId()
         {
-            var lift = new Lift(new Id<Person>(1), new Distance(1m, DistanceUnit.Kilometer));
+            var lift = new Lift(PersonId, new Distance(1m, DistanceUnit.Kilometer));
 
-            Assert.IsFalse(lift.EqualsByPerson(new Id<Person>(2)));
+            Assert.IsFalse(lift.EqualsByPerson(AnotherPersonId));
         }
     }
 }
