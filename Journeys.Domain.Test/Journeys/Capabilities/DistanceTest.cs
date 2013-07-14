@@ -21,7 +21,7 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
         {
             var distance = new Distance(2m, DistanceUnit.Kilometer);
 
-            Assert.AreEqual(0, distance.CompareTo(distance));
+            Assert.AreEqual(true, distance.Equals(distance));
         }
 
         [TestMethod]
@@ -30,7 +30,7 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
             var smallerDistance = new Distance(3m, DistanceUnit.Kilometer);
             var largerDistance = new Distance(5m, DistanceUnit.Kilometer);
 
-            Assert.IsTrue(smallerDistance.CompareTo(largerDistance) < 0);
+            Assert.IsTrue(smallerDistance < largerDistance);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
             var largerDistance = new Distance(5m, DistanceUnit.Kilometer);
             var smallerDistance = new Distance(3m, DistanceUnit.Kilometer);
 
-            Assert.IsTrue(largerDistance.CompareTo(smallerDistance) > 0);
+            Assert.IsTrue(largerDistance > smallerDistance);
         }
     }
 }
