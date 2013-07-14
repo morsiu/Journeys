@@ -1,6 +1,6 @@
-﻿using Journeys.Domain.Identities;
+﻿using Journeys.Domain.Infrastructure;
+using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Journeys.Capabilities;
-using Journeys.Domain.Markers;
 using Journeys.Domain.People;
 
 namespace Journeys.Domain.Journeys.Capabilities

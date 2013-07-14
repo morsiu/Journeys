@@ -1,5 +1,5 @@
-﻿using Journeys.Domain.Markers;
-using Journeys.Domain.Messages;
+﻿using Journeys.Domain.Infrastructure.Markers;
+using Journeys.Domain.Infrastructure.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;

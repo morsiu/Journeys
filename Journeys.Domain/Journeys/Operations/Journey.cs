@@ -1,8 +1,8 @@
-﻿using Journeys.Domain.Exceptions;
-using Journeys.Domain.Identities;
+﻿using Journeys.Domain.Infrastructure;
+using Journeys.Domain.Infrastructure.Exceptions;
+using Journeys.Domain.Infrastructure.Markers;
+using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
-using Journeys.Domain.Markers;
-using Journeys.Domain.Messages;
 using Journeys.Domain.People;
 using System;
 using System.Collections.Generic;

@@ -39,19 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\EntityBuildException.cs" />
-    <Compile Include="Exceptions\InvariantViolatedException.cs" />
-    <Compile Include="Identities\Id.cs" />
+    <Compile Include="Infrastructure\Exceptions\EntityBuildException.cs" />
+    <Compile Include="Infrastructure\Exceptions\InvariantViolatedException.cs" />
+    <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
     <Compile Include="Journeys\Capabilities\Lift.cs" />
-    <Compile Include="Markers\AggregateAttribute.cs" />
-    <Compile Include="Markers\EntityAttribute.cs" />
-    <Compile Include="Markers\FactoryAttribute.cs" />
-    <Compile Include="Markers\ServiceAttribute.cs" />
-    <Compile Include="Markers\ValueObjectAttribute.cs" />
-    <Compile Include="Messages\FailureMessages.Designer.cs">
+    <Compile Include="Infrastructure\Markers\AggregateAttribute.cs" />
+    <Compile Include="Infrastructure\Markers\EntityAttribute.cs" />
+    <Compile Include="Infrastructure\Markers\FactoryAttribute.cs" />
+    <Compile Include="Infrastructure\Markers\ServiceAttribute.cs" />
+    <Compile Include="Infrastructure\Markers\ValueObjectAttribute.cs" />
+    <Compile Include="Infrastructure\Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FailureMessages.resx</DependentUpon>
@@ -60,7 +60,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Messages\FailureMessages.resx">
+    <EmbeddedResource Include="Infrastructure\Messages\FailureMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
