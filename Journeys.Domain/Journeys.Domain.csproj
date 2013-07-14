@@ -43,10 +43,13 @@
     <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Infrastructure\IdGeneration\GuidIdGenerator.cs" />
     <Compile Include="Infrastructure\IdGeneration\IIdGenerator.cs" />
+    <Compile Include="Infrastructure\IEventBus.cs" />
     <Compile Include="Infrastructure\Markers\RepositoryAttribute.cs" />
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
     <Compile Include="Journeys\Data\IJourneyRepository.cs" />
+    <Compile Include="Journeys\Events\JourneyCreatedEvent.cs" />
+    <Compile Include="Journeys\Events\LiftAddedEvent.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
     <Compile Include="Journeys\Capabilities\Lift.cs" />
     <Compile Include="Infrastructure\Markers\AggregateAttribute.cs" />
