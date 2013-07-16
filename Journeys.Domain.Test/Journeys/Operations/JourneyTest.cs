@@ -53,8 +53,8 @@ namespace Journeys.Domain.Test.Journeys.Operations
         [ExpectedException(typeof(InvariantViolatedException))]
         public void ShouldReportInvariantViolationWhenGivenAJourneyWithLiftANewLiftIsAddedWithSamePerson()
         {
-            var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer));
-            journey.AddLift(PersonId, new Distance(10m, DistanceUnit.Kilometer));
+            var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer))
+                .AddLift(PersonId, new Distance(10m, DistanceUnit.Kilometer));
 
             journey.AddLift(PersonId, new Distance(10m, DistanceUnit.Kilometer));
         }

@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Collections\ImmutableList.cs" />
     <Compile Include="Infrastructure\Exceptions\InvariantViolatedException.cs" />
     <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Infrastructure\IdGeneration\GuidIdGenerator.cs" />
