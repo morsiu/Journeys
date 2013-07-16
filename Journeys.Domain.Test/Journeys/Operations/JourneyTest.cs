@@ -41,7 +41,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvariantViolatedException))]
+        [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenAddingJourneyWithDistanceLargerThanRouteDistance()
         {
             var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer));
@@ -50,7 +50,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvariantViolatedException))]
+        [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenGivenAJourneyWithLiftANewLiftIsAddedWithSamePerson()
         {
             var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer))

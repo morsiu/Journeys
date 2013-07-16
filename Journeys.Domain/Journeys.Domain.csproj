@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructure\Collections\ImmutableList.cs" />
-    <Compile Include="Infrastructure\Exceptions\InvariantViolatedException.cs" />
+    <Compile Include="Infrastructure\Exceptions\InvariantViolationException.cs" />
     <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Infrastructure\IdGeneration\GuidIdGenerator.cs" />
     <Compile Include="Infrastructure\IdGeneration\IIdGenerator.cs" />
