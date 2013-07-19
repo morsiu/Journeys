@@ -24,7 +24,7 @@ namespace Journeys.Domain.Journeys.Operations
 
         public Journey Create(DateTime dateOfOccurence, Distance routeDistance)
         {
-            var id = _idGenerator.GetNext();
+            var id = _idGenerator.GenerateId();
             var journey = new Journey(id, dateOfOccurence, routeDistance, _eventBus);
             _eventBus.Publish<JourneyCreatedEvent>(new JourneyCreatedEvent(id, dateOfOccurence, routeDistance));
             return journey;

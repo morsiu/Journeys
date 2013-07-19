@@ -45,9 +45,9 @@ namespace Journeys.Domain.Journeys.Operations
             if (liftDistance > _routeDistance) 
                 throw new InvariantViolationException(FailureMessages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
             var lift = new Lift(personId, liftDistance);
-            var lifts = _lifts.Add(lift);
+            var newLifts = _lifts.Add(lift);
             _eventBus.Publish<LiftAddedEvent>(new LiftAddedEvent(_id, personId, liftDistance));
-            return new Journey(this, lifts);
+            return new Journey(this, newLifts);
         }
     }
 }
