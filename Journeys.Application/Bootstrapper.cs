@@ -19,12 +19,12 @@ namespace Journeys.Application
 
             var journeyRepository = new TransactedDomainRepository<Journey>(new DomainRepository<Journey>());
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => InTransaction(() => cmd.Execute(eventBus, journeyRepository), eventBus, journeyRepository));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(() => cmd.Execute(eventBus, journeyRepository), eventBus, journeyRepository));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void InTransaction(Action action, params ISupportTransaction[] transactables)
+        private static void RunInTransaction(Action action, params ISupportTransaction[] transactables)
         {
             try
             {
