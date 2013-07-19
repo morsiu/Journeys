@@ -49,6 +49,9 @@
     <Compile Include="Infrastructure\Events\EventListener.cs" />
     <Compile Include="Infrastructure\Events\EventPublisher.cs" />
     <Compile Include="ICommandDispatch.cs" />
+    <Compile Include="Infrastructure\Transactions\ISupportTransaction.cs" />
+    <Compile Include="Infrastructure\Transactions\TransactedDomainRepository.cs" />
+    <Compile Include="Infrastructure\Transactions\TransactedEventBus.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +75,7 @@
       <Name>Journeys.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

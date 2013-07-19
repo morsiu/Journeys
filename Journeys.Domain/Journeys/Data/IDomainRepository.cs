@@ -9,6 +9,6 @@ namespace Journeys.Domain.Journeys.Data
     {
         TEntity Get(Id<TEntity> id);
 
-        void Store(TEntity journey);
+        void Store(TEntity entity);
     }
 }
