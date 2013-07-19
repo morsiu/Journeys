@@ -7,13 +7,12 @@ using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Events;
 using Journeys.Domain.People;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Journeys.Domain.Journeys.Operations
 {
     [Aggregate]
-    public class Journey
+    public class Journey : IHasId<Journey>
     {
         private readonly IEventBus _eventBus;
         private readonly Id<Journey> _id;
@@ -48,6 +47,11 @@ namespace Journeys.Domain.Journeys.Operations
             var newLifts = _lifts.Add(lift);
             _eventBus.Publish(new LiftAddedEvent(_id, personId, liftDistance));
             return new Journey(this, newLifts);
+        }
+
+        Id<Journey> IHasId<Journey>.Id
+        {
+            get { return _id; }
         }
     }
 }

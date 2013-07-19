@@ -1,9 +1,6 @@
 ﻿using Journeys.Application.Messages;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.Application.Infrastructure.Commands
 {
@@ -11,7 +8,7 @@ namespace Journeys.Application.Infrastructure.Commands
     {
         private readonly Dictionary<Type, Action<object>> _handlers = new Dictionary<Type, Action<object>>();
 
-        public void RegisterHandler<TCommand>(CommandHandler<TCommand> handler)
+        public void SetHandler<TCommand>(CommandHandler<TCommand> handler)
         {
             var commandType = typeof(TCommand);
             Action<object> untypedHandler = command => handler((TCommand)command);

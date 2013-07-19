@@ -7,8 +7,8 @@ namespace Journeys.Domain.Journeys.Capabilities
     [ValueObject]
     public struct Distance
     {
-        private decimal _amount;
-        private DistanceUnit _unit;
+        private readonly decimal _amount;
+        private readonly DistanceUnit _unit;
 
         public Distance(decimal amount, DistanceUnit unit)
         {

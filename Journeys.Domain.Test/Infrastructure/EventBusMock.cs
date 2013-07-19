@@ -1,16 +1,12 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
     internal class EventBusMock : IEventBus
     {
-        private List<EventMatcher> _eventMatchers = new List<EventMatcher>();
+        private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 
         public void Publish<TEvent>(TEvent @event)
         {

@@ -1,10 +1,6 @@
 ﻿using Journeys.Data.Exceptions;
 using Journeys.Data.Messages;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.Data.Repositories
 {
@@ -19,7 +15,7 @@ namespace Journeys.Data.Repositories
             return _store[id];
         }
 
-        private void Store(TId id, TEntity entity)
+        public void Store(TId id, TEntity entity)
         {
             _store[id] = entity;
         }

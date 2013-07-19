@@ -1,13 +1,10 @@
-﻿using Journeys.Application.Messages;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Journeys.Domain.Infrastructure;
 
 namespace Journeys.Application.Infrastructure.Events
 {
-    internal class EventBus
+    internal class EventBus : IEventBus
     {
         private readonly Dictionary<Type, object> _eventPublishers = new Dictionary<Type, object>();
 

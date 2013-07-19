@@ -1,14 +1,12 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
     internal class EventMatcher
     {
-        private List<object> _receivedEvents = new List<object>();
+        private readonly List<object> _receivedEvents = new List<object>();
 
         public void Add(object @event)
         {

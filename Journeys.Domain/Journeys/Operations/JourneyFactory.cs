@@ -4,18 +4,14 @@ using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.Domain.Journeys.Operations
 {
     [Factory]
     public class JourneyFactory
     {
-        private IIdGenerator<Journey> _idGenerator = new GuidIdGenerator<Journey>();
-        private IEventBus _eventBus;
+        private readonly IIdGenerator<Journey> _idGenerator = new GuidIdGenerator<Journey>();
+        private readonly IEventBus _eventBus;
 
         public JourneyFactory(IEventBus eventBus)
         {
