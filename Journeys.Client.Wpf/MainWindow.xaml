@@ -3,6 +3,24 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="JourneyDistanceField"
+                     Grid.Column="0"/>
+            <TextBox x:Name="LiftDistanceField" 
+                     Grid.Column="1"/>
+            <Button x:Name="AddJourney" 
+                    Content="Add journey"
+                    Click="AddJourney_Click"
+                    Grid.Column="2" />
+        </Grid>
     </Grid>
 </Window>
