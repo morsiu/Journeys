@@ -40,11 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\AddJourneyCommand.cs" />
-    <Compile Include="Commands\CommandHandler.cs" />
-    <Compile Include="Commands\CommandProcessor.cs" />
-    <Compile Include="Events\EventBus.cs" />
-    <Compile Include="Events\EventHandler.cs" />
-    <Compile Include="Events\EventPublisher.cs" />
+    <Compile Include="Infrastructure\Commands\CommandHandler.cs" />
+    <Compile Include="Infrastructure\Commands\CommandProcessor.cs" />
+    <Compile Include="Infrastructure\Events\EventBus.cs" />
+    <Compile Include="Infrastructure\Events\EventHandler.cs" />
+    <Compile Include="Infrastructure\Events\EventPublisher.cs" />
     <Compile Include="ICommandDispatch.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
