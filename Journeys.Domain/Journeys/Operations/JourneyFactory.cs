@@ -26,7 +26,7 @@ namespace Journeys.Domain.Journeys.Operations
         {
             var id = _idGenerator.GenerateId();
             var journey = new Journey(id, dateOfOccurence, routeDistance, _eventBus);
-            _eventBus.Publish<JourneyCreatedEvent>(new JourneyCreatedEvent(id, dateOfOccurence, routeDistance));
+            _eventBus.Publish(new JourneyCreatedEvent(id, dateOfOccurence, routeDistance));
             return journey;
         }
     }
