@@ -21,7 +21,8 @@ namespace Journeys.Client.Wpf
             var journeyDateOfOccurence = DateTime.Now;
             var journeyDistance = int.Parse(JourneyDistanceField.Text);
             var liftDistance = int.Parse(LiftDistanceField.Text);
-            _commandDispatcher.Dispatch(new AddJourneyCommand(journeyDistance, journeyDateOfOccurence, PersonId, liftDistance));
+            var journeyId = new Guid();
+            _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, journeyDistance, journeyDateOfOccurence, PersonId, liftDistance));
         }
     }
 }
