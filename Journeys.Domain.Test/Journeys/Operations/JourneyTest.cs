@@ -13,21 +13,20 @@ namespace Journeys.Domain.Test.Journeys.Operations
     [TestClass]
     public class JourneyTest
     {
+        public static readonly Id<Journey> JourneyId = new Id<Journey>(new Guid());
         public static readonly Id<Person> PersonId = new Id<Person>(new Guid());
         private EventBusMock _eventBus;
-        private JourneyFactory _journeyFactory;
 
         [TestInitialize]
         public void TestInitialize()
         {
             _eventBus = new EventBusMock();
-            _journeyFactory = new JourneyFactory(_eventBus);
         }
 
         [TestMethod]
         public void ShouldPublishEventWhenAddingLift()
         {
-            var journey = _journeyFactory.Create(new DateTime(), new Distance(10m, DistanceUnit.Kilometer));
+            var journey = new Journey(JourneyId, new DateTime(), new Distance(10m, DistanceUnit.Kilometer), _eventBus);
             var liftDistance = new Distance(5m, DistanceUnit.Kilometer);
 
             var eventMatcher = _eventBus.Listen(() =>
@@ -41,10 +40,27 @@ namespace Journeys.Domain.Test.Journeys.Operations
         }
 
         [TestMethod]
+        public void ShouldPublishEventWhenCreatingJourney()
+        {
+            var dateOfOccurence = new DateTime();
+            var routeDistance = new Distance(10m, DistanceUnit.Kilometer);
+
+            var eventMatcher = _eventBus.Listen(() =>
+            {
+                new Journey(JourneyId, dateOfOccurence, routeDistance, _eventBus);
+            });
+
+            eventMatcher.AssertReceivedOneEvent<JourneyCreatedEvent>(
+                evt => evt.DateOfOccurence == dateOfOccurence &&
+                       evt.JourneyId == JourneyId &&
+                       evt.RouteDistance == routeDistance);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenAddingJourneyWithDistanceLargerThanRouteDistance()
         {
-            var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer));
+            var journey = new Journey(JourneyId, new DateTime(), new Distance(20m, DistanceUnit.Kilometer), _eventBus);
 
             journey.AddLift(PersonId, new Distance(40m, DistanceUnit.Kilometer));
         }
@@ -53,7 +69,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
         [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenGivenAJourneyWithLiftANewLiftIsAddedWithSamePerson()
         {
-            var journey = _journeyFactory.Create(new DateTime(), new Distance(20m, DistanceUnit.Kilometer))
+            var journey = new Journey(JourneyId, new DateTime(), new Distance(20m, DistanceUnit.Kilometer), _eventBus)
                 .AddLift(PersonId, new Distance(10m, DistanceUnit.Kilometer));
 
             journey.AddLift(PersonId, new Distance(10m, DistanceUnit.Kilometer));

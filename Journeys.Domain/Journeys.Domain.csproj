@@ -64,7 +64,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FailureMessages.resx</DependentUpon>
     </Compile>
-    <Compile Include="Journeys\Operations\JourneyFactory.cs" />
     <Compile Include="People\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

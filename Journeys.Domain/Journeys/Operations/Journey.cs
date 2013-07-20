@@ -26,6 +26,7 @@ namespace Journeys.Domain.Journeys.Operations
             _eventBus = eventBus;
             _id = id;
             _routeDistance = routeDistance;
+            _eventBus.Publish(new JourneyCreatedEvent(id, dateOfOccurence, routeDistance));
         }
 
         private Journey(Journey journey, ImmutableList<Lift> lifts)
