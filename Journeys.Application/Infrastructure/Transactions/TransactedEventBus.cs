@@ -4,7 +4,7 @@ using System;
 
 namespace Journeys.Application.Infrastructure.Transactions
 {
-    public class TransactedEventBus : IEventBus, IParticipateInTransaction
+    public class TransactedEventBus : IEventBus, ITransacted<IEventBus>
     {
         private readonly IEventBus _eventBus;
         private readonly List<Action> _publishments = new List<Action>();
@@ -30,6 +30,11 @@ namespace Journeys.Application.Infrastructure.Transactions
             {
                 publishment();
             }
+        }
+
+        public IEventBus Object
+        {
+            get { return this; }
         }
     }
 }

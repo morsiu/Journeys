@@ -49,7 +49,8 @@
     <Compile Include="Infrastructure\Events\EventListener.cs" />
     <Compile Include="Infrastructure\Events\EventPublisher.cs" />
     <Compile Include="ICommandDispatch.cs" />
-    <Compile Include="Infrastructure\Transactions\IParticipateInTransaction.cs" />
+    <Compile Include="Infrastructure\Transactions\ITransacted.cs" />
+    <Compile Include="Infrastructure\Transactions\IProvideTransacted.cs" />
     <Compile Include="Infrastructure\Transactions\TransactedDomainRepository.cs" />
     <Compile Include="Infrastructure\Transactions\TransactedEventBus.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">

@@ -15,33 +15,34 @@ namespace Journeys.Application
         public void Bootstrap()
         {
             var commandProcessor = new CommandProcessor();
-            var eventBus = new TransactedEventBus(new EventBus());
+            var eventBus = new EventBus();
 
-            var journeyRepository = new TransactedDomainRepository<Journey>(new DomainRepository<Journey>());
+            var journeyRepository = new DomainRepository<Journey>();
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(() => cmd.Execute(eventBus, journeyRepository), eventBus, journeyRepository));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(cmd.Execute, eventBus, journeyRepository));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void RunInTransaction(Action action, params IParticipateInTransaction[] transactables)
+        private static void RunInTransaction<TA, TB>(
+            Action<TA, TB> action,
+            IProvideTransacted<TA> a,
+            IProvideTransacted<TB> b)
         {
+            var transactedA = a.Escalate();
+            var transactedB = b.Escalate();
             try
             {
-                action();
+                action(transactedA.Object, transactedB.Object);
             }
             catch (Exception)
             {
-                foreach (var transactable in transactables)
-                {
-                    transactable.Abort();
-                }
+                transactedA.Abort();
+                transactedB.Abort();
                 throw;
             }
-            foreach (var transactable in transactables)
-            {
-                transactable.Commit();
-            }
+            transactedA.Commit();
+            transactedB.Commit();
         }
     }
 }

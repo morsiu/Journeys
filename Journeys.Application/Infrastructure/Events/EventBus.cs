@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Journeys.Domain.Infrastructure;
+using Journeys.Application.Infrastructure.Transactions;
 
 namespace Journeys.Application.Infrastructure.Events
 {
-    internal class EventBus : IEventBus
+    internal class EventBus : IEventBus, IProvideTransacted<IEventBus>
     {
         private readonly Dictionary<Type, object> _eventPublishers = new Dictionary<Type, object>();
 
@@ -28,6 +29,11 @@ namespace Journeys.Application.Infrastructure.Events
             }
             var publisher = (EventPublisher<TEvent>)_eventPublishers[eventType];
             publisher.Publish(@event);
+        }
+
+        public ITransacted<IEventBus> Escalate()
+        {
+            return new TransactedEventBus(this);
         }
     }
 }

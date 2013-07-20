@@ -4,7 +4,7 @@ using Journeys.Domain.Journeys.Data;
 
 namespace Journeys.Application.Infrastructure.Transactions
 {
-    public class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, IParticipateInTransaction
+    public class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId
     {
         private readonly IDomainRepository<TEntity> _repository;
@@ -40,6 +40,11 @@ namespace Journeys.Application.Infrastructure.Transactions
             {
                 _repository.Store(entity);
             }
+        }
+
+        public IDomainRepository<TEntity> Object
+        {
+            get { return this; }
         }
     }
 }
