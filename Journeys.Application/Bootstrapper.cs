@@ -24,7 +24,7 @@ namespace Journeys.Application
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void RunInTransaction(Action action, params ISupportTransaction[] transactables)
+        private static void RunInTransaction(Action action, params IParticipateInTransaction[] transactables)
         {
             try
             {

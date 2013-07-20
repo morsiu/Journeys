@@ -4,7 +4,7 @@ using System;
 
 namespace Journeys.Application.Infrastructure.Transactions
 {
-    public class TransactedEventBus : IEventBus, ISupportTransaction
+    public class TransactedEventBus : IEventBus, IParticipateInTransaction
     {
         private readonly IEventBus _eventBus;
         private readonly List<Action> _publishments = new List<Action>();
