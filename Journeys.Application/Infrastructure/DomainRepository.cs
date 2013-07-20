@@ -5,10 +5,10 @@ using Journeys.Domain.Journeys.Data;
 namespace Journeys.Application.Infrastructure
 {
     internal class DomainRepository<TEntity> : IDomainRepository<TEntity>
-        where TEntity : IHasId<TEntity>
+        where TEntity : IHasId
     {
-        private readonly InMemoryRepository<Id<TEntity>, TEntity> _repository = new InMemoryRepository<Id<TEntity>, TEntity>();
-        public TEntity Get(Id<TEntity> id)
+        private readonly InMemoryRepository<Id, TEntity> _repository = new InMemoryRepository<Id, TEntity>();
+        public TEntity Get(Id id)
         {
             return _repository.Get(id);
         }

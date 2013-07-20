@@ -5,17 +5,17 @@ using Journeys.Domain.Journeys.Data;
 namespace Journeys.Application.Infrastructure.Transactions
 {
     public class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ISupportTransaction
-        where TEntity : IHasId<TEntity>
+        where TEntity : IHasId
     {
         private readonly IDomainRepository<TEntity> _repository;
-        private readonly Dictionary<Id<TEntity>, TEntity> _transactionRepository = new Dictionary<Id<TEntity>, TEntity>();
+        private readonly Dictionary<Id, TEntity> _transactionRepository = new Dictionary<Id, TEntity>();
 
         public TransactedDomainRepository(IDomainRepository<TEntity> repository)
         {
             _repository = repository;
         }
 
-        public TEntity Get(Id<TEntity> id)
+        public TEntity Get(Id id)
         {
             if (_transactionRepository.ContainsKey(id))
             {

@@ -28,8 +28,8 @@ namespace Journeys.Application.Commands
         {
             var journeyDistance = new Distance(_journeyDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(_liftDistance, DistanceUnit.Kilometer);
-            var personId = new Id<Person>(_personId);
-            var journeyId = new Id<Journey>(_journeyId);
+            var personId = new Id(_personId);
+            var journeyId = new Id(_journeyId);
             var journey = new Journey(journeyId, _journeyDateOfOccurence, journeyDistance, eventBus)
                 .AddLift(personId, liftDistance);
             repository.Store(journey);

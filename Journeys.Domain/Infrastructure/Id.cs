@@ -4,7 +4,7 @@ using System;
 namespace Journeys.Domain.Infrastructure
 {
     [ValueObject]
-    public struct Id<TEntity>
+    public struct Id
     {
         private Guid _id;
 
@@ -16,8 +16,8 @@ namespace Journeys.Domain.Infrastructure
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
-            if (obj is Id<TEntity> == false) return false;
-            return Equals((Id<TEntity>)obj);
+            if (obj is Id == false) return false;
+            return Equals((Id)obj);
         }
 
         public override int GetHashCode()
@@ -25,17 +25,17 @@ namespace Journeys.Domain.Infrastructure
             return _id.GetHashCode();
         }
 
-        public bool Equals(Id<TEntity> other)
+        public bool Equals(Id other)
         {
             return _id == other._id;
         }
 
-        public static bool operator==(Id<TEntity> a, Id<TEntity> b)
+        public static bool operator==(Id a, Id b)
         {
             return a.Equals(b);
         }
 
-        public static bool operator!=(Id<TEntity> a, Id<TEntity> b)
+        public static bool operator!=(Id a, Id b)
         {
             return !a.Equals(b);
         }

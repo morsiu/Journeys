@@ -7,16 +7,16 @@ namespace Journeys.Domain.Journeys.Events
 {
     public class LiftAddedEvent
     {
-        public LiftAddedEvent(Id<Journey> journeyId, Id<Person> personId, Distance liftDistance)
+        public LiftAddedEvent(Id journeyId, Id personId, Distance liftDistance)
         {
             JourneyId = journeyId;
             PersonId = personId;
             LiftDistance = liftDistance;
         }
 
-        public Id<Journey> JourneyId { get; private set; }
+        public Id JourneyId { get; private set; }
 
-        public Id<Person> PersonId { get; private set; }
+        public Id PersonId { get; private set; }
 
         public Distance LiftDistance { get; private set; }
     }

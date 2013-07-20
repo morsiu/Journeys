@@ -13,8 +13,8 @@ namespace Journeys.Domain.Test.Journeys.Operations
     [TestClass]
     public class JourneyTest
     {
-        public static readonly Id<Journey> JourneyId = new Id<Journey>(new Guid());
-        public static readonly Id<Person> PersonId = new Id<Person>(new Guid());
+        public static readonly Id JourneyId = new Id(new Guid());
+        public static readonly Id PersonId = new Id(new Guid());
         private EventBusMock _eventBus;
 
         [TestInitialize]
