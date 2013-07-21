@@ -19,7 +19,7 @@ namespace Journeys.Application.Infrastructure.Repositories
             _repository.Store(entity.Id, entity);
         }
 
-        public ITransacted<IDomainRepository<TEntity>> Escalate()
+        public ITransacted<IDomainRepository<TEntity>> Lift()
         {
             return new TransactedDomainRepository<TEntity>(this);
         }

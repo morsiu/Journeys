@@ -8,6 +8,6 @@ namespace Journeys.Application.Infrastructure.Transactions
 {
     internal interface IProvideTransacted<T>
     {
-        ITransacted<T> Escalate();
+        ITransacted<T> Lift();
     }
 }

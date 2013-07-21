@@ -29,8 +29,8 @@ namespace Journeys.Application
             IProvideTransacted<TA> a,
             IProvideTransacted<TB> b)
         {
-            var transactedA = a.Escalate();
-            var transactedB = b.Escalate();
+            var transactedA = a.Lift();
+            var transactedB = b.Lift();
             try
             {
                 action(transactedA.Object, transactedB.Object);

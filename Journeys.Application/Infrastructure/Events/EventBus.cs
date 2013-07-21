@@ -31,7 +31,7 @@ namespace Journeys.Application.Infrastructure.Events
             publisher.Publish(@event);
         }
 
-        public ITransacted<IEventBus> Escalate()
+        public ITransacted<IEventBus> Lift()
         {
             return new TransactedEventBus(this);
         }
