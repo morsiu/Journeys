@@ -41,14 +41,16 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Commands\AddJourneyCommand.cs" />
+    <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Infrastructure\Commands\CommandDispatcher.cs" />
     <Compile Include="Infrastructure\Commands\CommandHandler.cs" />
     <Compile Include="Infrastructure\Commands\CommandProcessor.cs" />
-    <Compile Include="Infrastructure\DomainRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\DomainRepository.cs" />
     <Compile Include="Infrastructure\Events\EventBus.cs" />
     <Compile Include="Infrastructure\Events\EventListener.cs" />
     <Compile Include="Infrastructure\Events\EventPublisher.cs" />
     <Compile Include="ICommandDispatch.cs" />
+    <Compile Include="Infrastructure\Repositories\InMemoryRepository.cs" />
     <Compile Include="Infrastructure\Transactions\ITransacted.cs" />
     <Compile Include="Infrastructure\Transactions\IProvideTransacted.cs" />
     <Compile Include="Infrastructure\Transactions\TransactedDomainRepository.cs" />
@@ -67,10 +69,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
-      <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
-      <Name>Journeys.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>

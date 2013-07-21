@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="EntityOfTypeWithIdNotFound" xml:space="preserve">
+    <value>Entity of type `{0}` with id `{1}` was not found.</value>
+  </data>
   <data name="NoHandlerRegisteredForCommandOfType" xml:space="preserve">
     <value>There is no handler registered for command of type `{0}`.</value>
   </data>

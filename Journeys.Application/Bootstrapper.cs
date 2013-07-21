@@ -1,8 +1,8 @@
 ﻿using System;
 using Journeys.Application.Commands;
-using Journeys.Application.Infrastructure;
 using Journeys.Application.Infrastructure.Commands;
 using Journeys.Application.Infrastructure.Events;
+using Journeys.Application.Infrastructure.Repositories;
 using Journeys.Application.Infrastructure.Transactions;
 using Journeys.Domain.Journeys.Operations;
 
