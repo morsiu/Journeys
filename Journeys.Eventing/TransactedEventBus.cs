@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Journeys.Domain.Infrastructure;
 using System;
+using Journeys.Transactions;
 
-namespace Journeys.Application.Infrastructure.Transactions
+namespace Journeys.Eventing
 {
     public class TransactedEventBus : IEventBus, ITransacted<IEventBus>
     {

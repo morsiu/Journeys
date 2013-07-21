@@ -6,6 +6,7 @@ using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Events;
 using Journeys.Domain.People;
+using Journeys.Eventing;
 using System;
 using System.Linq;
 

@@ -1,4 +1,4 @@
-﻿namespace Journeys.Domain.Infrastructure
+﻿namespace Journeys.Eventing
 {
     public interface IEventBus
     {

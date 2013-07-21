@@ -13,6 +13,11 @@ namespace Journeys.Domain.Infrastructure
             _id = id;
         }
 
+        public static implicit operator Guid(Id id)
+        {
+            return id._id;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Journeys.Domain.Infrastructure;
-using Journeys.Application.Infrastructure.Transactions;
+using Journeys.Transactions;
 
-namespace Journeys.Application.Infrastructure.Events
+namespace Journeys.Eventing
 {
-    internal class EventBus : IEventBus, IProvideTransacted<IEventBus>
+    public class EventBus : IEventBus, IProvideTransacted<IEventBus>
     {
         private readonly Dictionary<Type, object> _eventPublishers = new Dictionary<Type, object>();
 
@@ -14,7 +13,7 @@ namespace Journeys.Application.Infrastructure.Events
             var eventType = typeof(TEvent);
             if (!_eventPublishers.ContainsKey(eventType))
             {
-                _eventPublishers.Add(eventType, new EventPublisher<TEvent>());
+                _eventPublishers[eventType] = new EventPublisher<TEvent>();
             }
             var publisher = (EventPublisher<TEvent>)_eventPublishers[eventType];
             publisher.RegisterListener(listener);
@@ -31,7 +30,7 @@ namespace Journeys.Application.Infrastructure.Events
             publisher.Publish(@event);
         }
 
-        public ITransacted<IEventBus> Lift()
+        ITransacted<IEventBus> IProvideTransacted<IEventBus>.Lift()
         {
             return new TransactedEventBus(this);
         }

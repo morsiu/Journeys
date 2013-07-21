@@ -17,6 +17,11 @@ namespace Journeys.Domain.Journeys.Capabilities
             _unit = unit;
         }
 
+        public static implicit operator decimal(Distance distance)
+        {
+            return distance._amount;
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) return false;

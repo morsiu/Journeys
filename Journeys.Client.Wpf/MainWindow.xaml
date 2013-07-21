@@ -22,5 +22,7 @@
                     Click="AddJourney_Click"
                     Grid.Column="2" />
         </Grid>
+        <DataGrid x:Name="JourneysWithLiftsList" 
+                      Grid.Row="1"/>
     </Grid>
 </Window>

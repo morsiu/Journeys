@@ -3,6 +3,7 @@ using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Data;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
+using Journeys.Eventing;
 using System;
 
 namespace Journeys.Application.Commands

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Application.Infrastructure.Transactions
+namespace Journeys.Transactions
 {
-    internal interface ITransacted<T>
+    public interface ITransacted<T>
     {
         T Object { get; }
 

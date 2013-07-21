@@ -62,6 +62,10 @@
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
+      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
+      <Name>Journeys.Eventing</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Choose>

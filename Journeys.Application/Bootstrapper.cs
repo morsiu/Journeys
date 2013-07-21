@@ -1,25 +1,32 @@
 ﻿using System;
 using Journeys.Application.Commands;
 using Journeys.Application.Infrastructure.Commands;
-using Journeys.Application.Infrastructure.Events;
 using Journeys.Application.Infrastructure.Repositories;
-using Journeys.Application.Infrastructure.Transactions;
 using Journeys.Domain.Journeys.Operations;
+using Journeys.Domain.Infrastructure;
+using Journeys.Eventing;
+using Journeys.Transactions;
 
 namespace Journeys.Application
 {
     public class Bootstrapper
     {
+        private readonly EventBus _eventBus;
+
+        public Bootstrapper(EventBus eventBus)
+        {
+            _eventBus = eventBus;
+        }
+
         public ICommandDispatcher CommandDispatcher { get; private set; }
 
         public void Bootstrap()
         {
             var commandProcessor = new CommandProcessor();
-            var eventBus = new EventBus();
 
             var journeyRepository = new DomainRepository<Journey>();
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(cmd.Execute, eventBus, journeyRepository));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(cmd.Execute, _eventBus, journeyRepository));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }

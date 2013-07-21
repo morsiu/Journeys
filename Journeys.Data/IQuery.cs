@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Application.Infrastructure.Transactions
+namespace Journeys.Data
 {
-    internal interface IProvideTransacted<T>
+    public interface IQuery<TResult>
     {
-        ITransacted<T> Lift();
     }
 }

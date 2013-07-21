@@ -101,6 +101,22 @@
       <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
       <Name>Journeys.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+      <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
+      <Name>Journeys.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
+      <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
+      <Name>Journeys.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
+      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
+      <Name>Journeys.Eventing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
+      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
+      <Name>Journeys.Transactions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

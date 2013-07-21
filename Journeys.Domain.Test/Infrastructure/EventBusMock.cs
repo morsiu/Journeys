@@ -1,4 +1,5 @@
 ﻿using Journeys.Domain.Infrastructure;
+using Journeys.Eventing;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace Journeys.Domain.Test.Infrastructure
                 eventMatcher.Add(@event);
             }
         }
-
+        
         public EventMatcher Listen(Action action)
         {
             var matcher = new EventMatcher();

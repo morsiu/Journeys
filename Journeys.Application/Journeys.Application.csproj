@@ -46,15 +46,9 @@
     <Compile Include="Infrastructure\Commands\CommandHandler.cs" />
     <Compile Include="Infrastructure\Commands\CommandProcessor.cs" />
     <Compile Include="Infrastructure\Repositories\DomainRepository.cs" />
-    <Compile Include="Infrastructure\Events\EventBus.cs" />
-    <Compile Include="Infrastructure\Events\EventListener.cs" />
-    <Compile Include="Infrastructure\Events\EventPublisher.cs" />
     <Compile Include="ICommandDispatch.cs" />
     <Compile Include="Infrastructure\Repositories\InMemoryRepository.cs" />
-    <Compile Include="Infrastructure\Transactions\ITransacted.cs" />
-    <Compile Include="Infrastructure\Transactions\IProvideTransacted.cs" />
-    <Compile Include="Infrastructure\Transactions\TransactedDomainRepository.cs" />
-    <Compile Include="Infrastructure\Transactions\TransactedEventBus.cs" />
+    <Compile Include="Infrastructure\Repositories\TransactedDomainRepository.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -72,6 +66,14 @@
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
+      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
+      <Name>Journeys.Eventing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
+      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
+      <Name>Journeys.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

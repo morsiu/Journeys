@@ -2,7 +2,7 @@
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Data;
 
-namespace Journeys.Application.Infrastructure.Transactions
+namespace Journeys.Transactions
 {
     public class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId
@@ -26,7 +26,7 @@ namespace Journeys.Application.Infrastructure.Transactions
 
         public void Store(TEntity entity)
         {
-            _repository.Store(entity);
+            _transactionRepository[entity.Id] = entity;
         }
         
         public void Abort()

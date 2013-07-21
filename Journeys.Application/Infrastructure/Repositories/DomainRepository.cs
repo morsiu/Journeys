@@ -1,6 +1,6 @@
-﻿using Journeys.Application.Infrastructure.Transactions;
-using Journeys.Domain.Infrastructure;
+﻿using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Data;
+using Journeys.Transactions;
 using System;
 
 namespace Journeys.Application.Infrastructure.Repositories
@@ -9,6 +9,7 @@ namespace Journeys.Application.Infrastructure.Repositories
         where TEntity : IHasId
     {
         private readonly InMemoryRepository<Id, TEntity> _repository = new InMemoryRepository<Id, TEntity>();
+
         public TEntity Get(Id id)
         {
             return _repository.Get(id);
