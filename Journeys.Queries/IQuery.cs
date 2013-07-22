@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data
+namespace Journeys.Queries
 {
     public interface IQuery<TResult>
     {

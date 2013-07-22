@@ -101,6 +101,10 @@
       <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
       <Name>Journeys.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
+      <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
+      <Name>Journeys.Commands</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Data</Name>
@@ -112,6 +116,10 @@
     <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
       <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
       <Name>Journeys.Eventing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
+      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
+      <Name>Journeys.Queries</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
       <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>

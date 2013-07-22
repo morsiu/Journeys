@@ -6,6 +6,7 @@ using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.Infrastructure;
 using Journeys.Eventing;
 using Journeys.Transactions;
+using Journeys.Commands;
 
 namespace Journeys.Application
 {
@@ -26,13 +27,14 @@ namespace Journeys.Application
 
             var journeyRepository = new DomainRepository<Journey>();
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(cmd.Execute, _eventBus, journeyRepository));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(AddJourneyCommandHandler.Execute, cmd, _eventBus, journeyRepository));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void RunInTransaction<TA, TB>(
-            Action<TA, TB> action,
+        private static void RunInTransaction<TCommand, TA, TB>(
+            Action<TCommand, TA, TB> commandHandler,
+            TCommand command,
             IProvideTransacted<TA> a,
             IProvideTransacted<TB> b)
         {
@@ -40,7 +42,7 @@ namespace Journeys.Application
             var transactedB = b.Lift();
             try
             {
-                action(transactedA.Object, transactedB.Object);
+                commandHandler(command, transactedA.Object, transactedB.Object);
             }
             catch (Exception)
             {

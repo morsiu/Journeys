@@ -1,4 +1,6 @@
-﻿using Journeys.Domain.Journeys.Events;
+﻿using Journeys.Events;
+using Journeys.Queries;
+using Journeys.Queries.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,15 @@ namespace Journeys.Data.Journeys
     {
         private HashSet<JourneyWithLift> _elements = new HashSet<JourneyWithLift>(new Comparer());
 
-        public IEnumerable<JourneyWithLift> GetAll()
+        public IEnumerable<JourneyWithLift> GetAllJourneysWithLifts()
         {
-            return _elements;
+            return _elements
+                .Where(e => e.PassengerId.HasValue)
+                .OrderBy(e => e.DateOfOccurence)
+                .ThenBy(e => e.Id)
+                .ThenBy(e => e.PassengerName)
+                .ThenBy(e => e.PassengerId)
+                .ToList();
         }
 
         public void Update(JourneyCreatedEvent @event)

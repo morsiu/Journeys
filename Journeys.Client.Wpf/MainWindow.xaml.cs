@@ -1,7 +1,9 @@
 ﻿using Journeys.Application;
 using Journeys.Application.Commands;
+using Journeys.Commands;
 using Journeys.Data;
 using Journeys.Data.Journeys;
+using Journeys.Queries;
 using System;
 using System.Windows;
 
@@ -28,7 +30,7 @@ namespace Journeys.Client.Wpf
 
         private void LoadJourneysWithLifts()
         {
-            var journeysWithLifts = _queryDispatcher.Dispatch(new GetJourneysWithLiftsQuery());
+            var journeysWithLifts = _queryDispatcher.Dispatch(new GetAllJourneysWithLiftsQuery());
             JourneysWithLiftsList.ItemsSource = journeysWithLifts;
         }
 

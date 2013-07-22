@@ -1,8 +1,9 @@
 ﻿using Journeys.Data.Infrastructure;
 using Journeys.Data.Journeys;
-using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Journeys.Events;
 using Journeys.Eventing;
+using Journeys.Events;
+using Journeys.Queries;
+using Journeys.Queries.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace Journeys.Data
 
             var queryProcessor = new QueryProcessor();
 
-            queryProcessor.SetHandler<GetJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(query => query.Execute(journeyView));
+            queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(query => journeyView.GetAllJourneysWithLifts());
 
             QueryDispatcher = new QueryDispatcher(queryProcessor);
         }

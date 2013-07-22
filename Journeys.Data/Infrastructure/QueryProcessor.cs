@@ -1,4 +1,5 @@
 ﻿using Journeys.Data.Messages;
+using Journeys.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,9 +4,9 @@ using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
-using Journeys.Domain.Journeys.Events;
 using Journeys.Domain.People;
 using Journeys.Eventing;
+using Journeys.Events;
 using System;
 using System.Linq;
 
