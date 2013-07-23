@@ -7,16 +7,16 @@ namespace Journeys.Domain.Journeys.Capabilities
     [ValueObject]
     public class Lift
     {
-        private readonly Id _personId;
+        private readonly Id<Person> _personId;
         private readonly Distance _distance;
 
-        public Lift(Id personId, Distance distance)
+        public Lift(Id<Person> personId, Distance distance)
         {
             _personId = personId;
             _distance = distance;
         }
 
-        public bool EqualsByPerson(Id personId)
+        public bool EqualsByPerson(Id<Person> personId)
         {
             return _personId == personId;
         }

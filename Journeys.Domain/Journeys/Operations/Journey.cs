@@ -13,15 +13,15 @@ using System.Linq;
 namespace Journeys.Domain.Journeys.Operations
 {
     [Aggregate]
-    public class Journey : IHasId
+    public class Journey : IHasId<Journey>
     {
         private readonly IEventBus _eventBus;
-        private readonly Id _id;
+        private readonly Id<Journey> _id;
         private readonly DateTime _dateOfOccurence;
         private readonly Distance _routeDistance;
         private readonly ImmutableList<Lift> _lifts = ImmutableList<Lift>.Empty;
 
-        public Journey(Id id, DateTime dateOfOccurence, Distance routeDistance, IEventBus eventBus)
+        public Journey(Id<Journey> id, DateTime dateOfOccurence, Distance routeDistance, IEventBus eventBus)
         {
             _dateOfOccurence = dateOfOccurence;
             _eventBus = eventBus;
@@ -39,7 +39,7 @@ namespace Journeys.Domain.Journeys.Operations
             _routeDistance = journey._routeDistance;
         }
 
-        public Journey AddLift(Id personId, Distance liftDistance)
+        public Journey AddLift(Id<Person> personId, Distance liftDistance)
         {
             if (_lifts.Any(aLift => aLift.EqualsByPerson(personId))) 
                 throw new InvariantViolationException(FailureMessages.JourneyAlreadyContainsLiftWithSamePerson);
@@ -51,7 +51,7 @@ namespace Journeys.Domain.Journeys.Operations
             return new Journey(this, newLifts);
         }
 
-        Id IHasId.Id
+        Id<Journey> IHasId<Journey>.Id
         {
             get { return _id; }
         }

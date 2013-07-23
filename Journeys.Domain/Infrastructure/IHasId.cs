@@ -1,7 +1,7 @@
 ﻿namespace Journeys.Domain.Infrastructure
 {
-    public interface IHasId
+    public interface IHasId<TEntity>
     {
-        Id Id { get;  }
+        Id<TEntity> Id { get;  }
     }
 }

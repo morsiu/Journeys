@@ -6,11 +6,11 @@ using System;
 namespace Journeys.Application.Repositories
 {
     internal class DomainRepository<TEntity> : IDomainRepository<TEntity>, IProvideTransacted<IDomainRepository<TEntity>>
-        where TEntity : IHasId
+        where TEntity : IHasId<TEntity>
     {
-        private readonly InMemoryRepository<Id, TEntity> _repository = new InMemoryRepository<Id, TEntity>();
+        private readonly InMemoryRepository<Id<TEntity>, TEntity> _repository = new InMemoryRepository<Id<TEntity>, TEntity>();
 
-        public TEntity Get(Id id)
+        public TEntity Get(Id<TEntity> id)
         {
             return _repository.Get(id);
         }

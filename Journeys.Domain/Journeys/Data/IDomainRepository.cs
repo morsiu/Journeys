@@ -5,9 +5,9 @@ namespace Journeys.Domain.Journeys.Data
 {
     [Repository]
     public interface IDomainRepository<TEntity>
-        where TEntity : IHasId
+        where TEntity : IHasId<TEntity>
     {
-        TEntity Get(Id id);
+        TEntity Get(Id<TEntity> id);
 
         void Store(TEntity entity);
     }
