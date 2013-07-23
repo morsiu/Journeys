@@ -1,12 +1,12 @@
 ﻿using System;
 using Journeys.Application.Commands;
-using Journeys.Application.Infrastructure.Commands;
-using Journeys.Application.Infrastructure.Repositories;
+using Journeys.Application.Repositories;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.Infrastructure;
 using Journeys.Eventing;
 using Journeys.Transactions;
 using Journeys.Commands;
+using Journeys.Application.CommandHandlers;
 
 namespace Journeys.Application
 {

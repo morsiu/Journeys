@@ -40,15 +40,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Commands\AddJourneyCommandHandler.cs" />
+    <Compile Include="CommandHandlers\AddJourneyCommandHandler.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
-    <Compile Include="Infrastructure\Commands\CommandDispatcher.cs" />
-    <Compile Include="Infrastructure\Commands\CommandHandler.cs" />
-    <Compile Include="Infrastructure\Commands\CommandProcessor.cs" />
-    <Compile Include="Infrastructure\Repositories\DomainRepository.cs" />
+    <Compile Include="Commands\CommandDispatcher.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\CommandProcessor.cs" />
+    <Compile Include="Repositories\DomainRepository.cs" />
     <Compile Include="ICommandDispatch.cs" />
-    <Compile Include="Infrastructure\Repositories\InMemoryRepository.cs" />
-    <Compile Include="Infrastructure\Repositories\TransactedDomainRepository.cs" />
+    <Compile Include="Repositories\InMemoryRepository.cs" />
+    <Compile Include="Repositories\TransactedDomainRepository.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
