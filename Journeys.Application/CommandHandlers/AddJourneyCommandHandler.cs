@@ -9,7 +9,7 @@ using System;
 
 namespace Journeys.Application.CommandHandlers
 {
-    internal class AddJourneyCommandHandler
+    internal static class AddJourneyCommandHandler
     {
         public static void Execute(AddJourneyCommand command, IEventBus eventBus, IDomainRepository<Journey> repository)
         {
