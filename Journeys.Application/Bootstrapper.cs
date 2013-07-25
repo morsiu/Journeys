@@ -29,25 +29,26 @@ namespace Journeys.Application
             var journeyRepository = new DomainRepository<Journey>();
             var personRepository = new DomainRepository<Person>();
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(AddJourneyCommandHandler.Execute, cmd, _eventBus, journeyRepository, personRepository, queryDispatcher));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => 
+                RunInTransaction(
+                    (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
+                    _eventBus, journeyRepository, personRepository));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void RunInTransaction<TCommand, TA, TB, TC, TD>(
-            Action<TCommand, TA, TB, TC, TD> commandHandler,
-            TCommand command,
+        private static void RunInTransaction<TA, TB, TC>(
+            Action<TA, TB, TC> commandHandler,
             IProvideTransacted<TA> a,
             IProvideTransacted<TB> b,
-            IProvideTransacted<TC> c,
-            TD d)
+            IProvideTransacted<TC> c)
         {
             var transactedA = a.Lift();
             var transactedB = b.Lift();
             var transactedC = c.Lift();
             try
             {
-                commandHandler(command, transactedA.Object, transactedB.Object, transactedC.Object, d);
+                commandHandler(transactedA.Object, transactedB.Object, transactedC.Object);
             }
             catch (Exception)
             {
