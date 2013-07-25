@@ -24,7 +24,7 @@ namespace Journeys.Data.Journeys
             return _elements
                 .Where(e => e.PassengerId.HasValue)
                 .OrderBy(e => e.DateOfOccurence)
-                .ThenBy(e => e.Id)
+                .ThenBy(e => e.JourneyId)
                 .ThenBy(e => e.PassengerName)
                 .ThenBy(e => e.PassengerId)
                 .ToList();
@@ -35,7 +35,7 @@ namespace Journeys.Data.Journeys
             var newElement =
                 new JourneyWithLift
                 {
-                    Id = @event.JourneyId,
+                    JourneyId = @event.JourneyId,
                     Distance = @event.RouteDistance,
                     DateOfOccurence = @event.DateOfOccurence,
                 };
@@ -44,14 +44,14 @@ namespace Journeys.Data.Journeys
 
         public void Update(LiftAddedEvent @event)
         {
-            var element = _elements.SingleOrDefault(e => e.Id == @event.JourneyId && e.PassengerId == @event.PersonId);
+            var element = _elements.SingleOrDefault(e => e.JourneyId == @event.JourneyId && e.PassengerId == @event.PersonId);
             if (element == null)
             {
-                var emptyElement = _elements.Single(e => e.Id == @event.JourneyId && !e.PassengerId.HasValue);
+                var emptyElement = _elements.Single(e => e.JourneyId == @event.JourneyId && !e.PassengerId.HasValue);
                 element =
                     new JourneyWithLift
                     {
-                        Id = @event.JourneyId,
+                        JourneyId = @event.JourneyId,
                         DateOfOccurence = emptyElement.DateOfOccurence,
                         Distance = emptyElement.Distance,
                         PassengerId = @event.PersonId,
@@ -72,12 +72,12 @@ namespace Journeys.Data.Journeys
         {
             public bool Equals(JourneyWithLift x, JourneyWithLift y)
             {
-                return x.Id == y.Id && x.PassengerId == y.PassengerId;
+                return x.JourneyId == y.JourneyId && x.PassengerId == y.PassengerId;
             }
 
             public int GetHashCode(JourneyWithLift obj)
             {
-                return obj.Id.GetHashCode() * 37 + obj.PassengerId.GetHashCode();
+                return obj.JourneyId.GetHashCode() * 37 + obj.PassengerId.GetHashCode();
             }
         }
     }

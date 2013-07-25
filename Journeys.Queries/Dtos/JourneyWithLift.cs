@@ -8,7 +8,7 @@ namespace Journeys.Queries.Dtos
 {
     public class JourneyWithLift
     {
-        public Guid Id { get; set; }
+        public Guid JourneyId { get; set; }
 
         public Guid? PassengerId { get; set; }
 
