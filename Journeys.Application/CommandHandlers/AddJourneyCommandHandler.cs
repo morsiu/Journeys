@@ -32,14 +32,14 @@ namespace Journeys.Application.CommandHandlers
         {
             var journeyDistance = new Distance(command.JourneyDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
-            var personId = GetPersonWithNameElseCreateNew(command.PersonName);
+            var personId = GetPersonWithName(command.PersonName);
             var journeyId = new Id<Journey>(command.JourneyId);
             var journey = new Journey(journeyId, command.JourneyDateOfOccurence, journeyDistance, _eventBus)
                 .AddLift(new Id<Person>(personId), liftDistance);
             journeyRepository.Store(journey);
         }
 
-        private Id<Person> GetPersonWithNameElseCreateNew(string personName)
+        private Id<Person> GetPersonWithName(string personName)
         {
             var personId = _queryDispatcher.Dispatch(new GetIdOfPersonWithNameQuery(personName));
             if (!personId.HasValue)
