@@ -86,5 +86,14 @@ namespace Journeys.Domain.Infrastructure.Messages {
                 return ResourceManager.GetString("JourneyAlreadyContainsLiftWithSamePerson", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Person must have a name..
+        /// </summary>
+        internal static string PersonMustHaveAName {
+            get {
+                return ResourceManager.GetString("PersonMustHaveAName", resourceCulture);
+            }
+        }
     }
 }

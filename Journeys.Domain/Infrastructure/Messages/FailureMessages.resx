@@ -126,4 +126,7 @@
   <data name="JourneyAlreadyContainsLiftWithSamePerson" xml:space="preserve">
     <value>Journey already contains lift with same person.</value>
   </data>
+  <data name="PersonMustHaveAName" xml:space="preserve">
+    <value>Person must have a name.</value>
+  </data>
 </root>
