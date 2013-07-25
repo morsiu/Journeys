@@ -11,8 +11,8 @@ namespace Journeys.Client.Wpf
             var eventBus = new EventBus();
             var commandBootstrapper = new Journeys.Application.Bootstrapper(eventBus);
             var dataBootstrapper = new Journeys.Data.Bootstrapper(eventBus);
-            commandBootstrapper.Bootstrap();
             dataBootstrapper.Bootstrap();
+            commandBootstrapper.Bootstrap(dataBootstrapper.QueryDispatcher);
             MainWindow = new MainWindow(commandBootstrapper.CommandDispatcher, dataBootstrapper.QueryDispatcher);
             MainWindow.Show();
         }

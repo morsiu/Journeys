@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GetIdOfPersonWithNameQuery.cs" />
     <Compile Include="GetAllJourneysWithLiftsQuery.cs" />
     <Compile Include="Dtos\JourneyWithLift.cs" />
+    <Compile Include="GetPersonNameQuery.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

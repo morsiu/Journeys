@@ -7,6 +7,8 @@ using Journeys.Eventing;
 using Journeys.Transactions;
 using Journeys.Commands;
 using Journeys.Application.CommandHandlers;
+using Journeys.Data;
+using Journeys.Domain.People;
 
 namespace Journeys.Application
 {
@@ -21,37 +23,42 @@ namespace Journeys.Application
 
         public ICommandDispatcher CommandDispatcher { get; private set; }
 
-        public void Bootstrap()
+        public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
             var commandProcessor = new CommandProcessor();
-
             var journeyRepository = new DomainRepository<Journey>();
+            var personRepository = new DomainRepository<Person>();
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(AddJourneyCommandHandler.Execute, cmd, _eventBus, journeyRepository));
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd => RunInTransaction(AddJourneyCommandHandler.Execute, cmd, _eventBus, journeyRepository, personRepository, queryDispatcher));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private static void RunInTransaction<TCommand, TA, TB>(
-            Action<TCommand, TA, TB> commandHandler,
+        private static void RunInTransaction<TCommand, TA, TB, TC, TD>(
+            Action<TCommand, TA, TB, TC, TD> commandHandler,
             TCommand command,
             IProvideTransacted<TA> a,
-            IProvideTransacted<TB> b)
+            IProvideTransacted<TB> b,
+            IProvideTransacted<TC> c,
+            TD d)
         {
             var transactedA = a.Lift();
             var transactedB = b.Lift();
+            var transactedC = c.Lift();
             try
             {
-                commandHandler(command, transactedA.Object, transactedB.Object);
+                commandHandler(command, transactedA.Object, transactedB.Object, transactedC.Object, d);
             }
             catch (Exception)
             {
                 transactedA.Abort();
                 transactedB.Abort();
+                transactedC.Abort();
                 throw;
             }
             transactedA.Commit();
             transactedB.Commit();
+            transactedC.Commit();
         }
     }
 }

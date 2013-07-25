@@ -44,12 +44,13 @@
     <Compile Include="Infrastructure\QueryHandler.cs" />
     <Compile Include="Infrastructure\QueryProcessor.cs" />
     <Compile Include="IQueryDispatcher.cs" />
-    <Compile Include="Journeys\JourneyView.cs" />
+    <Compile Include="JourneyView.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="PersonView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

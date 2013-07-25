@@ -25,13 +25,18 @@ namespace Journeys.Data
 
         public void Bootstrap()
         {
-            var journeyView = new JourneyView();
+            var queryProcessor = new QueryProcessor();
+            var queryDispatcher = new QueryDispatcher(queryProcessor);
+
+            var personView = new PersonView();
+            var journeyView = new JourneyView(queryDispatcher);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
-
-            var queryProcessor = new QueryProcessor();
+            _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(query => journeyView.GetAllJourneysWithLifts());
+            queryProcessor.SetHandler<GetPersonNameQuery, string>(query => personView.GetPersonName(query.PersonId));
+            queryProcessor.SetHandler<GetIdOfPersonWithNameQuery, Guid?>(query => personView.GetIdOfPersonWithName(query.PersonName));
 
             QueryDispatcher = new QueryDispatcher(queryProcessor);
         }

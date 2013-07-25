@@ -14,16 +14,16 @@ namespace Journeys.Commands
 
         public DateTime JourneyDateOfOccurence { get; private set; }
 
-        public Guid PersonId { get; private set; }
+        public string PersonName { get; private set; }
 
         public int LiftDistance { get; private set; }
 
-        public AddJourneyCommand(Guid journeyId, int journeyDistance, DateTime journeyDateOfOccurence, Guid personId, int liftDistance)
+        public AddJourneyCommand(Guid journeyId, int journeyDistance, DateTime journeyDateOfOccurence, string personName, int liftDistance)
         {
             JourneyId = journeyId;
             JourneyDistance = journeyDistance;
             JourneyDateOfOccurence = journeyDateOfOccurence;
-            PersonId = personId;
+            PersonName = personName;
             LiftDistance = liftDistance;
         }
     }

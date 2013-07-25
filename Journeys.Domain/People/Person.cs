@@ -8,13 +8,21 @@ using Journeys.Events;
 namespace Journeys.Domain.People
 {
     [Aggregate]
-    public class Person
+    public class Person : IHasId<Person>
     {
+        private readonly Id<Person> _id;
+
         public Person(Id<Person> id, string name, IEventBus eventBus)
         {
             if (string.IsNullOrEmpty(name))
                 throw new InvariantViolationException(FailureMessages.PersonMustHaveAName);
+            _id = id;
             eventBus.Publish(new PersonCreatedEvent(id, name));
+        }
+
+        Id<Person> IHasId<Person>.Id
+        {
+            get { return _id; }
         }
     }
 }

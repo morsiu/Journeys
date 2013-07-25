@@ -12,15 +12,29 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Content="Distance" Grid.Column="0" />
+            <Label Content="Passenger name" Grid.Column="1" />
+            <Label Content="Lift distance" Grid.Column="2" />
             <TextBox x:Name="JourneyDistanceField"
+                     Grid.Row="1"
                      Grid.Column="0"/>
-            <TextBox x:Name="LiftDistanceField" 
+            <TextBox x:Name="PersonNameField"
+                     Grid.Row="1"                     
                      Grid.Column="1"/>
+            <TextBox x:Name="LiftDistanceField" 
+                     Grid.Row="1"                     
+                     Grid.Column="2"/>
             <Button x:Name="AddJourney" 
+                    Grid.Row="1"                    
                     Content="Add journey"
                     Click="AddJourney_Click"
-                    Grid.Column="2" />
+                    Grid.Column="3" />
         </Grid>
         <DataGrid x:Name="JourneysWithLiftsList" 
                       Grid.Row="1"/>

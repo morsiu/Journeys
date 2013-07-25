@@ -10,12 +10,12 @@ namespace Journeys.Events
     {
         public PersonCreatedEvent(Guid id, string name)
         {
-            Id = id;
-            Name = name;
+            PersonId = id;
+            PersonName = name;
         }
 
-        public Guid Id { get; private set; }
+        public Guid PersonId { get; private set; }
 
-        public string Name { get; private set; }
+        public string PersonName { get; private set; }
     }
 }

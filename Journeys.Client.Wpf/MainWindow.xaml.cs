@@ -11,7 +11,6 @@ namespace Journeys.Client.Wpf
 {
     public partial class MainWindow : Window
     {
-        private readonly Guid PersonId = new Guid(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
 
@@ -39,8 +38,9 @@ namespace Journeys.Client.Wpf
             var journeyDateOfOccurence = DateTime.Now;
             var journeyDistance = int.Parse(JourneyDistanceField.Text);
             var liftDistance = int.Parse(LiftDistanceField.Text);
+            var personName = PersonNameField.Text;
             var journeyId = Guid.NewGuid();
-            _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, journeyDistance, journeyDateOfOccurence, PersonId, liftDistance));
+            _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, journeyDistance, journeyDateOfOccurence, personName, liftDistance));
             LoadJourneysWithLifts();
         }
     }
