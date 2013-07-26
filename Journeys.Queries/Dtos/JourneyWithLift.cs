@@ -12,7 +12,7 @@ namespace Journeys.Queries.Dtos
 
         public Guid? PassengerId { get; set; }
 
-        public DateTime DateOfOccurence { get; set; }
+        public DateTime DateOfOccurrence { get; set; }
 
         public decimal Distance { get; set; }
 

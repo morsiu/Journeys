@@ -17,22 +17,22 @@ namespace Journeys.Domain.Journeys.Operations
     {
         private readonly IEventBus _eventBus;
         private readonly Id<Journey> _id;
-        private readonly DateTime _dateOfOccurence;
+        private readonly DateTime _dateOfOccurrence;
         private readonly Distance _routeDistance;
         private readonly ImmutableList<Lift> _lifts = ImmutableList<Lift>.Empty;
 
-        public Journey(Id<Journey> id, DateTime dateOfOccurence, Distance routeDistance, IEventBus eventBus)
+        public Journey(Id<Journey> id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
         {
-            _dateOfOccurence = dateOfOccurence;
+            _dateOfOccurrence = dateOfOccurrence;
             _eventBus = eventBus;
             _id = id;
             _routeDistance = routeDistance;
-            _eventBus.Publish(new JourneyCreatedEvent(id, dateOfOccurence, routeDistance));
+            _eventBus.Publish(new JourneyCreatedEvent(id, dateOfOccurrence, routeDistance));
         }
 
         private Journey(Journey journey, ImmutableList<Lift> lifts)
         {
-            _dateOfOccurence = journey._dateOfOccurence;
+            _dateOfOccurrence = journey._dateOfOccurrence;
             _eventBus = journey._eventBus;
             _id = journey._id;
             _lifts = lifts;

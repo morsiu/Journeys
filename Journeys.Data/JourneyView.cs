@@ -23,7 +23,7 @@ namespace Journeys.Data.Journeys
         {
             return _elements
                 .Where(e => e.PassengerId.HasValue)
-                .OrderBy(e => e.DateOfOccurence)
+                .OrderBy(e => e.DateOfOccurrence)
                 .ThenBy(e => e.JourneyId)
                 .ThenBy(e => e.PassengerName)
                 .ThenBy(e => e.PassengerId)
@@ -37,7 +37,7 @@ namespace Journeys.Data.Journeys
                 {
                     JourneyId = @event.JourneyId,
                     Distance = @event.RouteDistance,
-                    DateOfOccurence = @event.DateOfOccurence,
+                    DateOfOccurrence = @event.DateOfOccurrence,
                 };
             _elements.Add(newElement);
         }
@@ -52,7 +52,7 @@ namespace Journeys.Data.Journeys
                     new JourneyWithLift
                     {
                         JourneyId = @event.JourneyId,
-                        DateOfOccurence = emptyElement.DateOfOccurence,
+                        DateOfOccurrence = emptyElement.DateOfOccurrence,
                         Distance = emptyElement.Distance,
                         PassengerId = @event.PersonId,
                         PassengerName = GetPassengerName(@event.PersonId),

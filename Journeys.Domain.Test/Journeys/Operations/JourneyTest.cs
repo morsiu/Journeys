@@ -51,7 +51,7 @@ namespace Journeys.Domain.Test.Journeys.Operations
             });
 
             eventMatcher.AssertReceivedOneEvent<JourneyCreatedEvent>(
-                evt => evt.DateOfOccurence == dateOfOccurence &&
+                evt => evt.DateOfOccurrence == dateOfOccurence &&
                        evt.JourneyId == JourneyId &&
                        evt.RouteDistance == routeDistance);
         }
