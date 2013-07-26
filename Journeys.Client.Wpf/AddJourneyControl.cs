@@ -1,10 +1,12 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -15,14 +17,24 @@ using System.Windows.Shapes;
 
 namespace Journeys.Client.Wpf
 {
-    public partial class AddJourneyUserControl : UserControl
+    public class AddJourneyControl : Control
     {
-        public AddJourneyUserControl()
+        public AddJourneyControl()
         {
-            InitializeComponent();
+            BindingGroup = new BindingGroup();
         }
 
-        private void OnAddJourneyClick(object sender, RoutedEventArgs e)
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            var addButton = Template.FindName("AddButton", this) as ButtonBase;
+            if (addButton != null)
+            {
+                addButton.Click += OnAddButtonClick;
+            }
+        }
+
+        private void OnAddButtonClick(object sender, RoutedEventArgs e)
         {
             BindingGroup.CommitEdit();
             if (BindingGroup.HasValidationError)

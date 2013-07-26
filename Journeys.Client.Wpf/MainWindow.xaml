@@ -9,7 +9,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Grid>
-            <j:AddJourneyUserControl x:Name="AddJourney" />
+            <j:AddJourneyControl x:Name="AddJourney" />
         </Grid>
         <DataGrid x:Name="JourneysWithLiftsList"
                   AutoGenerateColumns="False"
