@@ -35,7 +35,7 @@ namespace Journeys.Application.CommandHandlers
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
             var personId = GetPersonWithName(command.PersonName);
             var journeyId = new Id<Journey>(command.JourneyId);
-            var journey = new Journey(journeyId, command.JourneyDateOfOccurence, journeyDistance, _eventBus)
+            var journey = new Journey(journeyId, command.JourneyDateOfOccurrence, journeyDistance, _eventBus)
                 .AddLift(new Id<Person>(personId), liftDistance);
             journeyRepository.Store(journey);
         }

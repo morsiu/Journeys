@@ -12,17 +12,22 @@ namespace Journeys.Commands
 
         public decimal JourneyDistance { get; private set; }
 
-        public DateTime JourneyDateOfOccurence { get; private set; }
+        public DateTime JourneyDateOfOccurrence { get; private set; }
 
         public string PersonName { get; private set; }
 
         public decimal LiftDistance { get; private set; }
 
-        public AddJourneyCommand(Guid journeyId, decimal journeyDistance, DateTime journeyDateOfOccurence, string personName, decimal liftDistance)
+        public AddJourneyCommand(
+            Guid journeyId,
+            decimal journeyDistance,
+            DateTime journeyDateOfOccurrence,
+            string personName,
+            decimal liftDistance)
         {
             JourneyId = journeyId;
             JourneyDistance = journeyDistance;
-            JourneyDateOfOccurence = journeyDateOfOccurence;
+            JourneyDateOfOccurrence = journeyDateOfOccurrence;
             PersonName = personName;
             LiftDistance = liftDistance;
         }
