@@ -52,15 +52,12 @@ namespace Journeys.Client.Wpf
 
         private void AddJourney()
         {
-            var dateOfJourneyOccurence = DateOfJourneyOccurrence;
-            var journeyDistance = JourneyDistance;
-            var liftDistance = LiftDistance;
             var personName = PassengerName;
             var journeyId = Guid.NewGuid();
             try
             {
-                _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, journeyDistance, dateOfJourneyOccurence, personName, liftDistance));
-                _eventBus.Publish(new JourneyAddedEvent());
+                _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, JourneyDistance, DateOfJourneyOccurrence, personName, LiftDistance));
+                _eventBus.Publish(new JourneyAddedEvent(journeyId));
                 Notification = "Added successfuly";
             }
             catch (Exception e)

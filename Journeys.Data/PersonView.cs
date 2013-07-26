@@ -1,4 +1,5 @@
 ﻿using Journeys.Events;
+using Journeys.Queries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,16 @@ namespace Journeys.Data
         private Dictionary<Guid, string> _personNames = new Dictionary<Guid, string>();
         private Dictionary<string, Guid> _personByNameLookup = new Dictionary<string, Guid>();
 
-        public Guid? GetIdOfPersonWithName(string personName)
+        public Guid? Execute(GetIdOfPersonWithNameQuery query)
         {
-            return personName != null && _personByNameLookup.ContainsKey(personName)
-                ? _personByNameLookup[personName]
+            return query.PersonName != null && _personByNameLookup.ContainsKey(query.PersonName)
+                ? _personByNameLookup[query.PersonName]
                 : default(Guid?);
         }
 
-        public string GetPersonName(Guid personId)
+        public string Execute(GetPersonNameQuery query)
         {
-            return _personNames[personId];
+            return _personNames[query.PersonId];
         }
 
         public void Update(PersonCreatedEvent @event)

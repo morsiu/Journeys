@@ -29,14 +29,15 @@ namespace Journeys.Data
             var queryDispatcher = new QueryDispatcher(queryProcessor);
 
             var personView = new PersonView();
-            var journeyView = new JourneyView(queryDispatcher);
-            _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
-            _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
+            queryProcessor.SetHandler<GetPersonNameQuery, string>(personView.Execute);
+            queryProcessor.SetHandler<GetIdOfPersonWithNameQuery, Guid?>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
-            queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(query => journeyView.GetAllJourneysWithLifts());
-            queryProcessor.SetHandler<GetPersonNameQuery, string>(query => personView.GetPersonName(query.PersonId));
-            queryProcessor.SetHandler<GetIdOfPersonWithNameQuery, Guid?>(query => personView.GetIdOfPersonWithName(query.PersonName));
+            var journeyView = new JourneyView(queryDispatcher);
+            queryProcessor.SetHandler<GetJourneysWithLiftsByJourneyIdQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
+            queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
+            _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
+            _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
 
             QueryDispatcher = new QueryDispatcher(queryProcessor);
         }

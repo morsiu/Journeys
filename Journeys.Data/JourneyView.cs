@@ -19,15 +19,27 @@ namespace Journeys.Data.Journeys
             _queryDispather = queryDispatcher;
         }
 
-        public IEnumerable<JourneyWithLift> GetAllJourneysWithLifts()
+        public IEnumerable<JourneyWithLift> Execute(GetAllJourneysWithLiftsQuery query)
+        {
+            return GetValidJourneysWithLiftsSorted()
+                .ToList();
+        }
+
+        public IEnumerable<JourneyWithLift> Execute(GetJourneysWithLiftsByJourneyIdQuery query)
+        {
+            return GetValidJourneysWithLiftsSorted()
+                .Where(e => e.JourneyId == query.JourneyId)
+                .ToList();
+        }
+
+        private IEnumerable<JourneyWithLift> GetValidJourneysWithLiftsSorted()
         {
             return _elements
                 .Where(e => e.PassengerId.HasValue)
                 .OrderBy(e => e.DateOfOccurrence)
                 .ThenBy(e => e.JourneyId)
                 .ThenBy(e => e.PassengerName)
-                .ThenBy(e => e.PassengerId)
-                .ToList();
+                .ThenBy(e => e.PassengerId);
         }
 
         public void Update(JourneyCreatedEvent @event)
@@ -68,6 +80,7 @@ namespace Journeys.Data.Journeys
         {
             return _queryDispather.Dispatch(new GetPersonNameQuery(personId));
         }
+
         private class Comparer : IEqualityComparer<JourneyWithLift>
         {
             public bool Equals(JourneyWithLift x, JourneyWithLift y)
