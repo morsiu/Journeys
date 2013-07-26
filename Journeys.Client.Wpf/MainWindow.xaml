@@ -13,6 +13,7 @@
         </Grid>
         <DataGrid x:Name="JourneysWithLiftsList"
                   AutoGenerateColumns="False"
+                  IsReadOnly="True"
                   Grid.Row="1">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence}"/>
