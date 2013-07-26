@@ -6,38 +6,47 @@
             <Setter.Value>
                 <ControlTemplate TargetType="j:AddJourneyControl">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <Label Content="Journey distance"/>
-                        <TextBox Grid.Row="1"
-                                 Text="{Binding JourneyDistance}"/>
-                        <Label Grid.Row="2"
-                               Content="Date of journey occurrence" />
-                        <DatePicker Grid.Row="3"
-                                    SelectedDate="{Binding DateOfJourneyOccurrence}"/>
-                        <Label Grid.Row="4"
-                               Content="Passenger name" />
-                        <TextBox Grid.Row="5"
-                                 Text="{Binding PassengerName}" />
-                        <Label Grid.Row="6"
-                               Content="Lift distance" />
-                        <TextBox Grid.Row="7"
-                                 Text="{Binding LiftDistance}" />
-                        <TextBlock Grid.Row="8"
-                                   Text="{Binding Notification, UpdateSourceTrigger=PropertyChanged}" />
-                        <Button x:Name="AddButton"
-                                Grid.Row="9"
-                                Content="Add journey" />
+                        <ToggleButton Content="Add journey" x:Name="ContentToggler"/>
+                        <Popup IsOpen="{Binding IsChecked, ElementName=ContentToggler, Mode=TwoWay}"
+                               Placement="Bottom"
+                               PlacementTarget="{Binding ElementName=ContentToggler}"
+                               Width="400">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Content="Journey distance"/>
+                                <TextBox Grid.Row="1"
+                                         Text="{Binding JourneyDistance}"/>
+                                <Label Grid.Row="2"
+                                       Content="Date of journey occurrence" />
+                                <DatePicker Grid.Row="3"
+                                            SelectedDate="{Binding DateOfJourneyOccurrence}"/>
+                                <Label Grid.Row="4"
+                                       Content="Passenger name" />
+                                <TextBox Grid.Row="5"
+                                         Text="{Binding PassengerName}" />
+                                <Label Grid.Row="6"
+                                       Content="Lift distance" />
+                                <TextBox Grid.Row="7"
+                                         Text="{Binding LiftDistance}" />
+                                <TextBlock Grid.Row="8"
+                                           Text="{Binding Notification, UpdateSourceTrigger=PropertyChanged}" />
+                                <Button x:Name="AddButton"
+                                        Grid.Row="9"
+                                        HorizontalAlignment="Right"
+                                        Content="Add" />
+                            </Grid>
+                        </Popup>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
