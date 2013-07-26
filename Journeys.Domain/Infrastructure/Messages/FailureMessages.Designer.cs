@@ -61,7 +61,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot add lift with distance larget than journey distance..
+        ///   Looks up a localized string similar to Cannot add lift with distance larger than journey distance..
         /// </summary>
         internal static string CannotAddLiftWithDistanceLargerThanJourneyDistance {
             get {

@@ -13,7 +13,8 @@ namespace Journeys.Client.Wpf
             var dataBootstrapper = new Journeys.Data.Bootstrapper(eventBus);
             dataBootstrapper.Bootstrap();
             commandBootstrapper.Bootstrap(dataBootstrapper.QueryDispatcher);
-            MainWindow = new MainWindow(commandBootstrapper.CommandDispatcher, dataBootstrapper.QueryDispatcher);
+            var viewEventBus = new Infrastructure.EventBus();
+            MainWindow = new MainWindow(commandBootstrapper.CommandDispatcher, dataBootstrapper.QueryDispatcher, viewEventBus);
             MainWindow.Show();
         }
     }

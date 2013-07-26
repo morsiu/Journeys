@@ -1,5 +1,7 @@
 ﻿using Journeys.Application;
 using Journeys.Application.Commands;
+using Journeys.Client.Wpf.Events;
+using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Commands;
 using Journeys.Data;
 using Journeys.Data.Journeys;
@@ -13,17 +15,21 @@ namespace Journeys.Client.Wpf
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
+        private readonly EventBus _eventBus;
 
-        public MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher)
+        internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, EventBus eventBus)
         {
             _commandDispatcher = commandDispatcher;
             _queryDispatcher = queryDispatcher;
+            _eventBus = eventBus;
+            _eventBus.Subscribe<JourneyAddedEvent>(HandleEvent);
             InitializeComponent();
         }
 
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);
+            AddJourney.DataContext = new AddJourneyViewModel(_commandDispatcher, _eventBus);
             LoadJourneysWithLifts();
         }
 
@@ -33,14 +39,8 @@ namespace Journeys.Client.Wpf
             JourneysWithLiftsList.ItemsSource = journeysWithLifts;
         }
 
-        private void AddJourney_Click(object sender, RoutedEventArgs e)
+        private void HandleEvent(JourneyAddedEvent @event)
         {
-            var journeyDateOfOccurence = DateTime.Now;
-            var journeyDistance = int.Parse(JourneyDistanceField.Text);
-            var liftDistance = int.Parse(LiftDistanceField.Text);
-            var personName = PersonNameField.Text;
-            var journeyId = Guid.NewGuid();
-            _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, journeyDistance, journeyDateOfOccurence, personName, liftDistance));
             LoadJourneysWithLifts();
         }
     }

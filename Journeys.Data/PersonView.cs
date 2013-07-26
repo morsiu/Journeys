@@ -14,7 +14,7 @@ namespace Journeys.Data
 
         public Guid? GetIdOfPersonWithName(string personName)
         {
-            return _personByNameLookup.ContainsKey(personName)
+            return personName != null && _personByNameLookup.ContainsKey(personName)
                 ? _personByNameLookup[personName]
                 : default(Guid?);
         }

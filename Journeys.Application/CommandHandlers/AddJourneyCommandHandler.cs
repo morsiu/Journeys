@@ -24,6 +24,7 @@ namespace Journeys.Application.CommandHandlers
         {
             _personRepository = personRepository;
             _queryDispatcher = queryDispatcher;
+            _eventBus = eventBus;
         }
 
         public void Execute(
