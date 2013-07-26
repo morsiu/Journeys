@@ -69,11 +69,17 @@
     <Compile Include="Events\JourneyAddedEvent.cs" />
     <Compile Include="Infrastructure\Command.cs" />
     <Compile Include="Infrastructure\EventBus.cs" />
+    <Compile Include="JourneysControl.cs" />
+    <Compile Include="JourneysViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Styles\AddJourneyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\JourneysControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

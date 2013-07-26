@@ -8,19 +8,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Grid>
-            <j:AddJourneyControl x:Name="AddJourney" />
-        </Grid>
-        <DataGrid x:Name="JourneysWithLiftsList"
-                  AutoGenerateColumns="False"
-                  IsReadOnly="True"
-                  Grid.Row="1">
-            <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence}"/>
-                <DataGridTextColumn Binding="{Binding Distance}" Header="Distance"/>
-                <DataGridTextColumn Binding="{Binding PassengerName}" Header="Passenger name"/>
-                <DataGridTextColumn Binding="{Binding PassengerLiftDistance}" Header="Passenger lift distance"/>
-            </DataGrid.Columns>
-        </DataGrid>
+        <j:AddJourneyControl x:Name="AddJourney" />
+        <j:JourneysControl x:Name="Journeys"
+                           Grid.Row="1" />
     </Grid>
 </Window>

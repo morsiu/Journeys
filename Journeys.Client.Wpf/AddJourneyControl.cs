@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 
 namespace Journeys.Client.Wpf
 {
-    public class AddJourneyControl : Control
+    internal class AddJourneyControl : Control
     {
         public AddJourneyControl()
         {
