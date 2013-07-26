@@ -18,33 +18,41 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
                                 <Label Content="Journey distance"/>
-                                <TextBox Grid.Row="1"
+                                <TextBox Grid.Column="1"
                                          Text="{Binding JourneyDistance}"/>
-                                <Label Grid.Row="2"
+                                <Label Grid.Row="1"
                                        Content="Date of journey occurrence" />
-                                <DatePicker Grid.Row="3"
+                                <DatePicker Grid.Row="1"
+                                            Grid.Column="1"
                                             SelectedDate="{Binding DateOfJourneyOccurrence}"/>
-                                <Label Grid.Row="4"
+                                <Label Grid.Row="2"
                                        Content="Passenger name" />
-                                <TextBox Grid.Row="5"
+                                <TextBox Grid.Row="2"
+                                         Grid.Column="2"
                                          Text="{Binding PassengerName}" />
-                                <Label Grid.Row="6"
+                                <Label Grid.Row="3"
                                        Content="Lift distance" />
-                                <TextBox Grid.Row="7"
+                                <TextBox Grid.Row="3"
+                                         Grid.Column="1"
                                          Text="{Binding LiftDistance}" />
-                                <TextBlock Grid.Row="8"
-                                           Text="{Binding Notification, UpdateSourceTrigger=PropertyChanged}" />
-                                <Button x:Name="AddButton"
-                                        Grid.Row="9"
-                                        HorizontalAlignment="Right"
-                                        Content="Add" />
+                                <Grid Grid.Row="4"
+                                      Grid.ColumnSpan="2">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="{Binding Notification, UpdateSourceTrigger=PropertyChanged}" />
+                                    <Button x:Name="AddButton"
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Right"
+                                            Content="Add" />
+                                </Grid>
                             </Grid>
                         </Popup>
                     </Grid>
