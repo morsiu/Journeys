@@ -13,11 +13,10 @@ using System.Windows.Input;
 
 namespace Journeys.Client.Wpf
 {
-    internal class AddJourneyViewModel : INotifyPropertyChanged
+    internal class AddJourneyViewModel
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly EventBus _eventBus;
-        private string _notification;
 
         public AddJourneyViewModel(ICommandDispatcher commandDispatcher, EventBus eventBus)
         {
@@ -25,6 +24,7 @@ namespace Journeys.Client.Wpf
             _eventBus = eventBus;
             AddJourneyCommand = new Command(AddJourney);
             DateOfJourneyOccurrence = DateTime.Now;
+            Notification = new NotifierViewModel();
         }
 
         public decimal JourneyDistance { get; set; }
@@ -37,16 +37,7 @@ namespace Journeys.Client.Wpf
 
         public ICommand AddJourneyCommand { get; private set; }
 
-        public string Notification
-        {
-            get { return _notification; }
-            set
-            {
-                if (value == _notification) return;
-                _notification = value;
-                OnPropertyChanged();
-            }
-        }
+        public NotifierViewModel Notification { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -58,11 +49,11 @@ namespace Journeys.Client.Wpf
             {
                 _commandDispatcher.Dispatch(new AddJourneyCommand(journeyId, JourneyDistance, DateOfJourneyOccurrence, personName, LiftDistance));
                 _eventBus.Publish(new JourneyAddedEvent(journeyId));
-                Notification = "Added successfuly";
+                Notification.Replace(new SuccessNotification("Added successfuly."));
             }
             catch (Exception e)
             {
-                Notification = e.Message;
+                Notification.Replace(new ErrorNotification(e.Message));
             }
         }
 

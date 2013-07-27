@@ -56,9 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ErrorNotification.cs" />
+    <Compile Include="NotifierControl.cs" />
+    <Compile Include="NotifierViewModel.cs" />
     <Compile Include="Styles\AddJourneyControl.xaml.cs">
       <DependentUpon>AddJourneyControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SuccessNotification.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -83,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\AddJourneyControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\NotifierControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

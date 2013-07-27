@@ -6,6 +6,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles\AddJourneyControl.xaml" />
                 <ResourceDictionary Source="Styles\JourneysControl.xaml" />
+                <ResourceDictionary Source="Styles\NotifierControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
