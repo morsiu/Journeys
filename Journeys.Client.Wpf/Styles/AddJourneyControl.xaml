@@ -6,12 +6,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="j:AddJourneyControl">
                     <Grid>
-                        <ToggleButton Content="Add journey" x:Name="ContentToggler"/>
+                        <ToggleButton x:Name="ContentToggler"
+                                      Content="Add journey"/>
                         <Popup IsOpen="{Binding IsChecked, ElementName=ContentToggler, Mode=TwoWay}"
                                Placement="Bottom"
                                PlacementTarget="{Binding ElementName=ContentToggler}"
                                Width="400">
                             <Grid>
+                                <Grid.Background>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+                                </Grid.Background>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
