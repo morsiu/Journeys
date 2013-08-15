@@ -19,7 +19,9 @@ namespace Journeys.Client.Wpf
         {
             InitializeComponent();
             AddJourney.DataContext = new AddJourneyViewModel(commandDispatcher, eventBus);
-            Journeys.DataContext = new JourneysViewModel(eventBus, queryDispatcher);
+            var journeysViewModel = new JourneysViewModel(eventBus, queryDispatcher);
+            Journeys.DataContext = journeysViewModel;
+            journeysViewModel.Reload();
         }
 
         protected override void OnInitialized(EventArgs e)

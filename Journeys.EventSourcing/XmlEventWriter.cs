@@ -5,23 +5,41 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace Journeys.EventSourcing
 {
     public class XmlEventWriter
     {
-        private DataContractSerializer _serializer;
-        private Stream _stream;
+        private readonly DataContractSerializer _serializer;
+        private readonly XmlWriter _writer;
+        private readonly Stream _stream;
 
         public XmlEventWriter(Stream stream, IEnumerable<Type> eventTypesToSupport)
         {
             _stream = stream;
-            _serializer = new DataContractSerializer(typeof(object), eventTypesToSupport);
+            _writer = XmlWriter.Create(
+                _stream,
+                new XmlWriterSettings 
+                {
+                    ConformanceLevel = ConformanceLevel.Fragment,
+                    Indent = true,
+                    IndentChars = "  ",
+                    NewLineOnAttributes = true,                   
+                    WriteEndDocumentOnClose = true 
+                });
+            _serializer = new DataContractSerializer(typeof(object), "event", string.Empty, eventTypesToSupport);
         }
 
         public void Write(object @event)
         {
-            _serializer.WriteObject(_stream, @event);
+            _serializer.WriteObject(_writer, @event);
+            _writer.Flush();
+        }
+
+        public void Close()
+        {
+            _writer.Close();
         }
     }
 }

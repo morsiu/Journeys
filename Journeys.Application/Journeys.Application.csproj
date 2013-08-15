@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\AddJourneyCommandHandler.cs" />
+    <Compile Include="EventReplayers\JourneyCreatedEventReplayer.cs" />
+    <Compile Include="EventReplayers\LiftAddedEventReplayer.cs" />
+    <Compile Include="EventReplayers\PersonCreatedEventReplayer.cs" />
     <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Commands\CommandDispatcher.cs" />
     <Compile Include="Commands\CommandHandler.cs" />

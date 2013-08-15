@@ -23,5 +23,11 @@ namespace Journeys.EventSourcing
             _eventWriter.Write(@event);
             _eventStream.Flush(true);
         }
+
+        public void Close()
+        {
+            _eventWriter.Close();
+            _eventStream.Close();
+        }
     }
 }
