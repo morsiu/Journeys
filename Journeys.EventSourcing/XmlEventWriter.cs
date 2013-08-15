@@ -36,10 +36,5 @@ namespace Journeys.EventSourcing
             _serializer.WriteObject(_writer, @event);
             _writer.Flush();
         }
-
-        public void Close()
-        {
-            _writer.Close();
-        }
     }
 }
