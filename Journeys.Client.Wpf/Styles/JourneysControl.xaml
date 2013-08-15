@@ -8,10 +8,9 @@
                     <DataGrid x:Name="JourneysWithLiftsList"
                               AutoGenerateColumns="False"
                               ItemsSource="{Binding Items}"
-                              IsReadOnly="True"
-                              Grid.Row="1">
+                              IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence}"/>
+                            <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence"/>
                             <DataGridTextColumn Binding="{Binding Distance}" Header="Distance"/>
                             <DataGridTextColumn Binding="{Binding PassengerName}" Header="Passenger name"/>
                             <DataGridTextColumn Binding="{Binding PassengerLiftDistance}" Header="Passenger lift distance"/>
