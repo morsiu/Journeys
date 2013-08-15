@@ -9,6 +9,8 @@ using Journeys.Commands;
 using Journeys.Application.CommandHandlers;
 using Journeys.Data;
 using Journeys.Domain.People;
+using Journeys.EventSourcing;
+using Journeys.Events;
 
 namespace Journeys.Application
 {
@@ -26,6 +28,7 @@ namespace Journeys.Application
         public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
             var commandProcessor = new CommandProcessor();
+            var eventStore = new EventStore("Events.xml", new[] { typeof(JourneyCreatedEvent) });
             var journeyRepository = new DomainRepository<Journey>();
             var personRepository = new DomainRepository<Person>();
 
@@ -33,6 +36,8 @@ namespace Journeys.Application
                 RunInTransaction(
                     (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
                     _eventBus, journeyRepository, personRepository));
+
+            _eventBus.RegisterListener<JourneyCreatedEvent>(eventStore.Write);
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
