@@ -20,7 +20,7 @@ namespace Journeys.Application
     {
         private readonly EventBus _eventBus;
 
-        private static readonly IEnumerable<Type> TypesOfEventToPersist =
+        private static readonly IEnumerable<Type> TypesOfEventsToPersist =
             new Type[]
             {
                 typeof(JourneyCreatedEvent), typeof(LiftAddedEvent), typeof(PersonCreatedEvent)
@@ -44,14 +44,15 @@ namespace Journeys.Application
                     (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
                     _eventBus, journeyRepository, personRepository));
 
-            var eventReplayer = new EventReplayer("Events.xml", TypesOfEventToPersist);
+            const string eventsFileName = "Events.xml";
+            var eventReplayer = new EventReplayer(eventsFileName, TypesOfEventsToPersist);
             eventReplayer.Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(journeyRepository, _eventBus).Replay);
             eventReplayer.Register<LiftAddedEvent>(new LiftAddedEventReplayer(journeyRepository).Replay);
             eventReplayer.Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(personRepository, _eventBus).Replay);
             eventReplayer.Replay();
             eventReplayer.Close();
 
-            var eventStore = new EventStore("Events.xml", TypesOfEventToPersist);
+            var eventStore = new EventStore(eventsFileName, TypesOfEventsToPersist);
             _eventBus.RegisterListener<JourneyCreatedEvent>(eventStore.Write);
             _eventBus.RegisterListener<LiftAddedEvent>(eventStore.Write);
             _eventBus.RegisterListener<PersonCreatedEvent>(eventStore.Write);

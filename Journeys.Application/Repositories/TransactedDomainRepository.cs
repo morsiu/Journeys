@@ -5,7 +5,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Application.Repositories
 {
-    public class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
+    internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>
     {
         private readonly IDomainRepository<TEntity> _repository;

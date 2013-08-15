@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace Journeys.Client.Wpf
 {
-    public class NotifierControl : ItemsControl
+    internal class NotifierControl : ItemsControl
     {
     }
 }

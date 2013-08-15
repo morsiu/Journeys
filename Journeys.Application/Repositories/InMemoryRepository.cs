@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Application.Repositories
 {
-    public class InMemoryRepository<TId, TEntity>
+    internal class InMemoryRepository<TId, TEntity>
     {
         private readonly IDictionary<TId, TEntity> _store = new Dictionary<TId, TEntity>();
 

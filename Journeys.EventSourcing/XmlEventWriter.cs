@@ -9,7 +9,7 @@ using System.Xml;
 
 namespace Journeys.EventSourcing
 {
-    public class XmlEventWriter
+    internal class XmlEventWriter
     {
         private readonly DataContractSerializer _serializer;
         private readonly XmlWriter _writer;

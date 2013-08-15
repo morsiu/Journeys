@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Application.Commands
 {
-    public class CommandDispatcher : ICommandDispatcher
+    internal class CommandDispatcher : ICommandDispatcher
     {
         private readonly CommandProcessor _commandProcessor;
 

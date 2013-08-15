@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Journeys.Data.Infrastructure
 {
-    public class QueryDispatcher : IQueryDispatcher
+    internal class QueryDispatcher : IQueryDispatcher
     {
         private readonly QueryProcessor _queryProcessor;
 

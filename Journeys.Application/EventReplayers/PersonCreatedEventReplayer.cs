@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Journeys.Application.EventReplayers
 {
-    public class PersonCreatedEventReplayer
+    internal class PersonCreatedEventReplayer
     {
         private readonly IDomainRepository<Person> _personRepository;
         private readonly IEventBus _eventBus;

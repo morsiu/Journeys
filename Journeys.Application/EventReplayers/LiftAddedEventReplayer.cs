@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Journeys.Application.EventReplayers
 {
-    public class LiftAddedEventReplayer
+    internal class LiftAddedEventReplayer
     {
         private readonly IDomainRepository<Journey> _journeyRepository;
 

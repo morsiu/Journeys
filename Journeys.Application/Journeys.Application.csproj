@@ -49,7 +49,7 @@
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
     <Compile Include="Repositories\DomainRepository.cs" />
-    <Compile Include="ICommandDispatch.cs" />
+    <Compile Include="ICommandDispatcher.cs" />
     <Compile Include="Repositories\InMemoryRepository.cs" />
     <Compile Include="Repositories\TransactedDomainRepository.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
