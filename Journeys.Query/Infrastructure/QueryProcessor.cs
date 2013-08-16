@@ -13,7 +13,7 @@ namespace Journeys.Query.Infrastructure
             where TQuery : IQuery<TResult>
         {
             var queryType = typeof(TQuery);
-            Func<object, object> untypedHandler = query => (TResult)handler((TQuery)query);
+            Func<object, object> untypedHandler = query => handler((TQuery)query);
             _handlers[queryType] = untypedHandler;
         }
 

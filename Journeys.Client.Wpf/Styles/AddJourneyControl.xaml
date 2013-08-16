@@ -38,7 +38,7 @@
                                 <Label Grid.Row="2"
                                        Content="Passenger name" />
                                 <TextBox Grid.Row="2"
-                                         Grid.Column="2"
+                                         Grid.Column="1"
                                          Text="{Binding PassengerName}" />
                                 <Label Grid.Row="3"
                                        Content="Lift distance" />
