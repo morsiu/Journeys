@@ -32,11 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
@@ -74,10 +69,6 @@
     <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
       <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
       <Name>Journeys.Eventing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
-      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
