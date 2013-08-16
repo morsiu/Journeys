@@ -22,11 +22,6 @@ namespace Journeys.Client.Wpf
             var journeysViewModel = new JourneysViewModel(eventBus, queryDispatcher);
             Journeys.DataContext = journeysViewModel;
             journeysViewModel.Reload();
-        }
-
-        protected override void OnInitialized(EventArgs e)
-        {
-            base.OnInitialized(e);
         }        
     }
 }
