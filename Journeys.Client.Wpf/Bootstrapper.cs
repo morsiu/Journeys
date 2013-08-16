@@ -15,10 +15,14 @@ namespace Journeys.Client.Wpf
         public MainWindow Bootstrap()
         {
             var eventBus = new Journeys.Eventing.EventBus();
-            var commandBootstrapper = new Journeys.Application.Bootstrapper(eventBus);
             var dataBootstrapper = new Journeys.Data.Bootstrapper(eventBus);
             dataBootstrapper.Bootstrap();
+            var domainBootstrapper = new Journeys.Domain.Bootstrapper();
+            domainBootstrapper.Bootstrap();
+            var commandBootstrapper = new Journeys.Application.Bootstrapper(eventBus, domainBootstrapper.DomainRepositories);
             commandBootstrapper.Bootstrap(dataBootstrapper.QueryDispatcher);
+            var eventSourcingBootstrapper = new Journeys.EventSourcing.Bootstrapper(eventBus, domainBootstrapper.DomainRepositories, "Events.txt");
+            eventSourcingBootstrapper.Bootstrap();
             var viewEventBus = new Infrastructure.EventBus();
             return new MainWindow(commandBootstrapper.CommandDispatcher, dataBootstrapper.QueryDispatcher, viewEventBus);
         }

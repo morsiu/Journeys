@@ -41,18 +41,10 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\AddJourneyCommandHandler.cs" />
-    <Compile Include="EventConfiguration\EventConfigurator.cs" />
-    <Compile Include="EventReplayers\JourneyCreatedEventReplayer.cs" />
-    <Compile Include="EventReplayers\LiftAddedEventReplayer.cs" />
-    <Compile Include="EventReplayers\PersonCreatedEventReplayer.cs" />
-    <Compile Include="Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Commands\CommandDispatcher.cs" />
     <Compile Include="Commands\CommandHandler.cs" />
     <Compile Include="Commands\CommandProcessor.cs" />
-    <Compile Include="Repositories\DomainRepository.cs" />
     <Compile Include="ICommandDispatcher.cs" />
-    <Compile Include="Repositories\InMemoryRepository.cs" />
-    <Compile Include="Repositories\TransactedDomainRepository.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

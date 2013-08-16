@@ -79,6 +79,15 @@ namespace Journeys.Domain.Infrastructure.Messages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Entity of type `{0}` with id `{1}` was not found..
+        /// </summary>
+        internal static string EntityOfTypeWithIdNotFound {
+            get {
+                return ResourceManager.GetString("EntityOfTypeWithIdNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Journey already contains lift with same person..
         /// </summary>
         internal static string JourneyAlreadyContainsLiftWithSamePerson {

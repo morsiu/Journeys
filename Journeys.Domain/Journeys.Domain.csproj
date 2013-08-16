@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Infrastructure\Collections\ImmutableList.cs" />
+    <Compile Include="Infrastructure\Exceptions\EntityNotFoundException.cs" />
     <Compile Include="Infrastructure\Exceptions\InvariantViolationException.cs" />
     <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Infrastructure\IHasId.cs" />
@@ -61,6 +63,10 @@
     </Compile>
     <Compile Include="People\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DomainRepositories.cs" />
+    <Compile Include="Repositories\DomainRepository.cs" />
+    <Compile Include="Repositories\InMemoryRepository.cs" />
+    <Compile Include="Repositories\TransactedDomainRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Infrastructure\Messages\FailureMessages.resx">
@@ -76,6 +82,10 @@
     <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
       <Name>Journeys.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
+      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
+      <Name>Journeys.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

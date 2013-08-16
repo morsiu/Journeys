@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Application.EventReplayers
+namespace Journeys.EventSourcing.Replayers
 {
     internal class PersonCreatedEventReplayer
     {

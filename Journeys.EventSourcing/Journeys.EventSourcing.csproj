@@ -41,11 +41,33 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventReplayer.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Replayers\JourneyCreatedEventReplayer.cs" />
+    <Compile Include="Replayers\LiftAddedEventReplayer.cs" />
+    <Compile Include="Replayers\PersonCreatedEventReplayer.cs" />
     <Compile Include="EventStore.cs" />
     <Compile Include="IEventWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XmlEventReader.cs" />
     <Compile Include="XmlEventWriter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
+      <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
+      <Name>Journeys.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
+      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
+      <Name>Journeys.Eventing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
+      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
+      <Name>Journeys.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
+      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
+      <Name>Journeys.Transactions</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

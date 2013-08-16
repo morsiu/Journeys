@@ -3,9 +3,9 @@ using Journeys.Domain.Journeys.Data;
 using Journeys.Transactions;
 using System;
 
-namespace Journeys.Application.Repositories
+namespace Journeys.Domain.Repositories
 {
-    internal class DomainRepository<TEntity> : IDomainRepository<TEntity>, IProvideTransacted<IDomainRepository<TEntity>>
+    public class DomainRepository<TEntity> : IDomainRepository<TEntity>, IProvideTransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>
     {
         private readonly InMemoryRepository<Id<TEntity>, TEntity> _repository = new InMemoryRepository<Id<TEntity>, TEntity>();

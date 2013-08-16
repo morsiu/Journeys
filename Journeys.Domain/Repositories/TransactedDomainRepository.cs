@@ -3,7 +3,7 @@ using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Data;
 using Journeys.Transactions;
 
-namespace Journeys.Application.Repositories
+namespace Journeys.Domain.Repositories
 {
     internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Journeys.Application.Exceptions
+namespace Journeys.Domain.Infrastructure.Exceptions
 {
     public class EntityNotFoundException : Exception
     {
