@@ -18,17 +18,22 @@ namespace Journeys.Application
 {
     public class Bootstrapper
     {
-        private readonly EventBus _eventBus;
-
+        private const string EventsFileName = "Events.xml";
         private static readonly IEnumerable<Type> TypesOfEventsToPersist =
             new Type[]
             {
                 typeof(JourneyCreatedEvent), typeof(LiftAddedEvent), typeof(PersonCreatedEvent)
             };
 
+        private readonly EventBus _eventBus;
+        private readonly DomainRepository<Journey> _journeyRepository;
+        private readonly DomainRepository<Person> _personRepository;
+
         public Bootstrapper(EventBus eventBus)
         {
             _eventBus = eventBus;
+            _journeyRepository = new DomainRepository<Journey>();
+            _personRepository = new DomainRepository<Person>();
         }
 
         public ICommandDispatcher CommandDispatcher { get; private set; }
@@ -36,28 +41,35 @@ namespace Journeys.Application
         public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
             var commandProcessor = new CommandProcessor();
-            var journeyRepository = new DomainRepository<Journey>();
-            var personRepository = new DomainRepository<Person>();
 
             commandProcessor.SetHandler<AddJourneyCommand>(cmd => 
                 RunInTransaction(
                     (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
-                    _eventBus, journeyRepository, personRepository));
+                    _eventBus, _journeyRepository, _personRepository));
 
-            const string eventsFileName = "Events.xml";
-            var eventReplayer = new EventReplayer(eventsFileName, TypesOfEventsToPersist);
-            eventReplayer.Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(journeyRepository, _eventBus).Replay);
-            eventReplayer.Register<LiftAddedEvent>(new LiftAddedEventReplayer(journeyRepository).Replay);
-            eventReplayer.Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(personRepository, _eventBus).Replay);
-            eventReplayer.Replay();
-            eventReplayer.Close();
-
-            var eventStore = new EventStore(eventsFileName, TypesOfEventsToPersist);
-            _eventBus.RegisterListener<JourneyCreatedEvent>(eventStore.Write);
-            _eventBus.RegisterListener<LiftAddedEvent>(eventStore.Write);
-            _eventBus.RegisterListener<PersonCreatedEvent>(eventStore.Write);
+            var eventStore = new EventStore(EventsFileName, TypesOfEventsToPersist);
+            ReplayStoredEvents(eventStore);
+            SetupStoringOfEvents(eventStore);
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
+        }
+
+        private void ReplayStoredEvents(EventStore eventStore)
+        {
+            var storedEvents = eventStore.GetReader();
+            var eventReplayer = new EventReplayer();
+            eventReplayer.Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_journeyRepository, _eventBus).Replay);
+            eventReplayer.Register<LiftAddedEvent>(new LiftAddedEventReplayer(_journeyRepository).Replay);
+            eventReplayer.Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_personRepository, _eventBus).Replay);
+            eventReplayer.Replay(storedEvents);
+        }
+
+        private void SetupStoringOfEvents(EventStore eventStore)
+        {
+            var eventWriter = eventStore.GetWriter();
+            _eventBus.RegisterListener<JourneyCreatedEvent>(eventWriter.Write);
+            _eventBus.RegisterListener<LiftAddedEvent>(eventWriter.Write);
+            _eventBus.RegisterListener<PersonCreatedEvent>(eventWriter.Write);
         }
 
         private static void RunInTransaction<TA, TB, TC>(

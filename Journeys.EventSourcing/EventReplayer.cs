@@ -9,14 +9,10 @@ namespace Journeys.EventSourcing
 {
     public class EventReplayer
     {
-        private readonly FileStream _eventStream; 
-        private readonly XmlEventReader _eventReader;
         private readonly Dictionary<Type, Action<object>> _eventHandlers = new Dictionary<Type,Action<object>>();
 
-        public EventReplayer(string fileName, IEnumerable<Type> knownEventTypes)
+        public EventReplayer()
         {
-            _eventStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read, FileShare.Read);
-            _eventReader = new XmlEventReader(_eventStream, knownEventTypes);
         }
 
         public void Register<TEvent>(Action<TEvent> eventHandler)
@@ -24,19 +20,13 @@ namespace Journeys.EventSourcing
             _eventHandlers[typeof(TEvent)] = @event => eventHandler((TEvent)@event);
         }
 
-        public void Replay()
+        public void Replay(IEnumerable<object> events)
         {
-            while (!_eventReader.IsAtEnd)
+            foreach (var @event in events)
             {
-                var @event = _eventReader.Read();
                 var eventHandler = GetEventHandler(@event);
                 eventHandler(@event);
             }
-        }
-
-        public void Close()
-        {
-            _eventStream.Close();
         }
 
         private Action<object> GetEventHandler(object @event)
