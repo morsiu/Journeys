@@ -1,13 +1,8 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Journeys.Data;
+using Journeys.Domain.Infrastructure.Repositories;
 using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.EventSourcing.Replayers
 {

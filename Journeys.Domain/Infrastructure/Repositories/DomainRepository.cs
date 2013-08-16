@@ -1,9 +1,6 @@
-﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Journeys.Data;
-using Journeys.Transactions;
-using System;
+﻿using Journeys.Transactions;
 
-namespace Journeys.Domain.Repositories
+namespace Journeys.Domain.Infrastructure.Repositories
 {
     public class DomainRepository<TEntity> : IDomainRepository<TEntity>, IProvideTransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>

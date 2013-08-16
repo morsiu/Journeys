@@ -1,4 +1,6 @@
-﻿using Journeys.Domain.Infrastructure;
+﻿using System;
+using System.Linq;
+using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Collections;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
@@ -7,8 +9,6 @@ using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Events;
-using System;
-using System.Linq;
 
 namespace Journeys.Domain.Journeys.Operations
 {

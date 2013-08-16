@@ -1,9 +1,5 @@
-﻿using Journeys.Queries.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using Journeys.Queries.Dtos;
 
 namespace Journeys.Queries
 {

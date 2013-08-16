@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Journeys.Data;
 using Journeys.Transactions;
 
-namespace Journeys.Domain.Repositories
+namespace Journeys.Domain.Infrastructure.Repositories
 {
     internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>

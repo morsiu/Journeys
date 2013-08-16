@@ -1,7 +1,6 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
+﻿using System.IO;
 using Journeys.EventSourcing.Test.Events;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Journeys.EventSourcing.Test
 {

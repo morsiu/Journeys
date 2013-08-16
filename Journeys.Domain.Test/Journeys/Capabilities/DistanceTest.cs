@@ -1,6 +1,6 @@
-﻿using Journeys.Domain.Journeys.Capabilities;
+﻿using System;
+using Journeys.Domain.Journeys.Capabilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace Journeys.Domain.Test.Journeys.Capabilities
 {

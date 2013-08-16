@@ -1,9 +1,4 @@
-﻿using Journeys.Domain.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Journeys.Domain.Infrastructure.Repositories;
 
 namespace Journeys.Domain
 {

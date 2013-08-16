@@ -48,7 +48,7 @@
     <Compile Include="Infrastructure\Markers\RepositoryAttribute.cs" />
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
-    <Compile Include="Journeys\Data\IDomainRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\IDomainRepository.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
     <Compile Include="Journeys\Capabilities\Lift.cs" />
     <Compile Include="Infrastructure\Markers\AggregateAttribute.cs" />
@@ -63,10 +63,10 @@
     </Compile>
     <Compile Include="People\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DomainRepositories.cs" />
-    <Compile Include="Repositories\DomainRepository.cs" />
-    <Compile Include="Repositories\InMemoryRepository.cs" />
-    <Compile Include="Repositories\TransactedDomainRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\DomainRepositories.cs" />
+    <Compile Include="Infrastructure\Repositories\DomainRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\InMemoryRepository.cs" />
+    <Compile Include="Infrastructure\Repositories\TransactedDomainRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Infrastructure\Messages\FailureMessages.resx">

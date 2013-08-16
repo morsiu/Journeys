@@ -1,7 +1,6 @@
-﻿using Journeys.Domain.Infrastructure;
-using Journeys.Eventing;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Journeys.Eventing;
 
 namespace Journeys.Domain.Test.Infrastructure
 {

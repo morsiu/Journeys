@@ -1,7 +1,6 @@
-﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Infrastructure.Markers;
+﻿using Journeys.Domain.Infrastructure.Markers;
 
-namespace Journeys.Domain.Journeys.Data
+namespace Journeys.Domain.Infrastructure.Repositories
 {
     [Repository]
     public interface IDomainRepository<TEntity>

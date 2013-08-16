@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.EventSourcing
 {
-    public class EventStore
+    internal class EventStore
     {
         private readonly string _fileName;
         private readonly IEnumerable<Type> _eventTypesToSupport;

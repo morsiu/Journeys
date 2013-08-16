@@ -1,6 +1,6 @@
-﻿using Journeys.Domain.Infrastructure.Markers;
+﻿using System;
+using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
-using System;
 
 namespace Journeys.Domain.Journeys.Capabilities
 {

@@ -7,7 +7,6 @@ namespace Journeys.Domain.Infrastructure.Exceptions
         public EntityNotFoundException(string message)
             : base(message)
         {
-
         }
     }
 }

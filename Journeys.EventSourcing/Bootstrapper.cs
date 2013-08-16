@@ -1,12 +1,11 @@
-﻿using Journeys.Domain.Journeys.Operations;
+﻿using System;
+using System.Collections.Generic;
+using Journeys.Domain.Infrastructure.Repositories;
+using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
-using Journeys.Domain.Repositories;
 using Journeys.Eventing;
 using Journeys.Events;
-using Journeys.EventSourcing;
 using Journeys.EventSourcing.Replayers;
-using System;
-using System.Collections.Generic;
 
 namespace Journeys.EventSourcing
 {
@@ -44,53 +43,42 @@ namespace Journeys.EventSourcing
         {
             var eventStore = GetEventStore();
             var storedEvents = eventStore.GetReader();
-            var eventReplayer = new EventReplayer();
-            ConfigureReplayer(eventReplayer);
+            var eventReplayer = GetReplayer();
             eventReplayer.Replay(storedEvents);
         }
 
         private void Register<TEvent>(Action<TEvent> replayHandler)
         {
             var eventType = typeof(TEvent);
-            _replayerConfigurators.Add(replayer => replayer.Register<TEvent>(replayHandler));
+            _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));
             _writerConfigurators.Add((writer, bus) => bus.RegisterListener<TEvent>(writer.Write));
             _typesOfEventsToStore.Add(eventType);
         }
-
 
         private void StoreNewEvents()
         {
             var eventStore = GetEventStore();
             var eventWriter = eventStore.GetWriter();
-            ConfigureWriter(eventWriter, _eventBus);
+            foreach (var eventBusConfigurator in _writerConfigurators)
+            {
+                eventBusConfigurator(eventWriter, _eventBus);
+            }
         }
 
         private EventStore GetEventStore()
         {
-            var eventTypesToStore = GetEventTypesForStoring();
-            var eventStore = new EventStore(_eventsFileName, eventTypesToStore);
+            var eventStore = new EventStore(_eventsFileName, _typesOfEventsToStore);
             return eventStore;
         }
 
-        private IEnumerable<Type> GetEventTypesForStoring()
+        private EventReplayer GetReplayer()
         {
-            return _typesOfEventsToStore;
-        }
-
-        private void ConfigureReplayer(EventReplayer replayer)
-        {
+            var replayer = new EventReplayer();
             foreach (var replayerConfigurator in _replayerConfigurators)
             {
                 replayerConfigurator(replayer);
             }
-        }
-
-        private void ConfigureWriter(IEventWriter writer, EventBus eventBus)
-        {
-            foreach (var eventBusConfigurator in _writerConfigurators)
-            {
-                eventBusConfigurator(writer, eventBus);
-            }
+            return replayer;
         }
     }
 }

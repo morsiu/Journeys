@@ -1,19 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Journeys.EventSourcing
 {
-    public class EventReplayer
+    internal class EventReplayer
     {
         private readonly Dictionary<Type, Action<object>> _eventHandlers = new Dictionary<Type,Action<object>>();
-
-        public EventReplayer()
-        {
-        }
 
         public void Register<TEvent>(Action<TEvent> eventHandler)
         {
