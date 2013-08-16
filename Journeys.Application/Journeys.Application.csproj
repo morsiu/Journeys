@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\AddJourneyCommandHandler.cs" />
+    <Compile Include="EventConfiguration\EventConfigurator.cs" />
     <Compile Include="EventReplayers\JourneyCreatedEventReplayer.cs" />
     <Compile Include="EventReplayers\LiftAddedEventReplayer.cs" />
     <Compile Include="EventReplayers\PersonCreatedEventReplayer.cs" />

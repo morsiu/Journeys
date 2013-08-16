@@ -13,19 +13,16 @@ using Journeys.EventSourcing;
 using Journeys.Events;
 using System.Collections.Generic;
 using Journeys.Application.EventReplayers;
+using Journeys.Application.EventConfiguration;
 
 namespace Journeys.Application
 {
     public class Bootstrapper
     {
         private const string EventsFileName = "Events.xml";
-        private static readonly IEnumerable<Type> TypesOfEventsToPersist =
-            new Type[]
-            {
-                typeof(JourneyCreatedEvent), typeof(LiftAddedEvent), typeof(PersonCreatedEvent)
-            };
 
         private readonly EventBus _eventBus;
+        private readonly EventConfigurator _eventConfigurator;
         private readonly DomainRepository<Journey> _journeyRepository;
         private readonly DomainRepository<Person> _personRepository;
 
@@ -34,42 +31,59 @@ namespace Journeys.Application
             _eventBus = eventBus;
             _journeyRepository = new DomainRepository<Journey>();
             _personRepository = new DomainRepository<Person>();
+            _eventConfigurator = GetEventConfigurator();
         }
 
         public ICommandDispatcher CommandDispatcher { get; private set; }
 
         public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
-            var commandProcessor = new CommandProcessor();
+            SetupCommandHandling(queryDispatcher);
+            ReplayStoredEvents();
+            SetupStoringOfEvents();
+        }
 
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd => 
+        private void SetupCommandHandling(IQueryDispatcher queryDispatcher)
+        {
+            var commandProcessor = new CommandProcessor();
+            commandProcessor.SetHandler<AddJourneyCommand>(cmd =>
                 RunInTransaction(
                     (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
                     _eventBus, _journeyRepository, _personRepository));
 
-            var eventStore = new EventStore(EventsFileName, TypesOfEventsToPersist);
-            ReplayStoredEvents(eventStore);
-            SetupStoringOfEvents(eventStore);
-
             CommandDispatcher = new CommandDispatcher(commandProcessor);
         }
 
-        private void ReplayStoredEvents(EventStore eventStore)
+        private EventConfigurator GetEventConfigurator()
         {
+            var configurator = new EventConfigurator();
+            configurator.Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_journeyRepository, _eventBus).Replay);
+            configurator.Register<LiftAddedEvent>(new LiftAddedEventReplayer(_journeyRepository).Replay);
+            configurator.Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_personRepository, _eventBus).Replay);
+            return configurator;
+        }
+
+        private void ReplayStoredEvents()
+        {
+            var eventStore = GetEventStore();
             var storedEvents = eventStore.GetReader();
             var eventReplayer = new EventReplayer();
-            eventReplayer.Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_journeyRepository, _eventBus).Replay);
-            eventReplayer.Register<LiftAddedEvent>(new LiftAddedEventReplayer(_journeyRepository).Replay);
-            eventReplayer.Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_personRepository, _eventBus).Replay);
+            _eventConfigurator.ConfigureReplayer(eventReplayer);
             eventReplayer.Replay(storedEvents);
         }
 
-        private void SetupStoringOfEvents(EventStore eventStore)
+        private void SetupStoringOfEvents()
         {
+            var eventStore = GetEventStore();
             var eventWriter = eventStore.GetWriter();
-            _eventBus.RegisterListener<JourneyCreatedEvent>(eventWriter.Write);
-            _eventBus.RegisterListener<LiftAddedEvent>(eventWriter.Write);
-            _eventBus.RegisterListener<PersonCreatedEvent>(eventWriter.Write);
+            _eventConfigurator.ConfigureWriter(eventWriter, _eventBus);
+        }
+
+        private EventStore GetEventStore()
+        {
+            var eventTypesToStore = _eventConfigurator.GetEventTypesForStoring();
+            var eventStore = new EventStore(EventsFileName, eventTypesToStore);
+            return eventStore;
         }
 
         private static void RunInTransaction<TA, TB, TC>(
