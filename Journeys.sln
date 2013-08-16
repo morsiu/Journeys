@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain", "Journeys
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Test", "Journeys.Domain.Test\Journeys.Domain.Test.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Command", "Journeys.Application\Journeys.Command.csproj", "{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Command", "Journeys.Command\Journeys.Command.csproj", "{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Query", "Journeys.Data\Journeys.Query.csproj", "{9A28BB83-9F0E-4C19-8A18-16AD5D5B0337}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Query", "Journeys.Query\Journeys.Query.csproj", "{9A28BB83-9F0E-4C19-8A18-16AD5D5B0337}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client.Wpf", "Journeys.Client.Wpf\Journeys.Client.Wpf.csproj", "{A4B175A2-82CE-4C15-B34C-644F7B188630}"
 EndProject

@@ -124,7 +124,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Application\Journeys.Command.csproj">
+    <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">
       <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
       <Name>Journeys.Command</Name>
     </ProjectReference>
@@ -132,7 +132,7 @@
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
       <Name>Journeys.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data\Journeys.Query.csproj">
+    <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Query</Name>
     </ProjectReference>
