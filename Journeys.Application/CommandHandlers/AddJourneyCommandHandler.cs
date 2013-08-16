@@ -7,9 +7,10 @@ using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Queries;
+using Journeys.Query;
 using System;
 
-namespace Journeys.Application.CommandHandlers
+namespace Journeys.Command.CommandHandlers
 {
     internal class AddJourneyCommandHandler
     {

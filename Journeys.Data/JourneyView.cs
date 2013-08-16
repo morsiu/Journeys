@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data.Journeys
+namespace Journeys.Query
 {
     internal class JourneyView
     {

@@ -1,4 +1,4 @@
-﻿namespace Journeys.Application.Commands
+﻿namespace Journeys.Command.Infrastructure
 {
     internal delegate void CommandHandler<TCommand>(TCommand command);
 }

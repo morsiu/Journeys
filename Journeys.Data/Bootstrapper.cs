@@ -1,5 +1,4 @@
-﻿using Journeys.Data.Infrastructure;
-using Journeys.Data.Journeys;
+﻿using Journeys.Query.Infrastructure;
 using Journeys.Eventing;
 using Journeys.Events;
 using Journeys.Queries;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data
+namespace Journeys.Query
 {
     public class Bootstrapper
     {

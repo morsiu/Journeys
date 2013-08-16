@@ -75,7 +75,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Events\JourneyAddedEvent.cs" />
-    <Compile Include="Infrastructure\Command.cs" />
+    <Compile Include="Infrastructure\DelegateCommand.cs" />
     <Compile Include="Infrastructure\EventBus.cs" />
     <Compile Include="JourneysControl.cs" />
     <Compile Include="JourneysViewModel.cs" />
@@ -124,17 +124,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Application\Journeys.Application.csproj">
+    <ProjectReference Include="..\Journeys.Application\Journeys.Command.csproj">
       <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
-      <Name>Journeys.Application</Name>
+      <Name>Journeys.Command</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
       <Name>Journeys.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+    <ProjectReference Include="..\Journeys.Data\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
-      <Name>Journeys.Data</Name>
+      <Name>Journeys.Query</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>

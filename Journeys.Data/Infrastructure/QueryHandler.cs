@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data.Infrastructure
+namespace Journeys.Query.Infrastructure
 {
     internal delegate TResult QueryHandler<TQuery, TResult>(TQuery query)
         where TQuery : IQuery<TResult>;

@@ -1,10 +1,8 @@
-﻿using Journeys.Application;
-using Journeys.Application.Commands;
+﻿using Journeys.Command;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Commands;
-using Journeys.Data;
-using Journeys.Data.Journeys;
+using Journeys.Query;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using System;

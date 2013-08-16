@@ -1,19 +1,20 @@
 ﻿using System;
-using Journeys.Application.Commands;
+using Journeys.Command.Infrastructure;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.Infrastructure;
 using Journeys.Eventing;
 using Journeys.Transactions;
 using Journeys.Commands;
-using Journeys.Application.CommandHandlers;
+using Journeys.Command.CommandHandlers;
 using Journeys.Data;
 using Journeys.Domain.People;
 using Journeys.EventSourcing;
 using Journeys.Events;
 using System.Collections.Generic;
 using Journeys.Domain.Repositories;
+using Journeys.Query;
 
-namespace Journeys.Application
+namespace Journeys.Command
 {
     public class Bootstrapper
     {

@@ -1,4 +1,4 @@
-﻿namespace Journeys.Application
+﻿namespace Journeys.Command
 {
     public interface ICommandDispatcher
     {

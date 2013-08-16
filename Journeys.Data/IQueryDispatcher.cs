@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data
+namespace Journeys.Query
 {
     public interface IQueryDispatcher
     {

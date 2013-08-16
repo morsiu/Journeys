@@ -1,4 +1,4 @@
-﻿using Journeys.Application;
+﻿using Journeys.Command;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Commands;
@@ -22,7 +22,7 @@ namespace Journeys.Client.Wpf
         {
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;
-            AddJourneyCommand = new Command(AddJourney);
+            AddJourneyCommand = new DelegateCommand(AddJourney);
             DateOfJourneyOccurrence = DateTime.Now;
             Notification = new NotifierViewModel();
         }

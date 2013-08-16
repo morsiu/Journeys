@@ -3,6 +3,7 @@ using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Data;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
+using Journeys.Query;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Application.Messages {
+namespace Journeys.Command.Messages {
     using System;
     
     

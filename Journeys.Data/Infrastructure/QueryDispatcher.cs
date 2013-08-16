@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Data.Infrastructure
+namespace Journeys.Query.Infrastructure
 {
     internal class QueryDispatcher : IQueryDispatcher
     {
