@@ -10,24 +10,25 @@ namespace Journeys.Eventing
 
         public void RegisterListener<TEvent>(EventListener<TEvent> listener)
         {
+            var publisher = GetPublisher<TEvent>();
+            publisher.RegisterListener(listener);
+        }
+
+        public void Publish<TEvent>(TEvent @event)
+        {
+            var publisher = GetPublisher<TEvent>();
+            publisher.Publish(@event);
+        }
+
+        private EventPublisher<TEvent> GetPublisher<TEvent>()
+        {
             var eventType = typeof(TEvent);
             if (!_eventPublishers.ContainsKey(eventType))
             {
                 _eventPublishers[eventType] = new EventPublisher<TEvent>();
             }
             var publisher = (EventPublisher<TEvent>)_eventPublishers[eventType];
-            publisher.RegisterListener(listener);
-        }
-
-        public void Publish<TEvent>(TEvent @event)
-        {
-            var eventType = typeof(TEvent);
-            if (!_eventPublishers.ContainsKey(eventType))
-            {
-                return;
-            }
-            var publisher = (EventPublisher<TEvent>)_eventPublishers[eventType];
-            publisher.Publish(@event);
+            return publisher;
         }
 
         ITransacted<IEventBus> IProvideTransacted<IEventBus>.Lift()
