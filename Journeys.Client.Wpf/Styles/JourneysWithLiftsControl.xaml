@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:j="clr-namespace:Journeys.Client.Wpf"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="j:JourneysWithLiftsControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="j:JourneysWithLiftsControl">
+                    <DataGrid x:Name="JourneysWithLiftsList"
+                              AutoGenerateColumns="False"
+                              ItemsSource="{Binding Items}"
+                              IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence"/>
+                            <DataGridTextColumn Binding="{Binding Distance}" Header="Distance"/>
+                            <DataGridTextColumn Binding="{Binding PassengerName}" Header="Passenger name"/>
+                            <DataGridTextColumn Binding="{Binding PassengerLiftDistance}" Header="Passenger lift distance"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

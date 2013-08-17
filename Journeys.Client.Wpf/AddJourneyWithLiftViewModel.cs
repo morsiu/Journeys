@@ -40,7 +40,7 @@ namespace Journeys.Client.Wpf
             try
             {
                 _commandDispatcher.Dispatch(new AddJourneyWithLiftCommand(journeyId, JourneyDistance, DateOfJourneyOccurrence, personName, LiftDistance));
-                _eventBus.Publish(new JourneyAddedEvent(journeyId));
+                _eventBus.Publish(new JourneyWithLiftAddedEvent(journeyId));
                 Notification.Replace(new SuccessNotification("Added successfuly."));
             }
             catch (Exception e)

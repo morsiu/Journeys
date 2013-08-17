@@ -10,9 +10,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <j:AddJourneyControl x:Name="AddJourney" 
+        <j:AddJourneyWithLiftControl x:Name="AddJourney" 
                              HorizontalAlignment="Left"/>
-        <j:JourneysControl x:Name="Journeys"
+        <j:JourneysWithLiftsControl x:Name="Journeys"
                            Grid.Row="1" />
     </Grid>
 </Window>
