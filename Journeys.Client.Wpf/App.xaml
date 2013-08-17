@@ -4,8 +4,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles\AddJourneyControl.xaml" />
-                <ResourceDictionary Source="Styles\JourneysControl.xaml" />
+                <ResourceDictionary Source="Styles\AddJourneyWithLiftControl.xaml" />
+                <ResourceDictionary Source="Styles\JourneysWithLiftsControl.xaml" />
                 <ResourceDictionary Source="Styles\NotifierControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
