@@ -120,4 +120,7 @@
   <data name="NoHandlerRegisteredForQueryOfType" xml:space="preserve">
     <value>There is no handler registered for query of type `{0}`.</value>
   </data>
+  <data name="NothingObjectHasNoValue" xml:space="preserve">
+    <value>Nothing object has no value.</value>
+  </data>
 </root>

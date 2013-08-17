@@ -1,31 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
 using Journeys.Events;
 using Journeys.Queries;
+using Journeys.Query.Infrastructure.Views;
 
 namespace Journeys.Query
 {
     internal class PersonView
     {
-        private readonly Dictionary<Guid, string> _personNames = new Dictionary<Guid, string>();
-        private readonly Dictionary<string, Guid> _personByNameLookup = new Dictionary<string, Guid>();
+        private readonly Lookup<Guid, string> _peopleNames = new Lookup<Guid, string>();
+        private readonly Lookup<string, Guid> _peopleByNames = new Lookup<string, Guid>();
 
-        public Guid? Execute(GetIdOfPersonWithNameQuery query)
+        public Guid? Execute(GetPersonIdByNameQuery query)
         {
-            return query.PersonName != null && _personByNameLookup.ContainsKey(query.PersonName)
-                ? _personByNameLookup[query.PersonName]
-                : default(Guid?);
+            var result = _peopleByNames.Get(query.PersonName);
+            return result.HasValue ? result.Value : default(Guid?);
         }
 
         public string Execute(GetPersonNameQuery query)
         {
-            return _personNames[query.PersonId];
+            return _peopleNames.Get(query.PersonId, () => null);
         }
 
         public void Update(PersonCreatedEvent @event)
         {
-            _personNames[@event.PersonId] = @event.PersonName;
-            _personByNameLookup[@event.PersonName] = @event.PersonId;
+            _peopleNames.Set(@event.PersonId, @event.PersonName);
+            _peopleByNames.Set(@event.PersonName, @event.PersonId);
         }
     }
 }

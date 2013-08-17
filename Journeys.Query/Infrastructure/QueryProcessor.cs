@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Journeys.Data.Messages;
 using Journeys.Queries;
+using Journeys.Query.Messages;
 
 namespace Journeys.Query.Infrastructure
 {

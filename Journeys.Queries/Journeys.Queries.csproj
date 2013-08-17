@@ -34,7 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetIdOfPersonWithNameQuery.cs" />
+    <Compile Include="GetPersonIdByNameQuery.cs" />
     <Compile Include="GetAllJourneysWithLiftsQuery.cs" />
     <Compile Include="Dtos\JourneyWithLift.cs" />
     <Compile Include="GetJourneyWithLiftById.cs" />

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Data.Messages {
+namespace Journeys.Query.Messages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Journeys.Data.Messages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Data.Messages.FailureMessages", typeof(FailureMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Query.Messages.FailureMessages", typeof(FailureMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,15 @@ namespace Journeys.Data.Messages {
         internal static string NoHandlerRegisteredForQueryOfType {
             get {
                 return ResourceManager.GetString("NoHandlerRegisteredForQueryOfType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing object has no value..
+        /// </summary>
+        internal static string NothingObjectHasNoValue {
+            get {
+                return ResourceManager.GetString("NothingObjectHasNoValue", resourceCulture);
             }
         }
     }

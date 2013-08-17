@@ -6,7 +6,7 @@ namespace Journeys.Queries
 {
     public class GetJourneysWithLiftsByJourneyIdQuery : IQuery<IEnumerable<JourneyWithLift>>
     {
-        public Guid JourneyId { get; set; }
+        public Guid JourneyId { get; private set; }
 
         public GetJourneysWithLiftsByJourneyIdQuery(Guid journeyId)
         {

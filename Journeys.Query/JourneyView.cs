@@ -4,12 +4,17 @@ using System.Linq;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
+using Journeys.Query.Infrastructure.Views;
 
 namespace Journeys.Query
 {
+    using EmptyJourney = JourneyCreatedEvent;
+    using JourneyWithLiftKey = Tuple<Guid, Guid>;
+
     internal class JourneyView
     {
-        private readonly HashSet<JourneyWithLift> _elements = new HashSet<JourneyWithLift>(new Comparer());
+        private readonly Set<Guid, EmptyJourney> _emptyJourneys = new Set<Guid, EmptyJourney>(GetKey);
+        private readonly Set<JourneyWithLiftKey, JourneyWithLift> _journeysWithLifts = new Set<JourneyWithLiftKey, JourneyWithLift>(GetKey);
         private readonly IQueryDispatcher _queryDispather;
 
         public JourneyView(IQueryDispatcher queryDispatcher)
@@ -19,77 +24,63 @@ namespace Journeys.Query
 
         public IEnumerable<JourneyWithLift> Execute(GetAllJourneysWithLiftsQuery query)
         {
-            return GetValidJourneysWithLiftsSorted()
+            return GetSortedJourneysWithLifts()
                 .ToList();
         }
 
         public IEnumerable<JourneyWithLift> Execute(GetJourneysWithLiftsByJourneyIdQuery query)
         {
-            return GetValidJourneysWithLiftsSorted()
+            return GetSortedJourneysWithLifts()
                 .Where(e => e.JourneyId == query.JourneyId)
                 .ToList();
         }
 
-        private IEnumerable<JourneyWithLift> GetValidJourneysWithLiftsSorted()
+        public void Update(JourneyCreatedEvent @event)
         {
-            return _elements
-                .Where(e => e.PassengerId.HasValue)
+            _emptyJourneys.Add(@event);
+        }
+
+        public void Update(LiftAddedEvent @event)
+        {
+            var emptyJourney = _emptyJourneys.Get(@event.JourneyId);
+            var journeyWithLift = Create(emptyJourney, @event);
+            _journeysWithLifts.Add(journeyWithLift);
+        }
+
+        private IEnumerable<JourneyWithLift> GetSortedJourneysWithLifts()
+        {
+            return _journeysWithLifts.Retrieve()
                 .OrderBy(e => e.DateOfOccurrence)
                 .ThenBy(e => e.JourneyId)
                 .ThenBy(e => e.PassengerName)
                 .ThenBy(e => e.PassengerId);
         }
 
-        public void Update(JourneyCreatedEvent @event)
+        private JourneyWithLift Create(EmptyJourney emptyJourney, LiftAddedEvent liftAddedEvent)
         {
-            var newElement =
-                new JourneyWithLift
-                {
-                    JourneyId = @event.JourneyId,
-                    Distance = @event.RouteDistance,
-                    DateOfOccurrence = @event.DateOfOccurrence,
-                };
-            _elements.Add(newElement);
+            var passengerName = GetPassengerName(liftAddedEvent.PersonId);
+            return new JourneyWithLift(
+                emptyJourney.JourneyId,
+                liftAddedEvent.PersonId,
+                emptyJourney.DateOfOccurrence,
+                emptyJourney.RouteDistance,
+                passengerName,
+                liftAddedEvent.LiftDistance);
         }
 
-        public void Update(LiftAddedEvent @event)
+        private static JourneyWithLiftKey GetKey(JourneyWithLift value)
         {
-            var element = _elements.SingleOrDefault(e => e.JourneyId == @event.JourneyId && e.PassengerId == @event.PersonId);
-            if (element == null)
-            {
-                var emptyElement = _elements.Single(e => e.JourneyId == @event.JourneyId && !e.PassengerId.HasValue);
-                element =
-                    new JourneyWithLift
-                    {
-                        JourneyId = @event.JourneyId,
-                        DateOfOccurrence = emptyElement.DateOfOccurrence,
-                        Distance = emptyElement.Distance,
-                        PassengerId = @event.PersonId,
-                        PassengerName = GetPassengerName(@event.PersonId),
-                        PassengerLiftDistance = @event.LiftDistance
-                    };
-            }
-            element.PassengerLiftDistance = @event.LiftDistance;
-            element.PassengerId = @event.PersonId;
-            _elements.Add(element);
+            return Tuple.Create(value.JourneyId, value.PassengerId);
+        }
+
+        private static Guid GetKey(EmptyJourney @event)
+        {
+            return @event.JourneyId;
         }
 
         private string GetPassengerName(Guid personId)
         {
             return _queryDispather.Dispatch(new GetPersonNameQuery(personId));
-        }
-
-        private class Comparer : IEqualityComparer<JourneyWithLift>
-        {
-            public bool Equals(JourneyWithLift x, JourneyWithLift y)
-            {
-                return x.JourneyId == y.JourneyId && x.PassengerId == y.PassengerId;
-            }
-
-            public int GetHashCode(JourneyWithLift obj)
-            {
-                return obj.JourneyId.GetHashCode() * 37 + obj.PassengerId.GetHashCode();
-            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Journeys.Query
 
             var personView = new PersonView();
             queryProcessor.SetHandler<GetPersonNameQuery, string>(personView.Execute);
-            queryProcessor.SetHandler<GetIdOfPersonWithNameQuery, Guid?>(personView.Execute);
+            queryProcessor.SetHandler<GetPersonIdByNameQuery, Guid?>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             var journeyView = new JourneyView(queryDispatcher);

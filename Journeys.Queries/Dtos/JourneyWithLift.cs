@@ -4,16 +4,32 @@ namespace Journeys.Queries.Dtos
 {
     public class JourneyWithLift
     {
-        public Guid JourneyId { get; set; }
+        public JourneyWithLift(
+            Guid journeyId, 
+            Guid passengerId,
+            DateTime dateOfOccurrence,
+            decimal distance,
+            string passengerName,
+            decimal passengerLiftDistance)
+        {
+            JourneyId = journeyId;
+            PassengerId = passengerId;
+            DateOfOccurrence = dateOfOccurrence;
+            Distance = distance;
+            PassengerName = passengerName;
+            PassengerLiftDistance = passengerLiftDistance;
+        }
 
-        public Guid? PassengerId { get; set; }
+        public Guid JourneyId { get; private set; }
 
-        public DateTime DateOfOccurrence { get; set; }
+        public Guid PassengerId { get; private set; }
 
-        public decimal Distance { get; set; }
+        public DateTime DateOfOccurrence { get; private set; }
 
-        public string PassengerName { get; set; }
+        public decimal Distance { get; private set; }
 
-        public decimal? PassengerLiftDistance { get; set; }
+        public string PassengerName { get; private set; }
+
+        public decimal PassengerLiftDistance { get; private set; }
     }
 }

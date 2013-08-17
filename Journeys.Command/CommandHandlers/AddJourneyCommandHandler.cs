@@ -42,7 +42,7 @@ namespace Journeys.Command.CommandHandlers
 
         private Id<Person> GetPersonWithName(string personName)
         {
-            var personId = _queryDispatcher.Dispatch(new GetIdOfPersonWithNameQuery(personName));
+            var personId = _queryDispatcher.Dispatch(new GetPersonIdByNameQuery(personName));
             if (!personId.HasValue)
             {
                 personId = Guid.NewGuid();
