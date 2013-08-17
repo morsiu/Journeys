@@ -35,7 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CommandHandlers\AddJourneyCommandHandler.cs" />
+    <Compile Include="CommandHandlers\AddJourneyWithLiftCommandHandler.cs" />
     <Compile Include="Infrastructure\CommandDispatcher.cs" />
     <Compile Include="Infrastructure\CommandHandler.cs" />
     <Compile Include="Infrastructure\CommandProcessor.cs" />

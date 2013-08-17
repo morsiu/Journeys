@@ -9,7 +9,7 @@ namespace Journeys.Client.Wpf
         internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, EventBus eventBus)
         {
             InitializeComponent();
-            AddJourney.DataContext = new AddJourneyViewModel(commandDispatcher, eventBus);
+            AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus);
             var journeysViewModel = new JourneysViewModel(eventBus, queryDispatcher);
             Journeys.DataContext = journeysViewModel;
             journeysViewModel.Reload();

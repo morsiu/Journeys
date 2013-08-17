@@ -27,9 +27,9 @@ namespace Journeys.Command
         public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
             var commandProcessor = new CommandProcessor();
-            commandProcessor.SetHandler<AddJourneyCommand>(cmd =>
+            commandProcessor.SetHandler<AddJourneyWithLiftCommand>(cmd =>
                 RunInTransaction(
-                    (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
+                    (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyWithLiftCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
                     _eventBus, _domainRepositories.Get<Journey>(), _domainRepositories.Get<Person>()));
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
