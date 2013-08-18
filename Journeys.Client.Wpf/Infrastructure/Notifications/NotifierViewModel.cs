@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Infrastructure.Notifications
 {
     internal class NotifierViewModel
     {

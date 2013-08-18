@@ -1,13 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:j="clr-namespace:Journeys.Client.Wpf"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style TargetType="j:JourneysByPassengerThenDayControl">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay">
+    <Style TargetType="f:JourneysByPassengerThenDayControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="j:JourneysByPassengerThenDayControl">
+                <ControlTemplate TargetType="f:JourneysByPassengerThenDayControl">
                     <ControlTemplate.Resources>
-                        <DataTemplate DataType="{x:Type j:JourneysByDayForPassengerViewModel}">
-                            <j:JourneysByDayControl/>
+                        <DataTemplate DataType="{x:Type f:JourneysByDayForPassengerViewModel}">
+                            <f:JourneysByDayControl/>
                         </DataTemplate>
                         <Style TargetType="TabItem">
                             <Setter Property="HeaderTemplate">

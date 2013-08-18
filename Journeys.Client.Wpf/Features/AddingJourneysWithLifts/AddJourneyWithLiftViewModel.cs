@@ -2,10 +2,11 @@
 using System.Windows.Input;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
+using Journeys.Client.Wpf.Infrastructure.Notifications;
 using Journeys.Command;
 using Journeys.Commands;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Features.AddingJourneysWithLifts
 {
     internal class AddJourneyWithLiftViewModel
     {

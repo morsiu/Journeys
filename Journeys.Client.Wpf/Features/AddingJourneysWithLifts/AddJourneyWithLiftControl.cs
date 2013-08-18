@@ -4,7 +4,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Features.AddingJourneysWithLifts
 {
     internal class AddJourneyWithLiftControl : Control
     {

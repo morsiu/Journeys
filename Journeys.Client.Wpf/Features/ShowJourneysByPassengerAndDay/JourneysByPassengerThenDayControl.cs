@@ -2,7 +2,7 @@
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
 {
     internal class JourneysByPassengerThenDayControl : Control
     {

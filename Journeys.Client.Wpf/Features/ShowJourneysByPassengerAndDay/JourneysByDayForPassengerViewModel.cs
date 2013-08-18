@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using Journeys.Queries.Dtos;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
 {
     internal class JourneysByDayForPassengerViewModel
     {

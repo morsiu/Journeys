@@ -5,7 +5,7 @@ using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query;
 
-namespace Journeys.Client.Wpf
+namespace Journeys.Client.Wpf.Features.ShowJourneysWithLifts
 {
     internal class JourneysWithLiftsViewModel
     {

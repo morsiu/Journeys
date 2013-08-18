@@ -1,10 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:j="clr-namespace:Journeys.Client.Wpf"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style TargetType="j:AddJourneyWithLiftControl">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.AddingJourneysWithLifts"
+                    xmlns:n="clr-namespace:Journeys.Client.Wpf.Infrastructure.Notifications">
+    <Style TargetType="f:AddJourneyWithLiftControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="j:AddJourneyWithLiftControl">
+                <ControlTemplate TargetType="f:AddJourneyWithLiftControl">
                     <Grid>
                         <ToggleButton x:Name="ContentToggler"
                                       Content="Add journey"/>
@@ -51,7 +52,7 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <j:NotifierControl DataContext="{Binding Notification}" />
+                                    <n:NotifierControl DataContext="{Binding Notification}" />
                                     <Button x:Name="AddButton"
                                             Grid.Column="1"
                                             HorizontalAlignment="Right"

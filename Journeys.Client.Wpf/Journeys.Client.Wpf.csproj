@@ -54,20 +54,22 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ErrorNotification.cs" />
-    <Compile Include="JourneysByDayForPassengerViewModel.cs" />
-    <Compile Include="JourneysByDayControl.cs" />
-    <Compile Include="JourneysByPassengerThenDayControl.cs" />
-    <Compile Include="JourneysByPassengerThenDayViewModel.cs" />
-    <Compile Include="NotifierControl.cs" />
-    <Compile Include="NotifierViewModel.cs" />
-    <Compile Include="SuccessNotification.cs" />
+    <Compile Include="Features\AddingJourneysWithLifts\AddJourneyWithLiftControl.cs" />
+    <Compile Include="Features\AddingJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
+    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.cs" />
+    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayForPassengerViewModel.cs" />
+    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.cs" />
+    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayViewModel.cs" />
+    <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.cs" />
+    <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsViewModel.cs" />
+    <Compile Include="Infrastructure\Notifications\ErrorNotification.cs" />
+    <Compile Include="Infrastructure\Notifications\NotifierControl.cs" />
+    <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
+    <Compile Include="Infrastructure\Notifications\SuccessNotification.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AddJourneyWithLiftControl.cs" />
-    <Compile Include="AddJourneyWithLiftViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -75,8 +77,6 @@
     <Compile Include="Events\JourneyWithLiftAddedEvent.cs" />
     <Compile Include="Infrastructure\DelegateCommand.cs" />
     <Compile Include="Infrastructure\EventBus.cs" />
-    <Compile Include="JourneysWithLiftsControl.cs" />
-    <Compile Include="JourneysWithLiftsViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
