@@ -6,9 +6,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="f:JourneysByDayControl">
                     <Grid>
-                        <DataGrid ItemsSource="{Binding Items}">
-                            
-                        </DataGrid>
+                        <DataGrid ItemsSource="{Binding Items}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
