@@ -4,11 +4,11 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles\AddJourneyWithLiftControl.xaml" />
-                <ResourceDictionary Source="Styles\JourneysWithLiftsControl.xaml" />
-                <ResourceDictionary Source="Styles\NotifierControl.xaml" />
-                <ResourceDictionary Source="Styles\JourneysByDayControl.xaml" />
-                <ResourceDictionary Source="Styles\JourneysByPassengerThenDayControl.xaml" />
+                <ResourceDictionary Source="Infrastructure\Notifications\NotifierControl.xaml" />
+                <ResourceDictionary Source="Features\AddingJourneysWithLifts\AddJourneyWithLiftControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
