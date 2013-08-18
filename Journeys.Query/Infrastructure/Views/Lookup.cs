@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Journeys.Query.Infrastructure.Views
 {
+    /// <summary>
+    /// Stores values accessible by keys.
+    /// The keys may be unrelated to values.
+    /// </summary>
     internal class Lookup<TKey, TValue>
     {
         private readonly Dictionary<TKey, TValue> _values = new Dictionary<TKey, TValue>();
