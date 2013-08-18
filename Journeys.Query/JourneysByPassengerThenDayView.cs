@@ -39,9 +39,11 @@ namespace Journeys.Query
         {
             var journeysByDayForPassenger = _journeysByPassengerThenDate.Get(query.PassengerId, () => new Set<DateTime, JourneysByDay>(GetKey));
             var journeysByDays = journeysByDayForPassenger.Retrieve();
-            return Enumerable.Where(
-                journeysByDays,
-                i => i.Date <= query.PeriodEnd.Date && i.Date >= query.PeriodStart.Date);
+            return Enumerable.OrderBy(
+                Enumerable.Where(
+                    journeysByDays,
+                    i => i.Date <= query.PeriodEnd.Date && i.Date >= query.PeriodStart.Date),
+                i => i.Date);
         }
 
         private static Guid GetKey(Journey @event)
