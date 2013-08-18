@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Journeys.Query.Infrastructure.Views
 {
+    /// <summary>
+    /// Stores values that are accessible by keys.
+    /// The keys are computed from values.
+    /// </summary>
     internal class Set<TKey, TValue>
     {
         private readonly Func<TValue, TKey> _keyGenerator;
