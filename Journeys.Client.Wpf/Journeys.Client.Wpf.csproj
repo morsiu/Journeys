@@ -55,6 +55,10 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="ErrorNotification.cs" />
+    <Compile Include="JourneysByDayForPassengerViewModel.cs" />
+    <Compile Include="JourneysByDayControl.cs" />
+    <Compile Include="JourneysByPassengerThenDayControl.cs" />
+    <Compile Include="JourneysByPassengerThenDayViewModel.cs" />
     <Compile Include="NotifierControl.cs" />
     <Compile Include="NotifierViewModel.cs" />
     <Compile Include="SuccessNotification.cs" />
@@ -77,6 +81,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\JourneysByPassengerThenDayControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\JourneysByDayControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Styles\JourneysWithLiftsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

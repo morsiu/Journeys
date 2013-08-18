@@ -28,6 +28,14 @@ namespace Journeys.Query.Infrastructure.Views
             _values[newKey] = updater(value);
         }
 
+        public void UpdateOrAdd(TKey key, Func<TValue> newValue, Func<TValue, TValue> update)
+        {
+            var value = !_values.ContainsKey(key) ? newValue() : _values[key];
+            var updatedValue = update(value);
+            var updatedValueKey = _keyGenerator(updatedValue);
+            _values[updatedValueKey] = updatedValue;
+        }
+
         public TValue Get(TKey key)
         {
             return _values[key];

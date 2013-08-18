@@ -10,9 +10,9 @@ namespace Journeys.Client.Wpf
         {
             InitializeComponent();
             AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus);
-            var journeysViewModel = new JourneysWithLiftsViewModel(eventBus, queryDispatcher);
-            Journeys.DataContext = journeysViewModel;
-            journeysViewModel.Reload();
+            var journeysByPassengerThenDayViewModel = new JourneysByPassengerThenDayViewModel(queryDispatcher, eventBus);
+            journeysByPassengerThenDayViewModel.Reload();
+            JourneysByPassengerThenDay.DataContext = journeysByPassengerThenDayViewModel;
         }        
     }
 }

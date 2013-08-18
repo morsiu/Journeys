@@ -27,6 +27,7 @@ namespace Journeys.Query
             var personView = new PersonView();
             queryProcessor.SetHandler<GetPersonNameQuery, string>(personView.Execute);
             queryProcessor.SetHandler<GetPersonIdByNameQuery, Guid?>(personView.Execute);
+            queryProcessor.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             var journeyView = new JourneysWithLiftsView(queryDispatcher);
@@ -34,6 +35,11 @@ namespace Journeys.Query
             queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
+
+            var journeysByPassengerThenDayView = new JourneysByPassengerThenDayView();
+            queryProcessor.SetHandler<GetJourneysByDayForPassengerInPeriodQuery, IEnumerable<JourneysByDay>>(journeysByPassengerThenDayView.Execute);
+            _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenDayView.Handle);
+            _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenDayView.Handle);
 
             QueryDispatcher = new QueryDispatcher(queryProcessor);
         }

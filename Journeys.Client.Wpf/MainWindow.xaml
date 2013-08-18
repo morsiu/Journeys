@@ -12,7 +12,9 @@
         </Grid.RowDefinitions>
         <j:AddJourneyWithLiftControl x:Name="AddJourney" 
                              HorizontalAlignment="Left"/>
-        <j:JourneysWithLiftsControl x:Name="Journeys"
-                           Grid.Row="1" />
+        <!--<j:JourneysWithLiftsControl x:Name="Journeys"
+                           Grid.Row="1" />-->
+        <j:JourneysByPassengerThenDayControl x:Name="JourneysByPassengerThenDay"
+                                             Grid.Row="1"/>
     </Grid>
 </Window>

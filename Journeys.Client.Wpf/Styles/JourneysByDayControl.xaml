@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:j="clr-namespace:Journeys.Client.Wpf"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style TargetType="j:JourneysByDayControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="j:JourneysByDayControl">
+                    <Grid>
+                        <DataGrid ItemsSource="{Binding Items}">
+                            
+                        </DataGrid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

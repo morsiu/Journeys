@@ -34,11 +34,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\JourneysByDay.cs" />
+    <Compile Include="Dtos\PersonName.cs" />
+    <Compile Include="GetJourneysByDayForPassengerInPeriodQuery.cs" />
     <Compile Include="GetPersonIdByNameQuery.cs" />
     <Compile Include="GetAllJourneysWithLiftsQuery.cs" />
     <Compile Include="Dtos\JourneyWithLift.cs" />
     <Compile Include="GetJourneyWithLiftById.cs" />
     <Compile Include="GetPersonNameQuery.cs" />
+    <Compile Include="GetPeopleNamesQuery.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

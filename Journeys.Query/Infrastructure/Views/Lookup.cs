@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Journeys.Query.Infrastructure.Views
 {
@@ -22,6 +23,18 @@ namespace Journeys.Query.Infrastructure.Views
             return new Nothing<TValue>();
         }
 
+        public TValue GetOrAdd(TKey key, Func<TValue> newValue)
+        {
+            var result = Get(key);
+            if (result.HasValue)
+            {
+                return result.Value;
+            }
+            var value = newValue();
+            Set(key, value);
+            return value;
+        }
+
         public TValue Get(TKey key, Func<TValue> defaultValue)
         {
             var result = Get(key);
@@ -30,6 +43,11 @@ namespace Journeys.Query.Infrastructure.Views
                 return result.Value;
             }
             return defaultValue();
+        }
+
+        public IEnumerable<KeyValuePair<TKey, TValue>> Retrieve()
+        {
+            return _values;
         }
     }
 }
