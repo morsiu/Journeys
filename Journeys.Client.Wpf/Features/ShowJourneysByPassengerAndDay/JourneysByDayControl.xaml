@@ -6,7 +6,20 @@
             <Setter.Value>
                 <ControlTemplate TargetType="f:JourneysByDayControl">
                     <Grid>
-                        <DataGrid ItemsSource="{Binding Items}" />
+                        <DataGrid ItemsSource="{Binding Items}"
+                                  AutoGenerateColumns="False"
+                                  IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Binding="{Binding Date, StringFormat=d}"
+                                                    Header="Date"/>
+                                <DataGridTextColumn Binding="{Binding JourneyCount}"
+                                                    Header="Journey count"/>
+                                <DataGridTextColumn Binding="{Binding TotalJourneysDistance}"
+                                                    Header="Total journey distance"/>
+                                <DataGridTextColumn Binding="{Binding TotalLiftDistance}"
+                                                    Header="Total lift distance"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
