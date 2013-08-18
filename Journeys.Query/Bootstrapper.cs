@@ -29,7 +29,7 @@ namespace Journeys.Query
             queryProcessor.SetHandler<GetPersonIdByNameQuery, Guid?>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
-            var journeyView = new JourneyView(queryDispatcher);
+            var journeyView = new JourneysWithLiftsView(queryDispatcher);
             queryProcessor.SetHandler<GetJourneysWithLiftsByJourneyIdQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
             queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
