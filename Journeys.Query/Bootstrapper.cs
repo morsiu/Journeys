@@ -25,21 +25,21 @@ namespace Journeys.Query
             var queryDispatcher = new QueryDispatcher(queryProcessor);
 
             var personView = new PersonView();
-            queryProcessor.SetHandler<GetPersonNameQuery, string>(personView.Execute);
+            queryProcessor.SetHandler<GetPersonNameByIdQuery, string>(personView.Execute);
             queryProcessor.SetHandler<GetPersonIdByNameQuery, Guid?>(personView.Execute);
             queryProcessor.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             var journeyView = new JourneysWithLiftsView(queryDispatcher);
             queryProcessor.SetHandler<GetJourneysWithLiftsByJourneyIdQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
-            queryProcessor.SetHandler<GetAllJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
+            queryProcessor.SetHandler<GetJourneysWithLiftsQuery, IEnumerable<JourneyWithLift>>(journeyView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
 
             var journeysByPassengerThenDayView = new JourneysByPassengerThenDayView();
-            queryProcessor.SetHandler<GetJourneysByDayForPassengerInPeriodQuery, IEnumerable<JourneysByDay>>(journeysByPassengerThenDayView.Execute);
-            _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenDayView.Handle);
-            _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenDayView.Handle);
+            queryProcessor.SetHandler<GetJourneysByDayForPassengerInPeriodQuery, IEnumerable<JourneysOnDay>>(journeysByPassengerThenDayView.Execute);
+            _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenDayView.Update);
+            _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenDayView.Update);
 
             QueryDispatcher = new QueryDispatcher(queryProcessor);
         }

@@ -18,17 +18,17 @@ namespace Journeys.Client.Wpf.Features.AddingJourneysWithLifts
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;
             AddJourneyCommand = new DelegateCommand(AddJourney);
-            DateOfJourneyOccurrence = DateTime.Now;
+            DateOfOccurrence = DateTime.Now.Date;
             Notification = new NotifierViewModel();
         }
 
-        public decimal JourneyDistance { get; set; }
+        public decimal RouteDistance { get; set; }
 
         public decimal LiftDistance { get; set; }
 
         public string PassengerName { get; set; }
 
-        public DateTime DateOfJourneyOccurrence { get; set; }
+        public DateTime DateOfOccurrence { get; set; }
 
         public ICommand AddJourneyCommand { get; private set; }
 
@@ -40,7 +40,7 @@ namespace Journeys.Client.Wpf.Features.AddingJourneysWithLifts
             var journeyId = Guid.NewGuid();
             try
             {
-                _commandDispatcher.Dispatch(new AddJourneyWithLiftCommand(journeyId, JourneyDistance, DateOfJourneyOccurrence, personName, LiftDistance));
+                _commandDispatcher.Dispatch(new AddJourneyWithLiftCommand(journeyId, RouteDistance, DateOfOccurrence, personName, LiftDistance));
                 _eventBus.Publish(new JourneyWithLiftAddedEvent(journeyId));
                 Notification.Replace(new SuccessNotification("Added successfuly."));
             }

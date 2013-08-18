@@ -6,9 +6,9 @@ namespace Journeys.Commands
     {
         public Guid JourneyId { get; private set; }
 
-        public decimal JourneyDistance { get; private set; }
+        public decimal RouteDistance { get; private set; }
 
-        public DateTime JourneyDateOfOccurrence { get; private set; }
+        public DateTime DateOfOccurrence { get; private set; }
 
         public string PersonName { get; private set; }
 
@@ -16,14 +16,14 @@ namespace Journeys.Commands
 
         public AddJourneyWithLiftCommand(
             Guid journeyId,
-            decimal journeyDistance,
-            DateTime journeyDateOfOccurrence,
+            decimal routeDistance,
+            DateTime dateOfOccurrence,
             string personName,
             decimal liftDistance)
         {
             JourneyId = journeyId;
-            JourneyDistance = journeyDistance;
-            JourneyDateOfOccurrence = journeyDateOfOccurrence;
+            RouteDistance = routeDistance;
+            DateOfOccurrence = dateOfOccurrence;
             PersonName = personName;
             LiftDistance = liftDistance;
         }

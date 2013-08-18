@@ -11,7 +11,7 @@
                               IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Binding="{Binding DateOfOccurrence}" Header="Date of occurence"/>
-                            <DataGridTextColumn Binding="{Binding Distance}" Header="Distance"/>
+                            <DataGridTextColumn Binding="{Binding RouteDistance}" Header="Route distance"/>
                             <DataGridTextColumn Binding="{Binding PassengerName}" Header="Passenger name"/>
                             <DataGridTextColumn Binding="{Binding PassengerLiftDistance}" Header="Passenger lift distance"/>
                         </DataGrid.Columns>

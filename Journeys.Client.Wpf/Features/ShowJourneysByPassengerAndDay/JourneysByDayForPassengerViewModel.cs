@@ -6,15 +6,15 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
 {
     internal class JourneysByDayForPassengerViewModel
     {
-        private readonly Lazy<ObservableCollection<JourneysByDay>> _itemsSource;
+        private readonly Lazy<ObservableCollection<JourneysOnDay>> _itemsSource;
 
-        public JourneysByDayForPassengerViewModel(Lazy<ObservableCollection<JourneysByDay>> itemsSource, string passengerName)
+        public JourneysByDayForPassengerViewModel(Lazy<ObservableCollection<JourneysOnDay>> itemsSource, string passengerName)
         {
             _itemsSource = itemsSource;
             PassengerName = passengerName;
         }
 
-        public ObservableCollection<JourneysByDay> Items
+        public ObservableCollection<JourneysOnDay> Items
         {
             get { return _itemsSource.Value; }
         }

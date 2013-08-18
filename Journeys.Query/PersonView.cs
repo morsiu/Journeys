@@ -7,34 +7,35 @@ using Journeys.Query.Infrastructure.Views;
 
 namespace Journeys.Query
 {
+    using PersonId = Guid;
+
     internal class PersonView
     {
-        private readonly Lookup<Guid, string> _peopleNames = new Lookup<Guid, string>();
-        private readonly Lookup<string, Guid> _peopleByName = new Lookup<string, Guid>();
+        private readonly Set<PersonId, PersonName> _peopleNames = new Set<PersonId, PersonName>(personName => personName.OwnerId);
+        private readonly Set<string, PersonName> _peopleByName = new Set<string, PersonName>(personName => personName.Name);
 
         public Guid? Execute(GetPersonIdByNameQuery query)
         {
-            var result = _peopleByName.Get(query.PersonName);
-            return result.HasValue ? result.Value : default(Guid?);
+            var personName = _peopleByName.Get(query.PersonName, () => null);
+            return personName == null ? default(Guid?) : personName.OwnerId;
         }
 
-        public string Execute(GetPersonNameQuery query)
+        public string Execute(GetPersonNameByIdQuery query)
         {
-            return _peopleNames.Get(query.PersonId, () => null);
+            var personName = _peopleNames.Get(query.PersonId, () => null);
+            return personName == null ? default(string) : personName.Name;
         }
 
         public IEnumerable<PersonName> Execute(GetPeopleNamesQuery query)
         {
-            foreach (var pair in _peopleNames.Retrieve())
-            {
-                yield return new PersonName(pair.Key, pair.Value);
-            }
+            return _peopleNames.Retrieve();
         }
 
         public void Update(PersonCreatedEvent @event)
         {
-            _peopleNames.Set(@event.PersonId, @event.PersonName);
-            _peopleByName.Set(@event.PersonName, @event.PersonId);
+            var personName = new PersonName(@event.PersonId, @event.PersonName);
+            _peopleNames.Add(personName);
+            _peopleByName.Add(personName);
         }
     }
 }

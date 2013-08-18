@@ -4,7 +4,7 @@ using Journeys.Queries.Dtos;
 
 namespace Journeys.Queries
 {
-    public class GetJourneysByDayForPassengerInPeriodQuery : IQuery<IEnumerable<JourneysByDay>>
+    public class GetJourneysByDayForPassengerInPeriodQuery : IQuery<IEnumerable<JourneysOnDay>>
     {
         public GetJourneysByDayForPassengerInPeriodQuery(Guid passengerId, DateTime periodStart, DateTime periodEnd)
         {

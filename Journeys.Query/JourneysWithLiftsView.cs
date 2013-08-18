@@ -5,15 +5,17 @@ using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
+using JourneyId = System.Guid;
+using PersonId = System.Guid;
 
 namespace Journeys.Query
 {
     using EmptyJourney = JourneyCreatedEvent;
-    using JourneyWithLiftKey = Tuple<Guid, Guid>;
+    using JourneyWithLiftKey = Tuple<JourneyId, PersonId>;
 
     internal class JourneysWithLiftsView
     {
-        private readonly Set<Guid, EmptyJourney> _emptyJourneys = new Set<Guid, EmptyJourney>(GetKey);
+        private readonly Set<JourneyId, EmptyJourney> _emptyJourneys = new Set<JourneyId, EmptyJourney>(GetKey);
         private readonly Set<JourneyWithLiftKey, JourneyWithLift> _journeysWithLifts = new Set<JourneyWithLiftKey, JourneyWithLift>(GetKey);
         private readonly IQueryDispatcher _queryDispather;
 
@@ -22,7 +24,7 @@ namespace Journeys.Query
             _queryDispather = queryDispatcher;
         }
 
-        public IEnumerable<JourneyWithLift> Execute(GetAllJourneysWithLiftsQuery query)
+        public IEnumerable<JourneyWithLift> Execute(GetJourneysWithLiftsQuery query)
         {
             return GetSortedJourneysWithLifts()
                 .ToList();
@@ -70,7 +72,7 @@ namespace Journeys.Query
 
         private static JourneyWithLiftKey GetKey(JourneyWithLift value)
         {
-            return Tuple.Create(value.JourneyId, value.PassengerId);
+            return new JourneyWithLiftKey(value.JourneyId, value.PassengerId);
         }
 
         private static Guid GetKey(EmptyJourney @event)
@@ -80,7 +82,7 @@ namespace Journeys.Query
 
         private string GetPassengerName(Guid personId)
         {
-            return _queryDispather.Dispatch(new GetPersonNameQuery(personId));
+            return _queryDispather.Dispatch(new GetPersonNameByIdQuery(personId));
         }
     }
 }

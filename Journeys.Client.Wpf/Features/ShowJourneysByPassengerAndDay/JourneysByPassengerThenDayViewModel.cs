@@ -37,15 +37,15 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
             Items.Clear();
             foreach (var passenger in peopleNames)
             {
-                var itemsSource = new Lazy<ObservableCollection<JourneysByDay>>(() => LoadJourneysByDayForPassenger(passenger.Id));
+                var itemsSource = new Lazy<ObservableCollection<JourneysOnDay>>(() => LoadJourneysByDayForPassenger(passenger.OwnerId));
                 Items.Add(new JourneysByDayForPassengerViewModel(itemsSource, passenger.Name));
             }
         }
 
-        private ObservableCollection<JourneysByDay> LoadJourneysByDayForPassenger(Guid passengerId)
+        private ObservableCollection<JourneysOnDay> LoadJourneysByDayForPassenger(Guid passengerId)
         {
             var items = _queryDispatcher.Dispatch(new GetJourneysByDayForPassengerInPeriodQuery(passengerId, PeriodStart, PeriodEnd));
-            return new ObservableCollection<JourneysByDay>(items);
+            return new ObservableCollection<JourneysOnDay>(items);
         }
 
         private void Handle(JourneyWithLiftAddedEvent @event)

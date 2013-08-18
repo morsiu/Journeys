@@ -45,6 +45,16 @@ namespace Journeys.Query.Infrastructure.Views
             return _values[key];
         }
 
+        public TValue Get(TKey key, Func<TValue> defaultValue)
+        {
+            if (_values.ContainsKey(key))
+            {
+                return _values[key];
+            }
+            var value = defaultValue();
+            return value;
+        }
+
         public TValue Remove(TKey key)
         {
             var value = _values[key];

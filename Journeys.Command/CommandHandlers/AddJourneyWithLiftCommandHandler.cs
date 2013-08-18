@@ -31,16 +31,16 @@ namespace Journeys.Command.CommandHandlers
             AddJourneyWithLiftCommand command,
             IDomainRepository<Journey> journeyRepository)
         {
-            var journeyDistance = new Distance(command.JourneyDistance, DistanceUnit.Kilometer);
+            var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
-            var personId = GetPersonWithName(command.PersonName);
+            var personId = GetOrAddPersonWithName(command.PersonName);
             var journeyId = new Id<Journey>(command.JourneyId);
-            var journey = new Journey(journeyId, command.JourneyDateOfOccurrence, journeyDistance, _eventBus)
+            var journey = new Journey(journeyId, command.DateOfOccurrence, routeDistance, _eventBus)
                 .AddLift(new Id<Person>(personId), liftDistance);
             journeyRepository.Store(journey);
         }
 
-        private Id<Person> GetPersonWithName(string personName)
+        private Id<Person> GetOrAddPersonWithName(string personName)
         {
             var personId = _queryDispatcher.Dispatch(new GetPersonIdByNameQuery(personName));
             if (!personId.HasValue)

@@ -8,14 +8,14 @@ namespace Journeys.Queries.Dtos
             Guid journeyId, 
             Guid passengerId,
             DateTime dateOfOccurrence,
-            decimal distance,
+            decimal routeDistance,
             string passengerName,
             decimal passengerLiftDistance)
         {
             JourneyId = journeyId;
             PassengerId = passengerId;
             DateOfOccurrence = dateOfOccurrence;
-            Distance = distance;
+            RouteDistance = routeDistance;
             PassengerName = passengerName;
             PassengerLiftDistance = passengerLiftDistance;
         }
@@ -26,7 +26,7 @@ namespace Journeys.Queries.Dtos
 
         public DateTime DateOfOccurrence { get; private set; }
 
-        public decimal Distance { get; private set; }
+        public decimal RouteDistance { get; private set; }
 
         public string PassengerName { get; private set; }
 

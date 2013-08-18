@@ -5,45 +5,53 @@ using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
+using PassengerId = System.Guid;
+using Date = System.DateTime;
 
 namespace Journeys.Query
 {
-    using PassengerId = Guid;
     using JourneyId = Guid;
     using Journey = JourneyCreatedEvent;
     using Lift = LiftAddedEvent;
-    using Date = DateTime;
+    using JourneysPerDayByPassengerLookup = Infrastructure.Views.Lookup<PassengerId, Set<Date, JourneysOnDay>>;
 
     internal class JourneysByPassengerThenDayView
     {
         private readonly Set<JourneyId, Journey> _journeys = new Set<JourneyId, Journey>(GetKey);
-        private readonly Infrastructure.Views.Lookup<PassengerId, Set<Date, JourneysByDay>> _journeysByPassengerThenDate = new Infrastructure.Views.Lookup<PassengerId, Set<Date, JourneysByDay>>();
+        private readonly JourneysPerDayByPassengerLookup _journeysPerDayByPassenger = new JourneysPerDayByPassengerLookup();
 
-        public void Handle(JourneyCreatedEvent @event)
+        public IEnumerable<JourneysOnDay> Execute(GetJourneysByDayForPassengerInPeriodQuery query)
+        {
+            var journeysByDayForPassenger = _journeysPerDayByPassenger.Get(query.PassengerId, () => new Set<DateTime, JourneysOnDay>(GetKey));
+            var journeysPerDay = journeysByDayForPassenger.Retrieve();
+            return journeysPerDay
+                .Where(i => i.Day <= query.PeriodEnd.Date && i.Day >= query.PeriodStart.Date)
+                .OrderBy(i => i.Day);
+        }
+
+        public void Update(JourneyCreatedEvent @event)
         {
             _journeys.Add(@event);
         }
 
-        public void Handle(LiftAddedEvent @event)
+        public void Update(LiftAddedEvent @event)
         {
             var journey = _journeys.Get(@event.JourneyId);
-            var journeysByDay = _journeysByPassengerThenDate.GetOrAdd(@event.PersonId, () => new Set<DateTime, JourneysByDay>(GetKey));
+            var journeysByDay = _journeysPerDayByPassenger.GetOrAdd(@event.PersonId, () => new Set<DateTime, JourneysOnDay>(GetKey));
             var date = journey.DateOfOccurrence.Date;
             journeysByDay.UpdateOrAdd(
                 date,
-                () => new JourneysByDay(date, 0, 0m, 0m),
-                oldJourneyByDay => AddJourney(oldJourneyByDay, journey, @event));
+                () => new JourneysOnDay(date, 0, 0m, 0m),
+                oldJourneyByDay => AddLiftToJourneyOnDay(oldJourneyByDay, @event, journey));
         }
 
-        public IEnumerable<JourneysByDay> Execute(GetJourneysByDayForPassengerInPeriodQuery query)
+        private static JourneysOnDay AddLiftToJourneyOnDay(JourneysOnDay journeysOnDay, Lift lift, Journey journey)
         {
-            var journeysByDayForPassenger = _journeysByPassengerThenDate.Get(query.PassengerId, () => new Set<DateTime, JourneysByDay>(GetKey));
-            var journeysByDays = journeysByDayForPassenger.Retrieve();
-            return Enumerable.OrderBy(
-                Enumerable.Where(
-                    journeysByDays,
-                    i => i.Date <= query.PeriodEnd.Date && i.Date >= query.PeriodStart.Date),
-                i => i.Date);
+            return new JourneysOnDay(
+                journeysOnDay.Day,
+                journeysOnDay.JourneyCount + 1,
+                journeysOnDay.TotalRouteDistance + journey.RouteDistance,
+                journeysOnDay.TotalLiftDistance + lift.LiftDistance);
         }
 
         private static Guid GetKey(Journey @event)
@@ -51,18 +59,9 @@ namespace Journeys.Query
             return @event.JourneyId;
         }
 
-        private static JourneysByDay AddJourney(JourneysByDay journeysByDay, Journey journey, Lift lift)
+        private static DateTime GetKey(JourneysOnDay journeysOnDay)
         {
-            return new JourneysByDay(
-                journeysByDay.Date,
-                journeysByDay.JourneyCount + 1,
-                journeysByDay.TotalJourneysDistance + journey.RouteDistance,
-                journeysByDay.TotalLiftDistance + lift.LiftDistance);
-        }
-
-        private static DateTime GetKey(JourneysByDay journeysByDay)
-        {
-            return journeysByDay.Date;
+            return journeysOnDay.Day;
         }
     }
 }

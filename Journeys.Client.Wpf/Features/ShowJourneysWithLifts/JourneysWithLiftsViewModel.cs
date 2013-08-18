@@ -20,9 +20,9 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysWithLifts
 
         public ObservableCollection<JourneyWithLift> Items { get; private set; }
 
-        public void Reload()
+        public void Refresh()
         {
-            var newItems = _queryDispatcher.Dispatch(new GetAllJourneysWithLiftsQuery());
+            var newItems = _queryDispatcher.Dispatch(new GetJourneysWithLiftsQuery());
             Items.Clear();
             foreach (var item in newItems)
             {
