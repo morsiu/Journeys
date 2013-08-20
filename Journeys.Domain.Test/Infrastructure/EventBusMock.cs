@@ -31,7 +31,7 @@ namespace Journeys.Domain.Test.Infrastructure
             return this;
         }
 
-        public new IEventBus Object
+        public IEventBus Object
         {
             get { return this; }
         }
