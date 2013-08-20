@@ -34,10 +34,5 @@ namespace Journeys.Transactions
                 transactable.Commit();
             }
         }
-
-        public void Run<T1>(Action<T1> action, T1 parameter1)
-        {
-            Run(() => action(parameter1));
-        }
     }
 }
