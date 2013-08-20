@@ -14,9 +14,9 @@ namespace Journeys.Command
     public class Bootstrapper
     {
         private readonly EventBus _eventBus;
-        private readonly DomainRepositories _domainRepositories;
+        private readonly IDomainRepositories _domainRepositories;
 
-        public Bootstrapper(EventBus eventBus, DomainRepositories domainRepositories)
+        public Bootstrapper(EventBus eventBus, IDomainRepositories domainRepositories)
         {
             _eventBus = eventBus;
             _domainRepositories = domainRepositories;

@@ -16,9 +16,9 @@ namespace Journeys.EventSourcing
         private readonly HashSet<Action<EventReplayer>> _replayerConfigurators = new HashSet<Action<EventReplayer>>();
         private readonly HashSet<Action<IEventWriter, EventBus>> _writerConfigurators = new HashSet<Action<IEventWriter, EventBus>>();
         private readonly EventBus _eventBus;
-        private readonly DomainRepositories _domainRepositories;
+        private readonly IDomainRepositories _domainRepositories;
 
-        public Bootstrapper(EventBus eventBus, DomainRepositories domainRepositories, string eventsFileName)
+        public Bootstrapper(EventBus eventBus, IDomainRepositories domainRepositories, string eventsFileName)
         {
             _domainRepositories = domainRepositories;
             _eventBus = eventBus;

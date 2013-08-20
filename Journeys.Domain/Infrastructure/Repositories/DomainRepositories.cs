@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Infrastructure.Repositories
 {
-    public class DomainRepositories
+    internal class DomainRepositories : IDomainRepositories
     {
         private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
 

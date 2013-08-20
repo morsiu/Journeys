@@ -4,7 +4,7 @@ namespace Journeys.Domain
 {
     public class Bootstrapper
     {
-        public DomainRepositories DomainRepositories { get; private set; }
+        public IDomainRepositories DomainRepositories { get; private set; }
 
         public void Bootstrap()
         {
