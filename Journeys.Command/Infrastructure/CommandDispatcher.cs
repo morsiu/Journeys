@@ -4,7 +4,7 @@
     {
         private readonly CommandProcessor _commandProcessor;
 
-        internal CommandDispatcher(CommandProcessor commandProcessor)
+        public CommandDispatcher(CommandProcessor commandProcessor)
         {
             _commandProcessor = commandProcessor;
         }
