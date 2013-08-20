@@ -5,7 +5,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Infrastructure\Notifications\NotifierControl.xaml" />
-                <ResourceDictionary Source="Features\AddingJourneysWithLifts\AddJourneyWithLiftControl.xaml" />
+                <ResourceDictionary Source="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml" />
