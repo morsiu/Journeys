@@ -39,6 +39,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             {
                 _repository.Store(entity);
             }
+            _transactionRepository.Clear();
         }
 
         public IDomainRepository<TEntity> Object

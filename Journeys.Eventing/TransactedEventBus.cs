@@ -30,6 +30,7 @@ namespace Journeys.Eventing
             {
                 publishment();
             }
+            _publishments.Clear();
         }
 
         public IEventBus Object
