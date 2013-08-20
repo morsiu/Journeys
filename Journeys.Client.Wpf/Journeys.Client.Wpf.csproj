@@ -54,8 +54,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Features\AddingJourneysWithLifts\AddJourneyWithLiftControl.cs" />
-    <Compile Include="Features\AddingJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
+    <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.cs" />
+    <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayForPassengerViewModel.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.cs" />
@@ -97,7 +97,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Features\AddingJourneysWithLifts\AddJourneyWithLiftControl.xaml">
+    <Page Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
