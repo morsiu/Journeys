@@ -37,5 +37,10 @@ namespace Journeys.Eventing
         {
             get { return this; }
         }
+
+        public ITransacted<IEventBus> Lift()
+        {
+            return this;
+        }
     }
 }

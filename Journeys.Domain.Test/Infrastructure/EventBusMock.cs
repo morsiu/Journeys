@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Journeys.Eventing;
+using Journeys.Transactions;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    internal class EventBusMock : IEventBus
+    internal class EventBusMock : IEventBus, ITransacted<IEventBus>
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 
@@ -23,6 +24,24 @@ namespace Journeys.Domain.Test.Infrastructure
             action();
             _eventMatchers.Remove(matcher);
             return matcher;
+        }
+
+        public ITransacted<IEventBus> Lift()
+        {
+            return this;
+        }
+
+        public new IEventBus Object
+        {
+            get { return this; }
+        }
+
+        public void Abort()
+        {
+        }
+
+        public void Commit()
+        {
         }
     }
 }

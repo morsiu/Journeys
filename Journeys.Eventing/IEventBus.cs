@@ -1,6 +1,8 @@
-﻿namespace Journeys.Eventing
+﻿using Journeys.Transactions;
+
+namespace Journeys.Eventing
 {
-    public interface IEventBus
+    public interface IEventBus : IProvideTransacted<IEventBus>
     {
         void Publish<TEvent>(TEvent @event);
     }

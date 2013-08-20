@@ -4,7 +4,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Eventing
 {
-    public class EventBus : IEventBus, IProvideTransacted<IEventBus>
+    public class EventBus : IEventBus
     {
         private readonly Dictionary<Type, object> _eventPublishers = new Dictionary<Type, object>();
 
