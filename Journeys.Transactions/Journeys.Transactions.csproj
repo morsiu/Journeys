@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProvideTransacted.cs" />
+    <Compile Include="ITransactable.cs" />
     <Compile Include="ITransacted.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

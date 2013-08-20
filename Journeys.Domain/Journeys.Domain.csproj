@@ -42,6 +42,7 @@
     <Compile Include="Infrastructure\IHasId.cs" />
     <Compile Include="Infrastructure\Markers\RepositoryAttribute.cs" />
     <Compile Include="Infrastructure\Repositories\IDomainRepositories.cs" />
+    <Compile Include="Infrastructure\Repositories\TransactedDomainRepositories.cs" />
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
     <Compile Include="Infrastructure\Repositories\IDomainRepository.cs" />

@@ -2,7 +2,7 @@
 
 namespace Journeys.Domain.Infrastructure.Repositories
 {
-    public class DomainRepository<TEntity> : IDomainRepository<TEntity>, IProvideTransacted<IDomainRepository<TEntity>>
+    public class DomainRepository<TEntity> : IDomainRepository<TEntity>
         where TEntity : IHasId<TEntity>
     {
         private readonly InMemoryRepository<Id<TEntity>, TEntity> _repository = new InMemoryRepository<Id<TEntity>, TEntity>();

@@ -1,11 +1,7 @@
 ﻿namespace Journeys.Transactions
 {
-    public interface ITransacted<T>
+    public interface ITransacted<T> : ITransactable
     {
         T Object { get; }
-
-        void Abort();
-
-        void Commit();
     }
 }

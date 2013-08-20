@@ -45,5 +45,10 @@ namespace Journeys.Domain.Infrastructure.Repositories
         {
             get { return this; }
         }
+
+        public ITransacted<IDomainRepository<TEntity>> Lift()
+        {
+            return this;
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Journeys.Transactions;
 
 namespace Journeys.Domain.Infrastructure.Repositories
 {
@@ -7,7 +8,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
     {
         private readonly Dictionary<Type, object> _repositories = new Dictionary<Type, object>();
 
-        public DomainRepository<TEntity> Get<TEntity>()
+        public IDomainRepository<TEntity> Get<TEntity>()
             where TEntity : IHasId<TEntity>
         {
             var entityType = typeof(TEntity);
@@ -19,6 +20,11 @@ namespace Journeys.Domain.Infrastructure.Repositories
             var newRepository = new DomainRepository<TEntity>();
             _repositories[entityType] = newRepository;
             return newRepository;
+        }
+
+        public ITransacted<IDomainRepositories> Lift()
+        {
+            return new TransactedDomainRepositories(this);
         }
     }
 }
