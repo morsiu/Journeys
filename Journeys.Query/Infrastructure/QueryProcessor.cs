@@ -5,15 +5,19 @@ using Journeys.Query.Messages;
 
 namespace Journeys.Query.Infrastructure
 {
+    using QueryType = Type;
+
     internal class QueryProcessor
     {
-        private readonly Dictionary<Type, Func<object, object>> _handlers = new Dictionary<Type, Func<object, object>>();
+        private delegate object UntypedQueryHandler(object query);
+
+        private readonly Dictionary<QueryType, UntypedQueryHandler> _handlers = new Dictionary<QueryType, UntypedQueryHandler>();
 
         public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
             where TQuery : IQuery<TResult>
         {
             var queryType = typeof(TQuery);
-            Func<object, object> untypedHandler = query => handler((TQuery)query);
+            UntypedQueryHandler untypedHandler = query => handler((TQuery)query);
             _handlers[queryType] = untypedHandler;
         }
 
@@ -24,7 +28,7 @@ namespace Journeys.Query.Infrastructure
             return (TResult)untypedHandler(query);
         }
 
-        private Func<object, object> GetHandler(object query)
+        private UntypedQueryHandler GetHandler(object query)
         {
             var queryType = query.GetType();
             if (!_handlers.ContainsKey(queryType)) 
