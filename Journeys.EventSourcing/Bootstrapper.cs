@@ -32,27 +32,12 @@ namespace Journeys.EventSourcing
             StoreNewEvents();
         }
 
-        private void ConfigureEvents()
-        {
-            Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_domainRepositories.Get<Journey>(), _eventBus).Replay);
-            Register<LiftAddedEvent>(new LiftAddedEventReplayer(_domainRepositories.Get<Journey>()).Replay);
-            Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_domainRepositories.Get<Person>(), _eventBus).Replay);
-        }
-
         private void ReplayEvents()
         {
             var eventStore = GetEventStore();
             var storedEvents = eventStore.GetReader();
             var eventReplayer = GetReplayer();
             eventReplayer.Replay(storedEvents);
-        }
-
-        private void Register<TEvent>(Action<TEvent> replayHandler)
-        {
-            var eventType = typeof(TEvent);
-            _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));
-            _writerConfigurators.Add((writer, bus) => bus.RegisterListener<TEvent>(writer.Write));
-            _typesOfEventsToStore.Add(eventType);
         }
 
         private void StoreNewEvents()
@@ -63,6 +48,21 @@ namespace Journeys.EventSourcing
             {
                 eventBusConfigurator(eventWriter, _eventBus);
             }
+        }
+
+        private void ConfigureEvents()
+        {
+            Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_domainRepositories.Get<Journey>(), _eventBus).Replay);
+            Register<LiftAddedEvent>(new LiftAddedEventReplayer(_domainRepositories.Get<Journey>()).Replay);
+            Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_domainRepositories.Get<Person>(), _eventBus).Replay);
+        }
+
+        private void Register<TEvent>(Action<TEvent> replayHandler)
+        {
+            var eventType = typeof(TEvent);
+            _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));
+            _writerConfigurators.Add((writer, bus) => bus.RegisterListener<TEvent>(writer.Write));
+            _typesOfEventsToStore.Add(eventType);
         }
 
         private EventStore GetEventStore()
