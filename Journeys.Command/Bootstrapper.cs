@@ -1,13 +1,9 @@
-﻿using System;
-using Journeys.Command.CommandHandlers;
+﻿using Journeys.Command.CommandHandlers;
 using Journeys.Command.Infrastructure;
 using Journeys.Commands;
 using Journeys.Domain.Infrastructure.Repositories;
-using Journeys.Domain.Journeys.Operations;
-using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Query;
-using Journeys.Transactions;
 
 namespace Journeys.Command
 {
@@ -27,37 +23,10 @@ namespace Journeys.Command
         public void Bootstrap(IQueryDispatcher queryDispatcher)
         {
             var commandProcessor = new CommandProcessor();
-            commandProcessor.SetHandler<AddJourneyWithLiftCommand>(cmd =>
-                RunInTransaction(
-                    (tEventBus, tJourneyRepository, tPersonRepository) => new AddJourneyWithLiftCommandHandler(tEventBus, tPersonRepository, queryDispatcher).Execute(cmd, tJourneyRepository),
-                    _eventBus, _domainRepositories.Get<Journey>(), _domainRepositories.Get<Person>()));
+            var addJourneyWithLiftCommandHandler = new AddJourneyWithLiftCommandHandler(_eventBus, _domainRepositories, queryDispatcher);
+            commandProcessor.SetHandler<AddJourneyWithLiftCommand>(addJourneyWithLiftCommandHandler.ExecuteTransacted);
 
             CommandDispatcher = new CommandDispatcher(commandProcessor);
-        }
-
-        private static void RunInTransaction<TA, TB, TC>(
-            Action<TA, TB, TC> commandHandler,
-            IProvideTransacted<TA> a,
-            IProvideTransacted<TB> b,
-            IProvideTransacted<TC> c)
-        {
-            var transactedA = a.Lift();
-            var transactedB = b.Lift();
-            var transactedC = c.Lift();
-            try
-            {
-                commandHandler(transactedA.Object, transactedB.Object, transactedC.Object);
-            }
-            catch (Exception)
-            {
-                transactedA.Abort();
-                transactedB.Abort();
-                transactedC.Abort();
-                throw;
-            }
-            transactedA.Commit();
-            transactedB.Commit();
-            transactedC.Commit();
         }
     }
 }

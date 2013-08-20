@@ -8,28 +8,36 @@ using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Queries;
 using Journeys.Query;
+using Journeys.Transactions;
 
 namespace Journeys.Command.CommandHandlers
 {
     internal class AddJourneyWithLiftCommandHandler
     {
+        private readonly Transaction _transaction;
         private readonly IEventBus _eventBus;
-        private readonly IDomainRepository<Person> _personRepository;
         private readonly IQueryDispatcher _queryDispatcher;
+        private readonly IDomainRepository<Person> _personRepository;
+        private readonly IDomainRepository<Journey> _journeyRepository;
 
         public AddJourneyWithLiftCommandHandler(
             IEventBus eventBus,
-            IDomainRepository<Person> personRepository,
+            IDomainRepositories domainRepositories,
             IQueryDispatcher queryDispatcher)
         {
-            _personRepository = personRepository;
+            _transaction = new Transaction();
+            _personRepository = _transaction.Add(domainRepositories.Get<Person>());
+            _journeyRepository = _transaction.Add(domainRepositories.Get<Journey>());
+            _eventBus = _transaction.Add(eventBus);
             _queryDispatcher = queryDispatcher;
-            _eventBus = eventBus;
         }
 
-        public void Execute(
-            AddJourneyWithLiftCommand command,
-            IDomainRepository<Journey> journeyRepository)
+        public void ExecuteTransacted(AddJourneyWithLiftCommand command)
+        {
+            _transaction.Run(() => Execute(command));
+        }
+
+        private void Execute(AddJourneyWithLiftCommand command)
         {
             var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
@@ -37,7 +45,7 @@ namespace Journeys.Command.CommandHandlers
             var journeyId = new Id<Journey>(command.JourneyId);
             var journey = new Journey(journeyId, command.DateOfOccurrence, routeDistance, _eventBus)
                 .AddLift(new Id<Person>(personId), liftDistance);
-            journeyRepository.Store(journey);
+            _journeyRepository.Store(journey);
         }
 
         private Id<Person> GetOrAddPersonWithName(string personName)
