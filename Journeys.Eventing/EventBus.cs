@@ -31,7 +31,7 @@ namespace Journeys.Eventing
             return publisher;
         }
 
-        ITransacted<IEventBus> IProvideTransacted<IEventBus>.Lift()
+        ITransactional<IEventBus> IProvideTransactional<IEventBus>.Lift()
         {
             return new TransactedEventBus(this);
         }

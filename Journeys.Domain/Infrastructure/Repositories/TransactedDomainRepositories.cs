@@ -6,9 +6,9 @@ namespace Journeys.Domain.Infrastructure.Repositories
 {
     using EntityType = Type;
 
-    internal class TransactedDomainRepositories : IDomainRepositories, ITransacted<IDomainRepositories>
+    internal class TransactedDomainRepositories : IDomainRepositories, ITransactional<IDomainRepositories>
     {
-        private readonly Dictionary<EntityType, ITransactable> _transactedRepositories = new Dictionary<EntityType, ITransactable>();
+        private readonly Dictionary<EntityType, ITransactional> _transactedRepositories = new Dictionary<EntityType, ITransactional>();
         private readonly IDomainRepositories _repositories;
 
         public TransactedDomainRepositories(IDomainRepositories repositories)
@@ -51,7 +51,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             }
         }
 
-        public ITransacted<IDomainRepositories> Lift()
+        public ITransactional<IDomainRepositories> Lift()
         {
             return this;
         }

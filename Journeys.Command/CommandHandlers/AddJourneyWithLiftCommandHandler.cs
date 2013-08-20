@@ -26,9 +26,9 @@ namespace Journeys.Command.CommandHandlers
             IQueryDispatcher queryDispatcher)
         {
             _transaction = new Transaction();
-            _personRepository = _transaction.Add(domainRepositories.Get<Person>());
-            _journeyRepository = _transaction.Add(domainRepositories.Get<Journey>());
-            _eventBus = _transaction.Add(eventBus);
+            _personRepository = _transaction.Register(domainRepositories.Get<Person>());
+            _journeyRepository = _transaction.Register(domainRepositories.Get<Journey>());
+            _eventBus = _transaction.Register(eventBus);
             _queryDispatcher = queryDispatcher;
         }
 

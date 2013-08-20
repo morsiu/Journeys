@@ -17,7 +17,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             _repository.Store(entity.Id, entity);
         }
 
-        public ITransacted<IDomainRepository<TEntity>> Lift()
+        public ITransactional<IDomainRepository<TEntity>> Lift()
         {
             return new TransactedDomainRepository<TEntity>(this);
         }

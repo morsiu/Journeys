@@ -22,7 +22,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             return newRepository;
         }
 
-        public ITransacted<IDomainRepositories> Lift()
+        public ITransactional<IDomainRepositories> Lift()
         {
             return new TransactedDomainRepositories(this);
         }

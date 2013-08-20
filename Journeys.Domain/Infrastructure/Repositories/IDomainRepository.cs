@@ -4,7 +4,7 @@ using Journeys.Transactions;
 namespace Journeys.Domain.Infrastructure.Repositories
 {
     [Repository]
-    public interface IDomainRepository<TEntity> : IProvideTransacted<IDomainRepository<TEntity>>
+    public interface IDomainRepository<TEntity> : IProvideTransactional<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>
     {
         TEntity Get(Id<TEntity> id);

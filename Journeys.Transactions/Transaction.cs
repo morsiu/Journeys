@@ -6,9 +6,9 @@ namespace Journeys.Transactions
 {
     public class Transaction
     {
-        private HashSet<ITransactable> _transactables = new HashSet<ITransactable>();
+        private HashSet<ITransactional> _transactables = new HashSet<ITransactional>();
 
-        public TObject Add<TObject>(IProvideTransacted<TObject> @object)
+        public TObject Register<TObject>(IProvideTransactional<TObject> @object)
         {
             var transactedObject = @object.Lift();
             _transactables.Add(transactedObject);

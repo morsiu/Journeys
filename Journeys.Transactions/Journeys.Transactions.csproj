@@ -34,9 +34,9 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IProvideTransacted.cs" />
-    <Compile Include="ITransactable.cs" />
-    <Compile Include="ITransacted.cs" />
+    <Compile Include="IProvideTransactional.cs" />
+    <Compile Include="ITransactional.cs" />
+    <Compile Include="ITransactional`1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaction.cs" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Domain.Infrastructure.Repositories
 {
-    internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransacted<IDomainRepository<TEntity>>
+    internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransactional<IDomainRepository<TEntity>>
         where TEntity : IHasId<TEntity>
     {
         private readonly IDomainRepository<TEntity> _repository;
@@ -47,7 +47,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             get { return this; }
         }
 
-        public ITransacted<IDomainRepository<TEntity>> Lift()
+        public ITransactional<IDomainRepository<TEntity>> Lift()
         {
             return this;
         }

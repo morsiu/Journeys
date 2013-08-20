@@ -2,7 +2,7 @@
 
 namespace Journeys.Eventing
 {
-    public interface IEventBus : IProvideTransacted<IEventBus>
+    public interface IEventBus : IProvideTransactional<IEventBus>
     {
         void Publish<TEvent>(TEvent @event);
     }

@@ -7,7 +7,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Domain.Infrastructure.Repositories
 {
-    public interface IDomainRepositories : IProvideTransacted<IDomainRepositories>
+    public interface IDomainRepositories : IProvideTransactional<IDomainRepositories>
     {
         IDomainRepository<TEntity> Get<TEntity>() 
             where TEntity : IHasId<TEntity>;

@@ -4,7 +4,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Eventing
 {
-    public class TransactedEventBus : IEventBus, ITransacted<IEventBus>
+    public class TransactedEventBus : IEventBus, ITransactional<IEventBus>
     {
         private readonly IEventBus _eventBus;
         private readonly List<Action> _publishments = new List<Action>();
@@ -38,7 +38,7 @@ namespace Journeys.Eventing
             get { return this; }
         }
 
-        public ITransacted<IEventBus> Lift()
+        public ITransactional<IEventBus> Lift()
         {
             return this;
         }

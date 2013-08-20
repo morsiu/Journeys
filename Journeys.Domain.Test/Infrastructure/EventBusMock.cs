@@ -5,7 +5,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    internal class EventBusMock : IEventBus, ITransacted<IEventBus>
+    internal class EventBusMock : IEventBus, ITransactional<IEventBus>
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 
@@ -26,7 +26,7 @@ namespace Journeys.Domain.Test.Infrastructure
             return matcher;
         }
 
-        public ITransacted<IEventBus> Lift()
+        public ITransactional<IEventBus> Lift()
         {
             return this;
         }
