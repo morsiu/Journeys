@@ -146,9 +146,9 @@
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Eventing\Journeys.Eventing.csproj">
+    <ProjectReference Include="..\Journeys.Event\Journeys.Event.csproj">
       <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
-      <Name>Journeys.Eventing</Name>
+      <Name>Journeys.Event</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.EventSourcing\Journeys.EventSourcing.csproj">
       <Project>{67dc9eb1-d04e-4164-9844-c4ca277cc770}</Project>

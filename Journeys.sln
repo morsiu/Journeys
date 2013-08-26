@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Query", "Journeys.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client.Wpf", "Journeys.Client.Wpf\Journeys.Client.Wpf.csproj", "{A4B175A2-82CE-4C15-B34C-644F7B188630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Eventing", "Journeys.Eventing\Journeys.Eventing.csproj", "{E68B1DA3-099B-4FC3-8FC8-609518BC7937}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Event", "Journeys.Event\Journeys.Event.csproj", "{E68B1DA3-099B-4FC3-8FC8-609518BC7937}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Transactions", "Journeys.Transactions\Journeys.Transactions.csproj", "{BCA0F43E-73C4-4697-8AB4-DC7C6D3FE691}"
 EndProject
