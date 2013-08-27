@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Journeys.Command;
+﻿using Journeys.Command;
 using Journeys.Common;
 using Journeys.Repositories;
 

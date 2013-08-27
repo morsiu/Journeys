@@ -3,7 +3,6 @@ using Journeys.Common;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
-using Journeys.Event;
 using Journeys.Queries;
 using Journeys.Query;
 using Journeys.Transactions;
@@ -41,7 +40,7 @@ namespace Journeys.Command.CommandHandlers
             var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
             var personId = GetOrAddPersonWithName(command.PersonName);
-            var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus)
+            var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus.ForDomain())
                 .AddLift(personId, liftDistance);
             _repositories.Store(journey);
         }
@@ -52,7 +51,7 @@ namespace Journeys.Command.CommandHandlers
             if (personId == null)
             {
                 personId = _idFactory.Create();
-                var person = new Person(personId, personName, _eventBus);
+                var person = new Person(personId, personName, _eventBus.ForDomain());
                 _repositories.Store(person);
             }
             return personId;

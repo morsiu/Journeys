@@ -3,7 +3,6 @@ using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
-using Journeys.Event;
 using Journeys.Events;
 
 namespace Journeys.Domain.People

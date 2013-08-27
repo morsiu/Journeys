@@ -53,11 +53,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adapters\CommandEventBus.cs" />
     <Compile Include="Adapters\CommandIdFactory.cs" />
     <Compile Include="Adapters\CommandRepositories.cs" />
+    <Compile Include="Adapters\CommandTransactedEventBus.cs" />
     <Compile Include="Adapters\CommandTransactedRepositories.cs" />
+    <Compile Include="Adapters\DomainEventBusAdapter.cs" />
+    <Compile Include="Adapters\EventSourcingEventBus.cs" />
     <Compile Include="Adapters\EventSourcingRepositories.cs" />
+    <Compile Include="Adapters\EventSourcingTransactedEventBus.cs" />
     <Compile Include="Adapters\EventSourcingTransactedRepositories.cs" />
+    <Compile Include="Adapters\QueryEventBus.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />

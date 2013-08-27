@@ -1,6 +1,5 @@
 ﻿using Journeys.Domain.Infrastructure;
 using Journeys.Domain.People;
-using Journeys.Event;
 using Journeys.Events;
 
 namespace Journeys.EventSourcing.Replayers
@@ -19,7 +18,7 @@ namespace Journeys.EventSourcing.Replayers
         public void Replay(PersonCreatedEvent @event)
         {
             var personId = @event.PersonId;
-            var person = new Person(personId, @event.PersonName, _eventBus);
+            var person = new Person(personId, @event.PersonName, _eventBus.ForDomain());
             _repositories.Store(person);
         }
     }

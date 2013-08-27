@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="CommandHandlers\AddJourneyWithLiftCommandHandler.cs" />
+    <Compile Include="IEventBus.cs" />
     <Compile Include="IIdFactory.cs" />
     <Compile Include="IRepositories.cs" />
     <Compile Include="Infrastructure\CommandDispatcher.cs" />
@@ -70,10 +71,6 @@
     <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Query</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Event\Journeys.Event.csproj">
-      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
-      <Name>Journeys.Event</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>

@@ -1,22 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Journeys.Common;
-using Journeys.Domain;
+﻿using Journeys.Common;
 using Journeys.EventSourcing;
 using Journeys.Transactions;
 
 namespace Journeys.Client.Wpf.Adapters
 {
-    using Source = Journeys.Repositories;
-
     public class EventSourcingRepositories : IRepositories
     {
-        private readonly Source.IRepositories _repositories;
+        private readonly Repositories.IRepositories _repositories;
 
-        public EventSourcingRepositories(Source.IRepositories repositories)
+        public EventSourcingRepositories(Repositories.IRepositories repositories)
         {
             _repositories = repositories;
         }

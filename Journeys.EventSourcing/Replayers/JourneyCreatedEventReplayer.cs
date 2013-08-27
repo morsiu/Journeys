@@ -1,7 +1,6 @@
 ﻿using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
-using Journeys.Event;
 using Journeys.Events;
 
 namespace Journeys.EventSourcing.Replayers
@@ -20,7 +19,7 @@ namespace Journeys.EventSourcing.Replayers
         public void Replay(JourneyCreatedEvent @event)
         {
             var routeDistance = new Distance(@event.RouteDistance, DistanceUnit.Kilometer);
-            var journey = new Journey(@event.JourneyId, @event.DateOfOccurrence, routeDistance, _eventBus);
+            var journey = new Journey(@event.JourneyId, @event.DateOfOccurrence, routeDistance, _eventBus.ForDomain());
             _journeyRepository.Store(journey);
         }
     }

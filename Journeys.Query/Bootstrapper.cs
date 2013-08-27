@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Journeys.Common;
-using Journeys.Event;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
@@ -10,9 +9,9 @@ namespace Journeys.Query
 {
     public class Bootstrapper
     {
-        private readonly EventBus _eventBus;
+        private readonly IEventBus _eventBus;
 
-        public Bootstrapper(EventBus eventBus)
+        public Bootstrapper(IEventBus eventBus)
         {
             _eventBus = eventBus;
         }

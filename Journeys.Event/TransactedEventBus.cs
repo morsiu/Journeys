@@ -14,6 +14,11 @@ namespace Journeys.Event
             _eventBus = eventBus;
         }
 
+        public void RegisterListener<TEvent>(EventListener<TEvent> listener)
+        {
+            _eventBus.RegisterListener(listener);
+        }
+
         public void Publish<TEvent>(TEvent @event)
         {
             _publishments.Add(() => _eventBus.Publish(@event));

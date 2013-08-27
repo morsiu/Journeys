@@ -4,13 +4,11 @@ using Journeys.Transactions;
 
 namespace Journeys.Client.Wpf.Adapters
 {
-    using Source = Journeys.Repositories;
-
     public class CommandTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
-        private readonly ITransactional<Source.IRepositories> _repositories;
+        private readonly ITransactional<Repositories.IRepositories> _repositories;
 
-        public CommandTransactedRepositories(Source.IRepositories repositories)
+        public CommandTransactedRepositories(Repositories.IRepositories repositories)
         {
             _repositories = repositories.Lift();
         }

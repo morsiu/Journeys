@@ -1,18 +1,17 @@
 ﻿using Journeys.Command.CommandHandlers;
 using Journeys.Command.Infrastructure;
 using Journeys.Commands;
-using Journeys.Event;
 using Journeys.Query;
 
 namespace Journeys.Command
 {
     public class Bootstrapper
     {
-        private readonly EventBus _eventBus;
+        private readonly IEventBus _eventBus;
         private readonly IRepositories _repositories;
         private readonly IIdFactory _idFactory;
 
-        public Bootstrapper(EventBus eventBus, IRepositories repositories, IIdFactory idFactory)
+        public Bootstrapper(IEventBus eventBus, IRepositories repositories, IIdFactory idFactory)
         {
             _eventBus = eventBus;
             _idFactory = idFactory;
