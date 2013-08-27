@@ -4,7 +4,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Event
 {
-    public class TransactedEventBus : IEventBus, ITransactional<IEventBus>
+    internal class TransactedEventBus : IEventBus, ITransactional<IEventBus>
     {
         private readonly IEventBus _eventBus;
         private readonly List<Action> _publishments = new List<Action>();
