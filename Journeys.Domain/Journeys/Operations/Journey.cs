@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Linq;
 using Journeys.Common;
-using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Collections;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
-using Journeys.Domain.People;
 using Journeys.Events;
 
 namespace Journeys.Domain.Journeys.Operations

@@ -5,15 +5,15 @@ using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
-using PassengerId = Journeys.Common.IId;
 using Date = System.DateTime;
+using PassengerId = Journeys.Common.IId;
 
 namespace Journeys.Query
 {
-    using JourneyId = Journeys.Common.IId;
     using Journey = JourneyCreatedEvent;
-    using Lift = LiftAddedEvent;
+    using JourneyId = Journeys.Common.IId;
     using JourneysPerDayByPassengerLookup = Infrastructure.Views.Lookup<PassengerId, Set<Date, JourneysOnDay>>;
+    using Lift = LiftAddedEvent;
 
     internal class JourneysByPassengerThenDayView
     {

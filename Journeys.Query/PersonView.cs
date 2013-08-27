@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Journeys.Common;
 using Journeys.Events;
 using Journeys.Queries;

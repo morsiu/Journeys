@@ -1,5 +1,4 @@
-﻿using System;
-using Journeys.Common;
+﻿using Journeys.Common;
 
 namespace Journeys.Client.Wpf.Events
 {

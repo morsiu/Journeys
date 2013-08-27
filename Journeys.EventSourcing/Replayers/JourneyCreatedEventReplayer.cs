@@ -1,5 +1,4 @@
-﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Journeys.Capabilities;
+﻿using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Events;
 
