@@ -1,20 +1,19 @@
-﻿using Journeys.Common;
-using Journeys.EventSourcing;
+﻿using Journeys.Command;
+using Journeys.Common;
 using Journeys.Transactions;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class EventSourcingTransactedRepositories : IRepositories, ITransactional<IRepositories>
+    internal class CommandTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
         private readonly ITransactional<Repositories.IRepositories> _repositories;
 
-        public EventSourcingTransactedRepositories(Repositories.IRepositories repositories)
+        public CommandTransactedRepositories(Repositories.IRepositories repositories)
         {
             _repositories = repositories.Lift();
         }
 
         public TEntity Get<TEntity>(IId id) where TEntity : IHasId
-
         {
             return _repositories.Object.Get<TEntity>(id);
         }

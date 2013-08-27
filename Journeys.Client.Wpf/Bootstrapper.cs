@@ -1,4 +1,4 @@
-﻿using Journeys.Client.Wpf.Adapters;
+﻿using Journeys.Adapters;
 using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf

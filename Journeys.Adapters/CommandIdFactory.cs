@@ -2,9 +2,9 @@
 using Journeys.Common;
 using Journeys.Repositories;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class CommandIdFactory : IIdFactory
+    public class CommandIdFactory : IIdFactory
     {
         private readonly IdFactory _idFactory;
 

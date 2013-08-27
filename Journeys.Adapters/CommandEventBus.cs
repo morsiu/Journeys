@@ -1,9 +1,9 @@
 ﻿using Journeys.Command;
 using Journeys.Transactions;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class CommandEventBus : IEventBus
+    public class CommandEventBus : IEventBus
     {
         private readonly Event.IEventBus _eventBus;
 

@@ -1,21 +1,15 @@
-﻿using System;
+﻿using Journeys.Command;
 using Journeys.Transactions;
-using Journeys.EventSourcing;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class EventSourcingTransactedEventBus : IEventBus, ITransactional<IEventBus>
+    internal class CommandTransactedEventBus : IEventBus, ITransactional<IEventBus>
     {
         private ITransactional<Event.IEventBus> _eventBus;
 
-        public EventSourcingTransactedEventBus(Event.IEventBus eventBus)
+        public CommandTransactedEventBus(Event.IEventBus eventBus)
         {
             _eventBus = eventBus.Lift();
-        }
-
-        public void RegisterListener<TEvent>(Action<TEvent> handler)
-        {
-            _eventBus.Object.RegisterListener<TEvent>(new Event.EventListener<TEvent>(handler));
         }
 
         public Domain.IEventBus ForDomain()

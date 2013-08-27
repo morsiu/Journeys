@@ -1,8 +1,8 @@
 ﻿using Journeys.Domain;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class DomainEventBusAdapter : IEventBus
+    public class DomainEventBusAdapter : IEventBus
     {
         private readonly Event.IEventBus _eventBus;
 

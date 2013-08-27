@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Journeys.EventSourcing;
 using Journeys.Transactions;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class EventSourcingEventBus : IEventBus
+    public class EventSourcingEventBus : IEventBus
     {
         private readonly Event.IEventBus _eventBus;
 

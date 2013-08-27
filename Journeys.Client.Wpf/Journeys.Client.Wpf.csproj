@@ -53,17 +53,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Adapters\CommandEventBus.cs" />
-    <Compile Include="Adapters\CommandIdFactory.cs" />
-    <Compile Include="Adapters\CommandRepositories.cs" />
-    <Compile Include="Adapters\CommandTransactedEventBus.cs" />
-    <Compile Include="Adapters\CommandTransactedRepositories.cs" />
-    <Compile Include="Adapters\DomainEventBusAdapter.cs" />
-    <Compile Include="Adapters\EventSourcingEventBus.cs" />
-    <Compile Include="Adapters\EventSourcingRepositories.cs" />
-    <Compile Include="Adapters\EventSourcingTransactedEventBus.cs" />
-    <Compile Include="Adapters\EventSourcingTransactedRepositories.cs" />
-    <Compile Include="Adapters\QueryEventBus.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
@@ -141,6 +130,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Adapters\Journeys.Adapters.csproj">
+      <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
+      <Name>Journeys.Adapters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">
       <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
       <Name>Journeys.Command</Name>

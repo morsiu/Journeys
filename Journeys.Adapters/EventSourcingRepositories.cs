@@ -1,14 +1,14 @@
-﻿using Journeys.Command;
-using Journeys.Common;
+﻿using Journeys.Common;
+using Journeys.EventSourcing;
 using Journeys.Transactions;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    public class CommandRepositories : IRepositories
+    public class EventSourcingRepositories : IRepositories
     {
         private readonly Repositories.IRepositories _repositories;
 
-        public CommandRepositories(Repositories.IRepositories repositories)
+        public EventSourcingRepositories(Repositories.IRepositories repositories)
         {
             _repositories = repositories;
         }
@@ -25,7 +25,7 @@ namespace Journeys.Client.Wpf.Adapters
 
         public ITransactional<IRepositories> Lift()
         {
-            return new CommandTransactedRepositories(_repositories);
+            return new EventSourcingTransactedRepositories(_repositories);
         }
     }
 }

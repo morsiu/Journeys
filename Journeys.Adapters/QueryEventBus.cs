@@ -1,11 +1,12 @@
 ﻿using System;
 using Journeys.Query;
 
-namespace Journeys.Client.Wpf.Adapters
+namespace Journeys.Adapters
 {
-    internal class QueryEventBus : IEventBus
+    public class QueryEventBus : IEventBus
     {
         private readonly Event.IEventBus _eventBus;
+
         public QueryEventBus(Event.IEventBus eventBus)
         {
             _eventBus = eventBus;
