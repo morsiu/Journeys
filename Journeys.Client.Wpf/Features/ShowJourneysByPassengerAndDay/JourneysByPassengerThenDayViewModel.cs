@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
+using Journeys.Common;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query;
@@ -42,7 +43,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
             }
         }
 
-        private ObservableCollection<JourneysOnDay> LoadJourneysByDayForPassenger(Guid passengerId)
+        private ObservableCollection<JourneysOnDay> LoadJourneysByDayForPassenger(IId passengerId)
         {
             var items = _queryDispatcher.Dispatch(new GetJourneysByDayForPassengerInPeriodQuery(passengerId, PeriodStart, PeriodEnd));
             return new ObservableCollection<JourneysOnDay>(items);

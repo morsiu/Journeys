@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Journeys.Common;
 
 namespace Journeys.Events
 {
     [DataContract]
     public class PersonCreatedEvent
     {
-        public PersonCreatedEvent(Guid id, string name)
+        public PersonCreatedEvent(IId id, string name)
         {
             PersonId = id;
             PersonName = name;
         }
 
         [DataMember]
-        public Guid PersonId { get; private set; }
+        public IId PersonId { get; private set; }
 
         [DataMember]
         public string PersonName { get; private set; }

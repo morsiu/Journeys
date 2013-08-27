@@ -1,12 +1,13 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Queries
 {
     public class GetPersonNameByIdQuery : IQuery<string>
     {
-        public Guid PersonId { get; private set; }
+        public IId PersonId { get; private set; }
 
-        public GetPersonNameByIdQuery(Guid personId)
+        public GetPersonNameByIdQuery(IId personId)
         {
             PersonId = personId;
         }

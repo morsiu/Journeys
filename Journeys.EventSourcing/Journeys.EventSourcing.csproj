@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="EventReplayer.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="IRepositories.cs" />
     <Compile Include="Replayers\JourneyCreatedEventReplayer.cs" />
     <Compile Include="Replayers\LiftAddedEventReplayer.cs" />
     <Compile Include="Replayers\PersonCreatedEventReplayer.cs" />
@@ -48,6 +49,10 @@
     <Compile Include="XmlEventWriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
+      <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
+      <Name>Journeys.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>

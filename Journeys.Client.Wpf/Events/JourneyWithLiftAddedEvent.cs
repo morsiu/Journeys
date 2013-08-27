@@ -1,12 +1,13 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Client.Wpf.Events
 {
     internal class JourneyWithLiftAddedEvent
     {
-        public Guid JourneyId { get; private set; }
+        public IId JourneyId { get; private set; }
 
-        public JourneyWithLiftAddedEvent(Guid journeyId)
+        public JourneyWithLiftAddedEvent(IId journeyId)
         {
             JourneyId = journeyId;
         }

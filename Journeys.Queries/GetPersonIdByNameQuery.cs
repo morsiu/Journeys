@@ -1,8 +1,9 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Queries
 {
-    public class GetPersonIdByNameQuery : IQuery<Guid?>
+    public class GetPersonIdByNameQuery : IQuery<IId>
     {
         public string PersonName { get; private set; }
 

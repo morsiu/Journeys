@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Journeys.Common;
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Collections;
 using Journeys.Domain.Infrastructure.Exceptions;
@@ -13,15 +14,15 @@ using Journeys.Events;
 namespace Journeys.Domain.Journeys.Operations
 {
     [Aggregate]
-    public class Journey : IHasId<Journey>
+    public class Journey : IHasId
     {
         private readonly IEventBus _eventBus;
-        private readonly Id<Journey> _id;
+        private readonly IId _id;
         private readonly DateTime _dateOfOccurrence;
         private readonly Distance _routeDistance;
         private readonly ImmutableList<Lift> _lifts = ImmutableList<Lift>.Empty;
 
-        public Journey(Id<Journey> id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
+        public Journey(IId id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
         {
             _dateOfOccurrence = dateOfOccurrence;
             _eventBus = eventBus;
@@ -39,7 +40,7 @@ namespace Journeys.Domain.Journeys.Operations
             _routeDistance = journey._routeDistance;
         }
 
-        public Journey AddLift(Id<Person> personId, Distance liftDistance)
+        public Journey AddLift(IId personId, Distance liftDistance)
         {
             if (_lifts.Any(aLift => aLift.EqualsByPerson(personId))) 
                 throw new InvariantViolationException(FailureMessages.JourneyAlreadyContainsLiftWithSamePerson);
@@ -51,7 +52,7 @@ namespace Journeys.Domain.Journeys.Operations
             return new Journey(this, newLifts);
         }
 
-        Id<Journey> IHasId<Journey>.Id
+        IId IHasId.Id
         {
             get { return _id; }
         }

@@ -1,10 +1,11 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Commands
 {
     public class AddJourneyWithLiftCommand
     {
-        public Guid JourneyId { get; private set; }
+        public IId JourneyId { get; private set; }
 
         public decimal RouteDistance { get; private set; }
 
@@ -15,7 +16,7 @@ namespace Journeys.Commands
         public decimal LiftDistance { get; private set; }
 
         public AddJourneyWithLiftCommand(
-            Guid journeyId,
+            IId journeyId,
             decimal routeDistance,
             DateTime dateOfOccurrence,
             string personName,

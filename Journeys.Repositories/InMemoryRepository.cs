@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Journeys.Domain.Infrastructure.Exceptions;
-using Journeys.Domain.Infrastructure.Messages;
+using Journeys.Repositories.Exceptions;
+using Journeys.Repositories.Messages;
 
-namespace Journeys.Domain.Infrastructure.Repositories
+namespace Journeys.Repositories
 {
     internal class InMemoryRepository<TId, TEntity>
     {

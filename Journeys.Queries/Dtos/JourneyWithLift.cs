@@ -1,12 +1,13 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Queries.Dtos
 {
     public class JourneyWithLift
     {
         public JourneyWithLift(
-            Guid journeyId, 
-            Guid passengerId,
+            IId journeyId,
+            IId passengerId,
             DateTime dateOfOccurrence,
             decimal routeDistance,
             string passengerName,
@@ -20,9 +21,9 @@ namespace Journeys.Queries.Dtos
             PassengerLiftDistance = passengerLiftDistance;
         }
 
-        public Guid JourneyId { get; private set; }
+        public IId JourneyId { get; private set; }
 
-        public Guid PassengerId { get; private set; }
+        public IId PassengerId { get; private set; }
 
         public DateTime DateOfOccurrence { get; private set; }
 

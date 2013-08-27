@@ -1,5 +1,4 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Infrastructure.Repositories;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
@@ -9,22 +8,20 @@ namespace Journeys.EventSourcing.Replayers
 {
     internal class LiftAddedEventReplayer
     {
-        private readonly IDomainRepository<Journey> _journeyRepository;
+        private readonly IRepositories _repositories;
 
-        public LiftAddedEventReplayer(IDomainRepository<Journey> journeyRepository)
+        public LiftAddedEventReplayer(IRepositories repositories)
         {
-            _journeyRepository = journeyRepository;
+            _repositories = repositories;
         }
 
         public void Replay(LiftAddedEvent @event)
         {
-            var journeyId = new Id<Journey>(@event.JourneyId);
-            var personId = new Id<Person>(@event.PersonId);
             var liftDistance = new Distance(@event.LiftDistance, DistanceUnit.Kilometer);
-            var journey = _journeyRepository
-                .Get(journeyId)
-                .AddLift(personId, liftDistance);
-            _journeyRepository.Store(journey);
+            var journey = _repositories
+                .Get<Journey>(@event.JourneyId)
+                .AddLift(@event.PersonId, liftDistance);
+            _repositories.Store(journey);
         }
     }
 }

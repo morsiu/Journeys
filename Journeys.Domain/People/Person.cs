@@ -1,4 +1,5 @@
-﻿using Journeys.Domain.Infrastructure;
+﻿using Journeys.Common;
+using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
@@ -8,11 +9,11 @@ using Journeys.Events;
 namespace Journeys.Domain.People
 {
     [Aggregate]
-    public class Person : IHasId<Person>
+    public class Person : IHasId
     {
-        private readonly Id<Person> _id;
+        private readonly IId _id;
 
-        public Person(Id<Person> id, string name, IEventBus eventBus)
+        public Person(IId id, string name, IEventBus eventBus)
         {
             if (string.IsNullOrEmpty(name))
                 throw new InvariantViolationException(FailureMessages.PersonMustHaveAName);
@@ -20,7 +21,7 @@ namespace Journeys.Domain.People
             eventBus.Publish(new PersonCreatedEvent(id, name));
         }
 
-        Id<Person> IHasId<Person>.Id
+        IId IHasId.Id
         {
             get { return _id; }
         }

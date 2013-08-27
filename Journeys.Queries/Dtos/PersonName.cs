@@ -1,16 +1,17 @@
 ﻿using System;
+using Journeys.Common;
 
 namespace Journeys.Queries.Dtos
 {
     public class PersonName
     {
-        public PersonName(Guid ownerId, string name)
+        public PersonName(IId ownerId, string name)
         {
             OwnerId = ownerId;
             Name = name;
         }
 
-        public Guid OwnerId { get; private set; }
+        public IId OwnerId { get; private set; }
 
         public string Name { get; private set; }
     }

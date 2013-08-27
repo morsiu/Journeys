@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Journeys.Common;
 using Journeys.Queries.Dtos;
 
 namespace Journeys.Queries
 {
     public class GetJourneysWithLiftsByJourneyIdQuery : IQuery<IEnumerable<JourneyWithLift>>
     {
-        public Guid JourneyId { get; private set; }
+        public IId JourneyId { get; private set; }
 
-        public GetJourneysWithLiftsByJourneyIdQuery(Guid journeyId)
+        public GetJourneysWithLiftsByJourneyIdQuery(IId journeyId)
         {
             JourneyId = journeyId;
         }

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Journeys.Common;
 using Journeys.Eventing;
 using Journeys.Events;
 using Journeys.Queries;
@@ -26,7 +26,7 @@ namespace Journeys.Query
 
             var personView = new PersonView();
             queryProcessor.SetHandler<GetPersonNameByIdQuery, string>(personView.Execute);
-            queryProcessor.SetHandler<GetPersonIdByNameQuery, Guid?>(personView.Execute);
+            queryProcessor.SetHandler<GetPersonIdByNameQuery, IId>(personView.Execute);
             queryProcessor.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 

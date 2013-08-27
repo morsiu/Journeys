@@ -1,25 +1,27 @@
-﻿namespace Journeys.Client.Wpf
+﻿using Journeys.Client.Wpf.Adapters;
+using Journeys.Repositories;
+
+namespace Journeys.Client.Wpf
 {
     internal class Bootstrapper
     {
         public MainWindow Bootstrap()
         {
             var eventBus = new Eventing.EventBus();
+            var idFactory = new IdFactory();
 
             var queryBootstrapper = new Query.Bootstrapper(eventBus);
             queryBootstrapper.Bootstrap();
 
-            var domainBootstrapper = new Domain.Bootstrapper();
-            domainBootstrapper.Bootstrap();
-
-            var commandBootstrapper = new Command.Bootstrapper(eventBus, domainBootstrapper.DomainRepositories);
+            var repositories = new Repositories.Repositories();
+            var commandBootstrapper = new Command.Bootstrapper(eventBus, new CommandRepositories(repositories), new CommandIdFactory(idFactory));
             commandBootstrapper.Bootstrap(queryBootstrapper.QueryDispatcher);
             
-            var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(eventBus, domainBootstrapper.DomainRepositories, "Events.txt");
+            var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(eventBus, new EventSourcingRepositories(repositories), idFactory.IdImplementationType, "Events.txt");
             eventSourcingBootstrapper.Bootstrap();
             
             var viewEventBus = new Infrastructure.EventBus();
-            return new MainWindow(commandBootstrapper.CommandDispatcher, queryBootstrapper.QueryDispatcher, viewEventBus);
+            return new MainWindow(commandBootstrapper.CommandDispatcher, queryBootstrapper.QueryDispatcher, viewEventBus, idFactory);
         }
     }
 }

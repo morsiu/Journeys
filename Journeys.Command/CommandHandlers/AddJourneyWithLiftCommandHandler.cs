@@ -1,7 +1,5 @@
-﻿using System;
-using Journeys.Commands;
-using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Infrastructure.Repositories;
+﻿using Journeys.Commands;
+using Journeys.Common;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
@@ -17,17 +15,18 @@ namespace Journeys.Command.CommandHandlers
         private readonly Transaction _transaction;
         private readonly IEventBus _eventBus;
         private readonly IQueryDispatcher _queryDispatcher;
-        private readonly IDomainRepository<Person> _personRepository;
-        private readonly IDomainRepository<Journey> _journeyRepository;
+        private readonly IRepositories _repositories;
+        private readonly IIdFactory _idFactory;
 
         public AddJourneyWithLiftCommandHandler(
             IEventBus eventBus,
-            IDomainRepositories domainRepositories,
+            IRepositories repositories,
+            IIdFactory idFactory,
             IQueryDispatcher queryDispatcher)
         {
             _transaction = new Transaction();
-            _personRepository = _transaction.Register(domainRepositories.Get<Person>());
-            _journeyRepository = _transaction.Register(domainRepositories.Get<Journey>());
+            _idFactory = idFactory;
+            _repositories = _transaction.Register(repositories);
             _eventBus = _transaction.Register(eventBus);
             _queryDispatcher = queryDispatcher;
         }
@@ -42,22 +41,21 @@ namespace Journeys.Command.CommandHandlers
             var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
             var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
             var personId = GetOrAddPersonWithName(command.PersonName);
-            var journeyId = new Id<Journey>(command.JourneyId);
-            var journey = new Journey(journeyId, command.DateOfOccurrence, routeDistance, _eventBus)
-                .AddLift(new Id<Person>(personId), liftDistance);
-            _journeyRepository.Store(journey);
+            var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus)
+                .AddLift(personId, liftDistance);
+            _repositories.Store(journey);
         }
 
-        private Id<Person> GetOrAddPersonWithName(string personName)
+        private IId GetOrAddPersonWithName(string personName)
         {
             var personId = _queryDispatcher.Dispatch(new GetPersonIdByNameQuery(personName));
-            if (!personId.HasValue)
+            if (personId == null)
             {
-                personId = Guid.NewGuid();
-                var person = new Person(new Id<Person>(personId.Value), personName, _eventBus);
-                _personRepository.Store(person);
+                personId = _idFactory.Create();
+                var person = new Person(personId, personName, _eventBus);
+                _repositories.Store(person);
             }
-            return new Id<Person>(personId.Value);
+            return personId;
         }
     }
 }

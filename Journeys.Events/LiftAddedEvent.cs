@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using Journeys.Common;
 
 namespace Journeys.Events
 {
     [DataContract]
     public class LiftAddedEvent
     {
-        public LiftAddedEvent(Guid journeyId, Guid personId, decimal liftDistance)
+        public LiftAddedEvent(IId journeyId, IId personId, decimal liftDistance)
         {
             JourneyId = journeyId;
             PersonId = personId;
@@ -14,10 +15,10 @@ namespace Journeys.Events
         }
 
         [DataMember]
-        public Guid JourneyId { get; private set; }
+        public IId JourneyId { get; private set; }
 
         [DataMember]
-        public Guid PersonId { get; private set; }
+        public IId PersonId { get; private set; }
 
         [DataMember]
         public decimal LiftDistance { get; private set; }

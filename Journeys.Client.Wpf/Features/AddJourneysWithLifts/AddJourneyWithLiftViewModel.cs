@@ -5,6 +5,7 @@ using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Notifications;
 using Journeys.Command;
 using Journeys.Commands;
+using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
@@ -12,11 +13,13 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly EventBus _eventBus;
+        private readonly IdFactory _idFactory;
 
-        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, EventBus eventBus)
+        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, EventBus eventBus, IdFactory idFactory)
         {
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;
+            _idFactory = idFactory;
             AddJourneyCommand = new DelegateCommand(AddJourney);
             DateOfOccurrence = DateTime.Now.Date;
             Notification = new NotifierViewModel();
@@ -37,7 +40,7 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
         private void AddJourney()
         {
             var personName = PassengerName;
-            var journeyId = Guid.NewGuid();
+            var journeyId = _idFactory.Create();
             try
             {
                 _commandDispatcher.Dispatch(new AddJourneyWithLiftCommand(journeyId, RouteDistance, DateOfOccurrence, personName, LiftDistance));

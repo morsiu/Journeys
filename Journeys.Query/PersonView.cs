@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Journeys.Common;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
@@ -7,17 +8,17 @@ using Journeys.Query.Infrastructure.Views;
 
 namespace Journeys.Query
 {
-    using PersonId = Guid;
+    using PersonId = IId;
 
     internal class PersonView
     {
         private readonly Set<PersonId, PersonName> _peopleNames = new Set<PersonId, PersonName>(personName => personName.OwnerId);
         private readonly Set<string, PersonName> _peopleByName = new Set<string, PersonName>(personName => personName.Name);
 
-        public Guid? Execute(GetPersonIdByNameQuery query)
+        public IId Execute(GetPersonIdByNameQuery query)
         {
             var personName = _peopleByName.Get(query.PersonName, () => null);
-            return personName == null ? default(Guid?) : personName.OwnerId;
+            return personName == null ? null : personName.OwnerId;
         }
 
         public string Execute(GetPersonNameByIdQuery query)

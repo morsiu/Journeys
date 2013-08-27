@@ -53,6 +53,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Adapters\CommandIdFactory.cs" />
+    <Compile Include="Adapters\CommandRepositories.cs" />
+    <Compile Include="Adapters\CommandTransactedRepositories.cs" />
+    <Compile Include="Adapters\EventSourcingRepositories.cs" />
+    <Compile Include="Adapters\EventSourcingTransactedRepositories.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
@@ -138,6 +143,10 @@
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
       <Name>Journeys.Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
+      <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
+      <Name>Journeys.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Query</Name>
@@ -157,6 +166,10 @@
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Repositories\Journeys.Repositories.csproj">
+      <Project>{648e4544-c389-45e5-a04d-8d5e4223c77c}</Project>
+      <Name>Journeys.Repositories</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
       <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>

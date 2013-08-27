@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Journeys.Domain.Infrastructure.Repositories;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
 using Journeys.Eventing;
@@ -16,13 +15,15 @@ namespace Journeys.EventSourcing
         private readonly HashSet<Action<EventReplayer>> _replayerConfigurators = new HashSet<Action<EventReplayer>>();
         private readonly HashSet<Action<IEventWriter, EventBus>> _writerConfigurators = new HashSet<Action<IEventWriter, EventBus>>();
         private readonly EventBus _eventBus;
-        private readonly IDomainRepositories _domainRepositories;
+        private readonly IRepositories _repositories;
+        private Type _idImplementationType;
 
-        public Bootstrapper(EventBus eventBus, IDomainRepositories domainRepositories, string eventsFileName)
+        public Bootstrapper(EventBus eventBus, IRepositories repositories, Type idImplementationType, string eventsFileName)
         {
-            _domainRepositories = domainRepositories;
+            _repositories = repositories;
             _eventBus = eventBus;
             _eventsFileName = eventsFileName;
+            _idImplementationType = idImplementationType;
         }
 
         public void Bootstrap()
@@ -52,9 +53,9 @@ namespace Journeys.EventSourcing
 
         private void ConfigureEvents()
         {
-            Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_domainRepositories.Get<Journey>(), _eventBus).Replay);
-            Register<LiftAddedEvent>(new LiftAddedEventReplayer(_domainRepositories.Get<Journey>()).Replay);
-            Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_domainRepositories.Get<Person>(), _eventBus).Replay);
+            Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_repositories, _eventBus).Replay);
+            Register<LiftAddedEvent>(new LiftAddedEventReplayer(_repositories).Replay);
+            Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_repositories, _eventBus).Replay);
         }
 
         private void Register<TEvent>(Action<TEvent> replayHandler)
@@ -67,8 +68,17 @@ namespace Journeys.EventSourcing
 
         private EventStore GetEventStore()
         {
-            var eventStore = new EventStore(_eventsFileName, _typesOfEventsToStore);
+            var eventStore = new EventStore(_eventsFileName, GetSupportedEventTypes());
             return eventStore;
+        }
+
+        private IEnumerable<Type> GetSupportedEventTypes()
+        {
+            foreach (var eventType in _typesOfEventsToStore)
+            {
+                yield return eventType;
+            }
+            yield return _idImplementationType;
         }
 
         private EventReplayer GetReplayer()

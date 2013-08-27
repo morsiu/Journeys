@@ -1,36 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
 using Journeys.Transactions;
+using Journeys.Common;
 
-namespace Journeys.Domain.Infrastructure.Repositories
+namespace Journeys.Repositories
 {
     using EntityType = Type;
 
-    internal class TransactedDomainRepositories : IDomainRepositories, ITransactional<IDomainRepositories>
+    internal class TransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
         private readonly Dictionary<EntityType, ITransactional> _transactedRepositories = new Dictionary<EntityType, ITransactional>();
-        private readonly IDomainRepositories _repositories;
+        private readonly Repositories _repositories;
 
-        public TransactedDomainRepositories(IDomainRepositories repositories)
+        public TransactedRepositories(Repositories repositories)
         {
             _repositories = repositories;
         }
 
-        public IDomainRepository<TEntity> Get<TEntity>() where TEntity : IHasId<TEntity>
+        public TEntity Get<TEntity>(IId id) where TEntity : IHasId
+        {
+            var repository = GetRepository<TEntity>();
+            return repository.Get(id);
+        }
+
+        public void Store<TEntity>(TEntity entity) where TEntity : IHasId
+        {
+            var repository = GetRepository<TEntity>();
+            repository.Store(entity);
+        }
+
+        private IRepository<TEntity> GetRepository<TEntity>() where TEntity : IHasId
         {
             var entityType = typeof(TEntity);
             if (_transactedRepositories.ContainsKey(entityType))
             {
-                var repository = (IDomainRepository<TEntity>)_transactedRepositories[entityType];
+                var repository = (IRepository<TEntity>)_transactedRepositories[entityType];
                 return repository;
             }
-            var newRepository = _repositories.Get<TEntity>();
-            var transactedRepository = new TransactedDomainRepository<TEntity>(newRepository);
+            var newRepository = _repositories.GetRepository<TEntity>();
+            var transactedRepository = new TransactedRepository<TEntity>(newRepository);
             _transactedRepositories[entityType] = transactedRepository;
             return newRepository;
         }
 
-        public IDomainRepositories Object
+        public IRepositories Object
         {
             get { return this; }
         }
@@ -51,7 +64,7 @@ namespace Journeys.Domain.Infrastructure.Repositories
             }
         }
 
-        public ITransactional<IDomainRepositories> Lift()
+        public ITransactional<IRepositories> Lift()
         {
             return this;
         }

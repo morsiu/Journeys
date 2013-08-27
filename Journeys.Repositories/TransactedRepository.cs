@@ -1,20 +1,21 @@
 ﻿using System.Collections.Generic;
+using Journeys.Common;
 using Journeys.Transactions;
 
-namespace Journeys.Domain.Infrastructure.Repositories
+namespace Journeys.Repositories
 {
-    internal class TransactedDomainRepository<TEntity> : IDomainRepository<TEntity>, ITransactional<IDomainRepository<TEntity>>
-        where TEntity : IHasId<TEntity>
+    internal class TransactedRepository<TEntity> : IRepository<TEntity>, ITransactional<IRepository<TEntity>>
+        where TEntity : IHasId
     {
-        private readonly IDomainRepository<TEntity> _repository;
-        private readonly Dictionary<Id<TEntity>, TEntity> _transactionRepository = new Dictionary<Id<TEntity>, TEntity>();
+        private readonly Repository<TEntity> _repository;
+        private readonly Dictionary<IId, TEntity> _transactionRepository = new Dictionary<IId, TEntity>();
 
-        public TransactedDomainRepository(IDomainRepository<TEntity> repository)
+        public TransactedRepository(Repository<TEntity> repository)
         {
             _repository = repository;
         }
 
-        public TEntity Get(Id<TEntity> id)
+        public TEntity Get(IId id)
         {
             if (_transactionRepository.ContainsKey(id))
             {
@@ -42,12 +43,12 @@ namespace Journeys.Domain.Infrastructure.Repositories
             _transactionRepository.Clear();
         }
 
-        public IDomainRepository<TEntity> Object
+        public IRepository<TEntity> Object
         {
             get { return this; }
         }
 
-        public ITransactional<IDomainRepository<TEntity>> Lift()
+        public ITransactional<IRepository<TEntity>> Lift()
         {
             return this;
         }

@@ -1,5 +1,4 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Journeys.Domain.Infrastructure.Repositories;
 using Journeys.Domain.People;
 using Journeys.Eventing;
 using Journeys.Events;
@@ -8,20 +7,20 @@ namespace Journeys.EventSourcing.Replayers
 {
     internal class PersonCreatedEventReplayer
     {
-        private readonly IDomainRepository<Person> _personRepository;
+        private readonly IRepositories _repositories;
         private readonly IEventBus _eventBus;
 
-        public PersonCreatedEventReplayer(IDomainRepository<Person> personRepository, IEventBus eventBus)
+        public PersonCreatedEventReplayer(IRepositories repositories, IEventBus eventBus)
         {
-            _personRepository = personRepository;
+            _repositories = repositories;
             _eventBus = eventBus;
         }
 
         public void Replay(PersonCreatedEvent @event)
         {
-            var personId = new Id<Person>(@event.PersonId);
+            var personId = @event.PersonId;
             var person = new Person(personId, @event.PersonName, _eventBus);
-            _personRepository.Store(person);
+            _repositories.Store(person);
         }
     }
 }

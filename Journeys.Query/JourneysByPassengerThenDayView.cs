@@ -5,12 +5,12 @@ using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
-using PassengerId = System.Guid;
+using PassengerId = Journeys.Common.IId;
 using Date = System.DateTime;
 
 namespace Journeys.Query
 {
-    using JourneyId = Guid;
+    using JourneyId = Journeys.Common.IId;
     using Journey = JourneyCreatedEvent;
     using Lift = LiftAddedEvent;
     using JourneysPerDayByPassengerLookup = Infrastructure.Views.Lookup<PassengerId, Set<Date, JourneysOnDay>>;
@@ -54,7 +54,7 @@ namespace Journeys.Query
                 journeysOnDay.TotalLiftDistance + lift.LiftDistance);
         }
 
-        private static Guid GetKey(Journey @event)
+        private static JourneyId GetKey(Journey @event)
         {
             return @event.JourneyId;
         }

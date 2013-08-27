@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Journeys.Common;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
-using JourneyId = System.Guid;
-using PersonId = System.Guid;
+using JourneyId = Journeys.Common.IId;
+using PersonId = Journeys.Common.IId;
 
 namespace Journeys.Query
 {
@@ -33,7 +34,7 @@ namespace Journeys.Query
         public IEnumerable<JourneyWithLift> Execute(GetJourneysWithLiftsByJourneyIdQuery query)
         {
             return GetSortedJourneysWithLifts()
-                .Where(e => e.JourneyId == query.JourneyId)
+                .Where(e => e.JourneyId.Equals(query.JourneyId))
                 .ToList();
         }
 
@@ -75,12 +76,12 @@ namespace Journeys.Query
             return new JourneyWithLiftKey(value.JourneyId, value.PassengerId);
         }
 
-        private static Guid GetKey(EmptyJourney @event)
+        private static IId GetKey(EmptyJourney @event)
         {
             return @event.JourneyId;
         }
 
-        private string GetPassengerName(Guid personId)
+        private string GetPassengerName(IId personId)
         {
             return _queryDispather.Dispatch(new GetPersonNameByIdQuery(personId));
         }

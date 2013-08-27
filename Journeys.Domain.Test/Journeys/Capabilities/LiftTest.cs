@@ -1,4 +1,5 @@
 ﻿using System;
+using Journeys.Common;
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.People;
@@ -9,8 +10,9 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
     [TestClass]
     public class LiftTest
     {
-        public static readonly Id<Person> PersonId = new Id<Person>(new Guid());
-        public static readonly Id<Person> AnotherPersonId = new Id<Person>(Guid.NewGuid());
+        // TODO: FIX ME
+        public static readonly IId PersonId = null; //new Id(new Guid());
+        public static readonly IId AnotherPersonId = null; // new Id(Guid.NewGuid());
 
         [TestMethod]
         public void LiftWithPersonIdShouldBeEqualByPersonToThatId()
