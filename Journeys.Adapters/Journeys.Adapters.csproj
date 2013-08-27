@@ -34,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandEventBus.cs" />
+    <Compile Include="CommandHandlerRegistry.cs" />
     <Compile Include="CommandIdFactory.cs" />
     <Compile Include="CommandRepositories.cs" />
     <Compile Include="CommandTransactedEventBus.cs" />
@@ -44,7 +45,10 @@
     <Compile Include="EventSourcingTransactedEventBus.cs" />
     <Compile Include="EventSourcingTransactedRepositories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CommandQueryDispatcher.cs" />
+    <Compile Include="QueryDispatcher.cs" />
     <Compile Include="QueryEventBus.cs" />
+    <Compile Include="QueryHandlerRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">
@@ -54,6 +58,10 @@
     <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
       <Name>Journeys.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Dispatching\Journeys.Dispatching.csproj">
+      <Project>{f25d96ee-25c3-4eee-a85f-b3707a3834b5}</Project>
+      <Name>Journeys.Dispatching</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
@@ -66,6 +74,10 @@
     <ProjectReference Include="..\Journeys.Event\Journeys.Event.csproj">
       <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
       <Name>Journeys.Event</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
+      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
+      <Name>Journeys.Queries</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>

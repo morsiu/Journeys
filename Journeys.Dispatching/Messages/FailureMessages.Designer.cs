@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Command.Messages {
+namespace Journeys.Dispatching.Messages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Journeys.Command.Messages {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Application.Messages.FailureMessages", typeof(FailureMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Dispatching.Messages.FailureMessages", typeof(FailureMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -66,6 +66,15 @@ namespace Journeys.Command.Messages {
         internal static string NoHandlerRegisteredForCommandOfType {
             get {
                 return ResourceManager.GetString("NoHandlerRegisteredForCommandOfType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no handler registered for query of type `{0}`..
+        /// </summary>
+        internal static string NoHandlerRegisteredForQueryOfType {
+            get {
+                return ResourceManager.GetString("NoHandlerRegisteredForQueryOfType", resourceCulture);
             }
         }
     }

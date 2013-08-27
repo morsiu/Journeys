@@ -1,6 +1,8 @@
-﻿namespace Journeys.Command.Infrastructure
+﻿using Journeys.Dispatching;
+
+namespace Journeys.Client.Wpf.Infrastructure
 {
-    internal class CommandDispatcher : ICommandDispatcher
+    public class CommandDispatcher : ICommandDispatcher
     {
         private readonly CommandProcessor _commandProcessor;
 

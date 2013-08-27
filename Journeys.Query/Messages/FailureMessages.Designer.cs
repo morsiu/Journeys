@@ -61,15 +61,6 @@ namespace Journeys.Query.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There is no handler registered for query of type `{0}`..
-        /// </summary>
-        internal static string NoHandlerRegisteredForQueryOfType {
-            get {
-                return ResourceManager.GetString("NoHandlerRegisteredForQueryOfType", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Nothing object has no value..
         /// </summary>
         internal static string NothingObjectHasNoValue {

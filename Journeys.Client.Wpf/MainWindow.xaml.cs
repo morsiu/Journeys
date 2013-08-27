@@ -1,8 +1,7 @@
 ﻿using Journeys.Client.Wpf.Features.AddJourneysWithLifts;
 using Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay;
 using Journeys.Client.Wpf.Infrastructure;
-using Journeys.Command;
-using Journeys.Query;
+using Journeys.Dispatching;
 using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf

@@ -62,10 +62,14 @@
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayViewModel.cs" />
     <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.cs" />
     <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsViewModel.cs" />
+    <Compile Include="ICommandDispatcher.cs" />
+    <Compile Include="Infrastructure\CommandDispatcher.cs" />
     <Compile Include="Infrastructure\Notifications\ErrorNotification.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierControl.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
     <Compile Include="Infrastructure\Notifications\SuccessNotification.cs" />
+    <Compile Include="Infrastructure\QueryDispatcher.cs" />
+    <Compile Include="IQueryDispatcher.cs" />
     <Page Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -134,21 +138,21 @@
       <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
       <Name>Journeys.Adapters</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">
-      <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
-      <Name>Journeys.Command</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
       <Name>Journeys.Commands</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">
+      <Project>{b1099af8-a5c9-471d-82ce-0ce1057adaee}</Project>
+      <Name>Journeys.Command</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
       <Name>Journeys.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
-      <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
-      <Name>Journeys.Query</Name>
+    <ProjectReference Include="..\Journeys.Dispatching\Journeys.Dispatching.csproj">
+      <Project>{f25d96ee-25c3-4eee-a85f-b3707a3834b5}</Project>
+      <Name>Journeys.Dispatching</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
@@ -165,6 +169,10 @@
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Queries</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
+      <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
+      <Name>Journeys.Query</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Repositories\Journeys.Repositories.csproj">
       <Project>{648e4544-c389-45e5-a04d-8d5e4223c77c}</Project>

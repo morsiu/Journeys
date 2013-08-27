@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Journeys.Command.Messages;
+using Journeys.Dispatching.Messages;
 
-namespace Journeys.Command.Infrastructure
+namespace Journeys.Dispatching
 {
-    internal class CommandProcessor
+    public class CommandProcessor
     {
         private readonly Dictionary<Type, Action<object>> _handlers = new Dictionary<Type, Action<object>>();
 

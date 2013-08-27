@@ -3,7 +3,6 @@ using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
-using Journeys.Query;
 
 namespace Journeys.Client.Wpf.Features.ShowJourneysWithLifts
 {

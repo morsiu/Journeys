@@ -1,7 +1,5 @@
-﻿using Journeys.Command.CommandHandlers;
-using Journeys.Command.Infrastructure;
+﻿using Journeys.Command.Handlers;
 using Journeys.Commands;
-using Journeys.Query;
 
 namespace Journeys.Command
 {
@@ -10,23 +8,27 @@ namespace Journeys.Command
         private readonly IEventBus _eventBus;
         private readonly IRepositories _repositories;
         private readonly IIdFactory _idFactory;
+        private readonly ICommandHandlerRegistry _commandHandlerRegistry;
+        private readonly IQueryDispatcher _queryDispatcher;
 
-        public Bootstrapper(IEventBus eventBus, IRepositories repositories, IIdFactory idFactory)
+        public Bootstrapper(
+            IEventBus eventBus,
+            IRepositories repositories,
+            IIdFactory idFactory,
+            ICommandHandlerRegistry commandHandlerRegistry,
+            IQueryDispatcher queryDispatcher)
         {
             _eventBus = eventBus;
             _idFactory = idFactory;
             _repositories = repositories;
+            _commandHandlerRegistry = commandHandlerRegistry;
+            _queryDispatcher = queryDispatcher;
         }
 
-        public ICommandDispatcher CommandDispatcher { get; private set; }
-
-        public void Bootstrap(IQueryDispatcher queryDispatcher)
+        public void Bootstrap()
         {
-            var commandProcessor = new CommandProcessor();
-            commandProcessor.SetHandler<AddJourneyWithLiftCommand>(
-                new AddJourneyWithLiftCommandHandler(_eventBus, _repositories, _idFactory, queryDispatcher).ExecuteTransacted);
-
-            CommandDispatcher = new CommandDispatcher(commandProcessor);
+            _commandHandlerRegistry.SetHandler<AddJourneyWithLiftCommand>(
+                new AddJourneyWithLiftCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).ExecuteTransacted);
         }
     }
 }

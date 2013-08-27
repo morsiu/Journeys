@@ -3,8 +3,8 @@ using System.Windows.Input;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Notifications;
-using Journeys.Command;
 using Journeys.Commands;
+using Journeys.Dispatching;
 using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts

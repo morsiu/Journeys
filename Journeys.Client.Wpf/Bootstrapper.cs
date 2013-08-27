@@ -1,4 +1,6 @@
 ﻿using Journeys.Adapters;
+using Journeys.Client.Wpf.Infrastructure;
+using Journeys.Dispatching;
 using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf
@@ -9,17 +11,23 @@ namespace Journeys.Client.Wpf
         {
             var eventBus = new Event.EventBus();
             var idFactory = new IdFactory();
+            var commandProcessor = new CommandProcessor();
+            var queryProcessor = new QueryProcessor();
 
             var queryBootstrapper = new Query.Bootstrapper(
-                new QueryEventBus(eventBus));
+                new QueryEventBus(eventBus),
+                new Adapters.QueryDispatcher(queryProcessor),
+                new QueryHandlerRegistry(queryProcessor));
             queryBootstrapper.Bootstrap();
 
             var repositories = new Repositories.Repositories();
             var commandBootstrapper = new Command.Bootstrapper(
                 new CommandEventBus(eventBus),
                 new CommandRepositories(repositories),
-                new CommandIdFactory(idFactory));
-            commandBootstrapper.Bootstrap(queryBootstrapper.QueryDispatcher);
+                new CommandIdFactory(idFactory),
+                new CommandHandlerRegistry(commandProcessor),
+                new CommandQueryDispatcher(queryProcessor));
+            commandBootstrapper.Bootstrap();
             
             var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
                 new EventSourcingEventBus(eventBus),
@@ -30,8 +38,8 @@ namespace Journeys.Client.Wpf
             
             var viewEventBus = new Infrastructure.EventBus();
             return new MainWindow(
-                commandBootstrapper.CommandDispatcher,
-                queryBootstrapper.QueryDispatcher,
+                new CommandDispatcher(commandProcessor),
+                new Infrastructure.QueryDispatcher(queryProcessor),
                 viewEventBus,
                 idFactory);
         }

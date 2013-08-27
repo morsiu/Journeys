@@ -1,12 +1,14 @@
-﻿using Journeys.Queries;
+﻿using Journeys.Command;
+using Journeys.Dispatching;
+using Journeys.Queries;
 
-namespace Journeys.Query.Infrastructure
+namespace Journeys.Adapters
 {
-    internal class QueryDispatcher : IQueryDispatcher
+    public class CommandQueryDispatcher : IQueryDispatcher
     {
         private readonly QueryProcessor _queryProcessor;
 
-        internal QueryDispatcher(QueryProcessor queryProcessor)
+        public CommandQueryDispatcher(QueryProcessor queryProcessor)
         {
             _queryProcessor = queryProcessor;
         }

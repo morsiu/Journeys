@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Journeys.Dispatching.Messages;
 using Journeys.Queries;
-using Journeys.Query.Messages;
 
-namespace Journeys.Query.Infrastructure
+namespace Journeys.Dispatching
 {
     using QueryType = Type;
 
-    internal class QueryProcessor
+    public class QueryProcessor
     {
         private delegate object UntypedQueryHandler(object query);
 
