@@ -1,6 +1,6 @@
 ﻿using Journeys.Domain.Infrastructure;
 using Journeys.Domain.People;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Events;
 
 namespace Journeys.EventSourcing.Replayers

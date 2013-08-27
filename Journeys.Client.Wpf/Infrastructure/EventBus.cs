@@ -1,10 +1,10 @@
-﻿using Journeys.Eventing;
+﻿using Journeys.Event;
 
 namespace Journeys.Client.Wpf.Infrastructure
 {
     internal class EventBus
     {
-        private readonly Eventing.EventBus _eventBus = new Eventing.EventBus();
+        private readonly Event.EventBus _eventBus = new Event.EventBus();
 
         public void Publish<TEvent>(TEvent @event)
         {

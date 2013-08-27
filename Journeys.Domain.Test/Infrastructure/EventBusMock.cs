@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Transactions;
 
 namespace Journeys.Domain.Test.Infrastructure

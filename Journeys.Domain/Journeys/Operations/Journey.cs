@@ -8,7 +8,7 @@ using Journeys.Domain.Infrastructure.Markers;
 using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.People;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Events;
 
 namespace Journeys.Domain.Journeys.Operations

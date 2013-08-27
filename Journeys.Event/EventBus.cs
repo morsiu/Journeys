@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Journeys.Transactions;
 
-namespace Journeys.Eventing
+namespace Journeys.Event
 {
     public class EventBus : IEventBus
     {

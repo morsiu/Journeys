@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Events;
 using Journeys.EventSourcing.Replayers;
 

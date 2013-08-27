@@ -7,7 +7,7 @@ namespace Journeys.Client.Wpf
     {
         public MainWindow Bootstrap()
         {
-            var eventBus = new Eventing.EventBus();
+            var eventBus = new Event.EventBus();
             var idFactory = new IdFactory();
 
             var queryBootstrapper = new Query.Bootstrapper(eventBus);

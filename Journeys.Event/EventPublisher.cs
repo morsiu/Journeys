@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Journeys.Eventing
+namespace Journeys.Event
 {
     internal class EventPublisher<TEvent>
     {

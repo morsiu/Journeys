@@ -3,7 +3,7 @@ using Journeys.Common;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Queries;
 using Journeys.Query;
 using Journeys.Transactions;

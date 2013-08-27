@@ -1,7 +1,7 @@
 ﻿using Journeys.Command.CommandHandlers;
 using Journeys.Command.Infrastructure;
 using Journeys.Commands;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Query;
 
 namespace Journeys.Command

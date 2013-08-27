@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Journeys.Common;
-using Journeys.Eventing;
+using Journeys.Event;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
