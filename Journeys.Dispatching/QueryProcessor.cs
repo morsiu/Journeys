@@ -1,15 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
+using Journeys.Dispatching.Exceptions;
 using Journeys.Dispatching.Messages;
 using Journeys.Queries;
 
 namespace Journeys.Dispatching
 {
-    using QueryType = Type;
-
     public class QueryProcessor
     {
-        private HandlerRegistry _handlers = new HandlerRegistry();
+        private readonly HandlerRegistry _handlers;
+        private readonly HandlerDispatcher _dispatcher;
+
+        public QueryProcessor()
+        {
+            _handlers = new HandlerRegistry();
+            _dispatcher = new HandlerDispatcher(_handlers);
+        }
 
         public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
             where TQuery : IQuery<TResult>
@@ -21,12 +26,11 @@ namespace Journeys.Dispatching
         public TResult Handle<TResult>(IQuery<TResult> query)
         {
             var queryType = query.GetType();
-            Func<object, object> handler;
-            if (_handlers.Retrieve(queryType, out handler))
+            try
             {
-                return (TResult)handler(query);
+                return (TResult)_dispatcher.Dispatch(queryType, query);
             }
-            else
+            catch (HandlerNotFoundException)
             {
                 throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForQueryOfType, queryType));
             }

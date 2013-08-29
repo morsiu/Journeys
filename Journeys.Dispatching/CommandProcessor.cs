@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using Journeys.Dispatching.Exceptions;
 using Journeys.Dispatching.Messages;
 
 namespace Journeys.Dispatching
 {
     public class CommandProcessor
     {
-        private delegate void UntypedCommandHandler(object command);
-        private readonly HandlerRegistry _handlers = new HandlerRegistry();
+        private readonly HandlerDispatcher _dispatcher;
+        private readonly HandlerRegistry _handlers;
+
+        public CommandProcessor()
+        {
+            _handlers = new HandlerRegistry();
+            _dispatcher = new HandlerDispatcher(_handlers);
+        }
 
         public void SetHandler<TCommand>(CommandHandler<TCommand> handler)
         {
@@ -18,12 +25,11 @@ namespace Journeys.Dispatching
         public void Handle(object command)
         {
             var commandType = command.GetType();
-            Func<object, object> handler;
-            if (_handlers.Retrieve(commandType, out handler))
+            try
             {
-                handler(command);
+                _dispatcher.Dispatch(commandType, command);
             }
-            else
+            catch (HandlerNotFoundException)
             {
                 throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForCommandOfType, commandType));
             }
