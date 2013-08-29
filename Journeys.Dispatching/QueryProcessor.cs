@@ -9,31 +9,27 @@ namespace Journeys.Dispatching
 
     public class QueryProcessor
     {
-        private delegate object UntypedQueryHandler(object query);
-        private readonly Dictionary<QueryType, UntypedQueryHandler> _handlers = new Dictionary<QueryType, UntypedQueryHandler>();
+        private HandlerRegistry _handlers = new HandlerRegistry();
 
         public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
             where TQuery : IQuery<TResult>
         {
             var queryType = typeof(TQuery);
-            UntypedQueryHandler untypedHandler = query => handler((TQuery)query);
-            _handlers[queryType] = untypedHandler;
+            _handlers.Set(queryType, query => handler((TQuery)query));
         }
 
         public TResult Handle<TResult>(IQuery<TResult> query)
         {
-            if (query == null) throw new ArgumentNullException("query");
-            var untypedHandler = GetHandler(query);
-            return (TResult)untypedHandler(query);
-        }
-
-        private UntypedQueryHandler GetHandler(object query)
-        {
             var queryType = query.GetType();
-            if (!_handlers.ContainsKey(queryType)) 
+            Func<object, object> handler;
+            if (_handlers.Retrieve(queryType, out handler))
+            {
+                return (TResult)handler(query);
+            }
+            else
+            {
                 throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForQueryOfType, queryType));
-            var untypedHandler = _handlers[queryType];
-            return untypedHandler;
+            }
         }
     }
 }
