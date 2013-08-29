@@ -6,16 +6,17 @@ namespace Journeys.Adapters
 {
     public class QueryDispatcher : IQueryDispatcher
     {
-        private readonly QueryProcessor _queryProcessor;
+        private readonly HandlerDispatcher _handlerDispatcher;
 
-        public QueryDispatcher(QueryProcessor queryProcessor)
+        public QueryDispatcher(HandlerDispatcher handlerDispatcher)
         {
-            _queryProcessor = queryProcessor;
+            _handlerDispatcher = handlerDispatcher;
         }
 
         public TResult Dispatch<TResult>(IQuery<TResult> query)
         {
-            return _queryProcessor.Handle(query);
+            var queryAdapter = new Query<TResult>(query);
+            return queryAdapter.Execute(_handlerDispatcher);
         }
     }
 }

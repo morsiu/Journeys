@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Dispatching.Messages {
+namespace Journeys.Adapters.Messages {
     using System;
     
     
@@ -66,6 +66,15 @@ namespace Journeys.Dispatching.Messages {
         internal static string NoHandlerRegisteredForCommandOfType {
             get {
                 return ResourceManager.GetString("NoHandlerRegisteredForCommandOfType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no handler registered for query of type `{0}`..
+        /// </summary>
+        internal static string NoHandlerRegisteredForQueryOfType {
+            get {
+                return ResourceManager.GetString("NoHandlerRegisteredForQueryOfType", resourceCulture);
             }
         }
     }

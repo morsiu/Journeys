@@ -1,20 +1,23 @@
-﻿using Journeys.Dispatching;
+﻿using System;
+using Journeys.Dispatching;
 using Journeys.Query;
 
 namespace Journeys.Adapters
 {
     public class QueryHandlerRegistry : IQueryHandlerRegistry
     {
-        private readonly QueryProcessor _queryProcessor;
+        private readonly HandlerRegistry _handlerRegistry;
 
-        public QueryHandlerRegistry(QueryProcessor queryProcessor)
+        public QueryHandlerRegistry(HandlerRegistry handlerRegistry)
         {
-            _queryProcessor = queryProcessor;
+            _handlerRegistry = handlerRegistry;
         }
 
-        public void SetHandler<TQuery, TResult>(Query.QueryHandler<TQuery, TResult> handler) where TQuery : Queries.IQuery<TResult>
+        public void SetHandler<TQuery, TResult>(Query.QueryHandler<TQuery, TResult> handler)
+            where TQuery : Queries.IQuery<TResult>
         {
-            _queryProcessor.SetHandler(new Dispatching.QueryHandler<TQuery, TResult>(handler));
+            Func<object, object> adaptedHandler = query => handler((TQuery)query);
+            _handlerRegistry.Set(typeof(TQuery), adaptedHandler);
         }
     }
 }

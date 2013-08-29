@@ -12,12 +12,13 @@ namespace Journeys.Client.Wpf
             var eventBus = new Event.EventBus();
             var idFactory = new IdFactory();
             var commandProcessor = new CommandProcessor();
-            var queryProcessor = new QueryProcessor();
+            var handlerRegistry = new HandlerRegistry();
+            var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
 
             var queryBootstrapper = new Query.Bootstrapper(
                 new QueryEventBus(eventBus),
-                new Adapters.QueryDispatcher(queryProcessor),
-                new QueryHandlerRegistry(queryProcessor));
+                new Adapters.QueryDispatcher(handlerDispatcher),
+                new QueryHandlerRegistry(handlerRegistry));
             queryBootstrapper.Bootstrap();
 
             var repositories = new Repositories.Repositories();
@@ -26,7 +27,7 @@ namespace Journeys.Client.Wpf
                 new CommandRepositories(repositories),
                 new CommandIdFactory(idFactory),
                 new CommandHandlerRegistry(commandProcessor),
-                new CommandQueryDispatcher(queryProcessor));
+                new CommandQueryDispatcher(handlerDispatcher));
             commandBootstrapper.Bootstrap();
             
             var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
@@ -39,7 +40,7 @@ namespace Journeys.Client.Wpf
             var viewEventBus = new Infrastructure.EventBus();
             return new MainWindow(
                 new CommandDispatcher(commandProcessor),
-                new Infrastructure.QueryDispatcher(queryProcessor),
+                new Infrastructure.QueryDispatcher(handlerDispatcher),
                 viewEventBus,
                 idFactory);
         }

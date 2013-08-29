@@ -120,4 +120,7 @@
   <data name="NoHandlerRegisteredForCommandOfType" xml:space="preserve">
     <value>There is no handler registered for command of type `{0}`.</value>
   </data>
+  <data name="NoHandlerRegisteredForQueryOfType" xml:space="preserve">
+    <value>There is no handler registered for query of type `{0}`.</value>
+  </data>
 </root>
