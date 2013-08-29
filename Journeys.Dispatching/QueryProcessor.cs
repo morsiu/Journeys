@@ -10,7 +10,6 @@ namespace Journeys.Dispatching
     public class QueryProcessor
     {
         private delegate object UntypedQueryHandler(object query);
-
         private readonly Dictionary<QueryType, UntypedQueryHandler> _handlers = new Dictionary<QueryType, UntypedQueryHandler>();
 
         public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)

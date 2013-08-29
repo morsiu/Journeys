@@ -6,12 +6,13 @@ namespace Journeys.Dispatching
 {
     public class CommandProcessor
     {
-        private readonly Dictionary<Type, Action<object>> _handlers = new Dictionary<Type, Action<object>>();
+        private delegate void UntypedCommandHandler(object command);
+        private readonly Dictionary<Type, UntypedCommandHandler> _handlers = new Dictionary<Type, UntypedCommandHandler>();
 
         public void SetHandler<TCommand>(CommandHandler<TCommand> handler)
         {
             var commandType = typeof(TCommand);
-            Action<object> untypedHandler = command => handler((TCommand)command);
+            UntypedCommandHandler untypedHandler = command => handler((TCommand)command);
             _handlers[commandType] = untypedHandler;
         }
 
@@ -22,7 +23,7 @@ namespace Journeys.Dispatching
             untypedHandler(command);
         }
 
-        private Action<object> GetHandler(object command)
+        private UntypedCommandHandler GetHandler(object command)
         {
             var commandType = command.GetType();
             if (!_handlers.ContainsKey(commandType)) throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForCommandOfType, commandType));
