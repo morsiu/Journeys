@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
     <Compile Include="CommandProcessor.cs" />
+    <Compile Include="Exceptions\HandlerNotFoundException.cs" />
+    <Compile Include="HandlerDispatcher.cs" />
     <Compile Include="HandlerRegistry.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>
