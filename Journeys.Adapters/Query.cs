@@ -17,14 +17,14 @@ namespace Journeys.Adapters
 
         public TResult Execute(HandlerDispatcher dispatcher)
         {
-            var queryType = _query.GetType();
+            var queryKey = QueryKey.From(_query);
             try
             {
-                return (TResult)dispatcher.Dispatch(queryType, _query);
+                return (TResult)dispatcher.Dispatch(queryKey, _query);
             }
             catch (HandlerNotFoundException)
             {
-                throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForQueryOfType, queryType));
+                throw new InvalidOperationException(string.Format(FailureMessages.NoHandlerRegisteredForQueryOfType, queryKey));
             }
         }
     }

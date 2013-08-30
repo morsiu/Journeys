@@ -55,6 +55,7 @@
     <Compile Include="QueryDispatcher.cs" />
     <Compile Include="QueryEventBus.cs" />
     <Compile Include="QueryHandlerRegistry.cs" />
+    <Compile Include="QueryKey.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Command\Journeys.Command.csproj">

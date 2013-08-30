@@ -16,8 +16,9 @@ namespace Journeys.Adapters
         public void SetHandler<TQuery, TResult>(Query.QueryHandler<TQuery, TResult> handler)
             where TQuery : Queries.IQuery<TResult>
         {
+            var queryKey = QueryKey.From<TQuery, TResult>();
             Func<object, object> adaptedHandler = query => handler((TQuery)query);
-            _handlerRegistry.Set(typeof(TQuery), adaptedHandler);
+            _handlerRegistry.Set(queryKey, adaptedHandler);
         }
     }
 }
