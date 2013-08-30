@@ -3,7 +3,7 @@ using Journeys.Queries;
 
 namespace Journeys.Adapters
 {
-    public class QueryKey
+    internal class QueryKey
     {
         private readonly Type _queryType;
 
@@ -35,6 +35,11 @@ namespace Journeys.Adapters
         public override int GetHashCode()
         {
             return _queryType.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return _queryType.ToString();
         }
 
         private bool Equals(QueryKey other)
