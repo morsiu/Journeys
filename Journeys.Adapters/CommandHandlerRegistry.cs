@@ -5,16 +5,17 @@ namespace Journeys.Adapters
 {
     public class CommandHandlerRegistry : ICommandHandlerRegistry
     {
-        private readonly CommandProcessor _commandProcessor;
+        private readonly HandlerRegistry _handlerRegistry;
 
-        public CommandHandlerRegistry(CommandProcessor commandProcessor)
+        public CommandHandlerRegistry(HandlerRegistry handlerRegistry)
         {
-            _commandProcessor = commandProcessor;
+            _handlerRegistry = handlerRegistry;
         }
 
-        public void SetHandler<TCommand>(Command.CommandHandler<TCommand> handler)
+        public void SetHandler<TCommand>(Journeys.Command.CommandHandler<TCommand> handler)
         {
-            _commandProcessor.SetHandler(new Dispatching.CommandHandler<TCommand>(handler));
+            var commandKey = CommandKey.From<TCommand>();
+            _handlerRegistry.Set(commandKey, command => { handler((TCommand)command); return null; });
         }
     }
 }

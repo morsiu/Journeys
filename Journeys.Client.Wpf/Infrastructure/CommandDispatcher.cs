@@ -4,16 +4,17 @@ namespace Journeys.Client.Wpf.Infrastructure
 {
     public class CommandDispatcher : ICommandDispatcher
     {
-        private readonly CommandProcessor _commandProcessor;
+        private readonly HandlerDispatcher _handlerDispatcher;
 
-        public CommandDispatcher(CommandProcessor commandProcessor)
+        public CommandDispatcher(HandlerDispatcher handlerDispatcher)
         {
-            _commandProcessor = commandProcessor;
+            _handlerDispatcher = handlerDispatcher;
         }
 
         public void Dispatch<TCommand>(TCommand command)
         {
-            _commandProcessor.Handle(command);
+            var commandAdapter = new Adapters.Command(command);
+            commandAdapter.Execute(_handlerDispatcher);
         }
     }
 }

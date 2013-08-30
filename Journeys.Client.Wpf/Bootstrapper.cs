@@ -11,7 +11,6 @@ namespace Journeys.Client.Wpf
         {
             var eventBus = new Event.EventBus();
             var idFactory = new IdFactory();
-            var commandProcessor = new CommandProcessor();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
 
@@ -26,7 +25,7 @@ namespace Journeys.Client.Wpf
                 new CommandEventBus(eventBus),
                 new CommandRepositories(repositories),
                 new CommandIdFactory(idFactory),
-                new CommandHandlerRegistry(commandProcessor),
+                new CommandHandlerRegistry(handlerRegistry),
                 new CommandQueryDispatcher(handlerDispatcher));
             commandBootstrapper.Bootstrap();
             
@@ -39,7 +38,7 @@ namespace Journeys.Client.Wpf
             
             var viewEventBus = new Infrastructure.EventBus();
             return new MainWindow(
-                new CommandDispatcher(commandProcessor),
+                new CommandDispatcher(handlerDispatcher),
                 new Infrastructure.QueryDispatcher(handlerDispatcher),
                 viewEventBus,
                 idFactory);

@@ -40,15 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandHandler.cs" />
-    <Compile Include="CommandProcessor.cs" />
     <Compile Include="Exceptions\HandlerNotFoundException.cs" />
     <Compile Include="HandlerDispatcher.cs" />
     <Compile Include="HandlerRegistry.cs" />
-    <Compile Include="Messages\FailureMessages.Designer.cs">
-      <DependentUpon>FailureMessages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryHandler.cs" />
   </ItemGroup>
@@ -57,12 +51,6 @@
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Queries</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Messages\FailureMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
