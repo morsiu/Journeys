@@ -15,7 +15,7 @@ namespace Journeys.Adapters
 
         public void RegisterListener<TEvent>(Action<TEvent> handler)
         {
-            _eventBus.Publish(handler);
+            _eventBus.RegisterListener(new Event.EventListener<TEvent>(handler));
         }
 
         public Domain.IEventBus ForDomain()
