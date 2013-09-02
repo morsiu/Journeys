@@ -3,7 +3,7 @@ using Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay;
 
 namespace Journeys.Client.Wpf
 {
-    public partial class MainWindow
+    internal partial class MainWindow
     {
         internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
         {

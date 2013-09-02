@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Client.Wpf
 {
-    public partial class Application
+    internal partial class Application
     {
     }
 }
