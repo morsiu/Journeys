@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{84BDB2FA-A16E-4F70-92EF-7CCED94A3405}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{0D9E8956-7698-4B39-9D27-08F38A87E524}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journeys.Adapters</RootNamespace>
-    <AssemblyName>Journeys.Adapters</AssemblyName>
+    <RootNamespace>Journeys.Client</RootNamespace>
+    <AssemblyName>Journeys.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,41 +29,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Journeys.Client.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Command.cs" />
-    <Compile Include="CommandEventBus.cs" />
-    <Compile Include="CommandHandlerRegistry.cs" />
-    <Compile Include="CommandIdFactory.cs" />
-    <Compile Include="CommandKey.cs" />
-    <Compile Include="CommandRepositories.cs" />
-    <Compile Include="CommandTransactedEventBus.cs" />
-    <Compile Include="CommandTransactedRepositories.cs" />
-    <Compile Include="DomainEventBusAdapter.cs" />
-    <Compile Include="EventSourcingEventBus.cs" />
-    <Compile Include="EventSourcingRepositories.cs" />
-    <Compile Include="EventSourcingTransactedEventBus.cs" />
-    <Compile Include="EventSourcingTransactedRepositories.cs" />
-    <Compile Include="Messages\FailureMessages.Designer.cs">
-      <DependentUpon>FailureMessages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CommandQueryDispatcher.cs" />
-    <Compile Include="Query.cs" />
-    <Compile Include="QueryDispatcher.cs" />
-    <Compile Include="QueryEventBus.cs" />
-    <Compile Include="QueryHandlerRegistry.cs" />
-    <Compile Include="QueryKey.cs" />
-    <Compile Include="WpfClientCommandDispatcher.cs" />
-    <Compile Include="WpfClientEventBus.cs" />
-    <Compile Include="WpfClientIdFactory.cs" />
-    <Compile Include="WpfClientQueryDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Adapters\Journeys.Adapters.csproj">
+      <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
+      <Name>Journeys.Adapters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Client.Wpf\Journeys.Client.Wpf.csproj">
       <Project>{a4b175a2-82ce-4c15-b34c-644f7b188630}</Project>
       <Name>Journeys.Client.Wpf</Name>
@@ -110,10 +91,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Messages\FailureMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

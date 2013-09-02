@@ -1,0 +1,15 @@
+﻿<Application x:Class="Journeys.Client.Wpf.Application"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Infrastructure\Notifications\NotifierControl.xaml" />
+                <ResourceDictionary Source="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

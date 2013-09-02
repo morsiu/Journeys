@@ -4,17 +4,16 @@ using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Notifications;
 using Journeys.Commands;
-using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
     internal class AddJourneyWithLiftViewModel
     {
         private readonly ICommandDispatcher _commandDispatcher;
-        private readonly EventBus _eventBus;
-        private readonly IdFactory _idFactory;
+        private readonly IEventBus _eventBus;
+        private readonly IIdFactory _idFactory;
 
-        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, EventBus eventBus, IdFactory idFactory)
+        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, IEventBus eventBus, IIdFactory idFactory)
         {
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;

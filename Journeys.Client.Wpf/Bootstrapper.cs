@@ -1,47 +1,34 @@
-﻿using Journeys.Adapters;
-using Journeys.Client.Wpf.Infrastructure;
-using Journeys.Dispatching;
-using Journeys.Repositories;
-
-namespace Journeys.Client.Wpf
+﻿namespace Journeys.Client.Wpf
 {
-    internal class Bootstrapper
+    public class Bootstrapper
     {
-        public MainWindow Bootstrap()
+        private readonly IEventBus _eventBus;
+        private readonly ICommandDispatcher _commandDispatcher;
+        private readonly IQueryDispatcher _queryDispatcher;
+        private readonly IIdFactory _idFactory;
+
+        public Bootstrapper(
+            IEventBus eventBus,
+            ICommandDispatcher commandDispatcher,
+            IQueryDispatcher queryDispatcher,
+            IIdFactory idFactory)
         {
-            var eventBus = new Event.EventBus();
-            var idFactory = new IdFactory();
-            var handlerRegistry = new HandlerRegistry();
-            var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
+            _eventBus = eventBus;
+            _commandDispatcher = commandDispatcher;
+            _queryDispatcher = queryDispatcher;
+            _idFactory = idFactory;
+        }
 
-            var queryBootstrapper = new Query.Bootstrapper(
-                new QueryEventBus(eventBus),
-                new Adapters.QueryDispatcher(handlerDispatcher),
-                new QueryHandlerRegistry(handlerRegistry));
-            queryBootstrapper.Bootstrap();
-
-            var repositories = new Repositories.Repositories();
-            var commandBootstrapper = new Command.Bootstrapper(
-                new CommandEventBus(eventBus),
-                new CommandRepositories(repositories),
-                new CommandIdFactory(idFactory),
-                new CommandHandlerRegistry(handlerRegistry),
-                new CommandQueryDispatcher(handlerDispatcher));
-            commandBootstrapper.Bootstrap();
-            
-            var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
-                new EventSourcingEventBus(eventBus),
-                new EventSourcingRepositories(repositories),
-                idFactory.IdImplementationType,
-                "Events.txt");
-            eventSourcingBootstrapper.Bootstrap();
-            
-            var viewEventBus = new Infrastructure.EventBus();
-            return new MainWindow(
-                new CommandDispatcher(handlerDispatcher),
-                new Infrastructure.QueryDispatcher(handlerDispatcher),
-                viewEventBus,
-                idFactory);
+        public void Run()
+        {
+            var application = new Application();
+            application.InitializeComponent();
+            var window = new MainWindow(
+                _commandDispatcher,
+                _queryDispatcher,
+                _eventBus,
+                _idFactory);
+            application.Run(window);
         }
     }
 }

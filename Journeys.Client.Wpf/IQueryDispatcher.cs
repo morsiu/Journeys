@@ -2,7 +2,7 @@
 
 namespace Journeys.Client.Wpf
 {
-    internal interface IQueryDispatcher
+    public interface IQueryDispatcher
     {
         TResult Dispatch<TResult>(IQuery<TResult> query);
     }

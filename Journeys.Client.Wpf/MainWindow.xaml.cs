@@ -1,14 +1,11 @@
 ﻿using Journeys.Client.Wpf.Features.AddJourneysWithLifts;
 using Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay;
-using Journeys.Client.Wpf.Infrastructure;
-using Journeys.Dispatching;
-using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf
 {
     public partial class MainWindow
     {
-        internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, EventBus eventBus, IdFactory idFactory)
+        internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
         {
             InitializeComponent();
             AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus, idFactory);

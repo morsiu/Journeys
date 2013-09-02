@@ -13,7 +13,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay
     {
         private readonly IQueryDispatcher _queryDispatcher;
 
-        public JourneysByPassengerThenDayViewModel(IQueryDispatcher queryDispatcher, EventBus eventBus)
+        public JourneysByPassengerThenDayViewModel(IQueryDispatcher queryDispatcher, IEventBus eventBus)
         {
             _queryDispatcher = queryDispatcher;
             eventBus.Subscribe<JourneyWithLiftAddedEvent>(Handle);

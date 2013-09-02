@@ -1,6 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using Journeys.Client.Wpf.Events;
-using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 
@@ -10,7 +9,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysWithLifts
     {
         private readonly IQueryDispatcher _queryDispatcher;
 
-        public JourneysWithLiftsViewModel(EventBus eventBus, IQueryDispatcher queryDispatcher)
+        public JourneysWithLiftsViewModel(IEventBus eventBus, IQueryDispatcher queryDispatcher)
         {
             _queryDispatcher = queryDispatcher;
             Items = new ObservableCollection<JourneyWithLift>();
