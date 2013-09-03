@@ -5,7 +5,11 @@ namespace Journeys.Client.Wpf
 {
     internal partial class MainWindow
     {
-        internal MainWindow(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
+        public MainWindow(
+            ICommandDispatcher commandDispatcher,
+            IQueryDispatcher queryDispatcher,
+            IEventBus eventBus,
+            IIdFactory idFactory)
         {
             InitializeComponent();
             AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus, idFactory);
