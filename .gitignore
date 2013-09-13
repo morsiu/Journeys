@@ -162,3 +162,4 @@ $RECYCLE.BIN/
 *.baml
 TemporaryGeneratedFile_*.cs
 *.exe
+*.dll
