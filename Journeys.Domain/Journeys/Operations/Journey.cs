@@ -39,7 +39,7 @@ namespace Journeys.Domain.Journeys.Operations
 
         public Journey AddLift(IId personId, Distance liftDistance)
         {
-            if (_lifts.Any(aLift => aLift.IsForPerson(personId))) 
+            if (ContainsLiftForPerson(personId))
                 throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftForThatPerson);
             if (liftDistance > _routeDistance) 
                 throw new InvariantViolationException(Messages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
@@ -47,6 +47,11 @@ namespace Journeys.Domain.Journeys.Operations
             var newLifts = _lifts.Add(lift);
             _eventBus.Publish(new LiftAddedEvent(_id, personId, liftDistance));
             return new Journey(this, newLifts);
+        }
+
+        private bool ContainsLiftForPerson(IId personId)
+        {
+            return _lifts.Any(lift => lift.IsForPerson(personId));
         }
 
         IId IHasId.Id
