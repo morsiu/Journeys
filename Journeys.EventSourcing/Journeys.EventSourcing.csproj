@@ -58,6 +58,10 @@
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.Journeys\Journeys.Domain.Journeys.csproj">
+      <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
+      <Name>Journeys.Domain.Journeys</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
       <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
       <Name>Journeys.Domain</Name>
