@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Domain.Infrastructure.Messages {
+namespace Journeys.Domain.Journeys {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Journeys.Domain.Infrastructure.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class FailureMessages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal FailureMessages() {
+        internal Messages() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Domain.Infrastructure.Messages.FailureMessages", typeof(FailureMessages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Domain.Journeys.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -79,29 +79,11 @@ namespace Journeys.Domain.Infrastructure.Messages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Entity of type `{0}` with id `{1}` was not found..
-        /// </summary>
-        public static string EntityOfTypeWithIdNotFound {
-            get {
-                return ResourceManager.GetString("EntityOfTypeWithIdNotFound", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Journey already contains lift with same person..
         /// </summary>
         public static string JourneyAlreadyContainsLiftWithSamePerson {
             get {
                 return ResourceManager.GetString("JourneyAlreadyContainsLiftWithSamePerson", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Person must have a name..
-        /// </summary>
-        public static string PersonMustHaveAName {
-            get {
-                return ResourceManager.GetString("PersonMustHaveAName", resourceCulture);
             }
         }
     }

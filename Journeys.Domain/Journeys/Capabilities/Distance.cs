@@ -1,6 +1,5 @@
 ﻿using System;
 using Journeys.Domain.Infrastructure.Markers;
-using Journeys.Domain.Infrastructure.Messages;
 
 namespace Journeys.Domain.Journeys.Capabilities
 {
@@ -12,7 +11,7 @@ namespace Journeys.Domain.Journeys.Capabilities
 
         public Distance(decimal amount, DistanceUnit unit)
         {
-            if (amount < 0m) throw new ArgumentException(FailureMessages.DistanceAmountMustNotBeNegative, "amount");
+            if (amount < 0m) throw new ArgumentException(Messages.DistanceAmountMustNotBeNegative, "amount");
             _amount = amount;
             _unit = unit;
         }

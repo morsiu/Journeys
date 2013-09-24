@@ -2,7 +2,6 @@
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
-using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Events;
 
 namespace Journeys.Domain.People
@@ -15,7 +14,7 @@ namespace Journeys.Domain.People
         public Person(IId id, string name, IEventBus eventBus)
         {
             if (string.IsNullOrEmpty(name))
-                throw new InvariantViolationException(FailureMessages.PersonMustHaveAName);
+                throw new InvariantViolationException(Messages.PersonMustHaveAName);
             _id = id;
             eventBus.Publish(new PersonCreatedEvent(id, name));
         }

@@ -5,7 +5,6 @@ using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Collections;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
-using Journeys.Domain.Infrastructure.Messages;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Events;
 
@@ -41,9 +40,9 @@ namespace Journeys.Domain.Journeys.Operations
         public Journey AddLift(IId personId, Distance liftDistance)
         {
             if (_lifts.Any(aLift => aLift.EqualsByPerson(personId))) 
-                throw new InvariantViolationException(FailureMessages.JourneyAlreadyContainsLiftWithSamePerson);
+                throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftWithSamePerson);
             if (liftDistance > _routeDistance) 
-                throw new InvariantViolationException(FailureMessages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
+                throw new InvariantViolationException(Messages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
             var lift = new Lift(personId, liftDistance);
             var newLifts = _lifts.Add(lift);
             _eventBus.Publish(new LiftAddedEvent(_id, personId, liftDistance));

@@ -43,18 +43,7 @@
     <Compile Include="Markers\RepositoryAttribute.cs" />
     <Compile Include="Markers\ServiceAttribute.cs" />
     <Compile Include="Markers\ValueObjectAttribute.cs" />
-    <Compile Include="Messages\FailureMessages.Designer.cs">
-      <DependentUpon>FailureMessages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Messages\FailureMessages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
