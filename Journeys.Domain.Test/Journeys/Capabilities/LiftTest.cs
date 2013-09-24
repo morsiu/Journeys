@@ -17,7 +17,7 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
         [TestMethod]
         public void LiftWithPersonIdShouldBeEqualByPersonToThatId()
         {
-            var lift = new Lift(PersonId, new Distance(1m, DistanceUnit.Kilometer));
+            var lift = new Lift(PersonId);
 
             Assert.IsTrue(lift.EqualsByPerson(PersonId));
         }
@@ -25,7 +25,7 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
         [TestMethod]
         public void LiftWithPersonIdShouldNotBeEqualByPersonToOtherId()
         {
-            var lift = new Lift(PersonId, new Distance(1m, DistanceUnit.Kilometer));
+            var lift = new Lift(PersonId);
 
             Assert.IsFalse(lift.EqualsByPerson(AnotherPersonId));
         }

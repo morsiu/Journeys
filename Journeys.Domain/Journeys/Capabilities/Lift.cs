@@ -9,12 +9,10 @@ namespace Journeys.Domain.Journeys.Capabilities
     public class Lift
     {
         private readonly IId _personId;
-        private readonly Distance _distance;
 
-        public Lift(IId personId, Distance distance)
+        public Lift(IId personId)
         {
             _personId = personId;
-            _distance = distance;
         }
 
         public bool EqualsByPerson(IId personId)

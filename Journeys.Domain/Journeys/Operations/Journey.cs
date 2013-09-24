@@ -43,7 +43,7 @@ namespace Journeys.Domain.Journeys.Operations
                 throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftWithSamePerson);
             if (liftDistance > _routeDistance) 
                 throw new InvariantViolationException(Messages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
-            var lift = new Lift(personId, liftDistance);
+            var lift = new Lift(personId);
             var newLifts = _lifts.Add(lift);
             _eventBus.Publish(new LiftAddedEvent(_id, personId, liftDistance));
             return new Journey(this, newLifts);
