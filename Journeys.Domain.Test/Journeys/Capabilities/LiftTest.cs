@@ -15,19 +15,19 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
         private static readonly IId AnotherPersonId = new Id(1);
 
         [TestMethod]
-        public void LiftWithPersonIdShouldBeEqualByPersonToThatId()
+        public void LiftWithPersonIdShouldBeForPersonWithThatId()
         {
             var lift = new Lift(PersonId);
 
-            Assert.IsTrue(lift.EqualsByPerson(PersonId));
+            Assert.IsTrue(lift.IsForPerson(PersonId));
         }
 
         [TestMethod]
-        public void LiftWithPersonIdShouldNotBeEqualByPersonToOtherId()
+        public void LiftWithPersonIdShouldNotBeForPersonWithDifferentId()
         {
             var lift = new Lift(PersonId);
 
-            Assert.IsFalse(lift.EqualsByPerson(AnotherPersonId));
+            Assert.IsFalse(lift.IsForPerson(AnotherPersonId));
         }
     }
 }

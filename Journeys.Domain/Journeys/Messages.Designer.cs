@@ -79,11 +79,11 @@ namespace Journeys.Domain.Journeys {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Journey already contains lift with same person..
+        ///   Looks up a localized string similar to Journey already contains lift for that person..
         /// </summary>
-        public static string JourneyAlreadyContainsLiftWithSamePerson {
+        public static string JourneyAlreadyContainsLiftForThatPerson {
             get {
-                return ResourceManager.GetString("JourneyAlreadyContainsLiftWithSamePerson", resourceCulture);
+                return ResourceManager.GetString("JourneyAlreadyContainsLiftForThatPerson", resourceCulture);
             }
         }
     }

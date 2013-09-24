@@ -15,7 +15,7 @@ namespace Journeys.Domain.Journeys.Capabilities
             _personId = personId;
         }
 
-        public bool EqualsByPerson(IId personId)
+        public bool IsForPerson(IId personId)
         {
             return _personId.Equals(personId);
         }

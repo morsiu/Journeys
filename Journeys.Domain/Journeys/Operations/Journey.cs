@@ -39,8 +39,8 @@ namespace Journeys.Domain.Journeys.Operations
 
         public Journey AddLift(IId personId, Distance liftDistance)
         {
-            if (_lifts.Any(aLift => aLift.EqualsByPerson(personId))) 
-                throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftWithSamePerson);
+            if (_lifts.Any(aLift => aLift.IsForPerson(personId))) 
+                throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftForThatPerson);
             if (liftDistance > _routeDistance) 
                 throw new InvariantViolationException(Messages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
             var lift = new Lift(personId);

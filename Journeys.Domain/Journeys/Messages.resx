@@ -123,7 +123,7 @@
   <data name="DistanceAmountMustNotBeNegative" xml:space="preserve">
     <value>Distance amount must not be negative.</value>
   </data>
-  <data name="JourneyAlreadyContainsLiftWithSamePerson" xml:space="preserve">
-    <value>Journey already contains lift with same person.</value>
+  <data name="JourneyAlreadyContainsLiftForThatPerson" xml:space="preserve">
+    <value>Journey already contains lift for that person.</value>
   </data>
 </root>
