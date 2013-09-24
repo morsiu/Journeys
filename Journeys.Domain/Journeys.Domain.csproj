@@ -68,9 +68,7 @@
       <Name>Journeys.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Journeys\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
