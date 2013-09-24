@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Infrastructure\EventBusMock.cs" />
     <Compile Include="Infrastructure\EventMatcher.cs" />
+    <Compile Include="Infrastructure\Id.cs" />
     <Compile Include="Journeys\Capabilities\DistanceTest.cs" />
     <Compile Include="Journeys\Capabilities\LiftTest.cs" />
     <Compile Include="Journeys\Operations\JourneyTest.cs" />

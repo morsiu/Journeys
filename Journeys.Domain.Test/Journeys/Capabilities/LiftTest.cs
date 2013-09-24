@@ -3,6 +3,7 @@ using Journeys.Common;
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.People;
+using Journeys.Domain.Test.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Journeys.Domain.Test.Journeys.Capabilities
@@ -10,9 +11,8 @@ namespace Journeys.Domain.Test.Journeys.Capabilities
     [TestClass]
     public class LiftTest
     {
-        // TODO: FIX ME
-        public static readonly IId PersonId = null; //new Id(new Guid());
-        public static readonly IId AnotherPersonId = null; // new Id(Guid.NewGuid());
+        private static readonly IId PersonId = new Id(0);
+        private static readonly IId AnotherPersonId = new Id(1);
 
         [TestMethod]
         public void LiftWithPersonIdShouldBeEqualByPersonToThatId()
