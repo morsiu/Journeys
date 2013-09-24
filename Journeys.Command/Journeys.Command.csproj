@@ -60,9 +60,9 @@
       <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
       <Name>Journeys.Domain.Journeys</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
-      <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
-      <Name>Journeys.Domain</Name>
+    <ProjectReference Include="..\Journeys.Domain.People\Journeys.Domain.People.csproj">
+      <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
+      <Name>Journeys.Domain.People</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
