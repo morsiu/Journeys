@@ -7,6 +7,6 @@ namespace Journeys.EventSourcing
     {
         void RegisterListener<TEvent>(Action<TEvent> handler);
 
-        Domain.IEventBus ForDomain();
+        Domain.Infrastructure.IEventBus ForDomain();
     }
 }

@@ -4,6 +4,6 @@ namespace Journeys.Command
 {
     public interface IEventBus : IProvideTransactional<IEventBus>
     {
-        Domain.IEventBus ForDomain();
+        Domain.Infrastructure.IEventBus ForDomain();
     }
 }

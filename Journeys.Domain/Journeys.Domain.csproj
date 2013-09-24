@@ -33,37 +33,21 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IEventBus.cs" />
-    <Compile Include="Infrastructure\Collections\ImmutableList.cs" />
-    <Compile Include="Infrastructure\Exceptions\InvariantViolationException.cs" />
-    <Compile Include="Infrastructure\Markers\RepositoryAttribute.cs" />
     <Compile Include="Journeys\Capabilities\Distance.cs" />
     <Compile Include="Journeys\Capabilities\DistanceUnit.cs" />
     <Compile Include="Journeys\Operations\Journey.cs" />
     <Compile Include="Journeys\Capabilities\Lift.cs" />
-    <Compile Include="Infrastructure\Markers\AggregateAttribute.cs" />
-    <Compile Include="Infrastructure\Markers\EntityAttribute.cs" />
-    <Compile Include="Infrastructure\Markers\FactoryAttribute.cs" />
-    <Compile Include="Infrastructure\Markers\ServiceAttribute.cs" />
-    <Compile Include="Infrastructure\Markers\ValueObjectAttribute.cs" />
-    <Compile Include="Infrastructure\Messages\FailureMessages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FailureMessages.resx</DependentUpon>
-    </Compile>
     <Compile Include="People\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Infrastructure\Messages\FailureMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
       <Name>Journeys.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
+      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
+      <Name>Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
@@ -73,6 +57,9 @@
       <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
       <Name>Journeys.Transactions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

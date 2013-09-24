@@ -12,7 +12,7 @@ namespace Journeys.Adapters
             _eventBus = eventBus.Lift();
         }
 
-        public Domain.IEventBus ForDomain()
+        public Domain.Infrastructure.IEventBus ForDomain()
         {
             return new DomainEventBusAdapter(_eventBus.Object);
         }

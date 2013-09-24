@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Infrastructure.Markers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface)]
-    internal class ServiceAttribute : Attribute
+    public class ServiceAttribute : Attribute
     {
     }
 }

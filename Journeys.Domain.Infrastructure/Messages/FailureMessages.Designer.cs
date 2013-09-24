@@ -22,7 +22,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class FailureMessages {
+    public class FailureMessages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Journeys.Domain.Infrastructure.Messages.FailureMessages", typeof(FailureMessages).Assembly);
@@ -51,7 +51,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Cannot add lift with distance larger than journey distance..
         /// </summary>
-        internal static string CannotAddLiftWithDistanceLargerThanJourneyDistance {
+        public static string CannotAddLiftWithDistanceLargerThanJourneyDistance {
             get {
                 return ResourceManager.GetString("CannotAddLiftWithDistanceLargerThanJourneyDistance", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Distance amount must not be negative..
         /// </summary>
-        internal static string DistanceAmountMustNotBeNegative {
+        public static string DistanceAmountMustNotBeNegative {
             get {
                 return ResourceManager.GetString("DistanceAmountMustNotBeNegative", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Entity of type `{0}` with id `{1}` was not found..
         /// </summary>
-        internal static string EntityOfTypeWithIdNotFound {
+        public static string EntityOfTypeWithIdNotFound {
             get {
                 return ResourceManager.GetString("EntityOfTypeWithIdNotFound", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Journey already contains lift with same person..
         /// </summary>
-        internal static string JourneyAlreadyContainsLiftWithSamePerson {
+        public static string JourneyAlreadyContainsLiftWithSamePerson {
             get {
                 return ResourceManager.GetString("JourneyAlreadyContainsLiftWithSamePerson", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Journeys.Domain.Infrastructure.Messages {
         /// <summary>
         ///   Looks up a localized string similar to Person must have a name..
         /// </summary>
-        internal static string PersonMustHaveAName {
+        public static string PersonMustHaveAName {
             get {
                 return ResourceManager.GetString("PersonMustHaveAName", resourceCulture);
             }

@@ -1,4 +1,4 @@
-﻿using Journeys.Domain;
+﻿using Journeys.Domain.Infrastructure;
 
 namespace Journeys.Adapters
 {

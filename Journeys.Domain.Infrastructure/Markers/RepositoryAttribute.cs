@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Infrastructure.Markers
 {
     [AttributeUsage(AttributeTargets.Interface)]
-    internal class RepositoryAttribute : Attribute
+    public class RepositoryAttribute : Attribute
     {
     }
 }

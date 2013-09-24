@@ -18,7 +18,7 @@ namespace Journeys.Adapters
             _eventBus.Object.RegisterListener<TEvent>(new Event.EventListener<TEvent>(handler));
         }
 
-        public Domain.IEventBus ForDomain()
+        public Domain.Infrastructure.IEventBus ForDomain()
         {
             return new DomainEventBusAdapter(_eventBus.Object);
         }

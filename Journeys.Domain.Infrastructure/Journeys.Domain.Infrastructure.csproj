@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1099AF8-A5C9-471D-82CE-0CE1057ADAEE}</ProjectGuid>
+    <ProjectGuid>{C83EA12C-2495-4B03-9C0A-1D2795A33F3E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journeys.Command</RootNamespace>
-    <AssemblyName>Journeys.Command</AssemblyName>
+    <RootNamespace>Journeys.Domain.Infrastructure</RootNamespace>
+    <AssemblyName>Journeys.Domain.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,45 +31,37 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Handlers\AddJourneyWithLiftCommandHandler.cs" />
-    <Compile Include="ICommandHandlerRegistry.cs" />
+    <Compile Include="Collections\ImmutableList.cs" />
+    <Compile Include="Exceptions\InvariantViolationException.cs" />
     <Compile Include="IEventBus.cs" />
-    <Compile Include="IIdFactory.cs" />
-    <Compile Include="IQueryDispatcher.cs" />
-    <Compile Include="IRepositories.cs" />
-    <Compile Include="CommandHandler.cs" />
+    <Compile Include="Markers\AggregateAttribute.cs" />
+    <Compile Include="Markers\EntityAttribute.cs" />
+    <Compile Include="Markers\FactoryAttribute.cs" />
+    <Compile Include="Markers\RepositoryAttribute.cs" />
+    <Compile Include="Markers\ServiceAttribute.cs" />
+    <Compile Include="Markers\ValueObjectAttribute.cs" />
+    <Compile Include="Messages\FailureMessages.Designer.cs">
+      <DependentUpon>FailureMessages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
-      <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
-      <Name>Journeys.Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
-      <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
-      <Name>Journeys.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
-      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
-      <Name>Journeys.Domain.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain\Journeys.Domain.csproj">
-      <Project>{7ba6e88b-4158-462a-9394-ec312d67306a}</Project>
-      <Name>Journeys.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
-      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Queries</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Messages\FailureMessages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
       <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
       <Name>Journeys.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

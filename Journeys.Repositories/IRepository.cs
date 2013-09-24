@@ -7,6 +7,7 @@ namespace Journeys.Repositories
         where TEntity : IHasId
     {
         TEntity Get(IId id);
+
         void Store(TEntity entity);
     }
 }

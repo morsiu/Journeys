@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Infrastructure.Collections
 {
-    internal class ImmutableList<T> : IEnumerable<T>
+    public class ImmutableList<T> : IEnumerable<T>
     {
         private readonly Item _head;
         public static readonly ImmutableList<T> Empty = new ImmutableList<T>(null);
