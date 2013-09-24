@@ -5,7 +5,7 @@ using Journeys.Domain.Infrastructure.Markers;
 namespace Journeys.Domain.Journeys.Capabilities
 {
     [ValueObject]
-    public class Lift
+    internal class Lift
     {
         private readonly IId _personId;
 
