@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Runtime.Serialization;
 using Journeys.Common;
-using Journeys.Repositories;
 
 namespace Journeys.Client.Wpf.Infrastructure
 {
@@ -15,22 +14,12 @@ namespace Journeys.Client.Wpf.Infrastructure
         {
             _id = id;
         }
-
-        public static IId New()
-        {
-            return new Id(Guid.NewGuid());
-        }
-
-        public static implicit operator Guid(Id id)
-        {
-            return id._id;
-        }
-
+        
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            if (obj is Id == false) return false;
-            return Equals((Id)obj);
+            return obj != null
+                && obj is Id
+                && Equals((Id)obj);
         }
 
         public override int GetHashCode()
@@ -38,25 +27,16 @@ namespace Journeys.Client.Wpf.Infrastructure
             return _id.GetHashCode();
         }
 
-        public bool Equals(Id other)
-        {
-            return _id == other._id;
-        }
-
-        public static bool operator==(Id a, Id b)
-        {
-            return a.Equals(b);
-        }
-
-        public static bool operator!=(Id a, Id b)
-        {
-            return !a.Equals(b);
-        }
-
         public bool Equals(IId other)
         {
-            return other is Id
+            return other != null
+                && other is Id
                 && Equals((Id)other);
+        }
+
+        private bool Equals(Id other)
+        {
+            return _id == other._id;
         }
     }
 }

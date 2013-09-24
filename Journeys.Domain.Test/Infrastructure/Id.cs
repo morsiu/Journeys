@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Journeys.Common;
+﻿using Journeys.Common;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
@@ -18,9 +13,9 @@ namespace Journeys.Domain.Test.Infrastructure
 
         public override bool Equals(object obj)
         {
-            if (obj == null) return false;
-            if (obj is Id == false) return false;
-            return Equals((Id)obj);
+            return obj != null
+                && obj is Id
+                && Equals((Id)obj);
         }
 
         public override int GetHashCode()
@@ -28,24 +23,15 @@ namespace Journeys.Domain.Test.Infrastructure
             return _id.GetHashCode();
         }
 
-        public bool Equals(Id other)
+        private bool Equals(Id other)
         {
             return _id == other._id;
         }
 
-        public static bool operator ==(Id a, Id b)
-        {
-            return a.Equals(b);
-        }
-
-        public static bool operator !=(Id a, Id b)
-        {
-            return !a.Equals(b);
-        }
-
         public bool Equals(IId other)
         {
-            return other is Id
+            return other != null
+                && other is Id
                 && Equals((Id)other);
         }
     }
