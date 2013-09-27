@@ -23,18 +23,10 @@ namespace Journeys.Query.Infrastructure.Views
             var key = _keyGenerator(value);
             _values.Add(key, value);
         }
-
-        public void Update(TKey key, Func<TValue, TValue> updater)
-        {
-            var value = _values[key];
-            var newKey = _keyGenerator(value);
-            _values.Remove(key);
-            _values[newKey] = updater(value);
-        }
-
+       
         public void UpdateOrAdd(TKey key, Func<TValue> newValue, Func<TValue, TValue> update)
         {
-            var value = !_values.ContainsKey(key) ? newValue() : _values[key];
+            var value = HasValueForKey(key) ? _values[key] : newValue();
             var updatedValue = update(value);
             var updatedValueKey = _keyGenerator(updatedValue);
             _values[updatedValueKey] = updatedValue;
@@ -47,24 +39,17 @@ namespace Journeys.Query.Infrastructure.Views
 
         public TValue Get(TKey key, Func<TValue> defaultValue)
         {
-            if (_values.ContainsKey(key))
-            {
-                return _values[key];
-            }
-            var value = defaultValue();
-            return value;
+            return HasValueForKey(key) ? _values[key] : defaultValue();
         }
-
-        public TValue Remove(TKey key)
-        {
-            var value = _values[key];
-            _values.Remove(key);
-            return value;
-        }
-
+        
         public IEnumerable<TValue> Retrieve()
         {
             return _values.Values;
+        }
+
+        private bool HasValueForKey(TKey key)
+        {
+            return key.IsNotNull() && _values.ContainsKey(key);
         }
     }
 }
