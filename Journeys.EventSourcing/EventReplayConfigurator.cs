@@ -8,19 +8,18 @@ namespace Journeys.EventSourcing
 {
     internal class EventReplayConfigurator
     {
-        private readonly HashSet<Action<EventReplayer>> _replayerConfigurators = new HashSet<Action<EventReplayer>>();
+        private readonly HashSet<Action<EventReplayer>> _eventReplayConfigurators = new HashSet<Action<EventReplayer>>();
 
-        public void Add<TEvent>(Action<TEvent> replayHandler)
+        public void Add<TEvent>(Action<TEvent> eventReplayHandler)
         {
-            var eventType = typeof(TEvent);
-            _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));
+            _eventReplayConfigurators.Add(eventReplayer => eventReplayer.Register(eventReplayHandler));
         }
 
         public void Configure(EventReplayer eventReplayer)
         {
-            foreach (var replayerConfigurator in _replayerConfigurators)
+            foreach (var eventReplayConfigurator in _eventReplayConfigurators)
             {
-                replayerConfigurator(eventReplayer);
+                eventReplayConfigurator(eventReplayer);
             }
         }
     }
