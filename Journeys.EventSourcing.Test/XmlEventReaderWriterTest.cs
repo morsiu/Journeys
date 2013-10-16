@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Journeys.EventSourcing.Storage;
 using Journeys.EventSourcing.Test.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

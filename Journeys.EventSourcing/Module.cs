@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Journeys.Events;
+using Journeys.EventSourcing.Storage;
 
 namespace Journeys.EventSourcing
 {
