@@ -37,11 +37,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventReplayer.cs" />
+    <Compile Include="EventWriteConfigurator.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="EventStore.cs" />
     <Compile Include="IEventWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="EventReplayConfigurator.cs" />
     <Compile Include="XmlEventReader.cs" />
     <Compile Include="XmlEventWriter.cs" />
   </ItemGroup>

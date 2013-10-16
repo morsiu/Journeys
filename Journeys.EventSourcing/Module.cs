@@ -8,10 +8,10 @@ namespace Journeys.EventSourcing
     {
         private readonly string _eventsFileName;
         private readonly HashSet<Type> _typesOfEventsToStore = new HashSet<Type>();
-        private readonly HashSet<Action<EventReplayer>> _replayerConfigurators = new HashSet<Action<EventReplayer>>();
-        private readonly HashSet<Action<IEventWriter, IEventBus>> _writerConfigurators = new HashSet<Action<IEventWriter, IEventBus>>();
+        private readonly EventReplayConfigurator _eventReplayConfigurator = new EventReplayConfigurator();
+        private readonly EventWriteConfigurator _eventWriteConfigurator = new EventWriteConfigurator();
         private readonly IEventBus _eventBus;
-        private Type _idImplementationType;
+        private readonly Type _idImplementationType;
 
         public Module(IEventBus eventBus, Type idImplementationType, string eventsFileName)
         {
@@ -32,17 +32,14 @@ namespace Journeys.EventSourcing
         {
             var eventStore = GetEventStore();
             var eventWriter = eventStore.GetWriter();
-            foreach (var eventBusConfigurator in _writerConfigurators)
-            {
-                eventBusConfigurator(eventWriter, _eventBus);
-            }
+            _eventWriteConfigurator.Configure(_eventBus, eventWriter);
         }
 
         public void Register<TEvent>(Action<TEvent> replayHandler)
         {
             var eventType = typeof(TEvent);
-            _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));
-            _writerConfigurators.Add((writer, bus) => bus.RegisterListener<TEvent>(writer.Write));
+            _eventWriteConfigurator.Add<TEvent>(replayHandler);
+            _eventReplayConfigurator.Add<TEvent>(replayHandler);
             _typesOfEventsToStore.Add(eventType);
         }
 
@@ -64,10 +61,7 @@ namespace Journeys.EventSourcing
         private EventReplayer GetReplayer()
         {
             var replayer = new EventReplayer();
-            foreach (var replayerConfigurator in _replayerConfigurators)
-            {
-                replayerConfigurator(replayer);
-            }
+            _eventReplayConfigurator.Configure(replayer);
             return replayer;
         }
     }
