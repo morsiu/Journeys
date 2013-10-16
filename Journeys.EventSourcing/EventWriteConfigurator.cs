@@ -8,20 +8,24 @@ namespace Journeys.EventSourcing
 {
     internal class EventWriteConfigurator
     {
-        private readonly HashSet<Action<IEventWriter, IEventBus>> _writerConfigurators = new HashSet<Action<IEventWriter, IEventBus>>();
+        private readonly HashSet<Action<IEventBus, IEventWriter>> _eventWriteConfigurators = new HashSet<Action<IEventBus, IEventWriter>>();
 
         public void Add<TEvent>(Action<TEvent> replayHandler)
         {
-            var eventType = typeof(TEvent);
-            _writerConfigurators.Add((writer, bus) => bus.RegisterListener<TEvent>(writer.Write));
+            _eventWriteConfigurators.Add(ConfigureEventWrite<TEvent>);
         }
 
         public void Configure(IEventBus eventBus, IEventWriter eventWriter)
         {
-            foreach (var eventBusConfigurator in _writerConfigurators)
+            foreach (var eventWriteConfigurator in _eventWriteConfigurators)
             {
-                eventBusConfigurator(eventWriter, eventBus);
+                eventWriteConfigurator(eventBus, eventWriter);
             }
+        }
+
+        private static void ConfigureEventWrite<TEvent>(IEventBus eventBus, IEventWriter eventWriter)
+        {
+            eventBus.RegisterListener<TEvent>(eventWriter.Write<TEvent>);
         }
     }
 }
