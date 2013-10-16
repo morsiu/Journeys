@@ -37,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventReplayer.cs" />
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="EventStore.cs" />
     <Compile Include="IEventWriter.cs" />

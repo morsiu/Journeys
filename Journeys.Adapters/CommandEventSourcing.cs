@@ -9,16 +9,16 @@ namespace Journeys.Adapters
 {
     public class CommandEventSourcing : IEventSourcing
     {
-        private readonly EventSourcing.Bootstrapper _eventSourcingBootstrapper;
+        private readonly EventSourcing.Module _eventSourcingModule;
 
-        public CommandEventSourcing(EventSourcing.Bootstrapper eventSourcingBootstrapper)
+        public CommandEventSourcing(EventSourcing.Module eventSourcingModule)
         {
-            _eventSourcingBootstrapper = eventSourcingBootstrapper;
+            _eventSourcingModule = eventSourcingModule;
         }
 
         public void RegisterEventReplayer<TEvent>(Action<TEvent> replayer)
         {
-            _eventSourcingBootstrapper.Register<TEvent>(replayer);            
+            _eventSourcingModule.Register<TEvent>(replayer);            
         }
     }
 }

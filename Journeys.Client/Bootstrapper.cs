@@ -21,7 +21,7 @@ namespace Journeys.Client
 
             var repositories = new Repositories.Repositories();
 
-            var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
+            var eventSourcingModule = new EventSourcing.Module(
                 new EventSourcingEventBus(eventBus),
                 idFactory.IdImplementationType,
                 "Events.txt");
@@ -32,11 +32,11 @@ namespace Journeys.Client
                 new CommandIdFactory(idFactory),
                 new CommandHandlerRegistry(handlerRegistry),
                 new CommandQueryDispatcher(handlerDispatcher),
-                new CommandEventSourcing(eventSourcingBootstrapper));
+                new CommandEventSourcing(eventSourcingModule));
             commandBootstrapper.Bootstrap();
 
-            eventSourcingBootstrapper.ReplayEvents();
-            eventSourcingBootstrapper.StoreNewEvents();
+            eventSourcingModule.ReplayEvents();
+            eventSourcingModule.StoreNewEvents();
 
             var wpfClientBootstrapper = new Client.Wpf.Bootstrapper(
                 new WpfClientEventBus(eventBus),
