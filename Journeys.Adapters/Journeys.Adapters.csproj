@@ -44,9 +44,7 @@
     <Compile Include="CommandTransactedRepositories.cs" />
     <Compile Include="DomainEventBusAdapter.cs" />
     <Compile Include="EventSourcingEventBus.cs" />
-    <Compile Include="EventSourcingRepositories.cs" />
     <Compile Include="EventSourcingTransactedEventBus.cs" />
-    <Compile Include="EventSourcingTransactedRepositories.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -39,7 +39,6 @@
     <Compile Include="EventReplayer.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IEventBus.cs" />
-    <Compile Include="IRepositories.cs" />
     <Compile Include="EventStore.cs" />
     <Compile Include="IEventWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

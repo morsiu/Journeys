@@ -11,12 +11,10 @@ namespace Journeys.EventSourcing
         private readonly HashSet<Action<EventReplayer>> _replayerConfigurators = new HashSet<Action<EventReplayer>>();
         private readonly HashSet<Action<IEventWriter, IEventBus>> _writerConfigurators = new HashSet<Action<IEventWriter, IEventBus>>();
         private readonly IEventBus _eventBus;
-        private readonly IRepositories _repositories;
         private Type _idImplementationType;
 
-        public Bootstrapper(IEventBus eventBus, IRepositories repositories, Type idImplementationType, string eventsFileName)
+        public Bootstrapper(IEventBus eventBus, Type idImplementationType, string eventsFileName)
         {
-            _repositories = repositories;
             _eventBus = eventBus;
             _eventsFileName = eventsFileName;
             _idImplementationType = idImplementationType;

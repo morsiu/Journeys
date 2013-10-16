@@ -23,7 +23,6 @@ namespace Journeys.Client
 
             var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
                 new EventSourcingEventBus(eventBus),
-                new EventSourcingRepositories(repositories),
                 idFactory.IdImplementationType,
                 "Events.txt");
 
