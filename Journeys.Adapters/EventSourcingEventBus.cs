@@ -18,11 +18,6 @@ namespace Journeys.Adapters
             _eventBus.RegisterListener(new Event.EventListener<TEvent>(handler));
         }
 
-        public Domain.Infrastructure.IEventBus ForDomain()
-        {
-            return new DomainEventBusAdapter(_eventBus);
-        }
-
         public ITransactional<IEventBus> Lift()
         {
             return new EventSourcingTransactedEventBus(_eventBus);
