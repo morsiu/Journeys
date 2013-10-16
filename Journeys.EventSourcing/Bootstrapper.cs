@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Journeys.Events;
-using Journeys.EventSourcing.Replayers;
 
 namespace Journeys.EventSourcing
 {
@@ -22,15 +21,8 @@ namespace Journeys.EventSourcing
             _eventsFileName = eventsFileName;
             _idImplementationType = idImplementationType;
         }
-
-        public void Bootstrap()
-        {
-            ConfigureEvents();
-            ReplayEvents();
-            StoreNewEvents();
-        }
-
-        private void ReplayEvents()
+     
+        public void ReplayEvents()
         {
             var eventStore = GetEventStore();
             var storedEvents = eventStore.GetReader();
@@ -38,7 +30,7 @@ namespace Journeys.EventSourcing
             eventReplayer.Replay(storedEvents);
         }
 
-        private void StoreNewEvents()
+        public void StoreNewEvents()
         {
             var eventStore = GetEventStore();
             var eventWriter = eventStore.GetWriter();
@@ -48,14 +40,7 @@ namespace Journeys.EventSourcing
             }
         }
 
-        private void ConfigureEvents()
-        {
-            Register<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_repositories, _eventBus).Replay);
-            Register<LiftAddedEvent>(new LiftAddedEventReplayer(_repositories).Replay);
-            Register<PersonCreatedEvent>(new PersonCreatedEventReplayer(_repositories, _eventBus).Replay);
-        }
-
-        private void Register<TEvent>(Action<TEvent> replayHandler)
+        public void Register<TEvent>(Action<TEvent> replayHandler)
         {
             var eventType = typeof(TEvent);
             _replayerConfigurators.Add(replayer => replayer.Register(replayHandler));

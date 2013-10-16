@@ -37,11 +37,15 @@
     <Compile Include="Handlers\AddJourneyWithLiftCommandHandler.cs" />
     <Compile Include="ICommandHandlerRegistry.cs" />
     <Compile Include="IEventBus.cs" />
+    <Compile Include="IEventSourcing.cs" />
     <Compile Include="IIdFactory.cs" />
     <Compile Include="IQueryDispatcher.cs" />
     <Compile Include="IRepositories.cs" />
     <Compile Include="CommandHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Replayers\JourneyCreatedEventReplayer.cs" />
+    <Compile Include="Replayers\LiftAddedEventReplayer.cs" />
+    <Compile Include="Replayers\PersonCreatedEventReplayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
@@ -63,6 +67,10 @@
     <ProjectReference Include="..\Journeys.Domain.People\Journeys.Domain.People.csproj">
       <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
       <Name>Journeys.Domain.People</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
+      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
+      <Name>Journeys.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>

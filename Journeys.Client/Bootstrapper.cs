@@ -20,21 +20,25 @@ namespace Journeys.Client
             queryBootstrapper.Bootstrap();
 
             var repositories = new Repositories.Repositories();
-            var commandBootstrapper = new Command.Bootstrapper(
-                new CommandEventBus(eventBus),
-                new CommandRepositories(repositories),
-                new CommandIdFactory(idFactory),
-                new CommandHandlerRegistry(handlerRegistry),
-                new CommandQueryDispatcher(handlerDispatcher));
-            commandBootstrapper.Bootstrap();
-            
+
             var eventSourcingBootstrapper = new EventSourcing.Bootstrapper(
                 new EventSourcingEventBus(eventBus),
                 new EventSourcingRepositories(repositories),
                 idFactory.IdImplementationType,
                 "Events.txt");
-            eventSourcingBootstrapper.Bootstrap();
-          
+
+            var commandBootstrapper = new Command.Bootstrapper(
+                new CommandEventBus(eventBus),
+                new CommandRepositories(repositories),
+                new CommandIdFactory(idFactory),
+                new CommandHandlerRegistry(handlerRegistry),
+                new CommandQueryDispatcher(handlerDispatcher),
+                new CommandEventSourcing(eventSourcingBootstrapper));
+            commandBootstrapper.Bootstrap();
+
+            eventSourcingBootstrapper.ReplayEvents();
+            eventSourcingBootstrapper.StoreNewEvents();
+
             var wpfClientBootstrapper = new Client.Wpf.Bootstrapper(
                 new WpfClientEventBus(eventBus),
                 new WpfClientCommandDispatcher(handlerDispatcher),

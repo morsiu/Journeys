@@ -35,6 +35,7 @@
   <ItemGroup>
     <Compile Include="Command.cs" />
     <Compile Include="CommandEventBus.cs" />
+    <Compile Include="CommandEventSourcing.cs" />
     <Compile Include="CommandHandlerRegistry.cs" />
     <Compile Include="CommandIdFactory.cs" />
     <Compile Include="CommandKey.cs" />

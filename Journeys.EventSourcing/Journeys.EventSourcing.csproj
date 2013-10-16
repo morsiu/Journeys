@@ -40,9 +40,6 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IRepositories.cs" />
-    <Compile Include="Replayers\JourneyCreatedEventReplayer.cs" />
-    <Compile Include="Replayers\LiftAddedEventReplayer.cs" />
-    <Compile Include="Replayers\PersonCreatedEventReplayer.cs" />
     <Compile Include="EventStore.cs" />
     <Compile Include="IEventWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
