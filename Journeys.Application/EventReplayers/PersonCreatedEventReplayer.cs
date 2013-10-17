@@ -1,8 +1,7 @@
-﻿using Journeys.Command;
-using Journeys.Domain.People;
+﻿using Journeys.Domain.People;
 using Journeys.Events;
 
-namespace Journeys.Command.Replayers
+namespace Journeys.Application.EventReplayers
 {
     internal class PersonCreatedEventReplayer
     {

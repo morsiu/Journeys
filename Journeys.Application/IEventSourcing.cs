@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public interface IEventSourcing
     {
-        void RegisterEventReplayer<TEvent>(Action<TEvent> replayer);
+        void RegisterEventReplayer<TEvent>(Action<TEvent> eventReplayer);
     }
 }

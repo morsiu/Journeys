@@ -1,7 +1,7 @@
 ﻿using Journeys.Common;
 using Journeys.Transactions;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public interface IRepositories : IProvideTransactional<IRepositories>
     {

@@ -1,6 +1,6 @@
 ﻿using Journeys.Transactions;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public interface IEventBus : IProvideTransactional<IEventBus>
     {

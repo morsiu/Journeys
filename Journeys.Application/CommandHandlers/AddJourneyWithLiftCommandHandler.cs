@@ -6,7 +6,7 @@ using Journeys.Domain.People;
 using Journeys.Queries;
 using Journeys.Transactions;
 
-namespace Journeys.Command.Handlers
+namespace Journeys.Application.CommandHandlers
 {
     internal class AddJourneyWithLiftCommandHandler
     {

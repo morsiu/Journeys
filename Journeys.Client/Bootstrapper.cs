@@ -15,7 +15,7 @@ namespace Journeys.Client
 
             var queryBootstrapper = new Query.Bootstrapper(
                 new QueryEventBus(eventBus),
-                new Adapters.QueryDispatcher(handlerDispatcher),
+                new QueryDispatcher(handlerDispatcher),
                 new QueryHandlerRegistry(handlerRegistry));
             queryBootstrapper.Bootstrap();
 
@@ -26,14 +26,14 @@ namespace Journeys.Client
                 idFactory.IdImplementationType,
                 "Events.txt");
 
-            var commandBootstrapper = new Command.Bootstrapper(
-                new CommandEventBus(eventBus),
-                new CommandRepositories(repositories),
-                new CommandIdFactory(idFactory),
-                new CommandHandlerRegistry(handlerRegistry),
-                new CommandQueryDispatcher(handlerDispatcher),
-                new CommandEventSourcing(eventSourcingModule));
-            commandBootstrapper.Bootstrap();
+            var applicationBootstrapper = new Application.Bootstrapper(
+                new ApplicationEventBus(eventBus),
+                new ApplicationRepositories(repositories),
+                new ApplicationIdFactory(idFactory),
+                new ApplicationCommandHandlerRegistry(handlerRegistry),
+                new ApplicationQueryDispatcher(handlerDispatcher),
+                new ApplicationEventSourcing(eventSourcingModule));
+            applicationBootstrapper.Bootstrap();
 
             eventSourcingModule.ReplayEvents();
             eventSourcingModule.StoreNewEvents();

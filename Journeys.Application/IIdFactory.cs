@@ -1,6 +1,6 @@
 ﻿using Journeys.Common;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public interface IIdFactory
     {

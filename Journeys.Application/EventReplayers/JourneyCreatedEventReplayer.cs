@@ -1,9 +1,8 @@
-﻿using Journeys.Command;
-using Journeys.Domain.Journeys.Capabilities;
+﻿using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Events;
 
-namespace Journeys.Command.Replayers
+namespace Journeys.Application.EventReplayers
 {
     internal class JourneyCreatedEventReplayer
     {

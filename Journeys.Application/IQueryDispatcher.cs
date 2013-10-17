@@ -1,6 +1,6 @@
 ﻿using Journeys.Queries;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public interface IQueryDispatcher
     {

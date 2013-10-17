@@ -1,9 +1,9 @@
-﻿using Journeys.Command.Handlers;
-using Journeys.Command.Replayers;
+﻿using Journeys.Application.CommandHandlers;
+using Journeys.Application.EventReplayers;
 using Journeys.Commands;
 using Journeys.Events;
 
-namespace Journeys.Command
+namespace Journeys.Application
 {
     public class Bootstrapper
     {
