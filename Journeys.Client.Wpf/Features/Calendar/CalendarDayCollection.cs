@@ -24,7 +24,7 @@ namespace Journeys.Client.Wpf.Features.Calendar
 
         public void Change(int year, int monthOfYear)
         {
-            var newDayCount = GetDaysInMonth(year, monthOfYear);
+            var newDayCount = GetNewDayCount(year, monthOfYear);
             var visibleDayCount = _visibleDays.Count;
             if (visibleDayCount > newDayCount)
             {
@@ -63,7 +63,7 @@ namespace Journeys.Client.Wpf.Features.Calendar
             }
         }
 
-        private int GetDaysInMonth(int year, int monthOfYear)
+        private int GetNewDayCount(int year, int monthOfYear)
         {
             try
             {
