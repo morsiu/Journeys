@@ -45,6 +45,8 @@ namespace Journeys.Client.Wpf.Features.Calendar
 
         public void Change(int year, int monthOfYear)
         {
+            Year = year;
+            MonthOfYear = monthOfYear;
             _days.Change(year, monthOfYear);
         }
 
