@@ -56,6 +56,9 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftControl.cs" />
     <Compile Include="Features\AddJourneysWithLifts\AddJourneyWithLiftViewModel.cs" />
+    <Compile Include="Features\Calendar\CalendarDay.cs" />
+    <Compile Include="Features\Calendar\CalendarDayCollection.cs" />
+    <Compile Include="Features\Calendar\CalendarMonth.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayForPassengerViewModel.cs" />
     <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.cs" />
@@ -65,6 +68,7 @@
     <Compile Include="ICommandDispatcher.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IIdFactory.cs" />
+    <Compile Include="Infrastructure\Extensions\PropertyChangedEventExtensions.cs" />
     <Compile Include="Infrastructure\Notifications\ErrorNotification.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierControl.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
