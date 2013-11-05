@@ -16,6 +16,6 @@ namespace Journeys.Client.Wpf
             var journeysByPassengerThenDayViewModel = new JourneysByPassengerThenDayViewModel(queryDispatcher, eventBus);
             journeysByPassengerThenDayViewModel.Reload();
             JourneysByPassengerThenDay.DataContext = journeysByPassengerThenDayViewModel;
-        }        
+        }
     }
 }
