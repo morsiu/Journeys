@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 
-namespace Journeys.Client.Wpf.Features.Calendar
+namespace Journeys.Client.Wpf.Components.Calendar
 {
     internal class CalendarDayCollection
     {

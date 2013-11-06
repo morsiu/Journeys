@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
 
-namespace Journeys.Client.Wpf.Features.Calendar
+namespace Journeys.Client.Wpf.Components.Calendar
 {
     internal class CalendarMonth : INotifyPropertyChanged
     {
