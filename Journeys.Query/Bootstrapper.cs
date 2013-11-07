@@ -3,6 +3,7 @@ using Journeys.Common;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
+using JourneysByPassengerThenMonthThenDay = Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Query
 {
@@ -37,6 +38,11 @@ namespace Journeys.Query
             _queryHandlerRegistry.SetHandler<GetJourneysByDayForPassengerInPeriodQuery, IEnumerable<JourneysOnDay>>(journeysByPassengerThenDayView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenDayView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenDayView.Update);
+
+            var journeysByPassengerThenMonthThenDayView = new JourneysByPassengerThenMonthThenDayView();
+            _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<JourneysByPassengerThenMonthThenDay.Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
+            _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenMonthThenDayView.Update);
+            _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenMonthThenDayView.Update);
         }
     }
 }
