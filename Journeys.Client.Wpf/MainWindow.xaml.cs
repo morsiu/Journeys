@@ -1,5 +1,6 @@
 ﻿using Journeys.Client.Wpf.Features.AddJourneysWithLifts;
 using Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay;
+using Journeys.Client.Wpf.Features.ShowJourneysInCalendar;
 
 namespace Journeys.Client.Wpf
 {
@@ -13,9 +14,9 @@ namespace Journeys.Client.Wpf
         {
             InitializeComponent();
             AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus, idFactory);
-            var journeysByPassengerThenDayViewModel = new JourneysByPassengerThenDayViewModel(queryDispatcher, eventBus);
-            journeysByPassengerThenDayViewModel.Reload();
-            JourneysByPassengerThenDay.DataContext = journeysByPassengerThenDayViewModel;
+            var journeyCalendarsViewModel = new JourneyCalendarsViewModel(queryDispatcher, eventBus);
+            journeyCalendarsViewModel.Refresh();
+            JourneyCalendars.DataContext = journeyCalendarsViewModel;
         }
     }
 }

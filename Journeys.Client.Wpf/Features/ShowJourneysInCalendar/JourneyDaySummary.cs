@@ -16,19 +16,13 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
         public void Change(Value value)
         {
             _value = value;
-            PropertyChanged.Raise(() => LiftDistance);
-            PropertyChanged.Raise(() => LiftCount);
-            PropertyChanged.Raise(() => JourneyDistance);
-            PropertyChanged.Raise(() => JourneyCount);
+            PropertyChanged.Raise(() => LiftSummary);
+            PropertyChanged.Raise(() => JourneySummary);
         }
 
-        public decimal LiftDistance { get { return _value.LiftDistance; } }
+        public string LiftSummary { get { return string.Format("{0} / {1}", _value.LiftCount, _value.LiftDistance); } }
 
-        public int LiftCount { get { return _value.LiftCount; } }
-
-        public decimal JourneyDistance { get { return _value.JourneyDistance; } }
-
-        public int JourneyCount { get { return _value.JourneyCount; } }
+        public string JourneySummary { get { return string.Format("{0} / {1}", _value.JourneyCount, _value.JourneyDistance); } }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

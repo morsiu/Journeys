@@ -28,6 +28,11 @@ namespace Journeys.Query
             _journeys.Add(@event);
             var journeysOnDateOfOccurence = _journeysByDate.GetOrAdd(@event.DateOfOccurrence, () => new HashSet<JourneyCreatedEvent>());
             journeysOnDateOfOccurence.Add(@event);
+            var dateOfOccurrence = @event.DateOfOccurrence;
+            foreach (var factEntry in _facts.Retrieve().Where(f => f.Key.Day.DayOfMonth == dateOfOccurrence.Day && f.Key.Month.MonthOfYear == dateOfOccurrence.Month && f.Key.Month.Year == dateOfOccurrence.Year).ToList())
+            {
+                _facts.Set(factEntry.Key, UpdateValue(factEntry.Value, @event));
+            }
         }
 
         public void Update(LiftAddedEvent @event)
@@ -39,13 +44,22 @@ namespace Journeys.Query
             _facts.Set(key, UpdateValue(value, @event));
         }
 
+        private Value UpdateValue(Value value, JourneyCreatedEvent @event)
+        {
+            return new Value(
+                value.JourneyCount + 1,
+                value.JourneyDistance + @event.RouteDistance,
+                value.LiftCount,
+                value.LiftDistance);
+        }
+
         private Value UpdateValue(Value value, LiftAddedEvent @event)
         {
             return new Value(
                 value.JourneyCount,
                 value.JourneyDistance,
                 value.LiftCount + 1,
-                value.JourneyDistance + @event.LiftDistance);
+                value.LiftDistance + @event.LiftDistance);
         }
 
         private Value CreateValue(DateTime dateOfOccurrence)

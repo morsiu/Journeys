@@ -25,7 +25,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 
         public CalendarMonth MonthCalendar { get { return _monthCalendar; } }
 
-        public Passenger Passenger { get { return _passenger; } }
+        public string PassengerName { get { return _passenger.Name; } }
 
         private void OnCurrentMonthChanged(object sender, EventArgs e)
         {

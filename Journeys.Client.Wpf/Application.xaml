@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml" />
+                <ResourceDictionary Source="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

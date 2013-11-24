@@ -1,4 +1,5 @@
-﻿using Journeys.Queries;
+﻿using Journeys.Client.Wpf.Events;
+using Journeys.Queries;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,19 +9,27 @@ using System.Threading.Tasks;
 
 namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class PassengerCalendars
+    internal class JourneyCalendarsViewModel
     {
         private readonly IQueryDispatcher _queryDispatcher;
+        private readonly IEventBus _eventBus;
         private readonly CalendarContentProvider _calendarContentProvider;
         private readonly ObservableCollection<PassengerLiftCalendar> _calendars;
         private readonly ReadOnlyObservableCollection<PassengerLiftCalendar> _calendarsWrapper;
 
-        public PassengerCalendars(IQueryDispatcher queryDispatcher)
+        public JourneyCalendarsViewModel(IQueryDispatcher queryDispatcher, IEventBus eventBus)
         {
             _queryDispatcher = queryDispatcher;
+            _eventBus = eventBus;
             _calendarContentProvider = new CalendarContentProvider(queryDispatcher);
             _calendars = new ObservableCollection<PassengerLiftCalendar>();
             _calendarsWrapper = new ReadOnlyObservableCollection<PassengerLiftCalendar>(_calendars);
+            _eventBus.Subscribe<JourneyWithLiftAddedEvent>(Handle);
+        }
+
+        private void Handle(JourneyWithLiftAddedEvent @event)
+        {
+            _calendarContentProvider.Refresh();
         }
 
         public ReadOnlyObservableCollection<PassengerLiftCalendar> Calendars { get { return _calendarsWrapper; } }

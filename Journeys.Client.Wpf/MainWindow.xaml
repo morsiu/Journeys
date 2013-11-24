@@ -5,6 +5,7 @@
         xmlns:j="clr-namespace:Journeys.Client.Wpf"
         xmlns:addJourneysWithLifts="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
         xmlns:showJourneysByPassengerAndDay="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay"
+        xmlns:showJourneysInCalendar="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysInCalendar"
         Title="Journeys"
         Height="350"
         Width="525">
@@ -15,7 +16,7 @@
         </Grid.RowDefinitions>
         <addJourneysWithLifts:AddJourneyWithLiftControl x:Name="AddJourney" 
                                                         HorizontalAlignment="Left"/>
-        <showJourneysByPassengerAndDay:JourneysByPassengerThenDayControl x:Name="JourneysByPassengerThenDay"
-                                                                         Grid.Row="1"/>
+        <showJourneysInCalendar:JourneyCalendarsControl x:Name="JourneyCalendars"
+                                                        Grid.Row="1"/>
     </Grid>
 </Window>

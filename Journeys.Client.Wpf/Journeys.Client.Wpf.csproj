@@ -69,7 +69,8 @@
     <Compile Include="Features\ShowJourneysInCalendar\Month.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\MonthSelector.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\Passenger.cs" />
-    <Compile Include="Features\ShowJourneysInCalendar\PassengerCalendars.cs" />
+    <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsViewModel.cs" />
+    <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.cs" />
     <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.cs" />
     <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsViewModel.cs" />
     <Compile Include="ICommandDispatcher.cs" />
@@ -89,6 +90,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -40,9 +40,10 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
                 .Where(fact =>
                     fact.Key.Month.Year == month.Year &&
                     fact.Key.Month.MonthOfYear == month.MonthInYear &&
-                    fact.Key.Passenger.Id == passenger.Id &&
+                    fact.Key.Passenger.Id.Equals(passenger.Id) &&
                     fact.Key.Day.DayOfMonth == dayOfMonth)
-                .Select(fact => fact.Value);
+                .Select(fact => fact.Value)
+                .FirstOrDefault();
         }
     }
 }
