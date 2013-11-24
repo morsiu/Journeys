@@ -41,6 +41,7 @@ namespace Journeys.Query
 
             var journeysByPassengerThenMonthThenDayView = new JourneysByPassengerThenMonthThenDayView();
             _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<JourneysByPassengerThenMonthThenDay.Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
+            _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayForPassengerAndDayQuery, JourneysByPassengerThenMonthThenDay.Fact>(journeysByPassengerThenMonthThenDayView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenMonthThenDayView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenMonthThenDayView.Update);
         }

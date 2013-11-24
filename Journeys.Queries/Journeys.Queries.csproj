@@ -42,6 +42,7 @@
     <Compile Include="Dtos\JourneysOnDay.cs" />
     <Compile Include="Dtos\PersonName.cs" />
     <Compile Include="GetJourneysByDayForPassengerInPeriodQuery.cs" />
+    <Compile Include="GetJourneysByPassengerThenMonthThenDayForDayQuery.cs" />
     <Compile Include="GetJourneysByPassengerThenMonthThenDayQuery.cs" />
     <Compile Include="GetPersonIdByNameQuery.cs" />
     <Compile Include="GetJourneysWithLiftsQuery.cs" />
