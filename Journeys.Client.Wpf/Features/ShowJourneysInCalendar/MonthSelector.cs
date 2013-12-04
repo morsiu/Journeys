@@ -35,8 +35,8 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
             private set
             {
                 _current = value;
-                PropertyChanged.Raise();
-                CurrentChanged.Raise();
+                PropertyChanged.Raise(this);
+                CurrentChanged.Raise(this);
             }
         }
 

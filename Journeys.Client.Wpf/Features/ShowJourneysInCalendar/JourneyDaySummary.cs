@@ -16,14 +16,14 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
         public void Change(Value value)
         {
             _value = value;
-            PropertyChanged.Raise(() => LiftSummary);
-            PropertyChanged.Raise(() => JourneySummary);
+            PropertyChanged.Raise(this, () => LiftSummary);
+            PropertyChanged.Raise(this, () => JourneySummary);
         }
 
         public string LiftSummary { get { return string.Format("{0} / {1}", _value.LiftCount, _value.LiftDistance); } }
 
         public string JourneySummary { get { return string.Format("{0} / {1}", _value.JourneyCount, _value.JourneyDistance); } }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
     }
 }

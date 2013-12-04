@@ -18,7 +18,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
             _monthSelector = new MonthSelector(initialMonth);
             _monthCalendar = new CalendarMonth();
             _monthSelector.CurrentChanged += OnCurrentMonthChanged;
-            ChangeThenFillCalendar();
+            ChangeThenFill();
         }
 
         public MonthSelector MonthSelector { get { return _monthSelector; } }
@@ -29,14 +29,24 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 
         private void OnCurrentMonthChanged(object sender, EventArgs e)
         {
-            ChangeThenFillCalendar();
+            ChangeThenFill();
         }
 
-        private void ChangeThenFillCalendar()
+        public void Refresh()
+        {
+            Fill();
+        }
+
+        private void ChangeThenFill()
         {
             var currentMonth = _monthSelector.Current;
             _monthCalendar.Change(currentMonth.Year, currentMonth.MonthInYear);
-            var dayContentProvider = _contentProvider.GetContentProviderForDay(_passenger, currentMonth);
+            Fill();
+        }
+
+        private void Fill()
+        {
+            var dayContentProvider = _contentProvider.GetContentProviderForDay(_passenger, MonthSelector.Current);
             _monthCalendar.Fill(dayContentProvider);
         }
     }

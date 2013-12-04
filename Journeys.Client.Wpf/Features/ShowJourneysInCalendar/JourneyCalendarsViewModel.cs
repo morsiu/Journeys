@@ -30,6 +30,10 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
         private void Handle(JourneyWithLiftAddedEvent @event)
         {
             _calendarContentProvider.Refresh();
+            foreach (var calendar in _calendars)
+            {
+                calendar.Refresh();
+            }
         }
 
         public ReadOnlyObservableCollection<PassengerLiftCalendar> Calendars { get { return _calendarsWrapper; } }

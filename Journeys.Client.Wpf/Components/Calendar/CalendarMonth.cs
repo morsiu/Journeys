@@ -19,7 +19,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
             set
             {
                 _monthOfYear = value;
-                PropertyChanged.Raise();
+                PropertyChanged.Raise(this);
             }
         }
 
@@ -29,7 +29,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
             set
             {
                 _year = value;
-                PropertyChanged.Raise();
+                PropertyChanged.Raise(this);
             }
         }
 

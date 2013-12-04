@@ -36,7 +36,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
             private set
             {
                 _content = value;
-                PropertyChanged.Raise();
+                PropertyChanged.Raise(this);
             }
         }
 
@@ -51,7 +51,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
             private set
             {
                 _date = value;
-                PropertyChanged.Raise();
+                PropertyChanged.Raise(this);
             }
         }
 

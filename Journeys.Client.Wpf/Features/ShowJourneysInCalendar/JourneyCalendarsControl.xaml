@@ -18,8 +18,8 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <TextBlock Grid.Row="0"
-                                           Text="{Binding LiftSummary}"
-                                           HorizontalAlignment="Right" />
+                                           HorizontalAlignment="Right"
+                                           Text="{Binding LiftSummary}" />
                                 <TextBlock Grid.Row="1"
                                            HorizontalAlignment="Right"
                                            Text="{Binding JourneySummary}" />
