@@ -21,7 +21,7 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
         public Month Next()
         {
             return MonthInYear >= 12
-                ? new Month(Year, 1)
+                ? new Month(Year + 1, 1)
                 : new Month(Year, MonthInYear + 1);
         }
 
