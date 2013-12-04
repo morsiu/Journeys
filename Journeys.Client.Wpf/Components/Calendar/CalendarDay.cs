@@ -23,7 +23,9 @@ namespace Journeys.Client.Wpf.Components.Calendar
 
         public void Change(int year, int month)
         {
-            _date = new DateTime(year, month, _dayOfMonth);
+            Date = new DateTime(year, month, _dayOfMonth);
+            PropertyChanged.Raise(this, () => DayOfWeekIndex);
+            PropertyChanged.Raise(this, () => WeekOfMonthIndex);
         }
 
         public void Fill(object content)
@@ -61,8 +63,11 @@ namespace Journeys.Client.Wpf.Components.Calendar
         {
             get
             {
-                return CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(_date, CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday)
-                    - CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(new DateTime(_date.Year, _date.Month, 1), CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday);
+                var weekOfMonthFirst = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(new DateTime(_date.Year, _date.Month, 1), CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday);
+                var weekOfCurrent = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(_date, CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday);
+                return weekOfCurrent < weekOfMonthFirst
+                    ? weekOfCurrent
+                    : weekOfCurrent - weekOfMonthFirst;
             }
         }
 

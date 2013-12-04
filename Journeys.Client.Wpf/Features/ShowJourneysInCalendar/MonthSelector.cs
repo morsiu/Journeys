@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
+using System.Windows.Input;
 
 namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 {
@@ -27,6 +28,16 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
         public void Previous() 
         {
             Current = Current.Previous();
+        }
+
+        public ICommand NextCommand
+        {
+            get { return new DelegateCommand(Next); }
+        }
+
+        public ICommand PreviousCommand
+        {
+            get { return new DelegateCommand(Previous); }
         }
 
         public Month Current

@@ -10,10 +10,25 @@
                 <ControlTemplate TargetType="f:JourneyCalendarsControl">
                     <ControlTemplate.Resources>
                         <DataTemplate DataType="{x:Type f:MonthSelector}">
-                            <TextBlock DataContext="{Binding Current}">
-                                <Run Text="{Binding MonthName, Mode=OneTime}" />
-                                <Run Text="{Binding Year, Mode=OneTime}" />
-                            </TextBlock>                            
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Button Command="{Binding PreviousCommand}"
+                                        Content="&lt;" />
+                                <TextBlock Grid.Column="1"
+                                           Margin="5 0 5 0"
+                                           HorizontalAlignment="Center"
+                                           DataContext="{Binding Current}">
+                                    <Run Text="{Binding MonthName, Mode=OneTime}" />
+                                    <Run Text="{Binding Year, Mode=OneTime}" />
+                                </TextBlock>
+                                <Button Grid.Column="2"
+                                        Command="{Binding NextCommand}"
+                                        Content="&gt;" />
+                            </Grid>
                         </DataTemplate>
                         <DataTemplate DataType="{x:Type f:JourneyDaySummary}">
                             <Grid>
@@ -83,7 +98,8 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
-                                <ContentPresenter Content="{Binding MonthSelector}" 
+                                <ContentPresenter Content="{Binding MonthSelector}"
+                                                  HorizontalAlignment="Left"                                                  
                                                   Grid.Row="0" />
                                 <ContentPresenter Content="{Binding MonthCalendar}" 
                                                   Grid.Row="1" />
