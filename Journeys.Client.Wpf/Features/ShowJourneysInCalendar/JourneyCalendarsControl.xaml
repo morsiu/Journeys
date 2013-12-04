@@ -26,13 +26,11 @@
                             </Grid>
                         </DataTemplate>
                         <DataTemplate DataType="{x:Type c:CalendarDay}">
-                            <Border BorderThickness="1" 
+                            <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     Margin="1"
                                     Padding="3">
-                                <Grid Width="50"
-                                      Height="50"
-                                      HorizontalAlignment="Right">
+                                <Grid>
                                     <TextBlock Text="{Binding DayOfMonth}"
                                                HorizontalAlignment="Left"
                                                VerticalAlignment="Top"/>
@@ -46,9 +44,33 @@
                             <ItemsControl ItemsSource="{Binding Days}">
                                 <ItemsControl.ItemsPanel>
                                     <ItemsPanelTemplate>
-                                        <WrapPanel />
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                        </Grid>
                                     </ItemsPanelTemplate>
                                 </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style>
+                                        <Setter Property="Grid.Row" Value="{Binding WeekOfMonthIndex}"/>
+                                        <Setter Property="Grid.Column" Value="{Binding DayOfWeekIndex}"/>
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
                             </ItemsControl>
                         </DataTemplate>
                         <DataTemplate DataType="{x:Type f:PassengerLiftCalendar}">
