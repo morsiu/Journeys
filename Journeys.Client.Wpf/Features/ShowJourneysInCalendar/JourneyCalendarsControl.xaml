@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:g="clr-namespace:System.Globalization;assembly=mscorlib"
                     xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
                     xmlns:c="clr-namespace:Journeys.Client.Wpf.Components.Calendar"
                     xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysInCalendar">
@@ -9,7 +10,10 @@
                 <ControlTemplate TargetType="f:JourneyCalendarsControl">
                     <ControlTemplate.Resources>
                         <DataTemplate DataType="{x:Type f:MonthSelector}">
-                            <TextBlock Text="Month selector here"/>
+                            <TextBlock DataContext="{Binding Current}">
+                                <Run Text="{Binding MonthName, Mode=OneTime}" />
+                                <Run Text="{Binding Year, Mode=OneTime}" />
+                            </TextBlock>                            
                         </DataTemplate>
                         <DataTemplate DataType="{x:Type f:JourneyDaySummary}">
                             <Grid>

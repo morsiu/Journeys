@@ -1,4 +1,5 @@
-﻿namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
+﻿using System.Globalization;
+namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal class Month
     {
@@ -11,6 +12,11 @@
         public int Year { get; private set; }
 
         public int MonthInYear { get; private set; }
+
+        public string MonthName
+        {
+            get { return CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthInYear); }
+        }
 
         public Month Next()
         {
