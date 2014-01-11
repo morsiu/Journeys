@@ -22,7 +22,7 @@ namespace Journeys.EventSourcing.Storage
                     ConformanceLevel = ConformanceLevel.Fragment,
                     Indent = true,
                     IndentChars = "  ",
-                    NewLineOnAttributes = true,                   
+                    NewLineOnAttributes = true,
                     WriteEndDocumentOnClose = true 
                 });
             _serializer = new DataContractSerializer(typeof(object), "event", string.Empty, eventTypesToSupport);

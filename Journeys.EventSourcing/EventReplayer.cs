@@ -28,7 +28,7 @@ namespace Journeys.EventSourcing
             {
                 throw new InvalidOperationException(string.Format("Event store contains unsupported event of type `{0}`.", eventType));
             }
-            return _eventHandlers[eventType];            
+            return _eventHandlers[eventType];
         }
     }
 }
