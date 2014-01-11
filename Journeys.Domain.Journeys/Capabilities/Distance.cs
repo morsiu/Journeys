@@ -30,7 +30,7 @@ namespace Journeys.Domain.Journeys.Capabilities
 
         public override int GetHashCode()
         {
-            return _amount.GetHashCode() * 37 + _unit.GetHashCode();
+            return _amount.GetHashCode() * 37 ^ _unit.GetHashCode();
         }
 
         public bool Equals(Distance other)
