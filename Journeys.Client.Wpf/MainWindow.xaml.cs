@@ -13,7 +13,7 @@ namespace Journeys.Client.Wpf
             IIdFactory idFactory)
         {
             InitializeComponent();
-            AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, eventBus, idFactory);
+            AddJourney.DataContext = new AddJourneyWithLiftViewModel(commandDispatcher, queryDispatcher, eventBus, idFactory);
             var journeyCalendarsViewModel = new JourneyCalendarsViewModel(queryDispatcher, eventBus);
             journeyCalendarsViewModel.Refresh();
             JourneyCalendars.DataContext = journeyCalendarsViewModel;

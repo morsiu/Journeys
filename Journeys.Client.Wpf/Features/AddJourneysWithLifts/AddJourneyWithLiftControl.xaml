@@ -38,9 +38,11 @@
                                             SelectedDate="{Binding DateOfOccurrence}"/>
                                 <Label Grid.Row="2"
                                        Content="Passenger name" />
-                                <TextBox Grid.Row="2"
-                                         Grid.Column="1"
-                                         Text="{Binding PassengerName}" />
+                                <ComboBox Grid.Row="2"
+                                          Grid.Column="1"
+                                          IsEditable="True"
+                                          Text="{Binding PassengerName}"
+                                          ItemsSource="{Binding PassengerNames}"/>
                                 <Label Grid.Row="3"
                                        Content="Lift distance" />
                                 <TextBox Grid.Row="3"

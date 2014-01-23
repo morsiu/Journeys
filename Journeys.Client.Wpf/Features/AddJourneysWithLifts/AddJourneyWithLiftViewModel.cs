@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Input;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Notifications;
 using Journeys.Commands;
+using System.Collections.Generic;
+using Journeys.Queries;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
@@ -13,7 +16,7 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
         private readonly IEventBus _eventBus;
         private readonly IIdFactory _idFactory;
 
-        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, IEventBus eventBus, IIdFactory idFactory)
+        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
         {
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;
@@ -21,6 +24,14 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
             AddJourneyCommand = new DelegateCommand(AddJourney);
             DateOfOccurrence = DateTime.Now.Date;
             Notification = new NotifierViewModel();
+            try
+            {
+                PassengerNames = queryDispatcher.Dispatch(new GetPeopleNamesQuery()).Select(personName => personName.Name).ToList();
+            }
+            catch
+            {
+                PassengerNames = new List<string>();
+            }
         }
 
         public decimal RouteDistance { get; set; }
@@ -28,6 +39,8 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
         public decimal LiftDistance { get; set; }
 
         public string PassengerName { get; set; }
+
+        public List<string> PassengerNames { get; private set; }
 
         public DateTime DateOfOccurrence { get; set; }
 
