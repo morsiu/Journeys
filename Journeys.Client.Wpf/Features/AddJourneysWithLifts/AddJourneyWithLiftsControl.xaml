@@ -1,11 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
+                    xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
                     xmlns:n="clr-namespace:Journeys.Client.Wpf.Infrastructure.Notifications">
-    <Style TargetType="f:AddJourneyWithLiftControl">
+    <Style TargetType="f:AddJourneyWithLiftsControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="f:AddJourneyWithLiftControl">
+                <ControlTemplate TargetType="f:AddJourneyWithLiftsControl">
+                    <ControlTemplate.Resources>
+                        <Style x:Key="EditableComboBoxStyle" TargetType="ComboBox">
+                            <Setter Property="IsEditable" Value="True"/>
+                        </Style>
+                    </ControlTemplate.Resources>
                     <Grid>
                         <ToggleButton x:Name="ContentToggler"
                                       Content="Add journey"/>
@@ -18,7 +24,6 @@
                                     <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
                                 </Grid.Background>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -36,19 +41,28 @@
                                 <DatePicker Grid.Row="1"
                                             Grid.Column="1"
                                             SelectedDate="{Binding DateOfOccurrence}"/>
-                                <Label Grid.Row="2"
-                                       Content="Passenger name" />
-                                <ComboBox Grid.Row="2"
-                                          Grid.Column="1"
-                                          IsEditable="True"
-                                          Text="{Binding PassengerName}"
-                                          ItemsSource="{Binding PassengerNames}"/>
-                                <Label Grid.Row="3"
-                                       Content="Lift distance" />
-                                <TextBox Grid.Row="3"
-                                         Grid.Column="1"
-                                         Text="{Binding LiftDistance}" />
-                                <Grid Grid.Row="4"
+                                <DataGrid Grid.Row="2" 
+                                          Grid.ColumnSpan="2"
+                                          AutoGenerateColumns="False"
+                                          ItemsSource="{Binding Lifts}">
+                                    <DataGrid.Resources>
+                                        <CollectionViewSource x:Key="PassengerNamesCollection"
+                                                              Source="{Binding PassengerNames}">
+                                            <CollectionViewSource.SortDescriptions>
+                                                <cm:SortDescription Direction="Ascending"/>
+                                            </CollectionViewSource.SortDescriptions>
+                                        </CollectionViewSource>
+                                    </DataGrid.Resources>
+                                    <DataGrid.Columns>
+                                        <DataGridComboBoxColumn Header="Passenger name"
+                                                                TextBinding="{Binding PassengerName}"
+                                                                EditingElementStyle="{StaticResource EditableComboBoxStyle}"
+                                                                ItemsSource="{Binding Source={StaticResource PassengerNamesCollection}}"/>
+                                        <DataGridTextColumn Header="Lift distance"
+                                                            Binding="{Binding LiftDistance}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Grid Grid.Row="3"
                                       Grid.ColumnSpan="2">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition />

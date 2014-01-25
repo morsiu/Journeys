@@ -6,9 +6,9 @@ using System.Windows.Input;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
-    internal class AddJourneyWithLiftControl : Control
+    internal class AddJourneyWithLiftsControl : Control
     {
-        public AddJourneyWithLiftControl()
+        public AddJourneyWithLiftsControl()
         {
             BindingGroup = new BindingGroup();
         }

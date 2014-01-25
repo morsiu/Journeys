@@ -8,16 +8,17 @@ using Journeys.Commands;
 using System.Collections.Generic;
 using Journeys.Queries;
 using Journeys.Commands.Dtos;
+using System.Collections.ObjectModel;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
-    internal class AddJourneyWithLiftViewModel
+    internal class AddJourneyWithLiftsViewModel
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IEventBus _eventBus;
         private readonly IIdFactory _idFactory;
 
-        public AddJourneyWithLiftViewModel(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
+        public AddJourneyWithLiftsViewModel(ICommandDispatcher commandDispatcher, IQueryDispatcher queryDispatcher, IEventBus eventBus, IIdFactory idFactory)
         {
             _commandDispatcher = commandDispatcher;
             _eventBus = eventBus;
@@ -25,6 +26,7 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
             AddJourneyCommand = new DelegateCommand(AddJourney);
             DateOfOccurrence = DateTime.Now.Date;
             Notification = new NotifierViewModel();
+            Lifts = new ObservableCollection<LiftViewModel>();
             try
             {
                 PassengerNames = queryDispatcher.Dispatch(new GetPeopleNamesQuery()).Select(personName => personName.Name).ToList();
@@ -37,9 +39,7 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 
         public decimal RouteDistance { get; set; }
 
-        public decimal LiftDistance { get; set; }
-
-        public string PassengerName { get; set; }
+        public ObservableCollection<LiftViewModel> Lifts { get; set; }
 
         public List<string> PassengerNames { get; private set; }
 
@@ -51,14 +51,14 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
         
         private void AddJourney()
         {
-            var personName = PassengerName;
             var journeyId = _idFactory.Create();
             try
             {
-                var lifts = new[] { new Lift(PassengerName, LiftDistance) };
+                var lifts = Lifts.Select(lift => lift.ToDto());
                 _commandDispatcher.Dispatch(new AddJourneyWithLiftsCommand(journeyId, RouteDistance, DateOfOccurrence, lifts));
                 _eventBus.Publish(new JourneyWithLiftAddedEvent(journeyId));
                 Notification.Replace(new SuccessNotification("Added successfuly."));
+                Lifts.Clear();
             }
             catch (Exception e)
             {

@@ -14,8 +14,8 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <addJourneysWithLifts:AddJourneyWithLiftControl x:Name="AddJourney" 
-                                                        HorizontalAlignment="Left"/>
+        <addJourneysWithLifts:AddJourneyWithLiftsControl x:Name="AddJourney" 
+                                                         HorizontalAlignment="Left"/>
         <showJourneysInCalendar:JourneyCalendarsControl x:Name="JourneyCalendars"
                                                         Grid.Row="1"/>
     </Grid>
