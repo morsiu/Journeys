@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Journeys.Common;
+using Journeys.Commands.Dtos;
 
 namespace Journeys.Commands
 {
-    public class AddJourneyWithLiftCommand
+    public class AddJourneyWithLiftsCommand
     {
         public IId JourneyId { get; private set; }
 
@@ -11,22 +14,18 @@ namespace Journeys.Commands
 
         public DateTime DateOfOccurrence { get; private set; }
 
-        public string PersonName { get; private set; }
+        public IReadOnlyList<Lift> Lifts { get; private set; }
 
-        public decimal LiftDistance { get; private set; }
-
-        public AddJourneyWithLiftCommand(
+        public AddJourneyWithLiftsCommand(
             IId journeyId,
             decimal routeDistance,
             DateTime dateOfOccurrence,
-            string personName,
-            decimal liftDistance)
+            IEnumerable<Lift> lifts)
         {
             JourneyId = journeyId;
             RouteDistance = routeDistance;
             DateOfOccurrence = dateOfOccurrence;
-            PersonName = personName;
-            LiftDistance = liftDistance;
+            Lifts = lifts.ToList();
         }
     }
 }

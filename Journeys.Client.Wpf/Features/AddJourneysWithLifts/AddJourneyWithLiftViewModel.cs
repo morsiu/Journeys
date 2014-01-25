@@ -7,6 +7,7 @@ using Journeys.Client.Wpf.Infrastructure.Notifications;
 using Journeys.Commands;
 using System.Collections.Generic;
 using Journeys.Queries;
+using Journeys.Commands.Dtos;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {
@@ -54,7 +55,8 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
             var journeyId = _idFactory.Create();
             try
             {
-                _commandDispatcher.Dispatch(new AddJourneyWithLiftCommand(journeyId, RouteDistance, DateOfOccurrence, personName, LiftDistance));
+                var lifts = new[] { new Lift(PassengerName, LiftDistance) };
+                _commandDispatcher.Dispatch(new AddJourneyWithLiftsCommand(journeyId, RouteDistance, DateOfOccurrence, lifts));
                 _eventBus.Publish(new JourneyWithLiftAddedEvent(journeyId));
                 Notification.Replace(new SuccessNotification("Added successfuly."));
             }

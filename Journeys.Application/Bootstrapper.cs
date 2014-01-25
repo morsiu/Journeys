@@ -32,8 +32,8 @@ namespace Journeys.Application
 
         public void Bootstrap()
         {
-            _commandHandlerRegistry.SetHandler<AddJourneyWithLiftCommand>(
-                new AddJourneyWithLiftCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).ExecuteTransacted);
+            _commandHandlerRegistry.SetHandler<AddJourneyWithLiftsCommand>(
+                new AddJourneyWithLiftsCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).ExecuteTransacted);
 
             _eventSourcing.RegisterEventReplayer<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_repositories, _eventBus).Replay);
             _eventSourcing.RegisterEventReplayer<LiftAddedEvent>(new LiftAddedEventReplayer(_repositories).Replay);

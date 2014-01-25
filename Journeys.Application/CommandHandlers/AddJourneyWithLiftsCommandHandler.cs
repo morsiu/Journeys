@@ -8,7 +8,7 @@ using Journeys.Transactions;
 
 namespace Journeys.Application.CommandHandlers
 {
-    internal class AddJourneyWithLiftCommandHandler
+    internal class AddJourneyWithLiftsCommandHandler
     {
         private readonly Transaction _transaction;
         private readonly IEventBus _eventBus;
@@ -16,7 +16,7 @@ namespace Journeys.Application.CommandHandlers
         private readonly IRepositories _repositories;
         private readonly IIdFactory _idFactory;
 
-        public AddJourneyWithLiftCommandHandler(
+        public AddJourneyWithLiftsCommandHandler(
             IEventBus eventBus,
             IRepositories repositories,
             IIdFactory idFactory,
@@ -29,18 +29,21 @@ namespace Journeys.Application.CommandHandlers
             _queryDispatcher = queryDispatcher;
         }
 
-        public void ExecuteTransacted(AddJourneyWithLiftCommand command)
+        public void ExecuteTransacted(AddJourneyWithLiftsCommand command)
         {
             _transaction.Run(() => Execute(command));
         }
 
-        private void Execute(AddJourneyWithLiftCommand command)
+        private void Execute(AddJourneyWithLiftsCommand command)
         {
             var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
-            var liftDistance = new Distance(command.LiftDistance, DistanceUnit.Kilometer);
-            var personId = GetOrAddPersonWithName(command.PersonName);
-            var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus.ForDomain())
-                .AddLift(personId, liftDistance);
+            var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus.ForDomain());
+            foreach (var lift in command.Lifts)
+            {
+                var liftDistance = new Distance(lift.LiftDistance, DistanceUnit.Kilometer);
+                var personId = GetOrAddPersonWithName(lift.PersonName);
+                journey = journey.AddLift(personId, liftDistance);
+            }
             _repositories.Store(journey);
         }
 

@@ -33,7 +33,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddJourneyWithLiftCommand.cs" />
+    <Compile Include="AddJourneyWithLiftsCommand.cs" />
+    <Compile Include="Dtos\Lift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
