@@ -4,7 +4,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:j="clr-namespace:Journeys.Client.Wpf"
         xmlns:addJourneysWithLifts="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
-        xmlns:showJourneysByPassengerAndDay="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay"
         xmlns:showJourneysInCalendar="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysInCalendar"
         Title="Journeys"
         Height="350"

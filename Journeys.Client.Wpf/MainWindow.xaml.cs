@@ -1,5 +1,4 @@
 ﻿using Journeys.Client.Wpf.Features.AddJourneysWithLifts;
-using Journeys.Client.Wpf.Features.ShowJourneysByPassengerAndDay;
 using Journeys.Client.Wpf.Features.ShowJourneysInCalendar;
 
 namespace Journeys.Client.Wpf

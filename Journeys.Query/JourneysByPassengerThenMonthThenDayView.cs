@@ -23,14 +23,6 @@ namespace Journeys.Query
             }
         }
 
-        public Fact Execute(GetJourneysByPassengerThenMonthThenDayForPassengerAndDayQuery query)
-        {
-            var key = new Key(new Passenger(query.PassengerId), new Month(query.Day.Year, query.Day.Month), new Day(query.Day.Day));
-            return new Fact(
-                key, 
-                _facts.Get(key, () => new Value(0, 0m, 0, 0m)));
-        }
-
         public void Update(JourneyCreatedEvent @event)
         {
             _journeys.Add(@event);

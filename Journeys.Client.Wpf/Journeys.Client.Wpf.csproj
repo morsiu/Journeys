@@ -60,10 +60,6 @@
     <Compile Include="Components\Calendar\CalendarDayCollection.cs" />
     <Compile Include="Components\Calendar\CalendarMonth.cs" />
     <Compile Include="Features\AddJourneysWithLifts\LiftViewModel.cs" />
-    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.cs" />
-    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayForPassengerViewModel.cs" />
-    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.cs" />
-    <Compile Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayViewModel.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\CalendarContentProvider.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyDaySummary.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\PassengerLiftCalendar.cs" />
@@ -72,8 +68,6 @@
     <Compile Include="Features\ShowJourneysInCalendar\Passenger.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsViewModel.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.cs" />
-    <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.cs" />
-    <Compile Include="Features\ShowJourneysWithLifts\JourneysWithLiftsViewModel.cs" />
     <Compile Include="ICommandDispatcher.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IIdFactory.cs" />
@@ -86,19 +80,7 @@
     <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
     <Compile Include="Infrastructure\Notifications\SuccessNotification.cs" />
     <Compile Include="IQueryDispatcher.cs" />
-    <Page Include="Features\ShowJourneysByPassengerAndDay\JourneysByDayControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Features\ShowJourneysByPassengerAndDay\JourneysByPassengerThenDayControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Features\ShowJourneysWithLifts\JourneysWithLiftsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

@@ -46,8 +46,6 @@
     <Compile Include="Infrastructure\Views\Nothing.cs" />
     <Compile Include="Infrastructure\Views\Set.cs" />
     <Compile Include="IQueryHandlerRegistry.cs" />
-    <Compile Include="JourneysByPassengerThenDayView.cs" />
-    <Compile Include="JourneysWithLiftsView.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>
       <AutoGen>True</AutoGen>

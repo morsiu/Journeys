@@ -20,12 +20,6 @@ namespace Journeys.Query
             return personName == null ? null : personName.OwnerId;
         }
 
-        public string Execute(GetPersonNameByIdQuery query)
-        {
-            var personName = _peopleNames.Get(query.PersonId, () => null);
-            return personName == null ? default(string) : personName.Name;
-        }
-
         public IEnumerable<PersonName> Execute(GetPeopleNamesQuery query)
         {
             return _peopleNames.Retrieve();
