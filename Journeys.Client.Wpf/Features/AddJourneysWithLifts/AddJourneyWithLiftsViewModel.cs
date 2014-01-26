@@ -56,7 +56,7 @@ namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
             {
                 var lifts = Lifts.Select(lift => lift.ToDto());
                 _commandDispatcher.Dispatch(new AddJourneyWithLiftsCommand(journeyId, RouteDistance, DateOfOccurrence, lifts));
-                _eventBus.Publish(new JourneyWithLiftAddedEvent(journeyId));
+                _eventBus.Publish(new JourneyWithLiftsAddedEvent(journeyId));
                 Notification.Replace(new SuccessNotification("Added successfuly."));
                 Lifts.Clear();
             }

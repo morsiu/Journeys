@@ -96,7 +96,7 @@
       <DependentUpon>Application.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Events\JourneyWithLiftAddedEvent.cs" />
+    <Compile Include="Events\JourneyWithLiftsAddedEvent.cs" />
     <Compile Include="Infrastructure\DelegateCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

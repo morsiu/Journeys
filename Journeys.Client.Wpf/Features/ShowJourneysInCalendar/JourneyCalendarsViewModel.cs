@@ -24,10 +24,10 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
             _calendarContentProvider = new CalendarContentProvider(queryDispatcher);
             _calendars = new ObservableCollection<PassengerLiftCalendar>();
             _calendarsWrapper = new ReadOnlyObservableCollection<PassengerLiftCalendar>(_calendars);
-            _eventBus.Subscribe<JourneyWithLiftAddedEvent>(Handle);
+            _eventBus.Subscribe<JourneyWithLiftsAddedEvent>(Handle);
         }
 
-        private void Handle(JourneyWithLiftAddedEvent @event)
+        private void Handle(JourneyWithLiftsAddedEvent @event)
         {
             _calendarContentProvider.Refresh();
             foreach (var calendar in _calendars)
