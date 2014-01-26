@@ -99,7 +99,7 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <ContentPresenter Content="{Binding MonthSelector}"
-                                                  HorizontalAlignment="Left"                                                  
+                                                  HorizontalAlignment="Left"
                                                   Grid.Row="0" />
                                 <ContentPresenter Content="{Binding MonthCalendar}" 
                                                   Grid.Row="1" />
