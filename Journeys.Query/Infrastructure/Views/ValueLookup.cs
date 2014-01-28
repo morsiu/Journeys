@@ -45,19 +45,6 @@ namespace Journeys.Query.Infrastructure.Views
             return value;
         }
 
-        public TValue Get(TKey key, Func<TValue> defaultValue)
-        {
-            if (key.IsNull()) throw new ArgumentNullException("key");
-            if (defaultValue.IsNull()) throw new ArgumentNullException("defaultValue");
-
-            var result = Get(key);
-            if (result.HasValue)
-            {
-                return result.Value;
-            }
-            return defaultValue();
-        }
-
         public IEnumerable<KeyValuePair<TKey, TValue>> Retrieve()
         {
             return _values;
