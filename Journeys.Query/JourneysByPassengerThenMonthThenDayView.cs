@@ -11,9 +11,9 @@ namespace Journeys.Query
 {
     internal class JourneysByPassengerThenMonthThenDayView
     {
-        private readonly Journeys.Query.Infrastructure.Views.Lookup<Key, Value> _facts = new Journeys.Query.Infrastructure.Views.Lookup<Key, Value>();
+        private readonly ValueLookup<Key, Value> _facts = new ValueLookup<Key, Value>();
         private readonly Set<IId, JourneyCreatedEvent> _journeys = new Set<IId, JourneyCreatedEvent>(journey => journey.JourneyId);
-        private readonly Journeys.Query.Infrastructure.Views.Lookup<DateTime, HashSet<JourneyCreatedEvent>> _journeysByDate = new Journeys.Query.Infrastructure.Views.Lookup<DateTime, HashSet<JourneyCreatedEvent>>();
+        private readonly ValueLookup<DateTime, HashSet<JourneyCreatedEvent>> _journeysByDate = new ValueLookup<DateTime, HashSet<JourneyCreatedEvent>>();
 
         public IEnumerable<Fact> Execute(GetJourneysByPassengerThenMonthThenDayQuery query)
         {

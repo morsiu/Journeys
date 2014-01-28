@@ -41,7 +41,7 @@
     <Compile Include="JourneysByPassengerThenMonthThenDayView.cs" />
     <Compile Include="QueryHandler.cs" />
     <Compile Include="Infrastructure\Views\Just.cs" />
-    <Compile Include="Infrastructure\Views\Lookup.cs" />
+    <Compile Include="Infrastructure\Views\ValueLookup.cs" />
     <Compile Include="Infrastructure\Views\IMaybe.cs" />
     <Compile Include="Infrastructure\Views\Nothing.cs" />
     <Compile Include="Infrastructure\Views\Set.cs" />
