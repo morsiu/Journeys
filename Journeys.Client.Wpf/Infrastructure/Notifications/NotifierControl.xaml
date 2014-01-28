@@ -30,7 +30,7 @@
                                     TargetName="Content"
                                     Value="Collapsed"/>
                         </DataTrigger>
-                    </ControlTemplate.Triggers>                    
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
