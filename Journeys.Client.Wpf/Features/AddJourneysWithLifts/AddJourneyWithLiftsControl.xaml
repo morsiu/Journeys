@@ -11,6 +11,14 @@
                         <Style x:Key="EditableComboBoxStyle" TargetType="ComboBox">
                             <Setter Property="IsEditable" Value="True"/>
                         </Style>
+                        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                        <DataTemplate x:Key="DeleteCurrentRowDataTemplate">
+                            <Button Content="Detele"
+                                    Command="{x:Static DataGrid.DeleteCommand}"
+                                    Visibility="{Binding IsSelected,
+                                                         RelativeSource={RelativeSource AncestorType=DataGridRow},
+                                                         Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        </DataTemplate>
                     </ControlTemplate.Resources>
                     <Grid>
                         <ToggleButton x:Name="ContentToggler"
@@ -60,6 +68,8 @@
                                                                 ItemsSource="{Binding Source={StaticResource PassengerNamesCollection}}"/>
                                         <DataGridTextColumn Header="Lift distance"
                                                             Binding="{Binding LiftDistance}"/>
+                                        <DataGridTemplateColumn IsReadOnly="True"
+                                                                CellTemplate="{StaticResource DeleteCurrentRowDataTemplate}"/>
                                     </DataGrid.Columns>
                                 </DataGrid>
                                 <Grid Grid.Row="3"
