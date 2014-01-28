@@ -23,14 +23,6 @@ namespace Journeys.Query.Infrastructure.Views
             var key = _keyGenerator(value);
             _values.Add(key, value);
         }
-       
-        public void UpdateOrAdd(TKey key, Func<TValue> newValue, Func<TValue, TValue> update)
-        {
-            var value = HasValueForKey(key) ? _values[key] : newValue();
-            var updatedValue = update(value);
-            var updatedValueKey = _keyGenerator(updatedValue);
-            _values[updatedValueKey] = updatedValue;
-        }
 
         public TValue Get(TKey key)
         {
