@@ -13,7 +13,7 @@
                         </Style>
                         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
                         <DataTemplate x:Key="DeleteCurrentRowDataTemplate">
-                            <Button Content="Detele"
+                            <Button Content="Delete"
                                     Command="{x:Static DataGrid.DeleteCommand}"
                                     Visibility="{Binding IsSelected,
                                                          RelativeSource={RelativeSource AncestorType=DataGridRow},
