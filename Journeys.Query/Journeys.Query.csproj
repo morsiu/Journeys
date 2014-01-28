@@ -44,7 +44,7 @@
     <Compile Include="Infrastructure\Views\ValueLookup.cs" />
     <Compile Include="Infrastructure\Views\IMaybe.cs" />
     <Compile Include="Infrastructure\Views\Nothing.cs" />
-    <Compile Include="Infrastructure\Views\Set.cs" />
+    <Compile Include="Infrastructure\Views\ValueSet.cs" />
     <Compile Include="IQueryHandlerRegistry.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>

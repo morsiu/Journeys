@@ -11,8 +11,8 @@ namespace Journeys.Query
 
     internal class PersonView
     {
-        private readonly Set<PersonId, PersonName> _peopleNames = new Set<PersonId, PersonName>(personName => personName.OwnerId);
-        private readonly Set<string, PersonName> _peopleByName = new Set<string, PersonName>(personName => personName.Name);
+        private readonly ValueSet<PersonId, PersonName> _peopleNames = new ValueSet<PersonId, PersonName>(personName => personName.OwnerId);
+        private readonly ValueSet<string, PersonName> _peopleByName = new ValueSet<string, PersonName>(personName => personName.Name);
 
         public IId Execute(GetPersonIdByNameQuery query)
         {

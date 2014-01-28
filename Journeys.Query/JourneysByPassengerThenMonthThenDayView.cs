@@ -12,7 +12,7 @@ namespace Journeys.Query
     internal class JourneysByPassengerThenMonthThenDayView
     {
         private readonly ValueLookup<Key, Value> _facts = new ValueLookup<Key, Value>();
-        private readonly Set<IId, JourneyCreatedEvent> _journeys = new Set<IId, JourneyCreatedEvent>(journey => journey.JourneyId);
+        private readonly ValueSet<IId, JourneyCreatedEvent> _journeys = new ValueSet<IId, JourneyCreatedEvent>(journey => journey.JourneyId);
         private readonly ValueLookup<DateTime, HashSet<JourneyCreatedEvent>> _journeysByDate = new ValueLookup<DateTime, HashSet<JourneyCreatedEvent>>();
 
         public IEnumerable<Fact> Execute(GetJourneysByPassengerThenMonthThenDayQuery query)

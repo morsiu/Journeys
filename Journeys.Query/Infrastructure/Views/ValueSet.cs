@@ -7,12 +7,12 @@ namespace Journeys.Query.Infrastructure.Views
     /// Stores values that are accessible by keys.
     /// The keys are computed from values.
     /// </summary>
-    internal class Set<TKey, TValue>
+    internal class ValueSet<TKey, TValue>
     {
         private readonly Func<TValue, TKey> _keyGenerator;
         private readonly Dictionary<TKey, TValue> _values;
 
-        public Set(Func<TValue, TKey> keyGenerator)
+        public ValueSet(Func<TValue, TKey> keyGenerator)
         {
             _keyGenerator = keyGenerator;
             _values = new Dictionary<TKey, TValue>();
