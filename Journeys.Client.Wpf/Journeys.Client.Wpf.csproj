@@ -71,10 +71,12 @@
     <Compile Include="ICommandDispatcher.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IIdFactory.cs" />
+    <Compile Include="Infrastructure\Extensions\CollectionChangedEventExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\EventExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrastructure\Extensions\PropertyChangedEventExtensions.cs" />
+    <Compile Include="Infrastructure\Interfaces\IChangeNotifyReadOnlyList.cs" />
     <Compile Include="Infrastructure\Notifications\ErrorNotification.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierControl.cs" />
     <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />

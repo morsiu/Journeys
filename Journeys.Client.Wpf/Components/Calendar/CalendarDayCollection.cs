@@ -1,54 +1,53 @@
-﻿using System;
+﻿using Journeys.Client.Wpf.Infrastructure.Extensions;
+using Journeys.Client.Wpf.Infrastructure.Interfaces;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
 
 namespace Journeys.Client.Wpf.Components.Calendar
 {
-    internal class CalendarDayCollection
+    internal class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
     {
         private const int AvailableDaysCount = 31;
         private CalendarDay[] _availableDays;
-        private ObservableCollection<CalendarDay> _visibleDays;
-        private ReadOnlyObservableCollection<CalendarDay> _wrapper;
+        private int _dayCount;
 
         public CalendarDayCollection()
         {
             _availableDays = Enumerable.Range(1, AvailableDaysCount).Select(dayInMonth => new CalendarDay(dayInMonth)).ToArray();
-            _visibleDays = new ObservableCollection<CalendarDay>();
-            _wrapper = new ReadOnlyObservableCollection<CalendarDay>(_visibleDays);
+            _dayCount = 0;
         }
-
-        public ReadOnlyObservableCollection<CalendarDay> Collection { get { return _wrapper; } }
 
         public void Change(int year, int monthOfYear)
         {
             var newDayCount = GetNewDayCount(year, monthOfYear);
-            var visibleDayCount = _visibleDays.Count;
-            if (visibleDayCount > newDayCount)
-            {
-                for (int idx = visibleDayCount - 1; idx >= newDayCount; --idx)
-                {
-                    _visibleDays.RemoveAt(idx);
-                }
-            }
-            if (visibleDayCount < newDayCount)
-            {
-                for (int idx = visibleDayCount; idx < newDayCount; ++idx)
-                {
-                    _visibleDays.Add(_availableDays[idx]);
-                }
-            }
-            foreach (var day in _visibleDays)
+            var oldDayCount = _dayCount;
+            _dayCount = newDayCount;
+            foreach (var day in this)
             {
                 day.Change(year, monthOfYear);
+            }
+            var dayCountDifference = Math.Abs(newDayCount - oldDayCount);
+            if (oldDayCount < newDayCount)
+            {
+                var addedItems = new CalendarDay[dayCountDifference];
+                Array.Copy(_availableDays, oldDayCount, addedItems, 0, dayCountDifference);
+                CollectionChanged.Raise(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, addedItems, oldDayCount));
+            }
+            if (oldDayCount > newDayCount)
+            {
+                var removedItems = new CalendarDay[dayCountDifference];
+                Array.Copy(_availableDays, newDayCount, removedItems, 0, dayCountDifference);
+                CollectionChanged.Raise(this, new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, removedItems, newDayCount));
             }
         }
 
         public void Clear()
         {
-            foreach (var day in _visibleDays)
+            foreach (var day in this)
             {
                 day.Clear();
             }
@@ -56,7 +55,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
 
         public void Fill(Func<int, object> contentProvider)
         {
-            foreach (var day in _visibleDays)
+            foreach (var day in this)
             {
                 var content = contentProvider(day.DayOfMonth);
                 day.Fill(content);
@@ -72,6 +71,35 @@ namespace Journeys.Client.Wpf.Components.Calendar
             catch (ArgumentOutOfRangeException)
             {
                 return 0;
+            }
+        }
+
+        public int Count
+        {
+            get { return _dayCount; }
+        }
+
+        public IEnumerator<CalendarDay> GetEnumerator()
+        {
+            for(int idx = 0; idx < _dayCount; ++idx)
+            {
+                yield return _availableDays[idx];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        public CalendarDay this[int index]
+        {
+            get
+            {
+                if (index > _dayCount) throw new ArgumentOutOfRangeException("index");
+                return _availableDays[index];
             }
         }
     }

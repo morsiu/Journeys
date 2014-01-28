@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using Journeys.Client.Wpf.Infrastructure.Extensions;
+using Journeys.Client.Wpf.Infrastructure.Interfaces;
+using System;
 using System.ComponentModel;
-using Journeys.Client.Wpf.Infrastructure.Extensions;
 
 namespace Journeys.Client.Wpf.Components.Calendar
 {
@@ -11,7 +11,7 @@ namespace Journeys.Client.Wpf.Components.Calendar
         private int _monthOfYear;
         private int _year;
 
-        public ReadOnlyObservableCollection<CalendarDay> Days { get { return _days.Collection; } }
+        public IChangeNotifyReadOnlyList<CalendarDay> Days { get { return _days; } }
 
         public int MonthOfYear
         {

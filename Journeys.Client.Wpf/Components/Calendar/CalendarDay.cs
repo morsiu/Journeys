@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Journeys.Client.Wpf.Infrastructure.Extensions;
+using System;
 using System.ComponentModel;
-using Journeys.Client.Wpf.Infrastructure.Extensions;
 using System.Globalization;
 
 namespace Journeys.Client.Wpf.Components.Calendar
