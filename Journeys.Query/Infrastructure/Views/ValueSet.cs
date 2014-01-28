@@ -14,6 +14,8 @@ namespace Journeys.Query.Infrastructure.Views
 
         public ValueSet(Func<TValue, TKey> keyGenerator)
         {
+            if (keyGenerator.IsNull()) throw new ArgumentNullException("keyGenerator");
+
             _keyGenerator = keyGenerator;
             _values = new Dictionary<TKey, TValue>();
         }
@@ -21,6 +23,7 @@ namespace Journeys.Query.Infrastructure.Views
         public void Add(TValue value)
         {
             var key = _keyGenerator(value);
+            if (key.IsNull()) throw new ArgumentException("Key generator returned null key for added value. Storage does not support null keys.", "value");
             _values.Add(key, value);
         }
 

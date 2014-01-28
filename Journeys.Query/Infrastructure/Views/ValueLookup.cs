@@ -13,11 +13,15 @@ namespace Journeys.Query.Infrastructure.Views
 
         public void Set(TKey key, TValue value)
         {
+            if (key.IsNull()) throw new ArgumentNullException("key");
+
             _values[key] = value;
         }
 
         public IMaybe<TValue> Get(TKey key)
         {
+            if (key.IsNull()) throw new ArgumentNullException("key");
+
             TValue value;
             if (_values.TryGetValue(key, out value))
             {
@@ -28,6 +32,9 @@ namespace Journeys.Query.Infrastructure.Views
 
         public TValue GetOrAdd(TKey key, Func<TValue> newValue)
         {
+            if (key.IsNull()) throw new ArgumentNullException("key");
+            if (newValue.IsNull()) throw new ArgumentNullException("newValue");
+
             var result = Get(key);
             if (result.HasValue)
             {
@@ -40,6 +47,9 @@ namespace Journeys.Query.Infrastructure.Views
 
         public TValue Get(TKey key, Func<TValue> defaultValue)
         {
+            if (key.IsNull()) throw new ArgumentNullException("key");
+            if (defaultValue.IsNull()) throw new ArgumentNullException("defaultValue");
+
             var result = Get(key);
             if (result.HasValue)
             {
