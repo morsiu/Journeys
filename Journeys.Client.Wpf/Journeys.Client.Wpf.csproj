@@ -49,6 +49,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\StoreJourneyTemplates.cs" />
+    <Compile Include="ICommandHandlerRegistry.cs" />
+    <Compile Include="IQueryHandlerRegistry.cs" />
+    <Compile Include="Queries\GetJourneyTemplatesQuery.cs" />
+    <Compile Include="QueryHandler.cs" />
+    <Compile Include="Settings\JourneyTemplate.cs" />
+    <Compile Include="Settings\JourneyTemplateCollection.cs" />
+    <Compile Include="Settings\LiftTemplate.cs" />
+    <Compile Include="Settings\Settings.cs" />
     <Page Include="Application.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,9 +136,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>Journeys.Client.Wpf.Settings</CustomToolNamespace>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>

@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WpfClientCommandHandlerRegistry.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ApplicationEventBus.cs" />
     <Compile Include="ApplicationEventSourcing.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Query.cs" />
     <Compile Include="QueryDispatcher.cs" />
     <Compile Include="QueryEventBus.cs" />
+    <Compile Include="WpfClientQueryHandlerRegistry.cs" />
     <Compile Include="QueryHandlerRegistry.cs" />
     <Compile Include="QueryKey.cs" />
     <Compile Include="WpfClientCommandDispatcher.cs" />

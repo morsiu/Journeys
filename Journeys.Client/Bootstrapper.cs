@@ -41,8 +41,11 @@ namespace Journeys.Client
             var wpfClientBootstrapper = new Client.Wpf.Bootstrapper(
                 new WpfClientEventBus(eventBus),
                 new WpfClientCommandDispatcher(handlerDispatcher),
+                new WpfClientCommandHandlerRegistry(handlerRegistry),
                 new WpfClientQueryDispatcher(handlerDispatcher),
+                new WpfClientQueryHandlerRegistry(handlerRegistry),
                 new WpfClientIdFactory(idFactory));
+            wpfClientBootstrapper.Bootstrap();
             wpfClientBootstrapper.Run();
         }
     }

@@ -1,4 +1,9 @@
-﻿namespace Journeys.Client.Wpf
+﻿using Journeys.Client.Wpf.Commands;
+using Journeys.Client.Wpf.Queries;
+using Journeys.Client.Wpf.Settings;
+using System.Collections.Generic;
+
+namespace Journeys.Client.Wpf
 {
     public class Bootstrapper
     {
@@ -6,17 +11,30 @@
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly IIdFactory _idFactory;
+        private readonly IQueryHandlerRegistry _queryHandlerRegistry;
+        private readonly ICommandHandlerRegistry _commandHandlerRegistry;
 
         public Bootstrapper(
             IEventBus eventBus,
             ICommandDispatcher commandDispatcher,
+            ICommandHandlerRegistry commandHandlerRegistry,
             IQueryDispatcher queryDispatcher,
+            IQueryHandlerRegistry queryHandlerRegistry,
             IIdFactory idFactory)
         {
             _eventBus = eventBus;
             _commandDispatcher = commandDispatcher;
+            _commandHandlerRegistry = commandHandlerRegistry;
             _queryDispatcher = queryDispatcher;
+            _queryHandlerRegistry = queryHandlerRegistry;
             _idFactory = idFactory;
+        }
+
+        public void Bootstrap()
+        {
+            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, List<JourneyTemplate>>(Settings.Settings.Default.Execute);
+
+            _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Settings.Settings.Default.Handle);
         }
 
         public void Run()
