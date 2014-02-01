@@ -32,7 +32,7 @@ namespace Journeys.Client.Wpf
 
         public void Bootstrap()
         {
-            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, List<JourneyTemplate>>(Settings.Settings.Default.Execute);
+            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Settings.Settings.Default.Execute);
 
             _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Settings.Settings.Default.Handle);
         }

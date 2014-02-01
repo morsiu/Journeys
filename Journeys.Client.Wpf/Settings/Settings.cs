@@ -1,5 +1,6 @@
 ﻿using Journeys.Client.Wpf.Commands;
 using Journeys.Client.Wpf.Queries;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -16,11 +17,13 @@ namespace Journeys.Client.Wpf.Settings
 
         internal void Handle(StoreJourneyTemplatesCommand command)
         {
+            if (JourneyTemplates == null) JourneyTemplates = new JourneyTemplateCollection { Templates = new List<JourneyTemplate>() };
             var templates = JourneyTemplates.Templates;
             foreach (var newTemplate in command.AddedTemplates)
             {
+                if (string.IsNullOrWhiteSpace(newTemplate.Name)) throw new InvalidOperationException("Journey template name cannot be empty.");
                 var existingTemplate = templates.FirstOrDefault(t => t.Name == newTemplate.Name);
-                if (existingTemplate == null)
+                if (existingTemplate != null)
                 {
                     templates.Remove(existingTemplate);
                 }

@@ -50,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\StoreJourneyTemplates.cs" />
+    <Compile Include="Components\Settings\SettingsCommands.cs" />
+    <Compile Include="Components\Settings\SettingSelector.cs" />
     <Compile Include="ICommandHandlerRegistry.cs" />
+    <Compile Include="Infrastructure\DelegateCommand`1.cs" />
     <Compile Include="IQueryHandlerRegistry.cs" />
     <Compile Include="Queries\GetJourneyTemplatesQuery.cs" />
     <Compile Include="QueryHandler.cs" />
@@ -91,6 +94,10 @@
     <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
     <Compile Include="Infrastructure\Notifications\SuccessNotification.cs" />
     <Compile Include="IQueryDispatcher.cs" />
+    <Page Include="Components\Settings\SettingSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

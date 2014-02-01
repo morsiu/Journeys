@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Journeys.Client.Wpf.Settings
 {
-    internal sealed class JourneyTemplate
+    [Serializable]
+    public sealed class JourneyTemplate
     {
         public string Name { get; set; }
 
-        public decimal Distance { get; set; }
+        public decimal RouteDistance { get; set; }
 
         public List<LiftTemplate> Lifts { get; set; }
 
@@ -16,7 +18,7 @@ namespace Journeys.Client.Wpf.Settings
             return new JourneyTemplate
             {
                 Name = Name,
-                Distance = Distance,
+                RouteDistance = RouteDistance,
                 Lifts = Lifts.Select(t => t.Clone()).ToList()
             };
         }
