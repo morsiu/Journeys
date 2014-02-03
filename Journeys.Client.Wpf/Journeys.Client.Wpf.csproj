@@ -89,10 +89,10 @@
     </Compile>
     <Compile Include="Infrastructure\Extensions\PropertyChangedEventExtensions.cs" />
     <Compile Include="Infrastructure\Interfaces\IChangeNotifyReadOnlyList.cs" />
-    <Compile Include="Infrastructure\Notifications\ErrorNotification.cs" />
-    <Compile Include="Infrastructure\Notifications\NotifierControl.cs" />
-    <Compile Include="Infrastructure\Notifications\NotifierViewModel.cs" />
-    <Compile Include="Infrastructure\Notifications\SuccessNotification.cs" />
+    <Compile Include="Components\Notifications\ErrorNotification.cs" />
+    <Compile Include="Components\Notifications\NotifierControl.cs" />
+    <Compile Include="Components\Notifications\NotifierViewModel.cs" />
+    <Compile Include="Components\Notifications\SuccessNotification.cs" />
     <Compile Include="IQueryDispatcher.cs" />
     <Page Include="Components\Settings\SettingSelector.xaml">
       <SubType>Designer</SubType>
@@ -102,7 +102,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Infrastructure\Notifications\NotifierControl.xaml">
+    <Page Include="Components\Notifications\NotifierControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

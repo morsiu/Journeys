@@ -1,19 +1,18 @@
-﻿using System;
-using System.Linq;
-using System.Windows.Input;
+﻿using Journeys.Client.Wpf.Commands;
+using Journeys.Client.Wpf.Components.Notifications;
 using Journeys.Client.Wpf.Events;
 using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Client.Wpf.Infrastructure.Notifications;
-using Journeys.Commands;
-using System.Collections.Generic;
-using Journeys.Queries;
-using Journeys.Commands.Dtos;
-using System.Collections.ObjectModel;
-using Journeys.Client.Wpf.Settings;
 using Journeys.Client.Wpf.Queries;
-using Journeys.Client.Wpf.Commands;
+using Journeys.Client.Wpf.Settings;
+using Journeys.Commands;
+using Journeys.Queries;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
+using System.Windows.Input;
 
 namespace Journeys.Client.Wpf.Features.AddJourneysWithLifts
 {

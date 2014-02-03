@@ -1,4 +1,4 @@
-﻿namespace Journeys.Client.Wpf.Infrastructure.Notifications
+﻿namespace Journeys.Client.Wpf.Components.Notifications
 {
     internal class SuccessNotification
     {

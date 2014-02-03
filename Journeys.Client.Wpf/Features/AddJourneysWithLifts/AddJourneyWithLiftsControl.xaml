@@ -3,7 +3,7 @@
                     xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
                     xmlns:s="clr-namespace:Journeys.Client.Wpf.Components.Settings"
                     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-                    xmlns:n="clr-namespace:Journeys.Client.Wpf.Infrastructure.Notifications">
+                    xmlns:n="clr-namespace:Journeys.Client.Wpf.Components.Notifications">
     <Style TargetType="f:AddJourneyWithLiftsControl">
         <Setter Property="Template">
             <Setter.Value>
