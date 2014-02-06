@@ -6,7 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Components\Settings\SettingSelector.xaml" />
-                <ResourceDictionary Source="Infrastructure\Notifications\NotifierControl.xaml" />
+                <ResourceDictionary Source="Components\Notifications\NotifierControl.xaml" />
                 <ResourceDictionary Source="Features\AddJourneysWithLifts\AddJourneyWithLiftsControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
