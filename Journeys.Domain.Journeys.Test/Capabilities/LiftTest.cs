@@ -3,7 +3,7 @@ using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Test.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Journeys.Domain.Test.Journeys.Capabilities
+namespace Journeys.Domain.Journeys.Test.Capabilities
 {
     [TestClass]
     public class LiftTest

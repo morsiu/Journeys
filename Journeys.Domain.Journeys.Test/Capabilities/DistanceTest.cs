@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Journeys.Domain.Test.Journeys.Capabilities
+namespace Journeys.Domain.Journeys.Test.Capabilities
 {
     [TestClass]
     public class DistanceTest

@@ -2,7 +2,7 @@
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    internal struct Id : IId
+    public struct Id : IId
     {
         private readonly int _id;
 

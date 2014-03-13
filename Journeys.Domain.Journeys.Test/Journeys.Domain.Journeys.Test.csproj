@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0867E115-6B32-4CE5-8091-9DF005C088EF}</ProjectGuid>
+    <ProjectGuid>{3C1183F7-C94B-4E6A-8487-0D39D52E1F57}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journeys.Domain.Test</RootNamespace>
-    <AssemblyName>Journeys.Domain.Test</AssemblyName>
+    <RootNamespace>Journeys.Domain.Journeys.Test</RootNamespace>
+    <AssemblyName>Journeys.Domain.Journeys.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,9 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Infrastructure\EventBusMock.cs" />
-    <Compile Include="Infrastructure\EventMatcher.cs" />
-    <Compile Include="Infrastructure\Id.cs" />
+    <Compile Include="Capabilities\DistanceTest.cs" />
+    <Compile Include="Capabilities\LiftTest.cs" />
+    <Compile Include="Operations\JourneyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,13 +68,9 @@
       <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
       <Name>Journeys.Domain.Journeys</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.People\Journeys.Domain.People.csproj">
-      <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
-      <Name>Journeys.Domain.People</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Event\Journeys.Event.csproj">
-      <Project>{e68b1da3-099b-4fc3-8fc8-609518bc7937}</Project>
-      <Name>Journeys.Event</Name>
+    <ProjectReference Include="..\Journeys.Domain.Test\Journeys.Domain.Test.csproj">
+      <Project>{0867e115-6b32-4ce5-8091-9df005c088ef}</Project>
+      <Name>Journeys.Domain.Test</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
@@ -85,7 +81,6 @@
       <Name>Journeys.Transactions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

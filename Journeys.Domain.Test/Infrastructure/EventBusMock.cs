@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    internal class EventBusMock : IEventBus, ITransactional<IEventBus>
+    public class EventBusMock : IEventBus, ITransactional<IEventBus>
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 

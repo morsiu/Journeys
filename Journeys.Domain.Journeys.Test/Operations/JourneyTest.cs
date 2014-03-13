@@ -7,7 +7,7 @@ using Journeys.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Journeys.Domain.Test.Journeys.Operations
+namespace Journeys.Domain.Journeys.Test.Operations
 {
     [TestClass]
     public class JourneyTest
