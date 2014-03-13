@@ -45,6 +45,5 @@ namespace Journeys.Domain.Infrastructure.Collections
             public T Value { get; private set; }
             public Item Next { get; private set; }
         }
-
     }
 }
