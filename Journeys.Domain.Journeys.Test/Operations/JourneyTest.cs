@@ -57,7 +57,7 @@ namespace Journeys.Domain.Journeys.Test.Operations
 
         [TestMethod]
         [ExpectedException(typeof(InvariantViolationException))]
-        public void ShouldReportInvariantViolationWhenAddingJourneyWithDistanceLargerThanRouteDistance()
+        public void ShouldReportInvariantViolationWhenAddingLiftWithDistanceLargerThanRouteDistance()
         {
             var journey = new Journey(JourneyId, new DateTime(), new Distance(20m, DistanceUnit.Kilometer), _eventBus);
 
