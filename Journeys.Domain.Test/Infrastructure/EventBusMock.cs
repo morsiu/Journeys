@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Journeys.Domain.Infrastructure;
+﻿using Journeys.Domain.Infrastructure;
 using Journeys.Transactions;
+using System;
+using System.Collections.Generic;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
