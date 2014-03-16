@@ -52,5 +52,27 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
 
             Assert.AreEqual(30, c.Amount);
         }
+
+        [TestMethod]
+        public void EqualsShouldReturnTrueForMoneysWithSameAmount()
+        {
+            var a = new Money(10m);
+            var b = new Money(10m);
+
+            var result = a.Equals(b);
+
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void EqualsShouldReturnFalseForMoneysWithDifferentAmount()
+        {
+            var a = new Money(10m);
+            var b = new Money(5m);
+
+            var result = a.Equals(b);
+
+            Assert.AreEqual(false, result);
+        }
     }
 }
