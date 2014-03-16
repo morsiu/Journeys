@@ -50,7 +50,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Capabilities\MoneyTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Journeys.Domain.Expenses\Journeys.Domain.Expenses.csproj">
+      <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
+      <Name>Journeys.Domain.Expenses</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.Test.Infrastructure\Journeys.Domain.Test.Infrastructure.csproj">
+      <Project>{0867e115-6b32-4ce5-8091-9df005c088ef}</Project>
+      <Name>Journeys.Domain.Test.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
