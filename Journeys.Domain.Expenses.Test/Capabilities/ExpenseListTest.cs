@@ -45,5 +45,26 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
 
             Assert.AreEqual(zeroExpense, result);
         }
+
+        public void TotalExpenseShouldBeZeroAfterConstruction()
+        {
+            var list = new ExpenseList();
+
+            var total = list.TotalExpense;
+
+            Assert.AreEqual(new Money(), total);
+        }
+
+        [TestMethod]
+        public void AddExpenseShouldIncreaseTotalWithTheExpense()
+        {
+            var list = new ExpenseList();
+            var expense = new Money(10m);
+
+            list.AddExpense(Id, expense);
+            var totalExpense = list.TotalExpense;
+
+            Assert.AreEqual(expense, totalExpense);
+        }
     }
 }
