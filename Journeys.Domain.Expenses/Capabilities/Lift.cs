@@ -1,8 +1,7 @@
 ﻿using Journeys.Common;
-using Journeys.Domain.Expenses.Capabilities;
 using Journeys.Domain.Infrastructure.Markers;
 
-namespace Journeys.Domain.Expenses.Operations
+namespace Journeys.Domain.Expenses.Capabilities
 {
     [Entity]
     public sealed class Lift

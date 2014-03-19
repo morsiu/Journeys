@@ -1,9 +1,8 @@
 ﻿using Journeys.Common;
-using Journeys.Domain.Expenses.Capabilities;
 using Journeys.Domain.Infrastructure.Markers;
 using System.Collections.Generic;
 
-namespace Journeys.Domain.Expenses.Operations
+namespace Journeys.Domain.Expenses.Capabilities
 {
     [Aggregate]
     public class Journey

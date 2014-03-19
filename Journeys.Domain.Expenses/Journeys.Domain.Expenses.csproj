@@ -37,11 +37,13 @@
     <Compile Include="Capabilities\Money.cs" />
     <Compile Include="Capabilities\ExpenseList.cs" />
     <Compile Include="Capabilities\Distance.cs" />
-    <Compile Include="Operations\Journey.cs" />
-    <Compile Include="Operations\Lift.cs" />
+    <Compile Include="Capabilities\Journey.cs" />
+    <Compile Include="Capabilities\Lift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Operations\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
