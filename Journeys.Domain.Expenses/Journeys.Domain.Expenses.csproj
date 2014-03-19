@@ -36,7 +36,7 @@
     <Compile Include="Capabilities\LiftId.cs" />
     <Compile Include="Capabilities\Money.cs" />
     <Compile Include="Capabilities\ExpenseList.cs" />
-    <Compile Include="Operations\Distance.cs" />
+    <Compile Include="Capabilities\Distance.cs" />
     <Compile Include="Operations\Journey.cs" />
     <Compile Include="Operations\Lift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

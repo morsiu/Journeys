@@ -1,6 +1,6 @@
 ﻿using Journeys.Domain.Infrastructure.Markers;
 
-namespace Journeys.Domain.Expenses.Operations
+namespace Journeys.Domain.Expenses.Capabilities
 {
     [ValueObject]
     public struct Distance
