@@ -1,11 +1,11 @@
 ﻿using Journeys.Common;
 using Journeys.Events;
+using Journeys.Queries;
 using Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 using Journeys.Query.Infrastructure.Views;
 using System;
-using System.Linq;
 using System.Collections.Generic;
-using Journeys.Queries;
+using System.Linq;
 
 namespace Journeys.Query
 {
