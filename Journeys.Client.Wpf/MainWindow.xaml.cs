@@ -1,4 +1,5 @@
 ﻿using Journeys.Client.Wpf.Features.AddJourneysWithLifts;
+using Journeys.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod;
 using Journeys.Client.Wpf.Features.ShowJourneysInCalendar;
 
 namespace Journeys.Client.Wpf
@@ -16,6 +17,9 @@ namespace Journeys.Client.Wpf
             var journeyCalendarsViewModel = new JourneyCalendarsViewModel(queryDispatcher, eventBus);
             journeyCalendarsViewModel.Refresh();
             JourneyCalendars.DataContext = journeyCalendarsViewModel;
+            var calculatePassengerLiftsCostInPeriod = new CalculatePassengerLiftsCostInPeriodViewModel(queryDispatcher);
+            calculatePassengerLiftsCostInPeriod.Refresh();
+            CalculatePassengerLiftsCostInPeriod.DataContext = calculatePassengerLiftsCostInPeriod;
         }
     }
 }

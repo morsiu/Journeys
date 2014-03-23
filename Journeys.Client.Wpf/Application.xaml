@@ -7,7 +7,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Components\Settings\SettingSelector.xaml" />
                 <ResourceDictionary Source="Components\Notifications\NotifierControl.xaml" />
+                <ResourceDictionary Source="Components\Popups\TogglePopup.xaml" />
                 <ResourceDictionary Source="Features\AddJourneysWithLifts\AddJourneyWithLiftsControl.xaml" />
+                <ResourceDictionary Source="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodControl.xaml" />
                 <ResourceDictionary Source="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

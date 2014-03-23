@@ -5,6 +5,7 @@
         xmlns:j="clr-namespace:Journeys.Client.Wpf"
         xmlns:addJourneysWithLifts="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
         xmlns:showJourneysInCalendar="clr-namespace:Journeys.Client.Wpf.Features.ShowJourneysInCalendar"
+        xmlns:calculatePassengerLiftsCostInPeriod="clr-namespace:Journeys.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod"
         Title="Journeys"
         Height="350"
         Width="525">
@@ -13,8 +14,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <addJourneysWithLifts:AddJourneyWithLiftsControl x:Name="AddJourney" 
-                                                         HorizontalAlignment="Left"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+            <addJourneysWithLifts:AddJourneyWithLiftsControl x:Name="AddJourney" />
+            <calculatePassengerLiftsCostInPeriod:CalculatePassengerLiftsCostInPeriodControl x:Name="CalculatePassengerLiftsCostInPeriod" />
+        </StackPanel>
         <showJourneysInCalendar:JourneyCalendarsControl x:Name="JourneyCalendars"
                                                         Grid.Row="1"/>
     </Grid>

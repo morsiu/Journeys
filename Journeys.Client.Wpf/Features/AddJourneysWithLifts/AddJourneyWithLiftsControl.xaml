@@ -3,7 +3,8 @@
                     xmlns:f="clr-namespace:Journeys.Client.Wpf.Features.AddJourneysWithLifts"
                     xmlns:s="clr-namespace:Journeys.Client.Wpf.Components.Settings"
                     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-                    xmlns:n="clr-namespace:Journeys.Client.Wpf.Components.Notifications">
+                    xmlns:n="clr-namespace:Journeys.Client.Wpf.Components.Notifications"
+                    xmlns:p="clr-namespace:Journeys.Client.Wpf.Components.Popups">
     <Style TargetType="f:AddJourneyWithLiftsControl">
         <Setter Property="Template">
             <Setter.Value>
@@ -21,17 +22,9 @@
                                                          Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </DataTemplate>
                     </ControlTemplate.Resources>
-                    <Grid>
-                        <ToggleButton x:Name="ContentToggler"
-                                      Content="Add journey"/>
-                        <Popup IsOpen="{Binding IsChecked, ElementName=ContentToggler, Mode=TwoWay}"
-                               Placement="Bottom"
-                               PlacementTarget="{Binding ElementName=ContentToggler}"
-                               Width="400">
+                    <p:TogglePopup ToggleContent="Add journey">
+                        <p:TogglePopup.Content>
                             <Grid>
-                                <Grid.Background>
-                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
-                                </Grid.Background>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
@@ -93,8 +86,8 @@
                                             Content="Add" />
                                 </Grid>
                             </Grid>
-                        </Popup>
-                    </Grid>
+                        </p:TogglePopup.Content>
+                    </p:TogglePopup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

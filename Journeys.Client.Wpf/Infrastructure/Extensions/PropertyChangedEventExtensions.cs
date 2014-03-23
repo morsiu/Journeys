@@ -13,7 +13,7 @@ namespace Journeys.Client.Wpf.Infrastructure.Extensions
             handler(sender, new PropertyChangedEventArgs(propertyName));
         }
 
-        public static void Raise(this PropertyChangedEventHandler handler, object sender ,Expression<Func<object>> propertyExpression)
+        public static void Raise(this PropertyChangedEventHandler handler, object sender, Expression<Func<object>> propertyExpression)
         {
             if (handler == null || propertyExpression == null) return;
             var propertyBodyExpression = propertyExpression.Body;

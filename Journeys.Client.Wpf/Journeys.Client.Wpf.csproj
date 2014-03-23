@@ -50,8 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\StoreJourneyTemplates.cs" />
+    <Compile Include="Components\Popups\TogglePopup.cs" />
     <Compile Include="Components\Settings\SettingsCommands.cs" />
     <Compile Include="Components\Settings\SettingSelector.cs" />
+    <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodControl.cs" />
+    <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodViewModel.cs" />
     <Compile Include="ICommandHandlerRegistry.cs" />
     <Compile Include="Infrastructure\DelegateCommand`1.cs" />
     <Compile Include="IQueryHandlerRegistry.cs" />
@@ -94,9 +97,17 @@
     <Compile Include="Components\Notifications\NotifierViewModel.cs" />
     <Compile Include="Components\Notifications\SuccessNotification.cs" />
     <Compile Include="IQueryDispatcher.cs" />
+    <Page Include="Components\Popups\TogglePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Components\Settings\SettingSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.xaml">
       <Generator>MSBuild:Compile</Generator>
