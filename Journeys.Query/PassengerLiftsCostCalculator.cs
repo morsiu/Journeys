@@ -1,6 +1,7 @@
 ﻿using Journeys.Domain.Expenses.Operations;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
+using System.Collections.Generic;
 
 namespace Journeys.Query
 {
@@ -17,6 +18,14 @@ namespace Journeys.Query
         {
             var journeysInPeriod = _queryDispatcher.Dispatch(new GetJourneysInPeriodQuery(query.Period));
 
+            var journeyList = BuildJourneyList(journeysInPeriod);
+            var passengerLiftsCost = journeyList.GetPassengerLiftsCost(query.PassengerId);
+
+            return new PassengerLiftsCost(passengerLiftsCost);
+        }
+
+        private JourneyList BuildJourneyList(IEnumerable<Journey> journeysInPeriod)
+        {
             var journeyList = new JourneyList();
             foreach (var journey in journeysInPeriod)
             {
@@ -26,10 +35,7 @@ namespace Journeys.Query
                     journeyList.AddLift(journey.Id, lift.PassengerId, lift.Distance);
                 }
             }
-
-            var passengerLiftsCost = journeyList.GetPassengerLiftsCost(query.PassengerId);
-
-            return new PassengerLiftsCost(passengerLiftsCost);
+            return journeyList;
         }
     }
 }
