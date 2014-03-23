@@ -38,7 +38,6 @@
     <Compile Include="Capabilities\ExpenseList.cs" />
     <Compile Include="Capabilities\Distance.cs" />
     <Compile Include="Capabilities\Journey.cs" />
-    <Compile Include="Capabilities\Lift.cs" />
     <Compile Include="Operations\JourneyList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

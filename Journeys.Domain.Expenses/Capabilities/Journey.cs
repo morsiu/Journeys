@@ -1,27 +1,25 @@
 ﻿using Journeys.Common;
 using Journeys.Domain.Infrastructure.Markers;
-using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
     [Entity]
-    public class Journey
+    internal class Journey
     {
-        private readonly Distance _distance;
-        private readonly IId _id;
-        private readonly IReadOnlyCollection<Lift> _lifts;
+        private readonly Money _cost;
 
-        public Journey(IId id, Distance distance, IReadOnlyCollection<Lift> lifts)
+        public Journey(Money journeyCost)
         {
-            _distance = distance;
-            _id = id;
-            _lifts = lifts;
+            _cost = journeyCost;
         }
 
-        public Distance Distance { get { return _distance; } }
+        public void AddLift(IId passengerId, Distance distance)
+        {
+        }
 
-        public IId Id { get { return _id; } }
-
-        public IReadOnlyCollection<Lift> Lifts { get { return _lifts; } }
+        public Money GetCostFor(IId passengerId)
+        {
+            return new Money();
+        }
     }
 }
