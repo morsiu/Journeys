@@ -37,8 +37,18 @@
     <Compile Include="Capabilities\Money.cs" />
     <Compile Include="Capabilities\ExpenseList.cs" />
     <Compile Include="Capabilities\Distance.cs" />
-    <Compile Include="Capabilities\Journey.cs" />
+    <Compile Include="Capabilities\Point.cs" />
+    <Compile Include="Operations\Journey.cs" />
+    <Compile Include="Capabilities\IRideEvent.cs" />
+    <Compile Include="Capabilities\Ride.cs" />
     <Compile Include="Operations\JourneyList.cs" />
+    <Compile Include="Capabilities\RideEvents\Drive.cs" />
+    <Compile Include="Capabilities\RideEvents\PassengerExit.cs" />
+    <Compile Include="Capabilities\RideEvents\RideFinish.cs" />
+    <Compile Include="Capabilities\RideEvents\PassengerPickup.cs" />
+    <Compile Include="Capabilities\RideEvents\RideStart.cs" />
+    <Compile Include="Capabilities\IRideVisitor.cs" />
+    <Compile Include="Policies\PassengerLiftCostCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

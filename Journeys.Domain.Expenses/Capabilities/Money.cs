@@ -29,5 +29,10 @@ namespace Journeys.Domain.Expenses.Capabilities
         {
             return new Money(a * b.Amount);
         }
+
+        public static Money operator /(Money a, decimal b)
+        {
+            return new Money(a.Amount / b);
+        }
     }
 }

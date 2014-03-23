@@ -3,15 +3,21 @@
 namespace Journeys.Domain.Expenses.Capabilities
 {
     [ValueObject]
-    public struct Distance
+    internal struct Distance
     {
-        private readonly decimal _amount;
+        private readonly Point _from;
+        private readonly Point _to;
 
-        public Distance(decimal amount)
+        public Distance(Point from, Point to)
         {
-            _amount = amount;
+            _from = from;
+            _to = to;
         }
 
-        public decimal Amount { get { return _amount; } }
+        public Point From { get { return _from; } }
+
+        public Point To { get { return _to; } }
+
+        public decimal Length { get { return _to.Distance - _from.Distance; } }
     }
 }
