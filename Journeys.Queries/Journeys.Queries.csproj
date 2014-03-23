@@ -40,11 +40,14 @@
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Month.cs" />
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Value.cs" />
     <Compile Include="Dtos\JourneysOnDay.cs" />
+    <Compile Include="Dtos\PassengerLiftsCost.cs" />
+    <Compile Include="Dtos\Period.cs" />
     <Compile Include="Dtos\PersonName.cs" />
     <Compile Include="GetJourneysByPassengerThenMonthThenDayQuery.cs" />
     <Compile Include="GetPersonIdByNameQuery.cs" />
     <Compile Include="Dtos\JourneyWithLift.cs" />
     <Compile Include="GetPeopleNamesQuery.cs" />
+    <Compile Include="GetCostOfPassengerLiftsInPeriodQuery.cs" />
     <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
