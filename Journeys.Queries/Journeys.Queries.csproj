@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\Journey.cs" />
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Day.cs" />
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Fact.cs" />
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Key.cs" />
@@ -40,10 +41,12 @@
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Month.cs" />
     <Compile Include="Dtos\JourneysByPassengerThenMonthThenDay\Value.cs" />
     <Compile Include="Dtos\JourneysOnDay.cs" />
+    <Compile Include="Dtos\Lift.cs" />
     <Compile Include="Dtos\PassengerLiftsCost.cs" />
     <Compile Include="Dtos\Period.cs" />
     <Compile Include="Dtos\PersonName.cs" />
     <Compile Include="GetJourneysByPassengerThenMonthThenDayQuery.cs" />
+    <Compile Include="GetJourneysInPeriodQuery.cs" />
     <Compile Include="GetPersonIdByNameQuery.cs" />
     <Compile Include="Dtos\JourneyWithLift.cs" />
     <Compile Include="GetPeopleNamesQuery.cs" />
