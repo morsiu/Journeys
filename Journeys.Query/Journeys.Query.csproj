@@ -36,7 +36,9 @@
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="IEventBus.cs" />
+    <Compile Include="Infrastructure\Period.cs" />
     <Compile Include="Infrastructure\Views\ObjectExtensions.cs" />
+    <Compile Include="Infrastructure\Views\ValueMultiSet.cs" />
     <Compile Include="IQueryDispatcher.cs" />
     <Compile Include="JourneysByPassengerThenMonthThenDayView.cs" />
     <Compile Include="JourneyView.cs" />
