@@ -63,6 +63,10 @@
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
       <Name>Journeys.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.Expenses\Journeys.Domain.Expenses.csproj">
+      <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
+      <Name>Journeys.Domain.Expenses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
       <Name>Journeys.Events</Name>

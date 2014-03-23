@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
-    [Aggregate]
+    [Entity]
     public class Journey
     {
         private readonly Distance _distance;
