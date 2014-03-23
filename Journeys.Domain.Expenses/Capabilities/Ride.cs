@@ -1,7 +1,6 @@
 ﻿using Journeys.Common;
 using Journeys.Domain.Expenses.Capabilities;
 using Journeys.Domain.Expenses.Capabilities.RideEvents;
-using Journeys.Domain.Expenses.Policies;
 using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Operations
