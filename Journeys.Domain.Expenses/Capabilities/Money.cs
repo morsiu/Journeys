@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Expenses.Capabilities
 {
     [ValueObject]
-    internal struct Money
+    public struct Money
     {
         private readonly decimal _amount;
 

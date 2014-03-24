@@ -37,7 +37,7 @@ namespace Journeys.Query
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
 
-            var passengerLiftsCostCalculator = new PassengerLiftsCostCalculator(_queryDispatcher);
+            var passengerLiftsCostCalculator = new PassengerLiftExpensesCalculator(_queryDispatcher);
             _queryHandlerRegistry.SetHandler<GetCostOfPassengerLiftsInPeriodQuery, PassengerLiftsCost>(passengerLiftsCostCalculator.Execute);
         }
     }

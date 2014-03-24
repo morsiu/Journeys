@@ -18,7 +18,7 @@ namespace Journeys.Domain.Expenses.Operations
             {
                 throw new ArgumentException(string.Format("Journey with id {0} has already been added.", journeyId), "journeyId");
             }
-            _journeys[journeyId] = new Journey(new Point(distance));
+            _journeys[journeyId] = new Journey(journeyId, new Point(distance));
         }
 
         public void AddLift(IId journeyId, IId passengerId, decimal distance)
@@ -31,10 +31,16 @@ namespace Journeys.Domain.Expenses.Operations
             journey.AddLift(passengerId, new Distance(new Point(), new Point(distance)));
         }
 
-        public decimal GetPassengerLiftsCost(IId passengerId)
+        public ExpenseList GetPassengerLiftExpenses(IId passengerId)
         {
             var journeys = _journeys.Values;
-            return journeys.Aggregate(new Money(), (cost, journey) => cost + journey.GetCostFor(passengerId)).Amount;
+            var liftExpenseList = new ExpenseList();
+            foreach (var journey in journeys)
+            {
+                var liftCost = journey.GetCostFor(passengerId);
+                liftExpenseList.AddExpense(new LiftId(journey.Id, passengerId), liftCost);
+            }
+            return liftExpenseList;
         }
     }
 }

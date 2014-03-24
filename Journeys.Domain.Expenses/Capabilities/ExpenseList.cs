@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
-    internal sealed class ExpenseList
+    public sealed class ExpenseList
     {
         private readonly Dictionary<IId, Money> _expenses = new Dictionary<IId, Money>();
 

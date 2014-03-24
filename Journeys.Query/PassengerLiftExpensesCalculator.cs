@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 namespace Journeys.Query
 {
-    internal class PassengerLiftsCostCalculator
+    internal class PassengerLiftExpensesCalculator
     {
         private readonly IQueryDispatcher _queryDispatcher;
 
-        public PassengerLiftsCostCalculator(IQueryDispatcher queryDispatcher)
+        public PassengerLiftExpensesCalculator(IQueryDispatcher queryDispatcher)
         {
             _queryDispatcher = queryDispatcher;
         }
@@ -19,9 +19,9 @@ namespace Journeys.Query
             var journeysInPeriod = _queryDispatcher.Dispatch(new GetJourneysInPeriodQuery(query.Period));
 
             var journeyList = BuildJourneyList(journeysInPeriod);
-            var passengerLiftsCost = journeyList.GetPassengerLiftsCost(query.PassengerId);
+            var passengerLiftsCost = journeyList.GetPassengerLiftExpenses(query.PassengerId);
 
-            return new PassengerLiftsCost(passengerLiftsCost);
+            return new PassengerLiftsCost(passengerLiftsCost.TotalExpense.Amount);
         }
 
         private JourneyList BuildJourneyList(IEnumerable<Journey> journeysInPeriod)

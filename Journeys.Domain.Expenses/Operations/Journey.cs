@@ -10,11 +10,15 @@ namespace Journeys.Domain.Expenses.Operations
     {
         private static readonly Money _journeyCostPerUnitDistance = new Money(25m / 100m);
         private readonly Ride _ride;
+        private readonly IId _id;
 
-        public Journey(Point journeyDistance)
+        public Journey(IId journeyId, Point journeyDistance)
         {
             _ride = new Ride(journeyDistance);
+            _id = journeyId;
         }
+
+        public IId Id { get { return _id; } }
 
         public void AddLift(IId passengerId, Distance distance)
         {
