@@ -47,6 +47,7 @@
     <Compile Include="Operations\Journey.cs" />
     <Compile Include="Capabilities\IRideEvent.cs" />
     <Compile Include="Capabilities\Ride.cs" />
+    <Compile Include="Operations\JourneyBuilder.cs" />
     <Compile Include="Operations\JourneyFactory.cs" />
     <Compile Include="Capabilities\RideEvents\Drive.cs" />
     <Compile Include="Capabilities\RideEvents\PassengerExit.cs" />
