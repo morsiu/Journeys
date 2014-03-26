@@ -1,7 +1,8 @@
-﻿using Journeys.Domain.Expenses.Operations;
+﻿using Journeys.Domain.Expenses.Capabilities;
+using Journeys.Domain.Expenses.Operations;
 using Journeys.Queries;
-using Journeys.Queries.Dtos;
 using System.Collections.Generic;
+using Dtos = Journeys.Queries.Dtos;
 
 namespace Journeys.Query
 {
@@ -14,28 +15,33 @@ namespace Journeys.Query
             _queryDispatcher = queryDispatcher;
         }
 
-        public PassengerLiftsCost Execute(GetCostOfPassengerLiftsInPeriodQuery query)
+        public Dtos.PassengerLiftsCost Execute(GetCostOfPassengerLiftsInPeriodQuery query)
         {
             var journeysInPeriod = _queryDispatcher.Dispatch(new GetJourneysInPeriodQuery(query.Period));
 
-            var journeyList = BuildJourneyList(journeysInPeriod);
-            var passengerLiftsCost = journeyList.GetPassengerLiftExpenses(query.PassengerId);
+            var journeys = BuildJourneys(journeysInPeriod);
+            var liftsExpenses = new ExpenseList();
+            foreach (var journey in journeys)
+            {
+                var cost = journey.GetCostFor(query.PassengerId);
+                liftsExpenses.AddExpense(new LiftId(journey.Id, query.PassengerId), cost);
+            }
 
-            return new PassengerLiftsCost(passengerLiftsCost.TotalExpense.Amount);
+            return new Dtos.PassengerLiftsCost(liftsExpenses.TotalExpense.Amount);
         }
 
-        private JourneyList BuildJourneyList(IEnumerable<Journey> journeysInPeriod)
+        private IEnumerable<Journey> BuildJourneys(IEnumerable<Dtos.Journey> journeysInPeriod)
         {
-            var journeyList = new JourneyList();
+            var journeyFactory = new JourneyFactory();
             foreach (var journey in journeysInPeriod)
             {
-                journeyList.AddJourney(journey.Id, journey.RouteDistance);
+                var journeyBuilder = journeyFactory.Create(journey.Id, journey.RouteDistance);
                 foreach (var lift in journey.Lifts)
                 {
-                    journeyList.AddLift(journey.Id, lift.PassengerId, lift.Distance);
+                    journeyBuilder.AddLift(lift.PassengerId, lift.Distance);
                 }
+                yield return journeyBuilder.Build();
             }
-            return journeyList;
         }
     }
 }

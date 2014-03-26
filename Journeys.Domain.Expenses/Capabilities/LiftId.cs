@@ -2,7 +2,7 @@
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
-    internal struct LiftId : IId
+    public struct LiftId : IId
     {
         private readonly IId _journeyId;
         private readonly IId _personId;

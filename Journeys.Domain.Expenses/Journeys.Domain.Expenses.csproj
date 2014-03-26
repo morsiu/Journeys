@@ -33,15 +33,21 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Capabilities\Lift.cs" />
     <Compile Include="Capabilities\LiftId.cs" />
     <Compile Include="Capabilities\Money.cs" />
     <Compile Include="Capabilities\ExpenseList.cs" />
     <Compile Include="Capabilities\Distance.cs" />
     <Compile Include="Capabilities\Point.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <DependentUpon>Messages.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Operations\Journey.cs" />
     <Compile Include="Capabilities\IRideEvent.cs" />
     <Compile Include="Capabilities\Ride.cs" />
-    <Compile Include="Operations\JourneyList.cs" />
+    <Compile Include="Operations\JourneyFactory.cs" />
     <Compile Include="Capabilities\RideEvents\Drive.cs" />
     <Compile Include="Capabilities\RideEvents\PassengerExit.cs" />
     <Compile Include="Capabilities\RideEvents\RideFinish.cs" />
@@ -51,7 +57,12 @@
     <Compile Include="Policies\PassengerLiftCostCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
       <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>

@@ -15,10 +15,10 @@ namespace Journeys.Domain.Expenses.Operations
             _distance = rideDistance;
         }
 
-        public void IncludeLift(IId passengerId, Distance distance)
+        public void IncludeLift(Lift lift)
         {
-            _events.Add(new PassengerPickup(passengerId, distance.From));
-            _events.Add(new PassengerExit(passengerId, distance.To));
+            _events.Add(new PassengerPickup(lift.PassengerId, lift.Distance.From));
+            _events.Add(new PassengerExit(lift.PassengerId, lift.Distance.To));
             _events.Sort((a, b) => a.Distance.CompareTo(b.Distance));
         }
 
