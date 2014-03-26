@@ -5,32 +5,32 @@ namespace Journeys.Domain.Expenses.Capabilities
 {
     public sealed class ExpenseList
     {
-        private readonly Dictionary<IId, Money> _expenses = new Dictionary<IId, Money>();
+        private readonly Dictionary<IId, Money> _expenseValues = new Dictionary<IId, Money>();
 
-        public Money TotalExpense { get; private set; }
+        public Money TotalExpensesValue { get; private set; }
 
-        public void AddExpense(IId expenseId, Money expense)
+        public void AddExpense(Expense expense)
         {
-            var previousExpense = GetExpense(expenseId);
-            SetExpense(expenseId, previousExpense + expense);
-            IncreaseTotalExpense(expense);
+            var previousExpense = GetExpense(expense.SubjectId);
+            StoreExpense(previousExpense.Increase(expense.Value));
+            IncreaseTotalExpensesValue(expense.Value);
         }
 
-        public Money GetExpense(IId expenseId)
+        public Expense GetExpense(IId subjectId)
         {
-            Money expense;
-            _expenses.TryGetValue(expenseId, out expense);
-            return expense;
+            Money expenseValue;
+            _expenseValues.TryGetValue(subjectId, out expenseValue);
+            return new Expense(subjectId, expenseValue);
         }
         
-        private void SetExpense(IId expenseId, Money expense)
+        private void StoreExpense(Expense expense)
         {
-            _expenses[expenseId] = expense;
+            _expenseValues[expense.SubjectId] = expense.Value;
         }
 
-        private void IncreaseTotalExpense(Money expense)
+        private void IncreaseTotalExpensesValue(Money expense)
         {
-            TotalExpense += expense;
+            TotalExpensesValue += expense;
         }
     }
 }

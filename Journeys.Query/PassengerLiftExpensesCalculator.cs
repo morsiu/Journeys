@@ -23,11 +23,11 @@ namespace Journeys.Query
             var liftsExpenses = new ExpenseList();
             foreach (var journey in journeys)
             {
-                var cost = journey.GetCostFor(query.PassengerId);
-                liftsExpenses.AddExpense(new LiftId(journey.Id, query.PassengerId), cost);
+                var liftExpense = journey.GetCostFor(query.PassengerId);
+                liftsExpenses.AddExpense(liftExpense);
             }
 
-            return new Dtos.PassengerLiftsCost(liftsExpenses.TotalExpense.Amount);
+            return new Dtos.PassengerLiftsCost(liftsExpenses.TotalExpensesValue.Amount);
         }
 
         private IEnumerable<Journey> BuildJourneys(IEnumerable<Dtos.Journey> journeysInPeriod)

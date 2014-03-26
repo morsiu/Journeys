@@ -25,11 +25,11 @@ namespace Journeys.Domain.Expenses.Operations
 
         public IId Id { get { return _id; } }
 
-        public Money GetCostFor(IId passengerId)
+        public Expense GetCostFor(IId passengerId)
         {
             var calculator = new PassengerLiftCostCalculator(_journeyCostPerUnitDistance, passengerId);
             _ride.Replay(calculator);
-            return calculator.PassengerCost;
+            return new Expense(new LiftId(_id, passengerId), calculator.PassengerCost);
         }
     }
 }

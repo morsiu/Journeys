@@ -14,43 +14,42 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
         public void GetExpenseShouldReturnExpenseAfterItWasAddedWithAddExpenseUsingSameId()
         {
             var list = new ExpenseList();
-            var expense = new Money(10m);
+            var expenseValue = new Money(10m);
 
-            list.AddExpense(Id, expense);
+            list.AddExpense(new Expense(Id, expenseValue));
             var result = list.GetExpense(Id);
 
-            Assert.AreEqual(expense, result);
+            Assert.AreEqual(expenseValue, result.Value);
         }
 
         [TestMethod]
         public void AddExpenseShouldIncreaseExpenseAfterItWasAlreadyAdded()
         {
             var list = new ExpenseList();
-            var expense = new Money(10m);
+            var expenseValue = new Money(10m);
 
-            list.AddExpense(Id, expense);
-            list.AddExpense(Id, expense);
+            list.AddExpense(new Expense(Id, expenseValue));
+            list.AddExpense(new Expense(Id, expenseValue));
             var updatedExpense = list.GetExpense(Id);
 
-            Assert.AreEqual(new Money(20m), updatedExpense);
+            Assert.AreEqual(new Money(20m), updatedExpense.Value);
         }
 
         [TestMethod]
         public void GetExpenseShouldReturnZeroExpenseAfterConstruction()
         {
             var list = new ExpenseList();
-            var zeroExpense = new Money();
 
             var result = list.GetExpense(Id);
 
-            Assert.AreEqual(zeroExpense, result);
+            Assert.AreEqual(new Money(), result.Value);
         }
 
         public void TotalExpenseShouldBeZeroAfterConstruction()
         {
             var list = new ExpenseList();
 
-            var total = list.TotalExpense;
+            var total = list.TotalExpensesValue;
 
             Assert.AreEqual(new Money(), total);
         }
@@ -61,8 +60,8 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
             var list = new ExpenseList();
             var expense = new Money(10m);
 
-            list.AddExpense(Id, expense);
-            var totalExpense = list.TotalExpense;
+            list.AddExpense(new Expense(Id, expense));
+            var totalExpense = list.TotalExpensesValue;
 
             Assert.AreEqual(expense, totalExpense);
         }

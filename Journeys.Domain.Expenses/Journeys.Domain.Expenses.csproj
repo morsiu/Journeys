@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Capabilities\Expense.cs" />
     <Compile Include="Capabilities\Lift.cs" />
     <Compile Include="Capabilities\LiftId.cs" />
     <Compile Include="Capabilities\Money.cs" />
