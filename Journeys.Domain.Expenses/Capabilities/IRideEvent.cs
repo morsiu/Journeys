@@ -2,7 +2,7 @@
 {
     internal interface IRideEvent
     {
-        void Visit(IRideVisitor visitor);
+        void Visit(IJourneyVisitor visitor);
 
         Point Distance { get; }
     }

@@ -45,7 +45,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Operations\Journey.cs" />
+    <Compile Include="Operations\Clerk.cs" />
+    <Compile Include="Capabilities\Journey.cs" />
     <Compile Include="Capabilities\IRideEvent.cs" />
     <Compile Include="Capabilities\Ride.cs" />
     <Compile Include="Operations\JourneyBuilder.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Capabilities\RideEvents\PassengerPickup.cs" />
     <Compile Include="Capabilities\RideEvents\RideStart.cs" />
     <Compile Include="Capabilities\IRideVisitor.cs" />
+    <Compile Include="Policies\IJourneyCostPolicy.cs" />
     <Compile Include="Policies\PassengerLiftCostCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

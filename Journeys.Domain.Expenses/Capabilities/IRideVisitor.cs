@@ -2,7 +2,7 @@
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
-    internal interface IRideVisitor
+    internal interface IJourneyVisitor
     {
         void Visit(Drive drive);
 

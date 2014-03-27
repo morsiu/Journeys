@@ -1,63 +1,39 @@
-﻿using Journeys.Common;
-using Journeys.Domain.Expenses.Capabilities;
-using Journeys.Domain.Expenses.Capabilities.RideEvents;
+﻿using Journeys.Domain.Expenses.Capabilities.RideEvents;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Journeys.Domain.Expenses.Operations
+namespace Journeys.Domain.Expenses.Capabilities
 {
-    internal class Ride
+    internal sealed class Ride
     {
-        private readonly List<IRideEvent> _events = new List<IRideEvent>();
-        private Point _distance;
+        private readonly IReadOnlyCollection<IRideEvent> _events;
 
-        public Ride(Point rideDistance)
+        public Ride(IReadOnlyCollection<IRideEvent> events)
         {
-            _distance = rideDistance;
+            _events = _events.ToList();
         }
 
-        public void IncludeLift(Lift lift)
+        public void Replay(IJourneyVisitor visitor)
         {
-            _events.Add(new PassengerPickup(lift.PassengerId, lift.Distance.From));
-            _events.Add(new PassengerExit(lift.PassengerId, lift.Distance.To));
-            _events.Sort((a, b) => a.Distance.CompareTo(b.Distance));
-        }
-
-        public void Replay(IRideVisitor visitor)
-        {
-            var start = CreateStart();
-            start.Visit(visitor);
-            IRideEvent lastEvent = start;
+            IRideEvent previousEvent = null;
             using (var events = _events.GetEnumerator())
             {
                 while (events.MoveNext())
                 {
                     var currentEvent = events.Current;
-                    DriveBetweenEvents(visitor, lastEvent, currentEvent);
+                    DriveBetweenEvents(visitor, previousEvent, currentEvent);
                     currentEvent.Visit(visitor);
-                    lastEvent = currentEvent;
+                    previousEvent = currentEvent;
                 }
             }
-            var finish = CreateFinish();
-            DriveBetweenEvents(visitor, lastEvent, finish);
-            finish.Visit(visitor);
         }
 
-        private IRideEvent CreateFinish()
+        private void DriveBetweenEvents(IJourneyVisitor visitor, IRideEvent previous, IRideEvent current)
         {
-            return new RideFinish(_distance);
-        }
-
-        private IRideEvent CreateStart()
-        {
-            return new RideStart();
-        }
-
-        private void DriveBetweenEvents(IRideVisitor visitor, IRideEvent last, IRideEvent current)
-        {
-            if (IsDistanceBetween(last, current))
+            if (IsDistanceBetween(previous, current))
             {
-                visitor.Visit(CreateDrive(last, current));
-            }            
+                visitor.Visit(CreateDrive(previous, current));
+            }
         }
 
         private bool IsDistanceBetween(IRideEvent last, IRideEvent current)

@@ -1,5 +1,4 @@
-﻿
-namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+﻿namespace Journeys.Domain.Expenses.Capabilities.RideEvents
 {
     internal class Drive
     {
@@ -10,7 +9,7 @@ namespace Journeys.Domain.Expenses.Capabilities.RideEvents
 
         public Distance Distance { get; private set; }
 
-        public void Visit(IRideVisitor visitor)
+        public void Visit(IJourneyVisitor visitor)
         {
             visitor.Visit(this);
         }

@@ -1,16 +1,15 @@
 ﻿using Journeys.Common;
 using Journeys.Domain.Expenses.Capabilities;
 using Journeys.Domain.Expenses.Capabilities.RideEvents;
+using Journeys.Domain.Infrastructure.Markers;
 
 namespace Journeys.Domain.Expenses.Policies
 {
-    internal class PassengerLiftCostCalculator : IRideVisitor
+    [Policy]
+    public class PassengerLiftCostCalculator : IJourneyCostCalculator
     {
-        private readonly Money _journeyCostPerKilometer;
         private readonly IId _passengerId;
-        private Money _passengerCost;
-        private bool _isPassengerOnBoard;
-        private int _onBoardPassengerCount;
+        private readonly Money _journeyCostPerKilometer;
 
         public PassengerLiftCostCalculator(Money journeyCostPerKilometer, IId passengerId)
         {
@@ -18,40 +17,64 @@ namespace Journeys.Domain.Expenses.Policies
             _passengerId = passengerId;
         }
 
-        public void Visit(Drive drive)
+        public Expense Calculate(Journey journey)
         {
-            if (_isPassengerOnBoard) IncreasePassengerCost(drive.Distance.Length);
+            var visitor = new JourneyVisitor(_journeyCostPerKilometer, _passengerId);
+            journey.Visit(visitor);
+            var liftId = new LiftId(journey.Id, _passengerId);
+            return new Expense(liftId, visitor.PassengerCost);
         }
 
-        private void IncreasePassengerCost(decimal driveDistance)
+        private struct JourneyVisitor : IJourneyVisitor
         {
-            var driveCost = _journeyCostPerKilometer * driveDistance;
-            var passengerCost = driveCost / _onBoardPassengerCount;
-            _passengerCost += passengerCost;
-        }
+            private readonly IId _passengerId;
+            private readonly Money _journeyCostPerKilometer;
+            private bool _isPassengerOnBoard;
+            private int _onBoardPassengerCount;
+            private Money _passengerCost;
 
-        public void Visit(PassengerExit exit)
-        {
-            _onBoardPassengerCount -= 1;
-            if (exit.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = false;
-        }
+            public JourneyVisitor(Money journeyCostPerKilometer, IId passengerId)
+            {
+                _journeyCostPerKilometer = journeyCostPerKilometer;
+                _passengerId = passengerId;
+                _isPassengerOnBoard = false;
+                _onBoardPassengerCount = 1;
+                _passengerCost = new Money();
+            }
 
-        public void Visit(PassengerPickup pickup)
-        {
-            _onBoardPassengerCount += 1;
-            if (pickup.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = true;
-        }
+            private void IncreasePassengerCost(decimal driveDistance)
+            {
+                var driveCost = _journeyCostPerKilometer * driveDistance;
+                var passengerCost = driveCost / _onBoardPassengerCount;
+                _passengerCost += passengerCost;
+            }
 
-        public void Visit(RideStart start)
-        {
-            _onBoardPassengerCount = 1; // count driver as a passenger
-            _isPassengerOnBoard = false;
-        }
+            public Money PassengerCost { get { return _passengerCost; } }
 
-        public void Visit(RideFinish finish)
-        {
-        }
+            void IJourneyVisitor.Visit(Drive drive)
+            {
+                if (_isPassengerOnBoard) IncreasePassengerCost(drive.Distance.Length);
+            }
 
-        public Money PassengerCost { get { return _passengerCost; } }
+            void IJourneyVisitor.Visit(PassengerExit exit)
+            {
+                _onBoardPassengerCount -= 1;
+                if (exit.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = false;
+            }
+
+            void IJourneyVisitor.Visit(PassengerPickup pickup)
+            {
+                _onBoardPassengerCount += 1;
+                if (pickup.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = true;
+            }
+
+            void IJourneyVisitor.Visit(RideStart start)
+            {
+            }
+
+            void IJourneyVisitor.Visit(RideFinish finish)
+            {
+            }
+        }
     }
 }

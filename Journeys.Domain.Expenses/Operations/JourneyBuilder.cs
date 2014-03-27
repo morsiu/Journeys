@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Journeys.Domain.Expenses.Operations
 {
-    public class JourneyBuilder
+    public sealed class JourneyBuilder
     {
         private readonly IId _journeyId;
         private readonly Point _distance;

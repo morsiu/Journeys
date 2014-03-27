@@ -1,5 +1,4 @@
-﻿
-namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+﻿namespace Journeys.Domain.Expenses.Capabilities.RideEvents
 {
     internal class RideFinish : IRideEvent
     {
@@ -10,7 +9,7 @@ namespace Journeys.Domain.Expenses.Capabilities.RideEvents
             _rideEndPoint = rideEndPoint;
         }
 
-        public void Visit(IRideVisitor visitor)
+        public void Visit(IJourneyVisitor visitor)
         {
             visitor.Visit(this);
         }
