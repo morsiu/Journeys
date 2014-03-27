@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace Journeys.Domain.Expenses.Capabilities.Journeys
 {
-    internal sealed class Ride
+    internal sealed class Route
     {
         private readonly IReadOnlyCollection<IJourneyEvent> _events;
 
-        public Ride(IReadOnlyCollection<IJourneyEvent> events)
+        public Route(IReadOnlyCollection<IJourneyEvent> events)
         {
             _events = _events.ToList();
         }

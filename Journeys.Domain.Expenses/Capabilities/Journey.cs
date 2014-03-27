@@ -10,14 +10,14 @@ namespace Journeys.Domain.Expenses.Capabilities
     [Entity]
     public sealed class Journey
     {
-        private readonly Ride _ride;
+        private readonly Route _ride;
         private readonly IId _id;
 
         internal Journey(IId journeyId, Point journeyDistance, IEnumerable<Lift> lifts)
         {
             _id = journeyId;
             var events = CreateEvents(journeyDistance, lifts);
-            _ride = new Ride(events);
+            _ride = new Route(events);
         }
 
         public IId Id { get { return _id; } }

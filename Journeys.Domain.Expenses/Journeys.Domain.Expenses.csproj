@@ -48,7 +48,7 @@
     <Compile Include="Operations\Clerk.cs" />
     <Compile Include="Capabilities\Journey.cs" />
     <Compile Include="Capabilities\IJourneyEvent.cs" />
-    <Compile Include="Capabilities\Journeys\Ride.cs" />
+    <Compile Include="Capabilities\Journeys\Route.cs" />
     <Compile Include="Operations\JourneyBuilder.cs" />
     <Compile Include="Operations\JourneyFactory.cs" />
     <Compile Include="Capabilities\Journeys\Events\Drive.cs" />
