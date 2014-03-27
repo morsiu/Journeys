@@ -6,9 +6,9 @@ namespace Journeys.Domain.Expenses.Operations
     [Factory]
     public sealed class JourneyFactory
     {
-        public JourneyBuilder Create(IId journeyId, decimal distance)
+        public JourneyBuilder Create(IId journeyId, decimal routeDistance)
         {
-            return new JourneyBuilder(journeyId, distance);
+            return new JourneyBuilder(journeyId, routeDistance);
         }
     }
 }

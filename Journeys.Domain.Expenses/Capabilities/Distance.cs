@@ -1,23 +1,63 @@
 ﻿using Journeys.Domain.Infrastructure.Markers;
+using System;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
     [ValueObject]
-    internal struct Distance
+    public struct Distance : IComparable<Distance>
     {
-        private readonly Point _from;
-        private readonly Point _to;
+        private readonly decimal _amount;
 
-        public Distance(Point from, Point to)
+        public Distance(decimal amount)
         {
-            _from = from;
-            _to = to;
+            _amount = amount;
         }
 
-        public Point From { get { return _from; } }
+        public decimal Amount { get { return _amount; } }
 
-        public Point To { get { return _to; } }
+        public static bool operator==(Distance left, Distance right)
+        {
+            return left.Equals(right);
+        }
 
-        public decimal Length { get { return _to.Distance - _from.Distance; } }
+        public static bool operator!=(Distance left, Distance right)
+        {
+            return !(left == right);
+        }
+
+        public static bool operator<(Distance left, Distance right)
+        {
+            return left._amount < right._amount;
+        }
+
+        public static bool operator>(Distance left, Distance right)
+        {
+            return left._amount > right._amount;
+        }
+
+        public static Distance operator-(Distance a, Distance b)
+        {
+            return new Distance(Math.Abs(a.Amount - b.Amount));
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Distance && Equals((Distance)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return _amount.GetHashCode();
+        }
+
+        public bool Equals(Distance other)
+        {
+            return _amount == other._amount;
+        }
+
+        public int CompareTo(Distance distance)
+        {
+            return _amount.CompareTo(distance._amount);
+        }
     }
 }

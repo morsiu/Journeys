@@ -2,11 +2,11 @@
 {
     internal class JourneyFinish : IJourneyEvent
     {
-        private readonly Point _rideEndPoint;
+        private readonly RoutePoint _endPoint;
 
-        public JourneyFinish(Point rideEndPoint)
+        public JourneyFinish(RoutePoint endPoint)
         {
-            _rideEndPoint = rideEndPoint;
+            _endPoint = endPoint;
         }
 
         public void Visit(IJourneyVisitor visitor)
@@ -14,9 +14,9 @@
             visitor.Visit(this);
         }
 
-        public Point Distance
+        public RoutePoint Point
         {
-            get { return _rideEndPoint; }
+            get { return _endPoint; }
         }
     }
 }

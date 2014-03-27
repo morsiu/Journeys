@@ -10,7 +10,7 @@ namespace Journeys.Domain.Expenses.Capabilities.Journeys
 
         public Route(IReadOnlyCollection<IJourneyEvent> events)
         {
-            _events = _events.ToList();
+            _events = events.ToList();
         }
 
         public void Replay(IJourneyVisitor visitor)
@@ -30,20 +30,16 @@ namespace Journeys.Domain.Expenses.Capabilities.Journeys
 
         private void DriveBetweenEvents(IJourneyVisitor visitor, IJourneyEvent previous, IJourneyEvent current)
         {
-            if (IsDistanceBetween(previous, current))
+            if (previous == null) return;
+            if (previous.Point < current.Point)
             {
                 visitor.Visit(CreateDrive(previous, current));
             }
         }
 
-        private bool IsDistanceBetween(IJourneyEvent last, IJourneyEvent current)
-        {
-            return last.Distance < current.Distance;
-        }
-
         private Drive CreateDrive(IJourneyEvent last, IJourneyEvent current)
         {
-            return new Drive(new Distance(last.Distance, current.Distance));
+            return new Drive(new RouteDistance(last.Point, current.Point));
         }
     }
 }

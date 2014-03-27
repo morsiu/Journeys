@@ -10,19 +10,19 @@ namespace Journeys.Domain.Expenses.Capabilities
     [Entity]
     public sealed class Journey
     {
-        private readonly Route _ride;
+        private readonly Route _route;
         private readonly IId _id;
 
-        internal Journey(IId journeyId, Point journeyDistance, IEnumerable<Lift> lifts)
+        internal Journey(IId journeyId, Distance routeDistance, IEnumerable<Lift> journeyLifts)
         {
             _id = journeyId;
-            var events = CreateEvents(journeyDistance, lifts);
-            _ride = new Route(events);
+            var events = CreateEvents(routeDistance, journeyLifts);
+            _route = new Route(events);
         }
 
         public IId Id { get { return _id; } }
 
-        private static IReadOnlyCollection<IJourneyEvent> CreateEvents(Point journeyDistance, IEnumerable<Lift> lifts)
+        private static IReadOnlyCollection<IJourneyEvent> CreateEvents(Distance routeDistance, IEnumerable<Lift> lifts)
         {
             var events = new List<IJourneyEvent>();
             events.Add(new JourneyStart());
@@ -31,14 +31,14 @@ namespace Journeys.Domain.Expenses.Capabilities
                 events.Add(new PassengerPickup(lift.PassengerId, lift.Distance.From));
                 events.Add(new PassengerExit(lift.PassengerId, lift.Distance.To));
             }
-            events.Add(new JourneyFinish(journeyDistance));
-            events.Sort((a, b) => a.Distance.CompareTo(b.Distance));
+            events.Add(new JourneyFinish(new RoutePoint(routeDistance)));
+            events.Sort((a, b) => a.Point.CompareTo(b.Point));
             return events;
         }
 
         internal void Visit(IJourneyVisitor visitor)
         {
-            _ride.Replay(visitor);
+            _route.Replay(visitor);
         }
     }
 }

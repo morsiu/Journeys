@@ -2,12 +2,12 @@
 {
     internal class Drive
     {
-        public Drive(Distance distance)
+        public Drive(RouteDistance distance)
         {
             Distance = distance;
         }
 
-        public Distance Distance { get; private set; }
+        public RouteDistance Distance { get; private set; }
 
         public void Visit(IJourneyVisitor visitor)
         {

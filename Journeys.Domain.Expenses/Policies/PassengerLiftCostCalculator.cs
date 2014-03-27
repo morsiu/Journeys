@@ -25,12 +25,12 @@ namespace Journeys.Domain.Expenses.Policies
             return new Expense(liftId, visitor.PassengerCost);
         }
 
-        private struct JourneyVisitor : IJourneyVisitor
+        private class JourneyVisitor : IJourneyVisitor
         {
             private readonly IId _passengerId;
             private readonly Money _journeyCostPerKilometer;
             private bool _isPassengerOnBoard;
-            private int _onBoardPassengerCount;
+            private int _onBoardPersonCount;
             private Money _passengerCost;
 
             public JourneyVisitor(Money journeyCostPerKilometer, IId passengerId)
@@ -38,14 +38,14 @@ namespace Journeys.Domain.Expenses.Policies
                 _journeyCostPerKilometer = journeyCostPerKilometer;
                 _passengerId = passengerId;
                 _isPassengerOnBoard = false;
-                _onBoardPassengerCount = 1;
+                _onBoardPersonCount = 1; // Count the driver
                 _passengerCost = new Money();
             }
 
-            private void IncreasePassengerCost(decimal driveDistance)
+            private void IncreasePassengerCost(Distance driveDistance)
             {
-                var driveCost = _journeyCostPerKilometer * driveDistance;
-                var passengerCost = driveCost / _onBoardPassengerCount;
+                var driveCost = _journeyCostPerKilometer * driveDistance.Amount;
+                var passengerCost = driveCost / _onBoardPersonCount;
                 _passengerCost += passengerCost;
             }
 
@@ -58,13 +58,13 @@ namespace Journeys.Domain.Expenses.Policies
 
             void IJourneyVisitor.Visit(PassengerExit exit)
             {
-                _onBoardPassengerCount -= 1;
+                _onBoardPersonCount -= 1;
                 if (exit.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = false;
             }
 
             void IJourneyVisitor.Visit(PassengerPickup pickup)
             {
-                _onBoardPassengerCount += 1;
+                _onBoardPersonCount += 1;
                 if (pickup.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = true;
             }
 

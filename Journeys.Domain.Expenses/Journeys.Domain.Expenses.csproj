@@ -33,13 +33,14 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Capabilities\Distance.cs" />
     <Compile Include="Capabilities\Expense.cs" />
     <Compile Include="Capabilities\Lift.cs" />
     <Compile Include="Capabilities\LiftId.cs" />
     <Compile Include="Capabilities\Money.cs" />
     <Compile Include="Capabilities\ExpenseList.cs" />
-    <Compile Include="Capabilities\Distance.cs" />
-    <Compile Include="Capabilities\Point.cs" />
+    <Compile Include="Capabilities\Journeys\RouteDistance.cs" />
+    <Compile Include="Capabilities\Journeys\RoutePoint.cs" />
     <Compile Include="Messages.Designer.cs">
       <DependentUpon>Messages.resx</DependentUpon>
       <AutoGen>True</AutoGen>

@@ -4,6 +4,6 @@
     {
         void Visit(IJourneyVisitor visitor);
 
-        Point Distance { get; }
+        RoutePoint Point { get; }
     }
 }

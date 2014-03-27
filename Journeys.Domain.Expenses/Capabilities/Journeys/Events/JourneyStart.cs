@@ -7,6 +7,6 @@
             visitor.Visit(this);
         }
 
-        public Point Distance { get { return new Point(); } }
+        public RoutePoint Point { get { return new RoutePoint(); } }
     }
 }
