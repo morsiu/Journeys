@@ -1,6 +1,6 @@
-﻿namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class RideStart : IRideEvent
+    internal class JourneyStart : IJourneyEvent
     {
         public void Visit(IJourneyVisitor visitor)
         {

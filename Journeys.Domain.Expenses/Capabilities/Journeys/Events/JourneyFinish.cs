@@ -1,10 +1,10 @@
-﻿namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class RideFinish : IRideEvent
+    internal class JourneyFinish : IJourneyEvent
     {
         private readonly Point _rideEndPoint;
 
-        public RideFinish(Point rideEndPoint)
+        public JourneyFinish(Point rideEndPoint)
         {
             _rideEndPoint = rideEndPoint;
         }

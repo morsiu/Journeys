@@ -1,21 +1,21 @@
-﻿using Journeys.Domain.Expenses.Capabilities.RideEvents;
+﻿using Journeys.Domain.Expenses.Capabilities.Journeys.Events;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Journeys.Domain.Expenses.Capabilities
+namespace Journeys.Domain.Expenses.Capabilities.Journeys
 {
     internal sealed class Ride
     {
-        private readonly IReadOnlyCollection<IRideEvent> _events;
+        private readonly IReadOnlyCollection<IJourneyEvent> _events;
 
-        public Ride(IReadOnlyCollection<IRideEvent> events)
+        public Ride(IReadOnlyCollection<IJourneyEvent> events)
         {
             _events = _events.ToList();
         }
 
         public void Replay(IJourneyVisitor visitor)
         {
-            IRideEvent previousEvent = null;
+            IJourneyEvent previousEvent = null;
             using (var events = _events.GetEnumerator())
             {
                 while (events.MoveNext())
@@ -28,7 +28,7 @@ namespace Journeys.Domain.Expenses.Capabilities
             }
         }
 
-        private void DriveBetweenEvents(IJourneyVisitor visitor, IRideEvent previous, IRideEvent current)
+        private void DriveBetweenEvents(IJourneyVisitor visitor, IJourneyEvent previous, IJourneyEvent current)
         {
             if (IsDistanceBetween(previous, current))
             {
@@ -36,12 +36,12 @@ namespace Journeys.Domain.Expenses.Capabilities
             }
         }
 
-        private bool IsDistanceBetween(IRideEvent last, IRideEvent current)
+        private bool IsDistanceBetween(IJourneyEvent last, IJourneyEvent current)
         {
             return last.Distance < current.Distance;
         }
 
-        private Drive CreateDrive(IRideEvent last, IRideEvent current)
+        private Drive CreateDrive(IJourneyEvent last, IJourneyEvent current)
         {
             return new Drive(new Distance(last.Distance, current.Distance));
         }

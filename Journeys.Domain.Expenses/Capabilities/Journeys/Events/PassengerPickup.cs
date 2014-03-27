@@ -1,8 +1,8 @@
 ﻿using Journeys.Common;
 
-namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class PassengerPickup : IRideEvent
+    internal class PassengerPickup : IJourneyEvent
     {
         public PassengerPickup(IId passengerId, Point distance)
         {

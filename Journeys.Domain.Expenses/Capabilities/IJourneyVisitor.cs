@@ -1,4 +1,4 @@
-﻿using Journeys.Domain.Expenses.Capabilities.RideEvents;
+﻿using Journeys.Domain.Expenses.Capabilities.Journeys.Events;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
@@ -10,8 +10,8 @@ namespace Journeys.Domain.Expenses.Capabilities
 
         void Visit(PassengerPickup pickup);
 
-        void Visit(RideStart start);
+        void Visit(JourneyStart start);
 
-        void Visit(RideFinish finish);
+        void Visit(JourneyFinish finish);
     }
 }

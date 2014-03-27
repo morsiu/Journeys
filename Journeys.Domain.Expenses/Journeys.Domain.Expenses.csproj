@@ -47,16 +47,16 @@
     </Compile>
     <Compile Include="Operations\Clerk.cs" />
     <Compile Include="Capabilities\Journey.cs" />
-    <Compile Include="Capabilities\IRideEvent.cs" />
-    <Compile Include="Capabilities\Ride.cs" />
+    <Compile Include="Capabilities\IJourneyEvent.cs" />
+    <Compile Include="Capabilities\Journeys\Ride.cs" />
     <Compile Include="Operations\JourneyBuilder.cs" />
     <Compile Include="Operations\JourneyFactory.cs" />
-    <Compile Include="Capabilities\RideEvents\Drive.cs" />
-    <Compile Include="Capabilities\RideEvents\PassengerExit.cs" />
-    <Compile Include="Capabilities\RideEvents\RideFinish.cs" />
-    <Compile Include="Capabilities\RideEvents\PassengerPickup.cs" />
-    <Compile Include="Capabilities\RideEvents\RideStart.cs" />
-    <Compile Include="Capabilities\IRideVisitor.cs" />
+    <Compile Include="Capabilities\Journeys\Events\Drive.cs" />
+    <Compile Include="Capabilities\Journeys\Events\PassengerExit.cs" />
+    <Compile Include="Capabilities\Journeys\Events\JourneyFinish.cs" />
+    <Compile Include="Capabilities\Journeys\Events\PassengerPickup.cs" />
+    <Compile Include="Capabilities\Journeys\Events\JourneyStart.cs" />
+    <Compile Include="Capabilities\IJourneyVisitor.cs" />
     <Compile Include="Policies\IJourneyCostPolicy.cs" />
     <Compile Include="Policies\PassengerLiftCostCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

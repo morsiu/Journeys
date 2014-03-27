@@ -1,8 +1,8 @@
 ﻿using Journeys.Common;
 
-namespace Journeys.Domain.Expenses.Capabilities.RideEvents
+namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class PassengerExit : IRideEvent
+    internal class PassengerExit : IJourneyEvent
     {
         public PassengerExit(IId passengerId, Point distance)
         {

@@ -1,6 +1,6 @@
 ﻿using Journeys.Common;
 using Journeys.Domain.Expenses.Capabilities;
-using Journeys.Domain.Expenses.Capabilities.RideEvents;
+using Journeys.Domain.Expenses.Capabilities.Journeys.Events;
 using Journeys.Domain.Infrastructure.Markers;
 
 namespace Journeys.Domain.Expenses.Policies
@@ -68,11 +68,11 @@ namespace Journeys.Domain.Expenses.Policies
                 if (pickup.PassengerId.Equals(_passengerId)) _isPassengerOnBoard = true;
             }
 
-            void IJourneyVisitor.Visit(RideStart start)
+            void IJourneyVisitor.Visit(JourneyStart start)
             {
             }
 
-            void IJourneyVisitor.Visit(RideFinish finish)
+            void IJourneyVisitor.Visit(JourneyFinish finish)
             {
             }
         }

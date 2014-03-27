@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Expenses.Capabilities
 {
-    internal interface IRideEvent
+    internal interface IJourneyEvent
     {
         void Visit(IJourneyVisitor visitor);
 
