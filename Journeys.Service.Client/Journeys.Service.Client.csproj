@@ -36,6 +36,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryRequest.cs" />
   </ItemGroup>
