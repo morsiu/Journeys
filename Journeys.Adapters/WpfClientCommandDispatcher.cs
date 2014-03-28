@@ -26,7 +26,7 @@ namespace Journeys.Adapters
             }
             else
             {
-                DispatchExtrenal(command);
+                DispatchExternal(command);
             }
         }
 
@@ -35,7 +35,7 @@ namespace Journeys.Adapters
             return !commandType.IsPublic;
         }
 
-        private void DispatchExtrenal(object command)
+        private void DispatchExternal(object command)
         {
             var request = new CommandRequest(_commandRequestUri, command, _idImplementationType);
             request.Run();
