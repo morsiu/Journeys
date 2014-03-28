@@ -17,10 +17,7 @@ namespace Journeys.Query
 
         public IEnumerable<Fact> Execute(GetJourneysByPassengerThenMonthThenDayQuery query)
         {
-            foreach (var factEntry in _facts.Retrieve())
-            {
-                yield return new Fact(factEntry.Key, factEntry.Value);
-            }
+            return _facts.Retrieve().Select(factEntry => new Fact(factEntry.Key, factEntry.Value)).ToList();
         }
 
         public void Update(JourneyCreatedEvent @event)

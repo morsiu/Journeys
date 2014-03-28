@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using Journeys.Common;
+﻿using Journeys.Common;
 using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Journeys.Query
 {
@@ -22,7 +23,7 @@ namespace Journeys.Query
 
         public IEnumerable<PersonName> Execute(GetPeopleNamesQuery query)
         {
-            return _peopleNames.Retrieve();
+            return _peopleNames.Retrieve().ToList();
         }
 
         public void Update(PersonCreatedEvent @event)
