@@ -1,5 +1,5 @@
-﻿using System;
-using Journeys.Queries;
+﻿using Journeys.Queries;
+using System;
 
 namespace Journeys.Adapters
 {
@@ -7,7 +7,7 @@ namespace Journeys.Adapters
     {
         private readonly Type _queryType;
 
-        private QueryKey(Type queryType)
+        public QueryKey(Type queryType)
         {
             _queryType = queryType;
         }

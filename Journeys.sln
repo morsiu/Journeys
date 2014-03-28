@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
+# Visual Studio Express 2013 for Web
 VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Test.Infrastructure", "Journeys.Domain.Test.Infrastructure\Journeys.Domain.Test.Infrastructure.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
@@ -56,6 +56,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Expenses", "Journeys.Domain.Expenses\Journeys.Domain.Expenses.csproj", "{32EE131B-7831-4F51-B349-921AEBEFF896}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Expenses.Test", "Journeys.Domain.Expenses.Test\Journeys.Domain.Expenses.Test.csproj", "{1863C2F1-A11C-4C1F-A079-A9A27D755193}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Service", "Journeys.Service\Journeys.Service.csproj", "{3AEB7039-C984-4CFE-9143-DD443962E927}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A9654D1E-8C4D-4CBC-9D3B-FE16FAEBE84D}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Service.Client", "Journeys.Service.Client\Journeys.Service.Client.csproj", "{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -155,6 +166,14 @@ Global
 		{1863C2F1-A11C-4C1F-A079-A9A27D755193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1863C2F1-A11C-4C1F-A079-A9A27D755193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1863C2F1-A11C-4C1F-A079-A9A27D755193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEB7039-C984-4CFE-9143-DD443962E927}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEB7039-C984-4CFE-9143-DD443962E927}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEB7039-C984-4CFE-9143-DD443962E927}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEB7039-C984-4CFE-9143-DD443962E927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -173,6 +192,8 @@ Global
 		{84BDB2FA-A16E-4F70-92EF-7CCED94A3405} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 		{0D9E8956-7698-4B39-9D27-08F38A87E524} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 		{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
+		{3AEB7039-C984-4CFE-9143-DD443962E927} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
+		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 		{BCA0F43E-73C4-4697-8AB4-DC7C6D3FE691} = {D08E1BFA-8FB5-465F-84B5-8DA38D5FA592}
 		{E68B1DA3-099B-4FC3-8FC8-609518BC7937} = {D08E1BFA-8FB5-465F-84B5-8DA38D5FA592}
 		{67DC9EB1-D04E-4164-9844-C4CA277CC770} = {D08E1BFA-8FB5-465F-84B5-8DA38D5FA592}

@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceQueryDispatcher.cs" />
     <Compile Include="WpfClientCommandHandlerRegistry.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ApplicationEventBus.cs" />
@@ -104,6 +105,10 @@
     <ProjectReference Include="..\Journeys.Repositories\Journeys.Repositories.csproj">
       <Project>{648e4544-c389-45e5-a04d-8d5e4223c77c}</Project>
       <Name>Journeys.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Service.Client\Journeys.Service.Client.csproj">
+      <Project>{74c4ee16-e0a0-45a9-a20a-47c17a60dd16}</Project>
+      <Name>Journeys.Service.Client</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
       <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
