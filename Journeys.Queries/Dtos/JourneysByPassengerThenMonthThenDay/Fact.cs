@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
+    [DataContract]
     public class Fact
     {
         public Fact(Key key, Value value)
@@ -11,8 +11,10 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
             Value = value;
         }
 
+        [DataMember]
         public Key Key { get; private set; }
 
+        [DataMember]
         public Value Value { get; private set; }
     }
 }

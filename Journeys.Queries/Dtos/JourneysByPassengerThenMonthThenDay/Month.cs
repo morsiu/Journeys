@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
+    [DataContract]
     public struct Month
     {
         public Month(int year, int monthOfYear) : this()
@@ -14,8 +11,10 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
             MonthOfYear = monthOfYear;
         }
 
+        [DataMember]
         public int MonthOfYear { get; private set; }
 
+        [DataMember]
         public int Year { get; private set; }
     }
 }

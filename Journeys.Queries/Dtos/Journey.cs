@@ -1,9 +1,11 @@
 ﻿using Journeys.Common;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos
 {
+    [DataContract]
     public class Journey
     {
         public Journey(IId id, DateTime dateOfOccurrence, decimal routeDistance, IReadOnlyCollection<Lift> lifts)
@@ -14,12 +16,16 @@ namespace Journeys.Queries.Dtos
             Lifts = lifts;
         }
 
+        [DataMember]
         public IId Id { get; private set; }
 
+        [DataMember]
         public DateTime DateOfOccurrence { get; private set; }
 
+        [DataMember]
         public decimal RouteDistance { get; private set; }
 
+        [DataMember]
         public IReadOnlyCollection<Lift> Lifts { get; private set; }
     }
 }

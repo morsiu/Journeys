@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
+    [DataContract]
     public struct Key
     {
         public Key(Passenger passenger, Month month, Day day) : this()
@@ -15,10 +12,13 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
             Day = day;
         }
 
+        [DataMember]
         public Passenger Passenger { get; private set; }
 
+        [DataMember]
         public Month Month { get; private set; }
 
+        [DataMember]
         public Day Day { get; private set; }
     }
 }

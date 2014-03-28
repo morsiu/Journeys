@@ -1,8 +1,10 @@
 ﻿using Journeys.Common;
 using Journeys.Queries.Dtos;
+using System.Runtime.Serialization;
 
 namespace Journeys.Queries
 {
+    [DataContract]
     public class GetCostOfPassengerLiftsInPeriodQuery : IQuery<PassengerLiftsCost>
     {
         public GetCostOfPassengerLiftsInPeriodQuery(IId passengerId, Period period)

@@ -1,8 +1,9 @@
-﻿using System;
-using Journeys.Common;
+﻿using Journeys.Common;
+using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos
 {
+    [DataContract]
     public class PersonName
     {
         public PersonName(IId ownerId, string name)
@@ -11,8 +12,10 @@ namespace Journeys.Queries.Dtos
             Name = name;
         }
 
+        [DataMember]
         public IId OwnerId { get; private set; }
 
+        [DataMember]
         public string Name { get; private set; }
     }
 }

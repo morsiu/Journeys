@@ -1,12 +1,9 @@
 ﻿using Journeys.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
+    [DataContract]
     public struct Passenger
     {
         public Passenger(IId passengerId) : this()
@@ -14,6 +11,7 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
             Id = passengerId;
         }
 
+        [DataMember]
         public IId Id { get; private set; }
 
         public override bool Equals(object obj)

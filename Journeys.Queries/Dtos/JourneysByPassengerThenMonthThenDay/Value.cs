@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
+    [DataContract]
     public struct Value
     {
         public Value(int journeyCount, decimal journeyDistance, int liftCount, decimal liftDistance) : this()
@@ -16,12 +13,16 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
             LiftDistance = liftDistance;
         }
 
+        [DataMember]
         public decimal LiftDistance { get; private set; }
 
+        [DataMember]
         public int LiftCount { get; private set; }
 
+        [DataMember]
         public decimal JourneyDistance { get; private set; }
 
+        [DataMember]
         public int JourneyCount { get; private set; }
     }
 }

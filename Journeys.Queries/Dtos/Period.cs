@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos
 {
+    [DataContract]
     public class Period
     {
         public Period(DateTime start, DateTime end)
@@ -10,8 +12,10 @@ namespace Journeys.Queries.Dtos
             End = end;
         }
 
+        [DataMember]
         public DateTime Start { get; private set; }
 
+        [DataMember]
         public DateTime End { get; private set; }
     }
 }
