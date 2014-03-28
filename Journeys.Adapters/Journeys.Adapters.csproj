@@ -33,6 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ServiceCommandDispatcher.cs" />
     <Compile Include="ServiceQueryDispatcher.cs" />
     <Compile Include="WpfClientCommandHandlerRegistry.cs" />
     <Compile Include="Command.cs" />

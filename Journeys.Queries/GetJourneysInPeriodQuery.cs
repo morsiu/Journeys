@@ -12,6 +12,7 @@ namespace Journeys.Queries
             Period = period;
         }
 
+        [DataMember]
         public Period Period { get; private set; }
     }
 }

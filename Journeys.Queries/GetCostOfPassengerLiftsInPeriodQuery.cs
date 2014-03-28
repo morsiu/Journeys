@@ -13,8 +13,10 @@ namespace Journeys.Queries
             PassengerId = passengerId;
         }
 
+        [DataMember]
         public IId PassengerId { get; private set; }
 
+        [DataMember]
         public Period Period { get; private set; }
     }
 }

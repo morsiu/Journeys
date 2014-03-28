@@ -1,19 +1,25 @@
-﻿using System;
+﻿using Journeys.Commands.Dtos;
+using Journeys.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Journeys.Common;
-using Journeys.Commands.Dtos;
+using System.Runtime.Serialization;
 
 namespace Journeys.Commands
 {
+    [DataContract]
     public class AddJourneyWithLiftsCommand
     {
+        [DataMember]
         public IId JourneyId { get; private set; }
 
+        [DataMember]
         public decimal RouteDistance { get; private set; }
 
+        [DataMember]
         public DateTime DateOfOccurrence { get; private set; }
 
+        [DataMember]
         public IReadOnlyList<Lift> Lifts { get; private set; }
 
         public AddJourneyWithLiftsCommand(
