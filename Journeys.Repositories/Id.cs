@@ -17,9 +17,7 @@ namespace Journeys.Client.Wpf.Infrastructure
         
         public override bool Equals(object obj)
         {
-            return obj != null
-                && obj is Id
-                && Equals((Id)obj);
+            return obj is Id && Equals((Id)obj);
         }
 
         public override int GetHashCode()
@@ -29,9 +27,7 @@ namespace Journeys.Client.Wpf.Infrastructure
 
         public bool Equals(IId other)
         {
-            return other != null
-                && other is Id
-                && Equals((Id)other);
+            return other is Id && Equals((Id)other);
         }
 
         private bool Equals(Id other)
