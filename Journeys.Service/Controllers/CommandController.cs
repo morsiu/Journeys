@@ -27,7 +27,6 @@ namespace Journeys.Service.Controllers
         [Route("api/command")]
         public async Task Post()
         {
-            
             var serializedQuery = await Request.Content.ReadAsStreamAsync();
             var dataSerializer = new DataContractSerializer(typeof(object), SupportedQueryTypes);
             var responseStream = new MemoryStream();
