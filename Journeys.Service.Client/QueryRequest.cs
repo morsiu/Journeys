@@ -25,7 +25,7 @@ namespace Journeys.Service.Client
         {
             var request = WebRequest.CreateHttp(_requestUri);
             request.Method = "POST";
-            request.ContentType = "text/plain";
+            request.ContentType = "application/xml";
             var requestStream = request.GetRequestStream();
             _serializer.WriteObject(requestStream, _query);
             var response = request.GetResponse();

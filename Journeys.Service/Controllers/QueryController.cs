@@ -60,7 +60,7 @@ namespace Journeys.Service.Controllers
                 var reader = new StreamReader(responseStream);
                 var responseText = reader.ReadToEnd();
                 var response = new HttpResponseMessage(HttpStatusCode.OK);
-                response.Content = new StringContent(responseText, Encoding.UTF8, "text/plain");
+                response.Content = new StringContent(responseText, Encoding.UTF8, "application/xml");
                 return response;
             }
             catch (Exception e)
