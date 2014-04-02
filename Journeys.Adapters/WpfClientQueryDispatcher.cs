@@ -10,12 +10,10 @@ namespace Journeys.Adapters
     {
         private readonly Uri _queryRequestUri;
         private readonly HandlerDispatcher _handlerDispatcher;
-        private readonly Type _idImplementationType;
 
-        public WpfClientQueryDispatcher(Uri queryRequestUri, HandlerDispatcher handlerDispatcher, Type idImplementationType)
+        public WpfClientQueryDispatcher(Uri queryRequestUri, HandlerDispatcher handlerDispatcher)
         {
             _queryRequestUri = queryRequestUri;
-            _idImplementationType = idImplementationType;
             _handlerDispatcher = handlerDispatcher;
         }
 
@@ -34,7 +32,7 @@ namespace Journeys.Adapters
 
         private TResult DispatchExternal<TResult>(IQuery<TResult> query)
         {
-            var queryRequest = new QueryRequest<TResult>(_queryRequestUri, query, _idImplementationType);
+            var queryRequest = new QueryRequest<TResult>(_queryRequestUri, query);
             var result = queryRequest.Run();
             return result;
         }

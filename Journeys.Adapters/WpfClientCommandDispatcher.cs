@@ -9,13 +9,11 @@ namespace Journeys.Adapters
     {
         private readonly HandlerDispatcher _handlerDispatcher;
         private readonly Uri _commandRequestUri;
-        private readonly Type _idImplementationType;
 
-        public WpfClientCommandDispatcher(Uri commandRequestUri, HandlerDispatcher handlerDispatcher, Type idImplementationType)
+        public WpfClientCommandDispatcher(Uri commandRequestUri, HandlerDispatcher handlerDispatcher)
         {
             _handlerDispatcher = handlerDispatcher;
             _commandRequestUri = commandRequestUri;
-            _idImplementationType = idImplementationType;
         }
 
         public void Dispatch<TCommand>(TCommand command)
@@ -37,7 +35,7 @@ namespace Journeys.Adapters
 
         private void DispatchExternal(object command)
         {
-            var request = new CommandRequest(_commandRequestUri, command, _idImplementationType);
+            var request = new CommandRequest(_commandRequestUri, command);
             request.Run();
         }
 

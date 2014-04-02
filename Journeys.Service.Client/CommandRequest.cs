@@ -6,18 +6,15 @@ namespace Journeys.Service.Client
 {
     public sealed class CommandRequest
     {
-        private readonly DataContractSerializer _serializer;
+        private readonly NetDataContractSerializer _serializer;
         private readonly Uri _requestUri;
         private readonly object _command;
-        private readonly Type _idImplementationType;
 
-        public CommandRequest(Uri requestUri, object command, Type idImplementationType)
+        public CommandRequest(Uri requestUri, object command)
         {
-            var commandType = command.GetType();
             _requestUri = requestUri;
-            _idImplementationType = idImplementationType;
             _command = command;
-            _serializer = new DataContractSerializer(typeof(object), new[] { commandType, idImplementationType });
+            _serializer = new NetDataContractSerializer();
         }
 
         public void Run()
@@ -26,7 +23,8 @@ namespace Journeys.Service.Client
             request.Method = "POST";
             request.ContentType = "application/xml";
             var requestStream = request.GetRequestStream();
-            _serializer.WriteObject(requestStream, _command);
+            _serializer.Serialize(requestStream, _command);
+            request.GetResponse();
         }
     }
 }
