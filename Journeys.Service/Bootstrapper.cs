@@ -40,6 +40,7 @@ namespace Journeys.Service
             eventSourcingModule.StoreNewEvents();
 
             QueryController.QueryDispatcher = new ServiceQueryDispatcher(handlerDispatcher);
+            CommandController.CommandDispatcher = new ServiceCommandDispatcher(handlerDispatcher);
         }
     }
 }
