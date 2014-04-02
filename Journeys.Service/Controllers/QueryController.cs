@@ -18,7 +18,7 @@ namespace Journeys.Service.Controllers
         {
             var serializedQuery = await Request.Content.ReadAsStreamAsync();
             var dataSerializer = new NetDataContractSerializer();
-            var query = dataSerializer.ReadObject(serializedQuery);
+            var query = dataSerializer.Deserialize(serializedQuery);
             var result = QueryDispatcher.Dispatch(query);
             var responseStream = new MemoryStream();
             dataSerializer.Serialize(responseStream, result);
