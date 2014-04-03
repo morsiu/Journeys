@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Net;
 using System.Runtime.Serialization;
-using System.Xml;
 
 namespace Journeys.Service.Client
 {
