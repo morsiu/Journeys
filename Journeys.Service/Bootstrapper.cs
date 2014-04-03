@@ -1,12 +1,15 @@
 ﻿using Journeys.Adapters;
 using Journeys.Dispatching;
 using Journeys.Repositories;
-using Journeys.Service.Controllers;
 
 namespace Journeys.Service
 {
     internal class Bootstrapper
     {
+        public ServiceQueryDispatcher QueryDispatcher { get; private set; }
+
+        public ServiceCommandDispatcher CommandDispatcher { get; private set; }
+
         public void Bootstrap(string eventFileName)
         {
             var eventBus = new Event.EventBus();
@@ -39,8 +42,8 @@ namespace Journeys.Service
             eventSourcingModule.ReplayEvents();
             eventSourcingModule.StoreNewEvents();
 
-            QueryController.QueryDispatcher = new ServiceQueryDispatcher(handlerDispatcher);
-            CommandController.CommandDispatcher = new ServiceCommandDispatcher(handlerDispatcher);
+            QueryDispatcher = new ServiceQueryDispatcher(handlerDispatcher);
+            CommandDispatcher = new ServiceCommandDispatcher(handlerDispatcher);
         }
     }
 }

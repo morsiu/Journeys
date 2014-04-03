@@ -16,9 +16,9 @@ namespace Journeys.Client
 
             var wpfClientBootstrapper = new Client.Wpf.Bootstrapper(
                 new WpfClientEventBus(eventBus),
-                new WpfClientCommandDispatcher(new Uri("http://localhost:65363/api/command/"), handlerDispatcher),
+                new WpfClientCommandDispatcher(new Uri("http://localhost:65363/api/command"), handlerDispatcher),
                 new WpfClientCommandHandlerRegistry(handlerRegistry),
-                new WpfClientQueryDispatcher(new Uri("http://localhost:65363/api/query/"), handlerDispatcher),
+                new WpfClientQueryDispatcher(new Uri("http://localhost:65363/api/query"), handlerDispatcher),
                 new WpfClientQueryHandlerRegistry(handlerRegistry),
                 new WpfClientIdFactory(idFactory));
             wpfClientBootstrapper.Bootstrap();
