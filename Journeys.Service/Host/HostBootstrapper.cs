@@ -25,6 +25,7 @@ namespace Journeys.Service.Host
         protected override void ConfigureConventions(NancyConventions nancyConventions)
         {
             nancyConventions.StaticContentsConventions.AddDirectory("/site", "site");
+            nancyConventions.StaticContentsConventions.AddFile("/site/", "site/index.html");
             base.ConfigureConventions(nancyConventions);
         }
 
