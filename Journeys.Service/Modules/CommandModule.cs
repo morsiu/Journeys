@@ -18,16 +18,16 @@ namespace Journeys.Service.Modules
 
         private dynamic HandleCommandPost(dynamic parameters)
         {
-            var query = DeserializeRequest();
-            _dispatcher.Dispatch(query);
+            var command = DeserializeRequest();
+            _dispatcher.Dispatch(command);
             return PrepareResponse();
         }
 
         private object DeserializeRequest()
         {
-            var serializedQuery = Request.Body;
-            var query = _serializer.Deserialize(serializedQuery);
-            return query;
+            var xmlRequestStream = Request.Body;
+            var request = _serializer.Deserialize(xmlRequestStream);
+            return request;
         }
 
         private Response PrepareResponse()

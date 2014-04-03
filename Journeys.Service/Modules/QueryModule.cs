@@ -27,9 +27,9 @@ namespace Journeys.Service.Modules
 
         private object DeserializeRequest()
         {
-            var serializedQuery = Request.Body;
-            var query = _serializer.Deserialize(serializedQuery);
-            return query;
+            var xmlRequestStream = Request.Body;
+            var request = _serializer.Deserialize(xmlRequestStream);
+            return request;
         }
 
         private Response PrepareResponse(object result)
