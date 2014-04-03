@@ -44,9 +44,9 @@ namespace Journeys.Service.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Mors")]
-        public string UriReservationUser {
+        public string UrlReservationUser {
             get {
-                return ((string)(this["UriReservationUser"]));
+                return ((string)(this["UrlReservationUser"]));
             }
         }
     }
