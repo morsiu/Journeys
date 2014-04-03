@@ -49,5 +49,17 @@ namespace Journeys.Service.Properties {
                 return ((string)(this["UrlReservationUser"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("../../Journeys.Client.Web/")]
+        public string SitePath {
+            get {
+                return ((string)(this["SitePath"]));
+            }
+            set {
+                this["SitePath"] = value;
+            }
+        }
     }
 }

@@ -2,7 +2,10 @@
 using Journeys.Service.Modules;
 using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.Conventions;
+using Nancy.TinyIoc;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Journeys.Service.Host
 {
@@ -10,14 +13,30 @@ namespace Journeys.Service.Host
     {
         private readonly ServiceQueryDispatcher _queryDispatcher;
         private readonly ServiceCommandDispatcher _commandDispatcher;
+        private readonly string _sitePath;
 
-        public HostBootstrapper(ServiceQueryDispatcher queryDispatcher, ServiceCommandDispatcher commandDispatcher)
+        public HostBootstrapper(ServiceQueryDispatcher queryDispatcher, ServiceCommandDispatcher commandDispatcher, string sitePath)
         {
             _queryDispatcher = queryDispatcher;
             _commandDispatcher = commandDispatcher;
+            _sitePath = Path.GetFullPath(sitePath);
         }
 
-        protected override void ConfigureRequestContainer(Nancy.TinyIoc.TinyIoCContainer container, NancyContext context)
+        protected override void ConfigureConventions(NancyConventions nancyConventions)
+        {
+            nancyConventions.StaticContentsConventions.AddDirectory("/site", "site");
+            base.ConfigureConventions(nancyConventions);
+        }
+
+        protected override IRootPathProvider RootPathProvider
+        {
+            get
+            {
+                return new StaticRootPathProvider(_sitePath);
+            }
+        }
+
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
         {
             base.ConfigureRequestContainer(container, context);
             container.Register(typeof(ServiceQueryDispatcher), _queryDispatcher);
@@ -30,6 +49,21 @@ namespace Journeys.Service.Host
             {
                 yield return new ModuleRegistration(typeof(QueryModule));
                 yield return new ModuleRegistration(typeof(CommandModule));
+            }
+        }
+
+        private class StaticRootPathProvider : IRootPathProvider
+        {
+            private readonly string _rootPath;
+
+            public StaticRootPathProvider(string rootPath)
+            {
+                _rootPath = rootPath;
+            }
+
+            public string GetRootPath()
+            {
+                return _rootPath;
             }
         }
     }
