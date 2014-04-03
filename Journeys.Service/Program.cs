@@ -1,4 +1,5 @@
-﻿using Nancy.Hosting.Self;
+﻿using Journeys.Service.Properties;
+using Nancy.Hosting.Self;
 using System;
 using System.Threading;
 
@@ -8,14 +9,14 @@ namespace Journeys.Service
     {
         public static void Main()
         {
+            var configuration = Settings.Default;
             var bootstrapper = new Bootstrapper();
-            var eventFilePath = "../data/events.txt";
-            bootstrapper.Bootstrap(eventFilePath);
+            bootstrapper.Bootstrap(configuration.EventFilePath);
             var hostBoostrapper = new HostBootstrapper(bootstrapper.QueryDispatcher, bootstrapper.CommandDispatcher);
             var host = new NancyHost(
                 hostBoostrapper,
-                new HostConfiguration { UrlReservations = new UrlReservations { CreateAutomatically = true, User = "LOCALSERVICE" } },
-                new Uri("http://localhost:65363"));
+                new HostConfiguration { UrlReservations = new UrlReservations { CreateAutomatically = true, User = configuration.UriReservationUser } },
+                new Uri(configuration.HostUri));
             host.Start();
             Wait();
         }
