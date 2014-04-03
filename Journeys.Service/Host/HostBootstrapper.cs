@@ -4,7 +4,7 @@ using Nancy;
 using Nancy.Bootstrapper;
 using System.Collections.Generic;
 
-namespace Journeys.Service
+namespace Journeys.Service.Host
 {
     internal sealed class HostBootstrapper : DefaultNancyBootstrapper
     {

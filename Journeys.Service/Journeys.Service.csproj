@@ -53,7 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="HostBootstrapper.cs" />
+    <Compile Include="Host\HostBootstrapper.cs" />
     <Compile Include="Modules\CommandModule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

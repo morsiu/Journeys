@@ -1,4 +1,5 @@
-﻿using Journeys.Service.Properties;
+﻿using Journeys.Service.Host;
+using Journeys.Service.Properties;
 using Nancy.Hosting.Self;
 using System;
 using System.Threading;
