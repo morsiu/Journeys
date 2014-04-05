@@ -57,6 +57,7 @@
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="site\libs\bootstrap\js\bootstrap.min.js" />
     <Content Include="site\libs\jquery-2.1.0.min.js" />
+    <Content Include="site\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
