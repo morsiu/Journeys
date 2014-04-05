@@ -38,6 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -47,6 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="site\index.html" />
+    <Content Include="site\libs\angular\angular-route.min.js" />
+    <Content Include="site\libs\angular\angular.min.js" />
+    <Content Include="site\libs\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="site\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="site\libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="site\libs\jquery-2.1.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
