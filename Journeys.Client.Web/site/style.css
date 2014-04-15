@@ -1,3 +1,11 @@
 ﻿body {
   padding-top: 50px;
 }
+
+#calendar {
+    background-color: aliceblue
+}
+
+#passengers {
+    background-color: beige
+}
