@@ -38,6 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="site\app.js" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
