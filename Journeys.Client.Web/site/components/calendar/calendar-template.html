@@ -12,9 +12,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr data-ng-repeat="row in [0,1,2,3,4,5,6]">
-            <td data-ng-repeat="column in [0,1,2,3,4,5,6]">
-                {{row}}:{{column}}
+        <tr data-ng-repeat="$row in [0,1,2,3,4,5,6]">
+            <td data-ng-repeat="$column in [0,1,2,3,4,5,6]" data-ng-transclude>
             </td>
         </tr>
     </tbody>
