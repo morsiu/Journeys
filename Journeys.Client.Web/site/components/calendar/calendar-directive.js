@@ -49,12 +49,14 @@
             var updateDayScope = function (dayScope) {
                 dayScope.$year = $scope.year;
                 dayScope.$month = $scope.month;
-                dayScope.$date = calendarService.mapCellToDate(
+                var date = calendarService.mapCellToDate(
                     dayScope.$row,
                     dayScope.$column,
                     $scope.month,
                     $scope.year,
                     firstWeekDay);
+                dayScope.$date = date && date.getDate();
+                dayScope.$day = date && date.getDay();
             };
 
             var updateDayScopes = function () {

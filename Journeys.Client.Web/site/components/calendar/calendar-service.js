@@ -53,6 +53,6 @@
         if (current.getFullYear() != year || current.getMonth() != month) {
             return null;
         }
-        return current.getDate();
+        return current;
     };
 };
