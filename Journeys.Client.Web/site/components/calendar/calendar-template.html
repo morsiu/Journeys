@@ -1,19 +1,13 @@
 ﻿<table class="table">
-    <caption>{{month}} {{year}}</caption>
+    <caption>{{monthNames[month]}} {{year}}</caption>
     <thead>
         <tr>
-            <th>Mon</th>
-            <th>Tue</th>
-            <th>Wed</th>
-            <th>Thu</th>
-            <th>Fri</th>
-            <th>Sat</th>
-            <th>Sun</th>
+            <th data-ng-repeat="$column in columns">{{dayNames[$index]}}</th>
         </tr>
     </thead>
     <tbody>
-        <tr data-ng-repeat="$row in [0,1,2,3,4,5,6]">
-            <td data-ng-repeat="$column in [0,1,2,3,4,5,6]" data-ng-transclude>
+        <tr data-ng-repeat="$row in rows">
+            <td data-ng-repeat="$column in columns" data-ng-transclude>
             </td>
         </tr>
     </tbody>
