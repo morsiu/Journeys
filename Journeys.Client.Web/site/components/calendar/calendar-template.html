@@ -2,13 +2,9 @@
     <caption>{{monthName}} {{year}}</caption>
     <thead>
         <tr>
-            <th data-ng-repeat="$column in columns">{{dayNames[$index]}}</th>
+            <th data-ng-repeat="dayName in dayNames">{{dayName}}</th>
         </tr>
     </thead>
     <tbody>
-        <tr data-ng-repeat="$row in rows">
-            <td data-ng-repeat="$column in columns" data-ng-transclude>
-            </td>
-        </tr>
     </tbody>
 </table>

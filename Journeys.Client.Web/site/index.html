@@ -27,11 +27,10 @@
 
     <div class="container" data-ng-view>
         <div class="row">
-            <div id="calendar" class="col-md-9">
+            <div data-ng-init="test='test222'" id="calendar" class="col-md-9">
                 <h1>Calendar</h1>
-                <div data-test></div>
                 <div data-calendar data-month="4" data-year="2014">
-                    {{$row}}:{{$column}}
+                    {{$row}}:{{$column}} {{test}}
                 </div>
                 <table class="table">
                     <caption>April 2014</caption>
