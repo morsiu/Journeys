@@ -1,0 +1,21 @@
+﻿<table class="table">
+    <caption>{{month}} {{year}}</caption>
+    <thead>
+        <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr data-ng-repeat="row in [0,1,2,3,4,5,6]">
+            <td data-ng-repeat="column in [0,1,2,3,4,5,6]">
+                {{row}}:{{column}}
+            </td>
+        </tr>
+    </tbody>
+</table>

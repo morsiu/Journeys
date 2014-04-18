@@ -1,1 +1,1 @@
-﻿app = angular.module('app', ['test']);
+﻿app = angular.module('app', ['calendar', 'test']);

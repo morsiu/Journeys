@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="libs/angular/angular.min.js"></script>
+    <script src="components/calendar/calendar-directive.js"></script>
+    <script src="components/calendar/calendar.js"></script>
     <script src="components/test/test-directive.js"></script>
     <script src="components/test/test.js"></script>
     <script src="app.js"></script>
@@ -27,6 +29,7 @@
             <div id="calendar" class="col-md-9">
                 <h1>Calendar</h1>
                 <div data-test></div>
+                <div data-calendar data-month="4" data-year="2014"></div>
                 <table class="table">
                     <caption>April 2014</caption>
                     <thead>
