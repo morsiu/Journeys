@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="site\app.js" />
+    <Content Include="site\components\test\test-directive.js" />
+    <Content Include="site\components\test\test-template.html" />
+    <Content Include="site\components\test\test.js" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />

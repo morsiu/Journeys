@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="libs/angular/angular.min.js"></script>
+    <script src="components/test/test-directive.js"></script>
+    <script src="components/test/test.js"></script>
     <script src="app.js"></script>
 </head>
 <body data-ng-app="app">
@@ -24,7 +26,8 @@
         <div class="row">
             <div id="calendar" class="col-md-9">
                 <h1>Calendar</h1>
-                <table class="table" >
+                <div data-test></div>
+                <table class="table">
                     <caption>April 2014</caption>
                     <thead>
                         <tr>
