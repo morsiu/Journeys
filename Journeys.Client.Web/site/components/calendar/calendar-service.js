@@ -1,6 +1,6 @@
 ﻿var CalendarService = function () {
     this.DAYS_IN_WEEK = 7;
-    this.MAX_WEEKS_IN_MONTH = 5;
+    this.MAX_WEEKS_IN_MONTH = 6;
 
     this.shortDayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     this.longMonthNames = [
