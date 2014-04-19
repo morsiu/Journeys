@@ -30,7 +30,7 @@
             <div data-ng-init="test='test222'" id="calendar" class="col-md-9">
                 <h1>Calendar</h1>
                 <div data-calendar data-month="3" data-year="2014">
-                    {{$date}}
+                    <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span>
                 </div>
                 <table class="table">
                     <caption>April 2014</caption>

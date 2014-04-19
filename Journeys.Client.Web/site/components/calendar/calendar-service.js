@@ -50,9 +50,6 @@
         var dayOfFirst = this.offsetDay(first.getDay(), weekFirstDay);
         var dateOfCurrent = (row * this.DAYS_IN_WEEK) + (column + 1) - dayOfFirst;
         var current = new Date(year, month, dateOfCurrent);
-        if (current.getFullYear() != year || current.getMonth() != month) {
-            return null;
-        }
         return current;
     };
 };

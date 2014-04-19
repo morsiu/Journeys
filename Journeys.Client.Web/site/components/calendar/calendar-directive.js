@@ -47,8 +47,8 @@
             var dayScopes = [];
 
             var updateDayScope = function (dayScope) {
-                dayScope.$year = $scope.year;
-                dayScope.$month = $scope.month;
+                dayScope.$calendarYear = $scope.year;
+                dayScope.$calendarMonth = $scope.month;
                 var date = calendarService.mapCellToDate(
                     dayScope.$row,
                     dayScope.$column,
@@ -57,6 +57,9 @@
                     firstWeekDay);
                 dayScope.$date = date && date.getDate();
                 dayScope.$day = date && date.getDay();
+                dayScope.$month = date && date.getMonth();
+                dayScope.$year = date && date.getFullYear();
+                dayScope.$isInsideCalendarMonth = date && date.getMonth() == $scope.month && date.getFullYear() == $scope.year;
             };
 
             var updateDayScopes = function () {
