@@ -39,6 +39,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="site\app.js" />
+    <Content Include="site\components\calendar\calendar-item-directive.js" />
+    <Content Include="site\components\calendar\calendar-header-directive.js" />
     <Content Include="site\components\calendar\calendar-directive.js" />
     <Content Include="site\components\calendar\calendar-service.js" />
     <Content Include="site\components\calendar\calendar-template.html" />

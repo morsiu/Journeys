@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="libs/bootstrap/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="libs/angular/angular.min.js"></script>
+    <script src="components/calendar/calendar-header-directive.js"></script>
+    <script src="components/calendar/calendar-item-directive.js"></script>
     <script src="components/calendar/calendar-directive.js"></script>
     <script src="components/calendar/calendar-service.js"></script>
     <script src="components/calendar/calendar.js"></script>
@@ -27,10 +29,15 @@
 
     <div class="container" data-ng-view>
         <div class="row">
-            <div data-ng-init="test='test222'" id="calendar" class="col-md-9">
+            <div data-ng-init="test='ą'" id="calendar" class="col-md-9">
                 <h1>Calendar</h1>
                 <div data-calendar data-month="3" data-year="2014">
-                    <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span>
+                    <div data-calendar-header>
+                        {{$monthName}} {{$year}} {{test}}
+                    </div>
+                    <div data-calendar-item>
+                        <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span> {{test}}
+                    </div>
                 </div>
                 <p class="lead">Let's put the calendar here.</p>
                 <p>Or a day list with costs ]:-></p>

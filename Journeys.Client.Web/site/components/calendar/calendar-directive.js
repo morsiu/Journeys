@@ -33,11 +33,24 @@
                                 var contentsLength = contents.length;
                                 for (var contentIdx = 0; contentIdx < contentsLength; ++contentIdx) {
                                     var content = contents[contentIdx];
-                                    cell.appendChild(content);
+                                    if (content.hasAttribute && content.hasAttribute('data-calendar-item')) {
+                                        cell.appendChild(content);
+                                    }
                                 }
                             });
                         };
                     };
+                    var caption = table.getElementsByTagName('caption')[0];
+                    transcludeFn(function (contents, contentsScope) {
+                        controller.setHeaderScope(contentsScope);
+                        var contentsLength = contents.length;
+                        for (var contentIdx = 0; contentIdx < contentsLength; ++contentIdx) {
+                            var content = contents[contentIdx];
+                            if (content.hasAttribute && content.hasAttribute('data-calendar-header')) {
+                                caption.appendChild(content);
+                            };
+                        };
+                    });
                 }
             };
         },
@@ -45,6 +58,7 @@
             var firstWeekDay = calendarService.MONDAY;
             var monthNames = calendarService.longMonthNames;
             var dayScopes = [];
+            var headerScope = null;
 
             var updateDayScope = function (dayScope) {
                 dayScope.$calendarYear = $scope.year;
@@ -66,13 +80,23 @@
                 dayScopes.forEach(updateDayScope);
             };
 
+            var updateHeaderScope = function () {
+                if (!headerScope) {
+                    return;
+                }
+                headerScope.$monthName = monthNames[$scope.month] || '';
+                headerScope.$month = $scope.month;
+                headerScope.$year = $scope.year;
+            }
+
             $scope.$watch('month', function () {
-                $scope.monthName = monthNames[$scope.month] || '';
                 updateDayScopes();
+                updateHeaderScope();
             });
 
             $scope.$watch('year', function () {
                 updateDayScopes();
+                updateHeaderScope();
             });
 
             $scope.dayNames = calendarService.getShortDayNames(firstWeekDay);
@@ -80,6 +104,11 @@
             this.addDayScope = function (dayScope) {
                 dayScopes.push(dayScope);
                 updateDayScope(dayScope);
+            }
+
+            this.setHeaderScope = function (newHeaderScope) {
+                headerScope = newHeaderScope;
+                updateHeaderScope();
             }
         }]
     };
