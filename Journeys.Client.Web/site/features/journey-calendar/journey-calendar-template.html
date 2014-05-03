@@ -1,0 +1,13 @@
+﻿<div id="calendar" class="col-md-9">
+    <h1>Journeys</h1>
+    <div data-calendar data-month="month" data-year="year">
+        <div data-calendar-header>
+            <button data-ng-click="calendar.previousMonth()">&lt;</button>
+            {{$monthName}} {{$year}}
+            <button data-ng-click="calendar.nextMonth()">&gt;</button>
+        </div>
+        <div data-calendar-item>
+            <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span>
+        </div>
+    </div>
+</div>

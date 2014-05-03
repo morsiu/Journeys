@@ -16,7 +16,8 @@
     <script src="components/calendar/calendar.js"></script>
     <script src="components/test/test-directive.js"></script>
     <script src="components/test/test.js"></script>
-    <script src="features/journey-calendar/calendar-controller.js"></script>
+    <script src="features/journey-calendar/journey-calendar-directive.js"></script>
+    <script src="features/journey-calendar/journey-calendar.js"></script>
     <script src="features/passenger-list/passenger-service.js"></script>
     <script src="features/passenger-list/passenger-list-directive.js"></script>
     <script src="features/passenger-list/passenger-list.js"></script>
@@ -33,20 +34,7 @@
 
     <div class="container" data-ng-view>
         <div class="row">
-            <div data-ng-controller="calendar as calendar" id="calendar" class="col-md-9">
-                <h1>Calendar</h1>
-                <div data-calendar data-month="month" data-year="year">
-                    <div data-calendar-header>
-                        <button data-ng-click="calendar.previousMonth()">&lt;</button>
-                        {{$monthName}} {{$year}}
-                        <button data-ng-click="calendar.nextMonth()">&gt;</button>
-                    </div>
-                    <div data-calendar-item>
-                        <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span>
-                    </div>
-                </div>
-                <p class="lead">Let's put the calendar here.</p>
-                <p>Or a day list with costs ]:-></p>
+            <div data-journey-calendar id="calendar" class="col-md-9">
             </div>
             <div data-passenger-list id="passengers" class="col-md-3">
             </div>

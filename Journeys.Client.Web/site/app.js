@@ -1,2 +1,1 @@
-﻿app = angular.module('app', ['calendar', 'test', 'passengerList'])
-    .controller('calendar', CalendarController);
+﻿app = angular.module('app', ['journeyCalendar', 'passengerList']);
