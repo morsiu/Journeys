@@ -17,6 +17,8 @@
     <script src="components/test/test-directive.js"></script>
     <script src="components/test/test.js"></script>
     <script src="features/calendar/calendar-controller.js"></script>
+    <script src="features/passenger-list/passenger-service.js"></script>
+    <script src="features/passenger-list/passenger-controller.js"></script>
     <script src="app.js"></script>
 </head>
 <body data-ng-app="app">
@@ -45,13 +47,11 @@
                 <p class="lead">Let's put the calendar here.</p>
                 <p>Or a day list with costs ]:-></p>
             </div>
-            <div id="passengers" class="col-md-3">
+            <div data-ng-controller="passenger" id="passengers" class="col-md-3">
                 <h1>Passengers</h1>
                 <ul>
-                    <li>Asia</li>
-                    <li>Kasia</li>
+                    <li data-ng-repeat="passenger in passengers">{{passenger.Name}}</li>
                 </ul>
-                <p class="lead">Let's put the passenger list here.</p>
             </div>
         </div>
     </div>

@@ -44,7 +44,7 @@ namespace Journeys.Service.Infrastructure
 
         private static void SerializeJson(object content, Stream contentStream)
         {
-            var serializedContent = JsonConvert.SerializeObject(content, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+            var serializedContent = JsonConvert.SerializeObject(content);
             var writer = new StreamWriter(contentStream);
             writer.Write(serializedContent);
             writer.Flush();
@@ -53,7 +53,8 @@ namespace Journeys.Service.Infrastructure
         private static object DeserializeJson(Stream contentStream)
         {
             var reader = new StreamReader(contentStream);
-            return JsonConvert.DeserializeObject(reader.ReadToEnd(), new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
+            var content = reader.ReadToEnd();
+            return JsonConvert.DeserializeObject(content, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All });
         }
 
         private static string SelectContentType(IEnumerable<Tuple<string,decimal>> contentTypes)

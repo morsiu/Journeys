@@ -1,10 +1,7 @@
 ﻿using Journeys.Adapters;
 using Journeys.Service.Infrastructure;
 using Nancy;
-using Nancy.ModelBinding;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
 
 namespace Journeys.Service.Modules
 {
