@@ -18,7 +18,8 @@
     <script src="components/test/test.js"></script>
     <script src="features/journey-calendar/calendar-controller.js"></script>
     <script src="features/passenger-list/passenger-service.js"></script>
-    <script src="features/passenger-list/passenger-controller.js"></script>
+    <script src="features/passenger-list/passenger-list-directive.js"></script>
+    <script src="features/passenger-list/passenger-list.js"></script>
     <script src="app.js"></script>
 </head>
 <body data-ng-app="app">
@@ -47,11 +48,7 @@
                 <p class="lead">Let's put the calendar here.</p>
                 <p>Or a day list with costs ]:-></p>
             </div>
-            <div data-ng-controller="passenger" id="passengers" class="col-md-3">
-                <h1>Passengers</h1>
-                <ul>
-                    <li data-ng-repeat="passenger in passengers">{{passenger.Name}}</li>
-                </ul>
+            <div data-passenger-list id="passengers" class="col-md-3">
             </div>
         </div>
     </div>

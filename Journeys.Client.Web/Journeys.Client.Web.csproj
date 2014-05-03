@@ -49,7 +49,9 @@
     <Content Include="site\components\test\test-template.html" />
     <Content Include="site\components\test\test.js" />
     <Content Include="site\features\journey-calendar\calendar-controller.js" />
-    <Content Include="site\features\passenger-list\passenger-controller.js" />
+    <Content Include="site\features\passenger-list\passenger-list-directive.js" />
+    <Content Include="site\features\passenger-list\passenger-list-template.html" />
+    <Content Include="site\features\passenger-list\passenger-list.js" />
     <Content Include="site\features\passenger-list\passenger-service.js" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
