@@ -1,4 +1,5 @@
 ﻿using Journeys.Adapters;
+using Journeys.Service.Infrastructure;
 using Nancy;
 using System.Runtime.Serialization;
 
@@ -7,7 +8,7 @@ namespace Journeys.Service.Modules
     public class CommandModule : NancyModule
     {
         private readonly ServiceCommandDispatcher _dispatcher;
-        private readonly NetDataContractSerializer _serializer = new NetDataContractSerializer();
+        private readonly ContentTypeAwareSerializer _serializer = new ContentTypeAwareSerializer();
 
         public CommandModule(ServiceCommandDispatcher dispatcher)
         {
@@ -25,8 +26,7 @@ namespace Journeys.Service.Modules
 
         private object DeserializeRequest()
         {
-            var xmlRequestStream = Request.Body;
-            var request = _serializer.Deserialize(xmlRequestStream);
+            var request = _serializer.Deserialize(Request.Body, Request.Headers.ContentType);
             return request;
         }
 
