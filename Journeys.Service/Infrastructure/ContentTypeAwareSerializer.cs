@@ -44,7 +44,7 @@ namespace Journeys.Service.Infrastructure
 
         private static void SerializeJson(object content, Stream contentStream)
         {
-            var serializedContent = JsonConvert.SerializeObject(content);
+            var serializedContent = JsonConvert.SerializeObject(content, new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.Objects });
             var writer = new StreamWriter(contentStream);
             writer.Write(serializedContent);
             writer.Flush();
