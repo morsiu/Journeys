@@ -1,7 +1,7 @@
 ﻿var JourneyCalendarDirective = function () {
     return {
         templateUrl: 'features/journey-calendar/journey-calendar-template.html',
-        controller: ['$scope', function ($scope) {
+        controller: ['$scope', '$rootScope', 'journey', function ($scope, $rootScope, service) {
             $scope.month = 3;
             $scope.year = 2014;
 
@@ -21,6 +21,21 @@
                 };
             };
 
+            $scope.$on('passengerSelected', function (evt, passenger) {
+                $scope.passenger = passenger;
+            });
+
+            service.getAll().then(function (journeys) {
+                $scope.journeys = journeys;
+            });
+
+            $scope.journeys = {};
+            $scope.passenger = {
+                Name: '',
+                OwnerId: {
+                    _id: ''
+                }
+            };
             $scope.calendar = this;
         }]
     };

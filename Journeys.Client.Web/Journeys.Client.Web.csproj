@@ -51,6 +51,7 @@
     <Content Include="site\features\journey-calendar\journey-calendar-directive.js" />
     <Content Include="site\features\journey-calendar\journey-calendar-template.html" />
     <Content Include="site\features\journey-calendar\journey-calendar.js" />
+    <Content Include="site\features\journey-calendar\journey-service.js" />
     <Content Include="site\features\passenger-list\passenger-list-directive.js" />
     <Content Include="site\features\passenger-list\passenger-list-template.html" />
     <Content Include="site\features\passenger-list\passenger-list.js" />

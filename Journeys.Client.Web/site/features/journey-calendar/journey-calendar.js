@@ -1,2 +1,3 @@
 ﻿angular.module('journeyCalendar', ['calendar'])
-    .directive('journeyCalendar', JourneyCalendarDirective);
+    .directive('journeyCalendar', JourneyCalendarDirective)
+    .service('journey', JourneyService);

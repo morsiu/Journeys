@@ -1,5 +1,6 @@
 ﻿<div id="calendar" class="col-md-9">
     <h1>Journeys</h1>
+    <h2>{{passenger.Name}}</h2>
     <div data-calendar data-month="month" data-year="year">
         <div data-calendar-header>
             <button data-ng-click="calendar.previousMonth()">&lt;</button>
@@ -7,7 +8,19 @@
             <button data-ng-click="calendar.nextMonth()">&gt;</button>
         </div>
         <div data-calendar-item>
-            <span data-ng-if="$isInsideCalendarMonth">{{$date}}</span>
+            <div data-ng-if="$isInsideCalendarMonth">
+                <div>
+                    {{$date}}
+                </div>
+                <div data-ng-if="journeys[passenger.OwnerId._id][$year][$month][$date]">
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].LiftCount }} /
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].JourneyCount }}
+                </div>
+                <div data-ng-if="journeys[passenger.OwnerId._id][$year][$month][$date]">
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].LiftDistance }} /
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].JourneyDistance }}
+                </div>
+            </div>
         </div>
     </div>
 </div>
