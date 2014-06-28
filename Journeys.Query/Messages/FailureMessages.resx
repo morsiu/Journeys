@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CannotAddValueWithNullKey" xml:space="preserve">
+    <value>Cannot add key with null value.</value>
+  </data>
   <data name="NothingObjectHasNoValue" xml:space="preserve">
     <value>Nothing object has no value.</value>
   </data>

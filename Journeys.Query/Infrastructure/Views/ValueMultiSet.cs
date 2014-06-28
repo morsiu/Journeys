@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Journeys.Query.Messages;
 
 namespace Journeys.Query.Infrastructure.Views
 {
@@ -20,7 +21,7 @@ namespace Journeys.Query.Infrastructure.Views
         public void Add(TValue value)
         {
             var key = _keyGenerator(value);
-            if (key.IsNull()) throw new ArgumentException("Key generator returned null key for added value. Storage does not support null keys.", "value");
+            if (key.IsNull()) throw new ArgumentException(FailureMessages.CannotAddValueWithNullKey, "value");
             var list = AddOrGetList(key);
             list.Add(value);
         }
