@@ -7,7 +7,7 @@ using Journeys.Events;
 namespace Journeys.Domain.People
 {
     [Aggregate]
-    public class Person : IHasId
+    public sealed class Person : IHasId
     {
         private readonly IId _id;
 

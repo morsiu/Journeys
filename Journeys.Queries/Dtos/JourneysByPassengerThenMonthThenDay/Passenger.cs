@@ -24,5 +24,15 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
         {
             return Id == null ? 0 : Id.GetHashCode();
         }
+
+        public static bool operator ==(Passenger a, Passenger b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Passenger a, Passenger b)
+        {
+            return !a.Equals(b);
+        }
     }
 }

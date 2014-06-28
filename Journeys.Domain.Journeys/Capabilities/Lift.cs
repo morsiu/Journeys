@@ -1,5 +1,4 @@
 ﻿using Journeys.Common;
-using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Markers;
 
 namespace Journeys.Domain.Journeys.Capabilities

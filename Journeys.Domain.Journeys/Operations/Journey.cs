@@ -11,7 +11,7 @@ using Journeys.Events;
 namespace Journeys.Domain.Journeys.Operations
 {
     [Aggregate]
-    public class Journey : IHasId
+    public sealed class Journey : IHasId
     {
         private readonly IEventBus _eventBus;
         private readonly IId _id;
