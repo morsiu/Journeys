@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using Journeys.Domain.Journeys.Capabilities;
+﻿using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Test.Infrastructure;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

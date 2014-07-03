@@ -25,5 +25,15 @@
         {
             return _id == other._id;
         }
+
+        public static bool operator ==(Id a, Id b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Id a, Id b)
+        {
+            return !a.Equals(b);
+        }
     }
 }

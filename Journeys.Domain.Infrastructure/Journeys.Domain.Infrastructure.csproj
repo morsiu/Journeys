@@ -37,6 +37,7 @@
     <Compile Include="Collections\ImmutableList.cs" />
     <Compile Include="Exceptions\InvariantViolationException.cs" />
     <Compile Include="IEventBus.cs" />
+    <Compile Include="IHasId.cs" />
     <Compile Include="Markers\PolicyAttribute.cs" />
     <Compile Include="Markers\AggregateAttribute.cs" />
     <Compile Include="Markers\EntityAttribute.cs" />

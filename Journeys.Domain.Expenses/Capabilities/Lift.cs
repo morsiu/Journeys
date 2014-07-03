@@ -1,6 +1,4 @@
-﻿using Journeys.Common;
-
-namespace Journeys.Domain.Expenses.Capabilities
+﻿namespace Journeys.Domain.Expenses.Capabilities
 {
     internal struct Lift
     {
