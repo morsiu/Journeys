@@ -14,10 +14,10 @@
                 </div>
                 <div data-ng-if="journeys[passenger.OwnerId._id][$year][$month][$date]">
                     {{ journeys[passenger.OwnerId._id][$year][$month][$date].LiftCount }} /
-                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].JourneyCount }}
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].LiftDistance }}
                 </div>
                 <div data-ng-if="journeys[passenger.OwnerId._id][$year][$month][$date]">
-                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].LiftDistance }} /
+                    {{ journeys[passenger.OwnerId._id][$year][$month][$date].JourneyCount }} /
                     {{ journeys[passenger.OwnerId._id][$year][$month][$date].JourneyDistance }}
                 </div>
             </div>
