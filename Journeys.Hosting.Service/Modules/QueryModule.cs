@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Journeys.Hosting.Service.Modules
 {
-    public class QueryModule : NancyModule
+    internal sealed class QueryModule : NancyModule
     {
         private readonly ServiceQueryDispatcher _dispatcher;
         private readonly ContentTypeAwareSerializer _serializer = new ContentTypeAwareSerializer();

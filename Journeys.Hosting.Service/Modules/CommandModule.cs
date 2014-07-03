@@ -4,7 +4,7 @@ using Nancy;
 
 namespace Journeys.Hosting.Service.Modules
 {
-    public class CommandModule : NancyModule
+    internal sealed class CommandModule : NancyModule
     {
         private readonly ServiceCommandDispatcher _dispatcher;
         private readonly ContentTypeAwareSerializer _serializer = new ContentTypeAwareSerializer();
