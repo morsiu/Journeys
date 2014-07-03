@@ -46,12 +46,6 @@
     <Compile Include="Markers\ValueObjectAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
-      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
-      <Name>Journeys.Transactions</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -28,7 +28,7 @@
                                 <Label Content="Passenger" Grid.Row="0" />
                                 <ComboBox ItemsSource="{Binding Passengers}"
                                           SelectedValue="{Binding Passenger}"
-                                          DisplayMemberPath="Name"                                          
+                                          DisplayMemberPath="Name"
                                           SelectedValuePath="OwnerId"
                                           Grid.Row="0"
                                           Grid.Column="1" />

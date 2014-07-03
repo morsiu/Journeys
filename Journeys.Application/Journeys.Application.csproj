@@ -75,10 +75,6 @@
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Queries</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
-      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
-      <Name>Journeys.Transactions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

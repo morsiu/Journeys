@@ -74,10 +74,6 @@
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
       <Name>Journeys.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Transactions\Journeys.Transactions.csproj">
-      <Project>{bca0f43e-73c4-4697-8ab4-dc7c6d3fe691}</Project>
-      <Name>Journeys.Transactions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
