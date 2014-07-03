@@ -1,6 +1,6 @@
-﻿using Journeys.Dispatching;
-using Journeys.Queries;
+﻿using Journeys.Queries;
 using Journeys.Query;
+using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {

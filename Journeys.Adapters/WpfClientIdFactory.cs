@@ -1,19 +1,18 @@
 ﻿using Journeys.Client.Wpf;
-using Journeys.Common;
-using Journeys.Repositories;
+using Mors.Support.Repositories;
 
 namespace Journeys.Adapters
 {
     public class WpfClientIdFactory : IIdFactory
     {
-        private readonly IdFactory _idFactory;
+        private readonly GuidIdFactory _idFactory;
 
-        public WpfClientIdFactory(IdFactory idFactory)
+        public WpfClientIdFactory(GuidIdFactory idFactory)
         {
             _idFactory = idFactory;
         }
 
-        public IId Create()
+        public object Create()
         {
             return _idFactory.Create();
         }

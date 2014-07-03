@@ -1,19 +1,20 @@
 ﻿using Journeys.Domain.Infrastructure;
+using Implementation = Mors.Support.Events;
 
 namespace Journeys.Adapters
 {
     public class DomainEventBusAdapter : IEventBus
     {
-        private readonly Event.IEventBus _eventBus;
+        private readonly Implementation.IEventBus _eventBus;
 
-        public DomainEventBusAdapter(Event.IEventBus eventBus)
+        public DomainEventBusAdapter(Implementation.IEventBus eventBus)
         {
             _eventBus = eventBus;
         }
 
         public void Publish<TEvent>(TEvent @event)
         {
-            _eventBus.Publish<TEvent>(@event);
+            _eventBus.Publish(@event);
         }
     }
 }

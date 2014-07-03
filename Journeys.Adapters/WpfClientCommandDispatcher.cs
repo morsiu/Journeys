@@ -1,7 +1,7 @@
 ﻿using Journeys.Client.Wpf;
-using Journeys.Dispatching;
 using Journeys.Service.Client;
 using System;
+using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {
@@ -41,7 +41,7 @@ namespace Journeys.Adapters
 
         private void DispatchInternal(object command)
         {
-            var commandAdapter = new Adapters.Command(command);
+            var commandAdapter = new Command(command);
             commandAdapter.Execute(_handlerDispatcher);
         }
     }

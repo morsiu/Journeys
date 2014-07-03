@@ -1,14 +1,15 @@
 ﻿using Journeys.Application;
 using Journeys.Common;
-using Journeys.Transactions;
+using Mors.Support.Transactions;
+using Implementation = Mors.Support.Repositories;
 
 namespace Journeys.Adapters
 {
     internal class ApplicationTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
-        private readonly ITransactional<Repositories.IRepositories> _repositories;
+        private readonly ITransactional<Implementation.IRepositories> _repositories;
 
-        public ApplicationTransactedRepositories(Repositories.IRepositories repositories)
+        public ApplicationTransactedRepositories(Implementation.IRepositories repositories)
         {
             _repositories = repositories.Lift();
         }
@@ -20,7 +21,7 @@ namespace Journeys.Adapters
 
         public void Store<TEntity>(TEntity entity) where TEntity : IHasId
         {
-            _repositories.Object.Store(entity);
+            _repositories.Object.Store(entity.Id, entity);
         }
 
         public ITransactional<IRepositories> Lift()

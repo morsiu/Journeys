@@ -1,4 +1,4 @@
-﻿using Journeys.Dispatching;
+﻿using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {

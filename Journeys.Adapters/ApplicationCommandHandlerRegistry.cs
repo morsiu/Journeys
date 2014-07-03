@@ -1,6 +1,6 @@
 ﻿using System;
 using Journeys.Application;
-using Journeys.Dispatching;
+using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {

@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Journeys.Application;
+using Implementation = Mors.Support.EventSourcing;
 
 namespace Journeys.Adapters
 {
     public class ApplicationEventSourcing : IEventSourcing
     {
-        private readonly EventSourcing.Module _eventSourcingModule;
+        private readonly Implementation.Module _eventSourcingModule;
 
-        public ApplicationEventSourcing(EventSourcing.Module eventSourcingModule)
+        public ApplicationEventSourcing(Implementation.Module eventSourcingModule)
         {
             _eventSourcingModule = eventSourcingModule;
         }

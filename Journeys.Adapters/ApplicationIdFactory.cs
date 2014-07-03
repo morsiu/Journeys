@@ -1,19 +1,19 @@
 ﻿using Journeys.Application;
 using Journeys.Common;
-using Journeys.Repositories;
+using Mors.Support.Repositories;
 
 namespace Journeys.Adapters
 {
     public class ApplicationIdFactory : IIdFactory
     {
-        private readonly IdFactory _idFactory;
+        private readonly GuidIdFactory _idFactory;
 
-        public ApplicationIdFactory(IdFactory idFactory)
+        public ApplicationIdFactory(GuidIdFactory idFactory)
         {
             _idFactory = idFactory;
         }
 
-        public IId Create()
+        public object Create()
         {
             return _idFactory.Create();
         }

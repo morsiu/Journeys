@@ -1,13 +1,14 @@
 ﻿using Journeys.Application;
-using Journeys.Transactions;
+using Mors.Support.Transactions;
+using Implementation = Mors.Support.Events;
 
 namespace Journeys.Adapters
 {
     internal class ApplicationTransactedEventBus : IEventBus, ITransactional<IEventBus>
     {
-        private ITransactional<Event.IEventBus> _eventBus;
+        private ITransactional<Implementation.IEventBus> _eventBus;
 
-        public ApplicationTransactedEventBus(Event.IEventBus eventBus)
+        public ApplicationTransactedEventBus(Implementation.IEventBus eventBus)
         {
             _eventBus = eventBus.Lift();
         }

@@ -1,19 +1,19 @@
 ﻿using System;
-using Journeys.Dispatching;
 using Journeys.Query;
+using Implementation = Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {
     public class QueryHandlerRegistry : IQueryHandlerRegistry
     {
-        private readonly HandlerRegistry _handlerRegistry;
+        private readonly Implementation.HandlerRegistry _handlerRegistry;
 
-        public QueryHandlerRegistry(HandlerRegistry handlerRegistry)
+        public QueryHandlerRegistry(Implementation.HandlerRegistry handlerRegistry)
         {
             _handlerRegistry = handlerRegistry;
         }
 
-        public void SetHandler<TQuery, TResult>(Query.QueryHandler<TQuery, TResult> handler)
+        public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
             where TQuery : Queries.IQuery<TResult>
         {
             var queryKey = QueryKey.From<TQuery, TResult>();

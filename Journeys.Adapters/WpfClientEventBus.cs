@@ -1,13 +1,14 @@
 ﻿using System;
 using Journeys.Client.Wpf;
+using Implementation = Mors.Support.Events;
 
 namespace Journeys.Adapters
 {
     public class WpfClientEventBus : IEventBus
     {
-        private readonly Event.EventBus _eventBus;
+        private readonly Implementation.IEventBus _eventBus;
 
-        public WpfClientEventBus(Event.EventBus eventBus)
+        public WpfClientEventBus(Implementation.IEventBus eventBus)
         {
             _eventBus = eventBus;
         }
@@ -19,7 +20,7 @@ namespace Journeys.Adapters
 
         public void Subscribe<TEvent>(Action<TEvent> listener)
         {
-            _eventBus.RegisterListener(new Event.EventListener<TEvent>(listener));
+            _eventBus.RegisterListener(new Implementation.EventListener<TEvent>(listener));
         }
     }
 }

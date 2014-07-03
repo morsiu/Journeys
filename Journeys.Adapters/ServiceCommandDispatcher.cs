@@ -1,4 +1,4 @@
-﻿using Journeys.Dispatching;
+﻿using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {
@@ -13,7 +13,7 @@ namespace Journeys.Adapters
 
         public void Dispatch<TCommand>(TCommand command)
         {
-            var commandAdapter = new Adapters.Command(command);
+            var commandAdapter = new Command(command);
             commandAdapter.Execute(_handlerDispatcher);
         }
     }

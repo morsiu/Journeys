@@ -1,7 +1,7 @@
 ﻿using System;
 using Journeys.Adapters.Messages;
-using Journeys.Dispatching;
-using Journeys.Dispatching.Exceptions;
+using Mors.Support.Dispatching;
+using Mors.Support.Dispatching.Exceptions;
 
 namespace Journeys.Adapters
 {

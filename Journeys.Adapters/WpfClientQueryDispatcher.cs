@@ -1,17 +1,17 @@
 ﻿using Journeys.Client.Wpf;
-using Journeys.Dispatching;
 using Journeys.Queries;
 using Journeys.Service.Client;
 using System;
+using Implementation = Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
 {
     public class WpfClientQueryDispatcher : IQueryDispatcher
     {
         private readonly Uri _queryRequestUri;
-        private readonly HandlerDispatcher _handlerDispatcher;
+        private readonly Implementation.HandlerDispatcher _handlerDispatcher;
 
-        public WpfClientQueryDispatcher(Uri queryRequestUri, HandlerDispatcher handlerDispatcher)
+        public WpfClientQueryDispatcher(Uri queryRequestUri, Implementation.HandlerDispatcher handlerDispatcher)
         {
             _queryRequestUri = queryRequestUri;
             _handlerDispatcher = handlerDispatcher;
@@ -22,11 +22,11 @@ namespace Journeys.Adapters
             var queryType = query.GetType();
             if (IsInternal(queryType))
             {
-                return DispatchInternal<TResult>(query);
+                return DispatchInternal(query);
             }
             else
             {
-                return DispatchExternal<TResult>(query);
+                return DispatchExternal(query);
             }
         }
 
