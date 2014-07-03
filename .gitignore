@@ -164,3 +164,4 @@ TemporaryGeneratedFile_*.cs
 *.exe
 *.dll
 /Journeys.Service/data
+*.ide
