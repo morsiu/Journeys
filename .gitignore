@@ -163,5 +163,5 @@ $RECYCLE.BIN/
 TemporaryGeneratedFile_*.cs
 *.exe
 *.dll
-/Journeys.Service/data
+/Journeys.Application.Service/data
 *.ide

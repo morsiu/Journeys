@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.21730.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Test.Infrastructure", "Journeys.Domain.Test.Infrastructure\Journeys.Domain.Test.Infrastructure.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Query", "Journeys.Query\Journeys.Query.csproj", "{9A28BB83-9F0E-4C19-8A18-16AD5D5B0337}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Query", "Journeys.Application.Query\Journeys.Application.Query.csproj", "{9A28BB83-9F0E-4C19-8A18-16AD5D5B0337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client.Wpf", "Journeys.Client.Wpf\Journeys.Client.Wpf.csproj", "{A4B175A2-82CE-4C15-B34C-644F7B188630}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Client.Wpf", "Journeys.Application.Client.Wpf\Journeys.Application.Client.Wpf.csproj", "{A4B175A2-82CE-4C15-B34C-644F7B188630}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Data.Commands", "Journeys.Data.Commands\Journeys.Data.Commands.csproj", "{5246E520-B190-404E-AA73-9753E37A9F4C}"
 EndProject
@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BE9BBA8A-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{3B61B7BF-A84E-4843-96CD-752AC4FA4873}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Adapters", "Journeys.Adapters\Journeys.Adapters.csproj", "{84BDB2FA-A16E-4F70-92EF-7CCED94A3405}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Adapters", "Journeys.Application.Adapters\Journeys.Application.Adapters.csproj", "{84BDB2FA-A16E-4F70-92EF-7CCED94A3405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client", "Journeys.Client\Journeys.Client.csproj", "{0D9E8956-7698-4B39-9D27-08F38A87E524}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Client", "Journeys.Application.Client\Journeys.Application.Client.csproj", "{0D9E8956-7698-4B39-9D27-08F38A87E524}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Infrastructure", "Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj", "{C83EA12C-2495-4B03-9C0A-1D2795A33F3E}"
 EndProject
@@ -41,7 +41,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Expenses", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Expenses.Test", "Journeys.Domain.Expenses.Test\Journeys.Domain.Expenses.Test.csproj", "{1863C2F1-A11C-4C1F-A079-A9A27D755193}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Service", "Journeys.Service\Journeys.Service.csproj", "{3AEB7039-C984-4CFE-9143-DD443962E927}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Service", "Journeys.Application.Service\Journeys.Application.Service.csproj", "{3AEB7039-C984-4CFE-9143-DD443962E927}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A9654D1E-8C4D-4CBC-9D3B-FE16FAEBE84D}"
 	ProjectSection(SolutionItems) = preProject
@@ -50,9 +50,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A9654D
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Service.Client", "Journeys.Service.Client\Journeys.Service.Client.csproj", "{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Service.Client", "Journeys.Application.Service.Client\Journeys.Application.Service.Client.csproj", "{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client.Web", "Journeys.Client.Web\Journeys.Client.Web.csproj", "{7D508A34-5C1A-48AA-A916-6C3EA88C163B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Client.Web", "Journeys.Application.Client.Web\Journeys.Application.Client.Web.csproj", "{7D508A34-5C1A-48AA-A916-6C3EA88C163B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
