@@ -66,9 +66,9 @@
       <Project>{0867e115-6b32-4ce5-8091-9df005c088ef}</Project>
       <Name>Journeys.Domain.Test.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
+    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Events</Name>
+      <Name>Journeys.Data.Events</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

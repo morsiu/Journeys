@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Journeys.Events;
-using Journeys.Queries;
-using Journeys.Queries.Dtos;
-using JourneysByPassengerThenMonthThenDay = Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
+using Journeys.Data.Events;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos;
+using JourneysByPassengerThenMonthThenDay = Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Query
 {

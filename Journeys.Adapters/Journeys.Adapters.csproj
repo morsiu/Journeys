@@ -96,9 +96,9 @@
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
+    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Queries</Name>
+      <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Query\Journeys.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>

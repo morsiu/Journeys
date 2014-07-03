@@ -1,6 +1,6 @@
-﻿using Journeys.Events;
-using Journeys.Queries;
-using Journeys.Queries.Dtos;
+﻿using Journeys.Data.Events;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
 using System.Collections.Generic;
 using System.Linq;

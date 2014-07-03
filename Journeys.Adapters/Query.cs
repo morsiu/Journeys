@@ -1,6 +1,6 @@
 ﻿using System;
 using Journeys.Adapters.Messages;
-using Journeys.Queries;
+using Journeys.Data.Queries;
 using Mors.Support.Dispatching;
 using Mors.Support.Dispatching.Exceptions;
 

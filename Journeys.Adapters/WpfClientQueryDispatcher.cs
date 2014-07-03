@@ -1,5 +1,5 @@
 ﻿using Journeys.Client.Wpf;
-using Journeys.Queries;
+using Journeys.Data.Queries;
 using Journeys.Service.Client;
 using System;
 using Implementation = Mors.Support.Dispatching;

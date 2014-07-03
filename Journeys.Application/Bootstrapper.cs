@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.CommandHandlers;
 using Journeys.Application.EventReplayers;
-using Journeys.Commands;
-using Journeys.Events;
+using Journeys.Data.Commands;
+using Journeys.Data.Events;
 
 namespace Journeys.Application
 {

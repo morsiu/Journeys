@@ -1,6 +1,6 @@
-﻿using Journeys.Events;
-using Journeys.Queries;
-using Journeys.Queries.Dtos;
+﻿using Journeys.Data.Events;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos;
 using Journeys.Query.Infrastructure.Views;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +39,7 @@ namespace Journeys.Query
         private Journey ToDto(JourneyCreatedEvent journey)
         {
             var lifts = _lifts.GetOrDefault(journey.JourneyId);
-            return new Journeys.Queries.Dtos.Journey(
+            return new Journeys.Data.Queries.Dtos.Journey(
                 journey.JourneyId,
                 journey.DateOfOccurrence,
                 journey.RouteDistance,
@@ -48,7 +48,7 @@ namespace Journeys.Query
 
         private Lift ToDto(LiftAddedEvent lift)
         {
-            return new Journeys.Queries.Dtos.Lift(
+            return new Journeys.Data.Queries.Dtos.Lift(
                 lift.PersonId,
                 lift.LiftDistance);
         }

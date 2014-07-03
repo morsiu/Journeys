@@ -1,6 +1,6 @@
-﻿using Journeys.Events;
-using Journeys.Queries;
-using Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
+﻿using Journeys.Data.Events;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 using Journeys.Query.Infrastructure.Views;
 using System;
 using System.Collections.Generic;

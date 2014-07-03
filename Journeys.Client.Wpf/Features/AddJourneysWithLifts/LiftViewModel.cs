@@ -1,4 +1,4 @@
-﻿using Journeys.Commands.Dtos;
+﻿using Journeys.Data.Commands.Dtos;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
 using System.ComponentModel;
 

@@ -1,9 +1,9 @@
 ﻿using Journeys.Domain.Expenses.Capabilities;
 using Journeys.Domain.Expenses.Operations;
 using Journeys.Domain.Expenses.Policies;
-using Journeys.Queries;
+using Journeys.Data.Queries;
 using System.Collections.Generic;
-using Dtos = Journeys.Queries.Dtos;
+using Dtos = Journeys.Data.Queries.Dtos;
 
 namespace Journeys.Query
 {

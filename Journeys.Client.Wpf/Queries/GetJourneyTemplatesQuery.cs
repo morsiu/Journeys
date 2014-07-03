@@ -1,5 +1,5 @@
 ﻿using Journeys.Client.Wpf.Settings;
-using Journeys.Queries;
+using Journeys.Data.Queries;
 using System.Collections.Generic;
 
 namespace Journeys.Client.Wpf.Queries

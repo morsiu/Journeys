@@ -1,5 +1,6 @@
 ﻿using System;
 using Journeys.Client.Wpf;
+using Journeys.Data.Queries;
 using Mors.Support.Dispatching;
 
 namespace Journeys.Adapters
@@ -13,8 +14,8 @@ namespace Journeys.Adapters
             _handlerRegistry = handlerRegistry;
         }
 
-        public void SetHandler<TQuery, TResult>(Client.Wpf.QueryHandler<TQuery, TResult> handler)
-            where TQuery : Queries.IQuery<TResult>
+        public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
+            where TQuery : IQuery<TResult>
         {
             var queryKey = QueryKey.From<TQuery, TResult>();
             Func<object, object> adaptedHandler = query => handler((TQuery)query);

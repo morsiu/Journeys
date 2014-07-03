@@ -9,13 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Query", "Journeys.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Client.Wpf", "Journeys.Client.Wpf\Journeys.Client.Wpf.csproj", "{A4B175A2-82CE-4C15-B34C-644F7B188630}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Commands", "Journeys.Commands\Journeys.Commands.csproj", "{5246E520-B190-404E-AA73-9753E37A9F4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Data.Commands", "Journeys.Data.Commands\Journeys.Data.Commands.csproj", "{5246E520-B190-404E-AA73-9753E37A9F4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Events", "Journeys.Events\Journeys.Events.csproj", "{8C86DB44-A073-4D6D-8081-CC0B5101030B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Data.Events", "Journeys.Data.Events\Journeys.Data.Events.csproj", "{8C86DB44-A073-4D6D-8081-CC0B5101030B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Queries", "Journeys.Queries\Journeys.Queries.csproj", "{0DA05E1A-7A66-47EE-8B74-A0FB429FE97E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Data.Queries", "Journeys.Data.Queries\Journeys.Data.Queries.csproj", "{0DA05E1A-7A66-47EE-8B74-A0FB429FE97E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{BE9BBA8A-99C5-4F3B-8C04-50A2C3017EAF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BE9BBA8A-99C5-4F3B-8C04-50A2C3017EAF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{3B61B7BF-A84E-4843-96CD-752AC4FA4873}"
 EndProject

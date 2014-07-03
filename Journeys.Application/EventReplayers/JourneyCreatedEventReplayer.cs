@@ -1,6 +1,6 @@
 ﻿using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
-using Journeys.Events;
+using Journeys.Data.Events;
 
 namespace Journeys.Application.EventReplayers
 {

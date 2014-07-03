@@ -63,13 +63,13 @@
       <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
       <Name>Journeys.Domain.Expenses</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
+    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Events</Name>
+      <Name>Journeys.Data.Events</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
+    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Queries</Name>
+      <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 ﻿using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Queries;
-using Journeys.Queries.Dtos;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

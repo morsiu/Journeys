@@ -1,4 +1,4 @@
-﻿using Journeys.Queries;
+﻿using Journeys.Data.Queries;
 using Journeys.Query;
 using Mors.Support.Dispatching;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using Journeys.Data.Queries;
 using Journeys.Query;
 using Implementation = Mors.Support.Dispatching;
 
@@ -14,7 +15,7 @@ namespace Journeys.Adapters
         }
 
         public void SetHandler<TQuery, TResult>(QueryHandler<TQuery, TResult> handler)
-            where TQuery : Queries.IQuery<TResult>
+            where TQuery : IQuery<TResult>
         {
             var queryKey = QueryKey.From<TQuery, TResult>();
             Func<object, object> adaptedHandler = query => handler((TQuery)query);

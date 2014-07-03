@@ -1,20 +1,20 @@
-﻿using Journeys.Queries;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Data = Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal class CalendarContentProvider
     {
         private readonly IQueryDispatcher _queryDispatcher;
-        private readonly Dictionary<Data.Key, JourneyDaySummary> _contents;
+        private readonly Dictionary<Key, JourneyDaySummary> _contents;
 
         public CalendarContentProvider(IQueryDispatcher queryDispatcher)
         {
             _queryDispatcher = queryDispatcher;
-            _contents = new Dictionary<Data.Key, JourneyDaySummary>();
+            _contents = new Dictionary<Key, JourneyDaySummary>();
         }
 
         public void Refresh()

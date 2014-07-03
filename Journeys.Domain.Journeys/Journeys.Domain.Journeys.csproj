@@ -57,9 +57,9 @@
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Events\Journeys.Events.csproj">
+    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
       <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Events</Name>
+      <Name>Journeys.Data.Events</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

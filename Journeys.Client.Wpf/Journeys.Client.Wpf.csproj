@@ -163,13 +163,13 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Commands\Journeys.Commands.csproj">
+    <ProjectReference Include="..\Journeys.Data.Commands\Journeys.Data.Commands.csproj">
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
-      <Name>Journeys.Commands</Name>
+      <Name>Journeys.Data.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
+    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Queries</Name>
+      <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,5 +1,5 @@
 ﻿using Journeys.Domain.People;
-using Journeys.Events;
+using Journeys.Data.Events;
 
 namespace Journeys.Application.EventReplayers
 {

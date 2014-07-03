@@ -1,5 +1,5 @@
 ﻿using Journeys.Client.Wpf.Events;
-using Journeys.Queries;
+using Journeys.Data.Queries;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

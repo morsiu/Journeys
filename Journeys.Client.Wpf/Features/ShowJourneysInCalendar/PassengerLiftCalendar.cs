@@ -1,6 +1,6 @@
 ﻿using System;
 using Journeys.Client.Wpf.Components.Calendar;
-using Data = Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
+using Data = Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 {
