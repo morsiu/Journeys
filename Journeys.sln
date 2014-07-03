@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9B8FA1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.People", "Journeys.Domain.People\Journeys.Domain.People.csproj", "{30B2309F-655F-442F-9210-2A38A8B80949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application", "Journeys.Application\Journeys.Application.csproj", "{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Command", "Journeys.Application.Command\Journeys.Application.Command.csproj", "{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Journeys.Test", "Journeys.Domain.Journeys.Test\Journeys.Domain.Journeys.Test.csproj", "{3C1183F7-C94B-4E6A-8487-0D39D52E1F57}"
 EndProject
@@ -55,6 +55,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.Client.Web", "Journeys.Application.Client.Web\Journeys.Application.Client.Web.csproj", "{7D508A34-5C1A-48AA-A916-6C3EA88C163B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{77D16986-8498-49AA-B211-8F126FA13025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.EventSourcing", "Journeys.Application.EventSourcing\Journeys.Application.EventSourcing.csproj", "{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +140,10 @@ Global
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,5 +168,6 @@ Global
 		{3AEB7039-C984-4CFE-9143-DD443962E927} = {77D16986-8498-49AA-B211-8F126FA13025}
 		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16} = {77D16986-8498-49AA-B211-8F126FA13025}
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
+		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 	EndGlobalSection
 EndGlobal

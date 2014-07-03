@@ -50,28 +50,34 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventSourcingTransactedEventBus.cs" />
+    <Compile Include="EventSourcingEventBus.cs" />
+    <Compile Include="EventSourcingQueryDispatcher.cs" />
+    <Compile Include="EventSourcingIdFactory.cs" />
+    <Compile Include="EventSourcingTransactedRepositories.cs" />
+    <Compile Include="EventSourcingRepositories.cs" />
     <Compile Include="ServiceCommandDispatcher.cs" />
     <Compile Include="ServiceQueryDispatcher.cs" />
     <Compile Include="WpfClientCommandHandlerRegistry.cs" />
     <Compile Include="Command.cs" />
-    <Compile Include="ApplicationEventBus.cs" />
-    <Compile Include="ApplicationEventSourcing.cs" />
-    <Compile Include="ApplicationCommandHandlerRegistry.cs" />
-    <Compile Include="ApplicationIdFactory.cs" />
+    <Compile Include="CommandEventBus.cs" />
+    <Compile Include="EventSourcing.cs" />
+    <Compile Include="CommandHandlerRegistry.cs" />
+    <Compile Include="CommandIdFactory.cs" />
     <Compile Include="CommandKey.cs" />
-    <Compile Include="ApplicationRepositories.cs" />
-    <Compile Include="ApplicationTransactedEventBus.cs" />
-    <Compile Include="ApplicationTransactedRepositories.cs" />
+    <Compile Include="CommandRepositories.cs" />
+    <Compile Include="CommandTransactedEventBus.cs" />
+    <Compile Include="CommandTransactedRepositories.cs" />
     <Compile Include="DomainEventBusAdapter.cs" />
-    <Compile Include="EventSourcingEventBus.cs" />
-    <Compile Include="EventSourcingTransactedEventBus.cs" />
+    <Compile Include="EventSourcingModuleEventBus.cs" />
+    <Compile Include="EventSourcingModuleTransactedEventBus.cs" />
     <Compile Include="Messages\FailureMessages.Designer.cs">
       <DependentUpon>FailureMessages.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ApplicationQueryDispatcher.cs" />
+    <Compile Include="CommandQueryDispatcher.cs" />
     <Compile Include="Query.cs" />
     <Compile Include="QueryDispatcher.cs" />
     <Compile Include="QueryEventBus.cs" />
@@ -84,13 +90,17 @@
     <Compile Include="WpfClientQueryDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Application\Journeys.Application.csproj">
-      <Project>{4257ba76-4cee-47ba-ba0e-ab5f07094ae3}</Project>
-      <Name>Journeys.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Application.Client.Wpf\Journeys.Application.Client.Wpf.csproj">
       <Project>{a4b175a2-82ce-4c15-b34c-644f7b188630}</Project>
       <Name>Journeys.Application.Client.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Application.Command\Journeys.Application.Command.csproj">
+      <Project>{4257ba76-4cee-47ba-ba0e-ab5f07094ae3}</Project>
+      <Name>Journeys.Application.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Application.EventSourcing\Journeys.Application.EventSourcing.csproj">
+      <Project>{08db29e0-5863-4b33-a930-fde1e94ee4aa}</Project>
+      <Name>Journeys.Application.EventSourcing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>

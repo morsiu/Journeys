@@ -84,13 +84,17 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Application.Command\Journeys.Application.Command.csproj">
+      <Project>{4257ba76-4cee-47ba-ba0e-ab5f07094ae3}</Project>
+      <Name>Journeys.Application.Command</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Application.EventSourcing\Journeys.Application.EventSourcing.csproj">
+      <Project>{08db29e0-5863-4b33-a930-fde1e94ee4aa}</Project>
+      <Name>Journeys.Application.EventSourcing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Hosting.Adapters\Journeys.Hosting.Adapters.csproj">
       <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
       <Name>Journeys.Hosting.Adapters</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Application\Journeys.Application.csproj">
-      <Project>{4257ba76-4cee-47ba-ba0e-ab5f07094ae3}</Project>
-      <Name>Journeys.Application</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Data.Commands\Journeys.Data.Commands.csproj">
       <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>

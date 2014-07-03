@@ -1,14 +1,14 @@
-﻿using Journeys.Application.EventSourcing;
+﻿using Journeys.Application.Command;
 using Mors.Support.Transactions;
 using Implementation = Mors.Support.Events;
 
 namespace Journeys.Application.Adapters
 {
-    public class EventSourcingEventBus : IEventBus
+    public class CommandEventBus : IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 
-        public EventSourcingEventBus(Implementation.IEventBus eventBus)
+        public CommandEventBus(Implementation.IEventBus eventBus)
         {
             _eventBus = eventBus;
         }
@@ -20,7 +20,7 @@ namespace Journeys.Application.Adapters
 
         public ITransactional<IEventBus> Lift()
         {
-            return new EventSourcingTransactedEventBus(_eventBus);
+            return new CommandTransactedEventBus(_eventBus);
         }
     }
 }

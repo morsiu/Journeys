@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0D9E8956-7698-4B39-9D27-08F38A87E524}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Journeys.Hosting.Client</RootNamespace>
-    <AssemblyName>Journeys.Hosting.Client</AssemblyName>
+    <RootNamespace>Journeys.Application.Command</RootNamespace>
+    <AssemblyName>Journeys.Application.Command</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
@@ -31,19 +31,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>Journeys.Hosting.Client.Program</StartupObject>
-  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mors.Support.Dispatching">
-      <HintPath>..\packages\Mors.Support.Dispatching.0.0.0.1\lib\net45\Mors.Support.Dispatching.dll</HintPath>
-    </Reference>
-    <Reference Include="Mors.Support.Events">
-      <HintPath>..\packages\Mors.Support.Events.0.0.0.1\lib\net45\Mors.Support.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Mors.Support.Repositories">
-      <HintPath>..\packages\Mors.Support.Repositories.0.0.0.1\lib\net45\Mors.Support.Repositories.dll</HintPath>
-    </Reference>
     <Reference Include="Mors.Support.Transactions">
       <HintPath>..\packages\Mors.Support.Transactions.0.0.0.1\lib\net45\Mors.Support.Transactions.dll</HintPath>
     </Reference>
@@ -51,33 +39,41 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Handlers\AddJourneyWithLiftsCommandHandler.cs" />
+    <Compile Include="ICommandHandlerRegistry.cs" />
+    <Compile Include="IEventBus.cs" />
+    <Compile Include="IIdFactory.cs" />
+    <Compile Include="IQueryDispatcher.cs" />
+    <Compile Include="IRepositories.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Hosting.Adapters\Journeys.Hosting.Adapters.csproj">
-      <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
-      <Name>Journeys.Hosting.Adapters</Name>
+    <ProjectReference Include="..\Journeys.Data.Commands\Journeys.Data.Commands.csproj">
+      <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
+      <Name>Journeys.Data.Commands</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Application.Command\Journeys.Application.Command.csproj">
-      <Project>{4257ba76-4cee-47ba-ba0e-ab5f07094ae3}</Project>
-      <Name>Journeys.Application</Name>
+    <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
+      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
+      <Name>Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Application.Client.Wpf\Journeys.Application.Client.Wpf.csproj">
-      <Project>{a4b175a2-82ce-4c15-b34c-644f7b188630}</Project>
-      <Name>Journeys.Application.Client.Wpf</Name>
+    <ProjectReference Include="..\Journeys.Domain.Journeys\Journeys.Domain.Journeys.csproj">
+      <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
+      <Name>Journeys.Domain.Journeys</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.People\Journeys.Domain.People.csproj">
+      <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
+      <Name>Journeys.Domain.People</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
+      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
+      <Name>Journeys.Data.Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Application.Query\Journeys.Application.Query.csproj">
-      <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
-      <Name>Journeys.Application.Query</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

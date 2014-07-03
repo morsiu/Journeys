@@ -26,18 +26,25 @@ namespace Journeys.Hosting.Service
             var repositories = new Repositories();
 
             var eventSourcingModule = new Mors.Support.EventSourcing.Module(
-                new EventSourcingEventBus(eventBus),
+                new EventSourcingModuleEventBus(eventBus),
                 idFactory.IdImplementationType,
                 eventFileName);
 
-            var applicationBootstrapper = new Application.Bootstrapper(
-                new ApplicationEventBus(eventBus),
-                new ApplicationRepositories(repositories),
-                new ApplicationIdFactory(idFactory),
-                new ApplicationCommandHandlerRegistry(handlerRegistry),
-                new ApplicationQueryDispatcher(handlerDispatcher),
-                new ApplicationEventSourcing(eventSourcingModule));
-            applicationBootstrapper.Bootstrap();
+            var commandBootstrapper = new Application.Command.Bootstrapper(
+                new CommandEventBus(eventBus),
+                new CommandRepositories(repositories),
+                new CommandIdFactory(idFactory),
+                new CommandHandlerRegistry(handlerRegistry),
+                new CommandQueryDispatcher(handlerDispatcher));
+            commandBootstrapper.Bootstrap();
+
+            var eventSourcingBootstrapper = new Application.EventSourcing.Bootstrapper(
+                new EventSourcingEventBus(eventBus),
+                new EventSourcingRepositories(repositories),
+                new EventSourcingIdFactory(idFactory),
+                new EventSourcingQueryDispatcher(handlerDispatcher),
+                new EventSourcing(eventSourcingModule));
+            eventSourcingBootstrapper.Bootstrap();
 
             eventSourcingModule.ReplayEvents();
             eventSourcingModule.StoreNewEvents();
