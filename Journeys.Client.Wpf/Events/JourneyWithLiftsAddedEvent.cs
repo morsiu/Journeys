@@ -1,6 +1,4 @@
-﻿using Journeys.Common;
-
-namespace Journeys.Client.Wpf.Events
+﻿namespace Journeys.Client.Wpf.Events
 {
     internal class JourneyWithLiftsAddedEvent
     {

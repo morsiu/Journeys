@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Queries
 {

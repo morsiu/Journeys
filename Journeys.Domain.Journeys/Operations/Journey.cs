@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Journeys.Common;
 using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Collections;
 using Journeys.Domain.Infrastructure.Exceptions;

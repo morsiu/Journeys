@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using Journeys.Domain.Infrastructure.Exceptions;
+﻿using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Test.Infrastructure;
 using Journeys.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

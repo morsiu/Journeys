@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.Serialization;
-using Journeys.Common;
+﻿using System.Runtime.Serialization;
 
 namespace Journeys.Events
 {

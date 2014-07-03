@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using Journeys.Queries.Dtos;
+﻿using Journeys.Queries.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

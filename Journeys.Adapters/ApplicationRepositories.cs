@@ -1,5 +1,5 @@
 ﻿using Journeys.Application;
-using Journeys.Common;
+using Journeys.Domain.Infrastructure;
 using Mors.Support.Transactions;
 using Implementation = Mors.Support.Repositories;
 

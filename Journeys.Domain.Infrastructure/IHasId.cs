@@ -1,4 +1,4 @@
-﻿namespace Journeys.Common
+﻿namespace Journeys.Domain.Infrastructure
 {
     public interface IHasId
     {

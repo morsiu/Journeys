@@ -1,6 +1,5 @@
 ﻿using Journeys.Client.Wpf.Infrastructure;
 using Journeys.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Common;
 using Journeys.Queries;
 using Journeys.Queries.Dtos;
 using System;

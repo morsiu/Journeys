@@ -1,4 +1,4 @@
-﻿using Journeys.Common;
+﻿using Journeys.Domain.Infrastructure;
 using Mors.Support.Transactions;
 
 namespace Journeys.Application

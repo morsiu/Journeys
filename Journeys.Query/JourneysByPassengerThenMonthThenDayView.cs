@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using Journeys.Events;
+﻿using Journeys.Events;
 using Journeys.Queries;
 using Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 using Journeys.Query.Infrastructure.Views;

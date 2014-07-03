@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using Journeys.Domain.Infrastructure.Markers;
+﻿using Journeys.Domain.Infrastructure.Markers;
 
 namespace Journeys.Domain.Expenses.Operations
 {

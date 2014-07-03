@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using System;
+﻿using System;
 using System.Runtime.Serialization;
 
 namespace Journeys.Queries.Dtos

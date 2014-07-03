@@ -1,5 +1,4 @@
-﻿using Journeys.Common;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
