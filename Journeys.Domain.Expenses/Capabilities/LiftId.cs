@@ -26,5 +26,15 @@
             return Equals(_personId, other._personId)
                 && Equals(_journeyId, other._journeyId);
         }
+
+        public static bool operator ==(LiftId a, LiftId b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(LiftId a, LiftId b)
+        {
+            return !a.Equals(b);
+        }
     }
 }
