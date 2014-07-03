@@ -67,10 +67,6 @@
       <Project>{a4b175a2-82ce-4c15-b34c-644f7b188630}</Project>
       <Name>Journeys.Client.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Common\Journeys.Common.csproj">
-      <Project>{8ab5823b-3d95-4407-98c3-f7554f27f721}</Project>
-      <Name>Journeys.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Queries\Journeys.Queries.csproj">
       <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
       <Name>Journeys.Queries</Name>
