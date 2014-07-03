@@ -92,6 +92,10 @@
       <Project>{08db29e0-5863-4b33-a930-fde1e94ee4aa}</Project>
       <Name>Journeys.Application.EventSourcing</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
+      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
+      <Name>Journeys.Domain.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Hosting.Adapters\Journeys.Hosting.Adapters.csproj">
       <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
       <Name>Journeys.Hosting.Adapters</Name>
