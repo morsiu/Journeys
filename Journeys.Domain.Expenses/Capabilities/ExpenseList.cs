@@ -5,7 +5,7 @@ namespace Journeys.Domain.Expenses.Capabilities
 {
     public sealed class ExpenseList
     {
-        private readonly Dictionary<IId, Money> _expenseValues = new Dictionary<IId, Money>();
+        private readonly Dictionary<object, Money> _expenseValues = new Dictionary<object, Money>();
 
         public Money TotalExpensesValue { get; private set; }
 
@@ -16,7 +16,7 @@ namespace Journeys.Domain.Expenses.Capabilities
             IncreaseTotalExpensesValue(expense.Value);
         }
 
-        public Expense GetExpense(IId subjectId)
+        public Expense GetExpense(object subjectId)
         {
             Money expenseValue;
             _expenseValues.TryGetValue(subjectId, out expenseValue);

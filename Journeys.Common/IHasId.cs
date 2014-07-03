@@ -2,6 +2,6 @@
 {
     public interface IHasId
     {
-        IId Id { get;  }
+        object Id { get;  }
     }
 }

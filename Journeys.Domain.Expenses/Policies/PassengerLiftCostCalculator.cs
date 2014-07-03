@@ -8,10 +8,10 @@ namespace Journeys.Domain.Expenses.Policies
     [Policy]
     public class PassengerLiftCostCalculator : IJourneyCostCalculator
     {
-        private readonly IId _passengerId;
+        private readonly object _passengerId;
         private readonly Money _journeyCostPerKilometer;
 
-        public PassengerLiftCostCalculator(Money journeyCostPerKilometer, IId passengerId)
+        public PassengerLiftCostCalculator(Money journeyCostPerKilometer, object passengerId)
         {
             _journeyCostPerKilometer = journeyCostPerKilometer;
             _passengerId = passengerId;
@@ -27,13 +27,13 @@ namespace Journeys.Domain.Expenses.Policies
 
         private class JourneyVisitor : IJourneyVisitor
         {
-            private readonly IId _passengerId;
+            private readonly object _passengerId;
             private readonly Money _journeyCostPerKilometer;
             private bool _isPassengerOnBoard;
             private int _onBoardPersonCount;
             private Money _passengerCost;
 
-            public JourneyVisitor(Money journeyCostPerKilometer, IId passengerId)
+            public JourneyVisitor(Money journeyCostPerKilometer, object passengerId)
             {
                 _journeyCostPerKilometer = journeyCostPerKilometer;
                 _passengerId = passengerId;

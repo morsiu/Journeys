@@ -1,6 +1,4 @@
-﻿using Journeys.Transactions;
-
-namespace Journeys.Domain.Infrastructure
+﻿namespace Journeys.Domain.Infrastructure
 {
     public interface IEventBus
     {

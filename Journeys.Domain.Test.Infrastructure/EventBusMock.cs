@@ -1,11 +1,10 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Journeys.Transactions;
 using System;
 using System.Collections.Generic;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    public class EventBusMock : IEventBus, ITransactional<IEventBus>
+    public class EventBusMock : IEventBus
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 
@@ -24,11 +23,6 @@ namespace Journeys.Domain.Test.Infrastructure
             action();
             _eventMatchers.Remove(matcher);
             return matcher;
-        }
-
-        public ITransactional<IEventBus> Lift()
-        {
-            return this;
         }
 
         public IEventBus Object

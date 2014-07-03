@@ -6,14 +6,14 @@ namespace Journeys.Queries.Dtos
     [DataContract]
     public class PersonName
     {
-        public PersonName(IId ownerId, string name)
+        public PersonName(object ownerId, string name)
         {
             OwnerId = ownerId;
             Name = name;
         }
 
         [DataMember]
-        public IId OwnerId { get; private set; }
+        public object OwnerId { get; private set; }
 
         [DataMember]
         public string Name { get; private set; }

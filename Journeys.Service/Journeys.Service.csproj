@@ -33,6 +33,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Mors.Support.Dispatching">
+      <HintPath>..\packages\Mors.Support.Dispatching.0.0.0.1\lib\net45\Mors.Support.Dispatching.dll</HintPath>
+    </Reference>
+    <Reference Include="Mors.Support.Events">
+      <HintPath>..\packages\Mors.Support.Events.0.0.0.1\lib\net45\Mors.Support.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="Mors.Support.EventSourcing">
+      <HintPath>..\packages\Mors.Support.EventSourcing.0.0.0.1\lib\net45\Mors.Support.EventSourcing.dll</HintPath>
+    </Reference>
+    <Reference Include="Mors.Support.Repositories">
+      <HintPath>..\packages\Mors.Support.Repositories.0.0.0.1\lib\net45\Mors.Support.Repositories.dll</HintPath>
+    </Reference>
+    <Reference Include="Mors.Support.Transactions">
+      <HintPath>..\packages\Mors.Support.Transactions.0.0.0.1\lib\net45\Mors.Support.Transactions.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.22.2\lib\net40\Nancy.dll</HintPath>
     </Reference>

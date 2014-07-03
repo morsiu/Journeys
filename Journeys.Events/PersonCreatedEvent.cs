@@ -7,14 +7,14 @@ namespace Journeys.Events
     [DataContract]
     public class PersonCreatedEvent
     {
-        public PersonCreatedEvent(IId id, string name)
+        public PersonCreatedEvent(object id, string name)
         {
             PersonId = id;
             PersonName = name;
         }
 
         [DataMember]
-        public IId PersonId { get; private set; }
+        public object PersonId { get; private set; }
 
         [DataMember]
         public string PersonName { get; private set; }

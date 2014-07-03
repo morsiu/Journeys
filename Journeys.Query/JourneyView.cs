@@ -11,13 +11,13 @@ namespace Journeys.Query
 {
     internal class JourneyView
     {
-        private readonly ValueSet<IId, JourneyCreatedEvent> _journeys;
-        private readonly ValueMultiSet<IId, LiftAddedEvent> _lifts;
+        private readonly ValueSet<object, JourneyCreatedEvent> _journeys;
+        private readonly ValueMultiSet<object, LiftAddedEvent> _lifts;
 
         public JourneyView()
         {
-            _journeys = new ValueSet<IId, JourneyCreatedEvent>(evt => evt.JourneyId);
-            _lifts = new ValueMultiSet<IId, LiftAddedEvent>(evt => evt.JourneyId);
+            _journeys = new ValueSet<object, JourneyCreatedEvent>(evt => evt.JourneyId);
+            _lifts = new ValueMultiSet<object, LiftAddedEvent>(evt => evt.JourneyId);
         }
 
         public void Update(JourneyCreatedEvent @event)

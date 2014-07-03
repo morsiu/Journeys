@@ -8,7 +8,7 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
     [TestClass]
     public class ExpenseListTest
     {
-        private static IId Id = new Id(1);
+        private static object Id = new Id(1);
 
         [TestMethod]
         public void GetExpenseShouldReturnExpenseAfterItWasAddedWithAddExpenseUsingSameId()

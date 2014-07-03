@@ -6,14 +6,14 @@ namespace Journeys.Queries.Dtos
     [DataContract]
     public class Lift
     {
-        public Lift(IId passengerId, decimal distance)
+        public Lift(object passengerId, decimal distance)
         {
             PassengerId = passengerId;
             Distance = distance;
         }
 
         [DataMember]
-        public IId PassengerId { get; private set; }
+        public object PassengerId { get; private set; }
 
         [DataMember]
         public decimal Distance { get; private set; }

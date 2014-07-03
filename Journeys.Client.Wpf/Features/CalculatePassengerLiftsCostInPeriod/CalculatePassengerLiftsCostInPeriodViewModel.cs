@@ -47,7 +47,7 @@ namespace Journeys.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
             }
         }
 
-        public IId Passenger { get; set; }
+        public object Passenger { get; set; }
 
         public DateTime From { get; set; }
 

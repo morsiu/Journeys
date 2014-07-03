@@ -1,6 +1,6 @@
 ﻿using Journeys.Adapters;
-using Journeys.Dispatching;
-using Journeys.Repositories;
+using Mors.Support.Dispatching;
+using Mors.Support.Repositories;
 
 namespace Journeys.Service
 {
@@ -12,8 +12,8 @@ namespace Journeys.Service
 
         public void Bootstrap(string eventFileName)
         {
-            var eventBus = new Event.EventBus();
-            var idFactory = new IdFactory();
+            var eventBus = new Mors.Support.Events.EventBus();
+            var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
 
@@ -23,9 +23,9 @@ namespace Journeys.Service
                 new QueryHandlerRegistry(handlerRegistry));
             queryBootstrapper.Bootstrap();
 
-            var repositories = new Repositories.Repositories();
+            var repositories = new Repositories();
 
-            var eventSourcingModule = new EventSourcing.Module(
+            var eventSourcingModule = new Mors.Support.EventSourcing.Module(
                 new EventSourcingEventBus(eventBus),
                 idFactory.IdImplementationType,
                 eventFileName);

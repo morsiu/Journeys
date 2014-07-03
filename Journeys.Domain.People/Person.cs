@@ -9,9 +9,9 @@ namespace Journeys.Domain.People
     [Aggregate]
     public sealed class Person : IHasId
     {
-        private readonly IId _id;
+        private readonly object _id;
 
-        public Person(IId id, string name, IEventBus eventBus)
+        public Person(object id, string name, IEventBus eventBus)
         {
             if (string.IsNullOrEmpty(name))
                 throw new InvariantViolationException(Messages.PersonMustHaveAName);
@@ -19,7 +19,7 @@ namespace Journeys.Domain.People
             eventBus.Publish(new PersonCreatedEvent(id, name));
         }
 
-        IId IHasId.Id
+        object IHasId.Id
         {
             get { return _id; }
         }

@@ -1,7 +1,7 @@
 ﻿using Journeys.Adapters;
-using Journeys.Dispatching;
-using Journeys.Repositories;
 using System;
+using Mors.Support.Dispatching;
+using Mors.Support.Repositories;
 
 namespace Journeys.Client
 {
@@ -9,12 +9,12 @@ namespace Journeys.Client
     {
         public void Bootstrap()
         {
-            var eventBus = new Event.EventBus();
-            var idFactory = new IdFactory();
+            var eventBus = new Mors.Support.Events.EventBus();
+            var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
 
-            var wpfClientBootstrapper = new Client.Wpf.Bootstrapper(
+            var wpfClientBootstrapper = new Wpf.Bootstrapper(
                 new WpfClientEventBus(eventBus),
                 new WpfClientCommandDispatcher(new Uri("http://localhost:65363/api/command"), handlerDispatcher),
                 new WpfClientCommandHandlerRegistry(handlerRegistry),

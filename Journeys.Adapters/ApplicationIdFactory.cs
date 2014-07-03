@@ -1,5 +1,4 @@
 ﻿using Journeys.Application;
-using Journeys.Common;
 using Mors.Support.Repositories;
 
 namespace Journeys.Adapters

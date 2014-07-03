@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Queries
 {
     [DataContract]
-    public class GetPersonIdByNameQuery : IQuery<IId>
+    public class GetPersonIdByNameQuery : IQuery<object>
     {
         [DataMember]
         public string PersonName { get; private set; }

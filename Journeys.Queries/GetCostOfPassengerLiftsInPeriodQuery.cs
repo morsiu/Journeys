@@ -7,14 +7,14 @@ namespace Journeys.Queries
     [DataContract]
     public class GetCostOfPassengerLiftsInPeriodQuery : IQuery<PassengerLiftsCost>
     {
-        public GetCostOfPassengerLiftsInPeriodQuery(IId passengerId, Period period)
+        public GetCostOfPassengerLiftsInPeriodQuery(object passengerId, Period period)
         {
             Period = period;
             PassengerId = passengerId;
         }
 
         [DataMember]
-        public IId PassengerId { get; private set; }
+        public object PassengerId { get; private set; }
 
         [DataMember]
         public Period Period { get; private set; }

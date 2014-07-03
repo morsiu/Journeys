@@ -8,7 +8,7 @@ namespace Journeys.Queries.Dtos
     [DataContract]
     public class Journey
     {
-        public Journey(IId id, DateTime dateOfOccurrence, decimal routeDistance, IReadOnlyCollection<Lift> lifts)
+        public Journey(object id, DateTime dateOfOccurrence, decimal routeDistance, IReadOnlyCollection<Lift> lifts)
         {
             Id = id;
             DateOfOccurrence = dateOfOccurrence;
@@ -17,7 +17,7 @@ namespace Journeys.Queries.Dtos
         }
 
         [DataMember]
-        public IId Id { get; private set; }
+        public object Id { get; private set; }
 
         [DataMember]
         public DateTime DateOfOccurrence { get; private set; }

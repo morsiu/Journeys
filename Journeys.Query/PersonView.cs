@@ -8,14 +8,14 @@ using System.Linq;
 
 namespace Journeys.Query
 {
-    using PersonId = IId;
+    using PersonId = System.Object;
 
     internal class PersonView
     {
         private readonly ValueSet<PersonId, PersonName> _peopleNames = new ValueSet<PersonId, PersonName>(personName => personName.OwnerId);
         private readonly ValueSet<string, PersonName> _peopleByName = new ValueSet<string, PersonName>(personName => personName.Name);
 
-        public IId Execute(GetPersonIdByNameQuery query)
+        public object Execute(GetPersonIdByNameQuery query)
         {
             var personName = _peopleByName.Get(query.PersonName, () => null);
             return personName == null ? null : personName.OwnerId;

@@ -12,8 +12,8 @@ namespace Journeys.Domain.Journeys.Test.Operations
     [TestClass]
     public class JourneyTest
     {
-        private static readonly IId JourneyId = new Id(0);
-        private static readonly IId PersonId = new Id(0);
+        private static readonly object JourneyId = new Id(0);
+        private static readonly object PersonId = new Id(0);
         private EventBusMock _eventBus;
 
         [TestInitialize]

@@ -1,8 +1,6 @@
-﻿using Journeys.Common;
-
-namespace Journeys.Domain.Test.Infrastructure
+﻿namespace Journeys.Domain.Test.Infrastructure
 {
-    public struct Id : IId
+    public struct Id
     {
         private readonly int _id;
 
@@ -11,11 +9,11 @@ namespace Journeys.Domain.Test.Infrastructure
             _id = id;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(object other)
         {
-            return obj != null
-                && obj is Id
-                && Equals((Id)obj);
+            return other != null
+                && other is Id
+                && Equals((Id)other);
         }
 
         public override int GetHashCode()
@@ -26,13 +24,6 @@ namespace Journeys.Domain.Test.Infrastructure
         private bool Equals(Id other)
         {
             return _id == other._id;
-        }
-
-        public bool Equals(IId other)
-        {
-            return other != null
-                && other is Id
-                && Equals((Id)other);
         }
     }
 }

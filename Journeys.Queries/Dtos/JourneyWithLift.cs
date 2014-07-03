@@ -8,8 +8,8 @@ namespace Journeys.Queries.Dtos
     public class JourneyWithLift
     {
         public JourneyWithLift(
-            IId journeyId,
-            IId passengerId,
+            object journeyId,
+            object passengerId,
             DateTime dateOfOccurrence,
             decimal routeDistance,
             string passengerName,
@@ -24,10 +24,10 @@ namespace Journeys.Queries.Dtos
         }
 
         [DataMember]
-        public IId JourneyId { get; private set; }
+        public object JourneyId { get; private set; }
 
         [DataMember]
-        public IId PassengerId { get; private set; }
+        public object PassengerId { get; private set; }
 
         [DataMember]
         public DateTime DateOfOccurrence { get; private set; }

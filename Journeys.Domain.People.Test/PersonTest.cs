@@ -10,7 +10,7 @@ namespace Journeys.Domain.People.Test
     public class PersonTest
     {
         private static readonly string PersonName = "PersonName";
-        private static readonly IId PersonId = new Id(0);
+        private static readonly object PersonId = new Id(0);
         private EventBusMock _eventBus;
 
         [TestInitialize]

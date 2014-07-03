@@ -23,7 +23,7 @@ namespace Journeys.Query
         public void Bootstrap()
         {
             var personView = new PersonView();
-            _queryHandlerRegistry.SetHandler<GetPersonIdByNameQuery, IId>(personView.Execute);
+            _queryHandlerRegistry.SetHandler<GetPersonIdByNameQuery, object>(personView.Execute);
             _queryHandlerRegistry.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 

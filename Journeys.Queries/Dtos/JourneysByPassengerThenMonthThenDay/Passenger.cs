@@ -6,13 +6,13 @@ namespace Journeys.Queries.Dtos.JourneysByPassengerThenMonthThenDay
     [DataContract]
     public struct Passenger
     {
-        public Passenger(IId passengerId) : this()
+        public Passenger(object passengerId) : this()
         {
             Id = passengerId;
         }
 
         [DataMember]
-        public IId Id { get; private set; }
+        public object Id { get; private set; }
 
         public override bool Equals(object obj)
         {

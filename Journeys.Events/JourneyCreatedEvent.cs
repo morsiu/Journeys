@@ -7,7 +7,7 @@ namespace Journeys.Events
     [DataContract]
     public class JourneyCreatedEvent
     {
-        public JourneyCreatedEvent(IId journeyId, DateTime dateOfOccurrence, decimal routeDistance)
+        public JourneyCreatedEvent(object journeyId, DateTime dateOfOccurrence, decimal routeDistance)
         {
             JourneyId = journeyId;
             DateOfOccurrence = dateOfOccurrence;
@@ -15,7 +15,7 @@ namespace Journeys.Events
         }
 
         [DataMember]
-        public IId JourneyId { get; private set; }
+        public object JourneyId { get; private set; }
 
         [DataMember]
         public DateTime DateOfOccurrence { get; private set; }

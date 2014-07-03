@@ -11,7 +11,7 @@ namespace Journeys.Commands
     public class AddJourneyWithLiftsCommand
     {
         [DataMember]
-        public IId JourneyId { get; private set; }
+        public object JourneyId { get; private set; }
 
         [DataMember]
         public decimal RouteDistance { get; private set; }
@@ -23,7 +23,7 @@ namespace Journeys.Commands
         public IReadOnlyList<Lift> Lifts { get; private set; }
 
         public AddJourneyWithLiftsCommand(
-            IId journeyId,
+            object journeyId,
             decimal routeDistance,
             DateTime dateOfOccurrence,
             IEnumerable<Lift> lifts)

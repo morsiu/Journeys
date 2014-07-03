@@ -4,10 +4,10 @@ namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
     internal class PassengerExit : IJourneyEvent
     {
-        private readonly IId _passengerId;
+        private readonly object _passengerId;
         private readonly RoutePoint _point;
 
-        public PassengerExit(IId passengerId, RoutePoint point)
+        public PassengerExit(object passengerId, RoutePoint point)
         {
             _passengerId = passengerId;
             _point = point;
@@ -15,7 +15,7 @@ namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 
         public RoutePoint Point { get { return _point; } }
 
-        public IId PassengerId { get { return _passengerId; } }
+        public object PassengerId { get { return _passengerId; } }
 
         public void Visit(IJourneyVisitor visitor)
         {

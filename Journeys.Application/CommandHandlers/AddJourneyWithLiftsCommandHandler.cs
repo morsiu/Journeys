@@ -1,10 +1,9 @@
 ﻿using Journeys.Commands;
-using Journeys.Common;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
 using Journeys.Queries;
-using Journeys.Transactions;
+using Mors.Support.Transactions;
 
 namespace Journeys.Application.CommandHandlers
 {
@@ -47,7 +46,7 @@ namespace Journeys.Application.CommandHandlers
             _repositories.Store(journey);
         }
 
-        private IId GetOrAddPersonWithName(string personName)
+        private object GetOrAddPersonWithName(string personName)
         {
             var personId = _queryDispatcher.Dispatch(new GetPersonIdByNameQuery(personName));
             if (personId == null)

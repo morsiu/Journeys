@@ -14,7 +14,7 @@ namespace Journeys.Adapters
             _repositories = repositories;
         }
 
-        public TEntity Get<TEntity>(IId id) where TEntity : IHasId
+        public TEntity Get<TEntity>(object id) where TEntity : IHasId
         {
             return _repositories.Get<TEntity>(id);
         }

@@ -1,21 +1,24 @@
-﻿using Journeys.Common;
-
-namespace Journeys.Domain.Expenses.Capabilities
+﻿namespace Journeys.Domain.Expenses.Capabilities
 {
-    public struct LiftId : IId
+    public struct LiftId
     {
-        private readonly IId _journeyId;
-        private readonly IId _personId;
+        private readonly object _journeyId;
+        private readonly object _personId;
 
-        public LiftId(IId journeyId, IId personId)
+        public LiftId(object journeyId, object personId)
         {
             _journeyId = journeyId;
             _personId = personId;
         }
 
-        public bool Equals(IId other)
+        public override bool Equals(object other)
         {
             return other is LiftId && Equals((LiftId)other);
+        }
+
+        public override int GetHashCode()
+        {
+            return unchecked(_journeyId.GetHashCode() * 397 ^ _personId.GetHashCode());
         }
 
         private bool Equals(LiftId other)

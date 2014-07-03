@@ -1,9 +1,7 @@
-﻿using Journeys.Common;
-
-namespace Journeys.Application
+﻿namespace Journeys.Application
 {
     public interface IIdFactory
     {
-        IId Create();
+        object Create();
     }
 }

@@ -4,9 +4,9 @@ namespace Journeys.Client.Wpf.Events
 {
     internal class JourneyWithLiftsAddedEvent
     {
-        public IId JourneyId { get; private set; }
+        public object JourneyId { get; private set; }
 
-        public JourneyWithLiftsAddedEvent(IId journeyId)
+        public JourneyWithLiftsAddedEvent(object journeyId)
         {
             JourneyId = journeyId;
         }

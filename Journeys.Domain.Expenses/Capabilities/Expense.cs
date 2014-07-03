@@ -6,16 +6,16 @@ namespace Journeys.Domain.Expenses.Capabilities
     [ValueObject]
     public struct Expense
     {
-        private readonly IId _subjectId;
+        private readonly object _subjectId;
         private readonly Money _value;
 
-        public Expense(IId subjectId, Money value)
+        public Expense(object subjectId, Money value)
         {
             _subjectId = subjectId;
             _value = value;
         }
 
-        public IId SubjectId { get { return _subjectId; } }
+        public object SubjectId { get { return _subjectId; } }
 
         public Money Value { get { return _value; } }
 

@@ -4,16 +4,16 @@ namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
     internal class PassengerPickup : IJourneyEvent
     {
-        private readonly IId _passengerId;
+        private readonly object _passengerId;
         private readonly RoutePoint _point;
 
-        public PassengerPickup(IId passengerId, RoutePoint point)
+        public PassengerPickup(object passengerId, RoutePoint point)
         {
             _passengerId = passengerId;
             _point = point;
         }
 
-        public IId PassengerId { get { return _passengerId; } }
+        public object PassengerId { get { return _passengerId; } }
 
         public RoutePoint Point { get { return _point; } }
 

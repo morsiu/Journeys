@@ -14,12 +14,12 @@ namespace Journeys.Domain.Journeys.Operations
     public sealed class Journey : IHasId
     {
         private readonly IEventBus _eventBus;
-        private readonly IId _id;
+        private readonly object _id;
         private readonly DateTime _dateOfOccurrence;
         private readonly Distance _routeDistance;
         private readonly ImmutableList<Lift> _lifts = ImmutableList<Lift>.Empty;
 
-        public Journey(IId id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
+        public Journey(object id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
         {
             _dateOfOccurrence = dateOfOccurrence;
             _eventBus = eventBus;
@@ -37,7 +37,7 @@ namespace Journeys.Domain.Journeys.Operations
             _routeDistance = journey._routeDistance;
         }
 
-        public Journey AddLift(IId personId, Distance liftDistance)
+        public Journey AddLift(object personId, Distance liftDistance)
         {
             if (ContainsLiftForPerson(personId))
                 throw new InvariantViolationException(Messages.JourneyAlreadyContainsLiftForThatPerson);
@@ -49,12 +49,12 @@ namespace Journeys.Domain.Journeys.Operations
             return new Journey(this, newLifts);
         }
 
-        private bool ContainsLiftForPerson(IId personId)
+        private bool ContainsLiftForPerson(object personId)
         {
             return _lifts.Any(lift => lift.IsForPerson(personId));
         }
 
-        IId IHasId.Id
+        object IHasId.Id
         {
             get { return _id; }
         }

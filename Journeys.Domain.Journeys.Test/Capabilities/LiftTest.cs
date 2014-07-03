@@ -8,8 +8,8 @@ namespace Journeys.Domain.Journeys.Test.Capabilities
     [TestClass]
     public class LiftTest
     {
-        private static readonly IId PersonId = new Id(0);
-        private static readonly IId AnotherPersonId = new Id(1);
+        private static readonly object PersonId = new Id(0);
+        private static readonly object AnotherPersonId = new Id(1);
 
         [TestMethod]
         public void LiftWithPersonIdShouldBeForPersonWithThatId()

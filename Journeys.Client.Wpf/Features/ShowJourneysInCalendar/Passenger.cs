@@ -19,6 +19,6 @@ namespace Journeys.Client.Wpf.Features.ShowJourneysInCalendar
 
         public string Name { get { return _passengerName.Name; } }
 
-        public IId Id { get { return _passengerName.OwnerId; } }
+        public object Id { get { return _passengerName.OwnerId; } }
     }
 }

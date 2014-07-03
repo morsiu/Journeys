@@ -7,7 +7,7 @@ namespace Journeys.Events
     [DataContract]
     public class LiftAddedEvent
     {
-        public LiftAddedEvent(IId journeyId, IId personId, decimal liftDistance)
+        public LiftAddedEvent(object journeyId, object personId, decimal liftDistance)
         {
             JourneyId = journeyId;
             PersonId = personId;
@@ -15,10 +15,10 @@ namespace Journeys.Events
         }
 
         [DataMember]
-        public IId JourneyId { get; private set; }
+        public object JourneyId { get; private set; }
 
         [DataMember]
-        public IId PersonId { get; private set; }
+        public object PersonId { get; private set; }
 
         [DataMember]
         public decimal LiftDistance { get; private set; }
