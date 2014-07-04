@@ -1,8 +1,9 @@
 ﻿using Journeys.Application.EventSourcing;
+using Journeys.Hosting.Adapters.Modules.Domain;
 using Mors.Support.Transactions;
 using Implementation = Mors.Support.Events;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
     public class EventSourcingEventBus : IEventBus
     {
@@ -13,7 +14,7 @@ namespace Journeys.Hosting.Adapters
             _eventBus = eventBus;
         }
 
-        public Domain.Infrastructure.IEventBus ForDomain()
+        public Journeys.Domain.Infrastructure.IEventBus ForDomain()
         {
             return new DomainEventBusAdapter(_eventBus);
         }

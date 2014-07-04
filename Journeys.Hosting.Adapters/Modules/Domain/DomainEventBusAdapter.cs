@@ -1,6 +1,6 @@
 ﻿using Implementation = Mors.Support.Events;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Domain
 {
     public class DomainEventBusAdapter : Journeys.Domain.Infrastructure.IEventBus
     {

@@ -3,7 +3,7 @@ using Journeys.Data.Queries;
 using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Command
 {
     public class CommandQueryDispatcher : IQueryDispatcher
     {

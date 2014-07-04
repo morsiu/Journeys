@@ -1,6 +1,6 @@
 ﻿using Mors.Support.Repositories;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
     public class WpfClientIdFactory : Application.Client.Wpf.IIdFactory
     {

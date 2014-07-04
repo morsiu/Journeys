@@ -1,7 +1,7 @@
 ﻿using System;
 using Implementation = Mors.Support.Events;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
     public class WpfClientEventBus : Application.Client.Wpf.IEventBus
     {

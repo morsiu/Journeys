@@ -2,7 +2,7 @@
 using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Query
 {
     public class QueryDispatcher : Application.Query.IQueryDispatcher
     {

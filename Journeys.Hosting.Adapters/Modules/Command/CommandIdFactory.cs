@@ -1,13 +1,13 @@
-﻿using Journeys.Application.EventSourcing;
+﻿using Journeys.Application.Command;
 using Mors.Support.Repositories;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class EventSourcingIdFactory : IIdFactory
+    public class CommandIdFactory : IIdFactory
     {
         private readonly GuidIdFactory _idFactory;
 
-        public EventSourcingIdFactory(GuidIdFactory idFactory)
+        public CommandIdFactory(GuidIdFactory idFactory)
         {
             _idFactory = idFactory;
         }

@@ -1,4 +1,4 @@
-﻿using Journeys.Hosting.Adapters;
+﻿using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Hosting.Service.Modules;
 using Nancy;
 using Nancy.Bootstrapper;

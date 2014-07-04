@@ -1,16 +1,16 @@
 ﻿using System;
-using Journeys.Application.Client.Wpf;
 using Journeys.Data.Queries;
+using Journeys.Application.Query;
+using Implementation = Mors.Support.Dispatching;
 using Journeys.Hosting.Adapters.Dispatching;
-using Mors.Support.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Query
 {
-    public class WpfClientQueryHandlerRegistry : IQueryHandlerRegistry
+    public class QueryHandlerRegistry : IQueryHandlerRegistry
     {
-        private readonly HandlerRegistry _handlerRegistry;
+        private readonly Implementation.HandlerRegistry _handlerRegistry;
 
-        public WpfClientQueryHandlerRegistry(HandlerRegistry handlerRegistry)
+        public QueryHandlerRegistry(Implementation.HandlerRegistry handlerRegistry)
         {
             _handlerRegistry = handlerRegistry;
         }

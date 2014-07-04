@@ -1,5 +1,5 @@
 ﻿using System;
-using Journeys.Hosting.Adapters;
+using Journeys.Hosting.Adapters.Modules.WpfClient;
 using Mors.Support.Dispatching;
 using Mors.Support.Repositories;
 

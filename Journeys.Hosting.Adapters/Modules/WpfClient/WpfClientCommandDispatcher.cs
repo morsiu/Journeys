@@ -4,7 +4,7 @@ using System;
 using Mors.Support.Dispatching;
 using Journeys.Hosting.Adapters.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
     public class WpfClientCommandDispatcher : ICommandDispatcher
     {

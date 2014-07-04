@@ -1,4 +1,4 @@
-﻿using Journeys.Hosting.Adapters;
+﻿using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Hosting.Service.Infrastructure;
 using Nancy;
 using System.IO;

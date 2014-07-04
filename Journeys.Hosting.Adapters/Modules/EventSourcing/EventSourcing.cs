@@ -2,7 +2,7 @@
 using Journeys.Application.EventSourcing;
 using Implementation = Mors.Support.EventSourcing;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
     public class EventSourcing : IEventSourcing
     {

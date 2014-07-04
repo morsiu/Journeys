@@ -1,6 +1,10 @@
 ﻿using Journeys.Hosting.Adapters;
+using Journeys.Hosting.Adapters.Modules.Command;
+using Journeys.Hosting.Adapters.Modules.Query;
+using Journeys.Hosting.Adapters.Modules.EventSourcing;
 using Mors.Support.Dispatching;
 using Mors.Support.Repositories;
+using Journeys.Hosting.Adapters.Modules.Service;
 
 namespace Journeys.Hosting.Service
 {

@@ -1,14 +1,15 @@
 ﻿using System;
+using Journeys.Application.Command;
 using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class WpfClientCommandHandlerRegistry : Application.Client.Wpf.ICommandHandlerRegistry
+    public class CommandHandlerRegistry : ICommandHandlerRegistry
     {
         private readonly HandlerRegistry _handlerRegistry;
 
-        public WpfClientCommandHandlerRegistry(HandlerRegistry handlerRegistry)
+        public CommandHandlerRegistry(HandlerRegistry handlerRegistry)
         {
             _handlerRegistry = handlerRegistry;
         }

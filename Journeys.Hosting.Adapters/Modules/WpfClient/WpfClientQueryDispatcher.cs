@@ -4,7 +4,7 @@ using Journeys.Hosting.Service.Client;
 using System;
 using Implementation = Mors.Support.Dispatching;
 
-namespace Journeys.Hosting.Adapters
+namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
     public class WpfClientQueryDispatcher : Application.Client.Wpf.IQueryDispatcher
     {
