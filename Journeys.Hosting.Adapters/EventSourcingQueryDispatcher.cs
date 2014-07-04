@@ -1,8 +1,9 @@
 ﻿using Journeys.Application.EventSourcing;
 using Journeys.Data.Queries;
+using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class EventSourcingQueryDispatcher : IQueryDispatcher
     {
@@ -15,7 +16,7 @@ namespace Journeys.Application.Adapters
 
         public TResult Dispatch<TResult>(IQuery<TResult> query)
         {
-            var queryAdapter = new Query<TResult>(query);
+            var queryAdapter = new QueryAdapter<TResult>(query);
             return queryAdapter.Execute(_handlerDispatcher);
         }
     }

@@ -1,6 +1,7 @@
-﻿using Mors.Support.Dispatching;
+﻿using Journeys.Hosting.Adapters.Dispatching;
+using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class ServiceQueryDispatcher
     {

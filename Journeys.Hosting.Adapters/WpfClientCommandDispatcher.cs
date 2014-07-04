@@ -2,8 +2,9 @@
 using Journeys.Hosting.Service.Client;
 using System;
 using Mors.Support.Dispatching;
+using Journeys.Hosting.Adapters.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class WpfClientCommandDispatcher : ICommandDispatcher
     {
@@ -41,7 +42,7 @@ namespace Journeys.Application.Adapters
 
         private void DispatchInternal(object command)
         {
-            var commandAdapter = new Command(command);
+            var commandAdapter = new CommandAdapter(command);
             commandAdapter.Execute(_handlerDispatcher);
         }
     }

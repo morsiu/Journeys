@@ -1,8 +1,8 @@
 ﻿using Mors.Support.Repositories;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
-    public class WpfClientIdFactory : Client.Wpf.IIdFactory
+    public class WpfClientIdFactory : Application.Client.Wpf.IIdFactory
     {
         private readonly GuidIdFactory _idFactory;
 

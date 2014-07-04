@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.Command;
 using Mors.Support.Repositories;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class CommandIdFactory : IIdFactory
     {

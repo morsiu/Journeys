@@ -1,4 +1,4 @@
-﻿using Journeys.Application.Adapters;
+﻿using Journeys.Hosting.Adapters;
 using Mors.Support.Dispatching;
 using Mors.Support.Repositories;
 

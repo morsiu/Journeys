@@ -1,5 +1,4 @@
-﻿using Journeys.Domain.Expenses.Capabilities;
-using Journeys.Domain.Expenses.Capabilities.Journeys;
+﻿using Journeys.Domain.Expenses.Capabilities.Journeys;
 using Journeys.Domain.Expenses.Capabilities.Journeys.Events;
 using Journeys.Domain.Infrastructure.Markers;
 using System.Collections.Generic;

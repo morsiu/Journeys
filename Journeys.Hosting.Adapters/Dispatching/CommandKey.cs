@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters.Dispatching
 {
     internal class CommandKey
     {

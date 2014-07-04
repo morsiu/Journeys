@@ -3,7 +3,7 @@ using Journeys.Domain.Infrastructure;
 using Mors.Support.Transactions;
 using Implementation = Mors.Support.Repositories;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     internal class EventSourcingTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {

@@ -4,13 +4,13 @@ using Journeys.Hosting.Adapters.Messages;
 using Mors.Support.Dispatching;
 using Mors.Support.Dispatching.Exceptions;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class Query<TResult>
+    public class QueryAdapter<TResult>
     {
         private IQuery<TResult> _query;
 
-        public Query(IQuery<TResult> query)
+        public QueryAdapter(IQuery<TResult> query)
         {
             _query = query;
         }

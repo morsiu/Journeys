@@ -1,7 +1,7 @@
 ﻿using Journeys.Data.Queries;
 using System;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters.Dispatching
 {
     internal class QueryKey
     {

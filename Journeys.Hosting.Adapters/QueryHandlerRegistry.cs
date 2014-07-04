@@ -2,8 +2,9 @@
 using Journeys.Data.Queries;
 using Journeys.Application.Query;
 using Implementation = Mors.Support.Dispatching;
+using Journeys.Hosting.Adapters.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class QueryHandlerRegistry : IQueryHandlerRegistry
     {

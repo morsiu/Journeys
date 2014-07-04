@@ -1,8 +1,9 @@
 ﻿using System;
 using Journeys.Application.Command;
+using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class CommandHandlerRegistry : ICommandHandlerRegistry
     {

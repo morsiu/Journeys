@@ -1,9 +1,10 @@
 ﻿using System;
+using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
-    public class WpfClientCommandHandlerRegistry : Client.Wpf.ICommandHandlerRegistry
+    public class WpfClientCommandHandlerRegistry : Application.Client.Wpf.ICommandHandlerRegistry
     {
         private readonly HandlerRegistry _handlerRegistry;
 

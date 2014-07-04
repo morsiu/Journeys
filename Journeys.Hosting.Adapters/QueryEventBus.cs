@@ -1,9 +1,9 @@
 ﻿using System;
 using Implementation = Mors.Support.Events;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
-    public class QueryEventBus : Query.IEventBus
+    public class QueryEventBus : Application.Query.IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

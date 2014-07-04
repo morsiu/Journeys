@@ -2,7 +2,7 @@
 using Mors.Support.Transactions;
 using Implementation = Mors.Support.Events;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     internal class EventSourcingModuleTransactedEventBus : Mors.Support.EventSourcing.IEventBus, ITransactional<Mors.Support.EventSourcing.IEventBus>
     {

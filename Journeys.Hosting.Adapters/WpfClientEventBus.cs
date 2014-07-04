@@ -1,9 +1,9 @@
 ﻿using System;
 using Implementation = Mors.Support.Events;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
-    public class WpfClientEventBus : Client.Wpf.IEventBus
+    public class WpfClientEventBus : Application.Client.Wpf.IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

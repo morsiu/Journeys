@@ -1,11 +1,12 @@
 ﻿using Journeys.Data.Queries;
+using Journeys.Hosting.Adapters.Dispatching;
 using Journeys.Hosting.Service.Client;
 using System;
 using Implementation = Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
-    public class WpfClientQueryDispatcher : Client.Wpf.IQueryDispatcher
+    public class WpfClientQueryDispatcher : Application.Client.Wpf.IQueryDispatcher
     {
         private readonly Uri _queryRequestUri;
         private readonly Implementation.HandlerDispatcher _handlerDispatcher;
@@ -38,7 +39,7 @@ namespace Journeys.Application.Adapters
 
         private TResult DispatchInternal<TResult>(IQuery<TResult> query)
         {
-            var queryAdapter = new Query<TResult>(query);
+            var queryAdapter = new QueryAdapter<TResult>(query);
             return queryAdapter.Execute(_handlerDispatcher);
         }
 

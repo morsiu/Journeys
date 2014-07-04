@@ -1,6 +1,7 @@
-﻿using Mors.Support.Dispatching;
+﻿using Journeys.Hosting.Adapters.Dispatching;
+using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class ServiceCommandDispatcher
     {
@@ -13,7 +14,7 @@ namespace Journeys.Application.Adapters
 
         public void Dispatch<TCommand>(TCommand command)
         {
-            var commandAdapter = new Command(command);
+            var commandAdapter = new CommandAdapter(command);
             commandAdapter.Execute(_handlerDispatcher);
         }
     }

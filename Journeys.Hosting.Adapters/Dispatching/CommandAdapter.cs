@@ -3,13 +3,13 @@ using Journeys.Hosting.Adapters.Messages;
 using Mors.Support.Dispatching;
 using Mors.Support.Dispatching.Exceptions;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class Command
+    public class CommandAdapter
     {
         private object _command;
 
-        public Command(object command)
+        public CommandAdapter(object command)
         {
             _command = command;
         }

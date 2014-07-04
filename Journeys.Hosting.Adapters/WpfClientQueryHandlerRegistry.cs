@@ -1,9 +1,10 @@
 ﻿using System;
 using Journeys.Application.Client.Wpf;
 using Journeys.Data.Queries;
+using Journeys.Hosting.Adapters.Dispatching;
 using Mors.Support.Dispatching;
 
-namespace Journeys.Application.Adapters
+namespace Journeys.Hosting.Adapters
 {
     public class WpfClientQueryHandlerRegistry : IQueryHandlerRegistry
     {
