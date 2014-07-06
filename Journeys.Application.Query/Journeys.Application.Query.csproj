@@ -59,17 +59,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
+      <Name>Journeys.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain.Expenses\Journeys.Domain.Expenses.csproj">
       <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
       <Name>Journeys.Domain.Expenses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
-      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Data.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
-      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

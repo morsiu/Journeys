@@ -4,7 +4,7 @@
         $http({
             method: 'POST',
             url: '../api/query',
-            data: "{ $type: 'Journeys.Data.Queries.GetJourneysByPassengerThenMonthThenDayQuery, Journeys.Data.Queries' }"
+            data: "{ $type: 'Journeys.Data.Queries.GetJourneysByPassengerThenMonthThenDayQuery, Journeys.Data' }"
         }).success(function (response) {
             var facts = {};
             response.forEach(function (fact) {

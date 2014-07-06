@@ -87,14 +87,6 @@
       <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
       <Name>Journeys.Hosting.Adapters</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Commands\Journeys.Data.Commands.csproj">
-      <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
-      <Name>Journeys.Data.Commands</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
-      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Data.Queries</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Application.Query\Journeys.Application.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Application.Query</Name>

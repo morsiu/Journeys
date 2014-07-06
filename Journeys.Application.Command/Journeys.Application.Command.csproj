@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Data.Commands\Journeys.Data.Commands.csproj">
-      <Project>{5246e520-b190-404e-aa73-9753e37a9f4c}</Project>
-      <Name>Journeys.Data.Commands</Name>
+    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
+      <Name>Journeys.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
@@ -60,14 +60,6 @@
     <ProjectReference Include="..\Journeys.Domain.People\Journeys.Domain.People.csproj">
       <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
       <Name>Journeys.Domain.People</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Events\Journeys.Data.Events.csproj">
-      <Project>{8c86db44-a073-4d6d-8081-cc0b5101030b}</Project>
-      <Name>Journeys.Data.Events</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
-      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Data.Queries</Name>
     </ProjectReference>
     <ProjectReference Include="..\Journeys.Support\Journeys.Support.csproj">
       <Project>{2603751f-57ca-48fd-84ec-55983878b247}</Project>

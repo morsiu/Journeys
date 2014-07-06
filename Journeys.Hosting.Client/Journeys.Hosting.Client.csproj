@@ -55,10 +55,6 @@
       <Project>{a4b175a2-82ce-4c15-b34c-644f7b188630}</Project>
       <Name>Journeys.Application.Client.Wpf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Data.Queries\Journeys.Data.Queries.csproj">
-      <Project>{0da05e1a-7a66-47ee-8b74-a0fb429fe97e}</Project>
-      <Name>Journeys.Data.Queries</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Journeys.Application.Query\Journeys.Application.Query.csproj">
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Application.Query</Name>
