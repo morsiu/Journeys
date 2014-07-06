@@ -1,10 +1,10 @@
 ﻿using System;
-using Mors.Support.Transactions;
-using Implementation = Mors.Support.Events;
+using Journeys.Support.Transactions;
+using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    internal class EventSourcingModuleTransactedEventBus : Mors.Support.EventSourcing.IEventBus, ITransactional<Mors.Support.EventSourcing.IEventBus>
+    internal class EventSourcingModuleTransactedEventBus : Journeys.Support.EventSourcing.IEventBus, ITransactional<Journeys.Support.EventSourcing.IEventBus>
     {
         private ITransactional<Implementation.IEventBus> _eventBus;
 
@@ -18,12 +18,12 @@ namespace Journeys.Hosting.Adapters.Modules.EventSourcing
             _eventBus.Object.RegisterListener(new Implementation.EventListener<TEvent>(handler));
         }
 
-        public ITransactional<Mors.Support.EventSourcing.IEventBus> Lift()
+        public ITransactional<Journeys.Support.EventSourcing.IEventBus> Lift()
         {
             return this;
         }
 
-        public Mors.Support.EventSourcing.IEventBus Object
+        public Journeys.Support.EventSourcing.IEventBus Object
         {
             get { return this; }
         }

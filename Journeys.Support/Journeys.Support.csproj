@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2603751F-57CA-48FD-84EC-55983878B247}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Journeys.Support</RootNamespace>
+    <AssemblyName>Journeys.Support</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dispatching\Exceptions\HandlerNotFoundException.cs" />
+    <Compile Include="Dispatching\HandlerDispatcher.cs" />
+    <Compile Include="Dispatching\HandlerRegistry.cs" />
+    <Compile Include="EventSourcing\EventReplayConfigurator.cs" />
+    <Compile Include="EventSourcing\EventReplayer.cs" />
+    <Compile Include="EventSourcing\EventWriteConfigurator.cs" />
+    <Compile Include="EventSourcing\IEventBus.cs" />
+    <Compile Include="EventSourcing\IEventWriter.cs" />
+    <Compile Include="EventSourcing\Module.cs" />
+    <Compile Include="EventSourcing\Storage\EventStore.cs" />
+    <Compile Include="EventSourcing\Storage\XmlEventReader.cs" />
+    <Compile Include="EventSourcing\Storage\XmlEventWriter.cs" />
+    <Compile Include="Events\EventBus.cs" />
+    <Compile Include="Events\EventListener.cs" />
+    <Compile Include="Events\EventPublisher.cs" />
+    <Compile Include="Events\IEventBus.cs" />
+    <Compile Include="Events\TransactedEventBus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Repositories\GuidId.cs" />
+    <Compile Include="Repositories\GuidIdFactory.cs" />
+    <Compile Include="Repositories\InMemoryRepository.cs" />
+    <Compile Include="Repositories\IRepositories.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\Messages\FailureMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FailureMessages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\Repositories.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\TransactedRepositories.cs" />
+    <Compile Include="Repositories\TransactedRepository.cs" />
+    <Compile Include="Transactions\IProvideTransactional.cs" />
+    <Compile Include="Transactions\ITransactional.cs" />
+    <Compile Include="Transactions\ITransactional`1.cs" />
+    <Compile Include="Transactions\Transaction.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Repositories\Messages\FailureMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

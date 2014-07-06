@@ -1,5 +1,5 @@
 ﻿using Journeys.Domain.Infrastructure;
-using Mors.Support.Transactions;
+using Journeys.Support.Transactions;
 
 namespace Journeys.Application.Command
 {

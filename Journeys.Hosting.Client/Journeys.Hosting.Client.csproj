@@ -35,18 +35,6 @@
     <StartupObject>Journeys.Hosting.Client.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mors.Support.Dispatching">
-      <HintPath>..\packages\Mors.Support.Dispatching.0.0.0.1\lib\net45\Mors.Support.Dispatching.dll</HintPath>
-    </Reference>
-    <Reference Include="Mors.Support.Events">
-      <HintPath>..\packages\Mors.Support.Events.0.0.0.1\lib\net45\Mors.Support.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Mors.Support.Repositories">
-      <HintPath>..\packages\Mors.Support.Repositories.0.0.0.1\lib\net45\Mors.Support.Repositories.dll</HintPath>
-    </Reference>
-    <Reference Include="Mors.Support.Transactions">
-      <HintPath>..\packages\Mors.Support.Transactions.0.0.0.1\lib\net45\Mors.Support.Transactions.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
@@ -75,10 +63,13 @@
       <Project>{9a28bb83-9f0e-4c19-8a18-16ad5d5b0337}</Project>
       <Name>Journeys.Application.Query</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Journeys.Support\Journeys.Support.csproj">
+      <Project>{2603751f-57ca-48fd-84ec-55983878b247}</Project>
+      <Name>Journeys.Support</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

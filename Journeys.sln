@@ -58,6 +58,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{77D1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Application.EventSourcing", "Journeys.Application.EventSourcing\Journeys.Application.EventSourcing.csproj", "{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Support", "Support", "{07FE645A-1ABB-469A-9EF2-52A58C003176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Support", "Journeys.Support\Journeys.Support.csproj", "{2603751F-57CA-48FD-84EC-55983878B247}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Support.Test", "Journeys.Support.Test\Journeys.Support.Test.csproj", "{060CF450-A712-4FA5-B9FA-109A28C0C336}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +150,14 @@ Global
 		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2603751F-57CA-48FD-84EC-55983878B247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2603751F-57CA-48FD-84EC-55983878B247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2603751F-57CA-48FD-84EC-55983878B247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2603751F-57CA-48FD-84EC-55983878B247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060CF450-A712-4FA5-B9FA-109A28C0C336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060CF450-A712-4FA5-B9FA-109A28C0C336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060CF450-A712-4FA5-B9FA-109A28C0C336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060CF450-A712-4FA5-B9FA-109A28C0C336}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,5 +183,7 @@ Global
 		{74C4EE16-E0A0-45A9-A20A-47C17A60DD16} = {77D16986-8498-49AA-B211-8F126FA13025}
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 		{08DB29E0-5863-4B33-A930-FDE1E94EE4AA} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
+		{2603751F-57CA-48FD-84EC-55983878B247} = {07FE645A-1ABB-469A-9EF2-52A58C003176}
+		{060CF450-A712-4FA5-B9FA-109A28C0C336} = {07FE645A-1ABB-469A-9EF2-52A58C003176}
 	EndGlobalSection
 EndGlobal

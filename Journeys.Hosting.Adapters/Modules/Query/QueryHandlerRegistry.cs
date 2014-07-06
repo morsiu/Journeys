@@ -1,7 +1,7 @@
 ﻿using System;
 using Journeys.Data.Queries;
 using Journeys.Application.Query;
-using Implementation = Mors.Support.Dispatching;
+using Implementation = Journeys.Support.Dispatching;
 using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Query

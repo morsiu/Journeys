@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.Command;
 using Journeys.Domain.Infrastructure;
-using Mors.Support.Transactions;
-using Implementation = Mors.Support.Repositories;
+using Journeys.Support.Transactions;
+using Implementation = Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {

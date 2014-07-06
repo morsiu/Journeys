@@ -1,5 +1,5 @@
 ﻿using Journeys.Application.EventSourcing;
-using Mors.Support.Repositories;
+using Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {

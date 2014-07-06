@@ -1,7 +1,7 @@
 ﻿using System;
 using Journeys.Hosting.Adapters.Modules.WpfClient;
-using Mors.Support.Dispatching;
-using Mors.Support.Repositories;
+using Journeys.Support.Dispatching;
+using Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Client
 {
@@ -9,7 +9,7 @@ namespace Journeys.Hosting.Client
     {
         public void Bootstrap()
         {
-            var eventBus = new Mors.Support.Events.EventBus();
+            var eventBus = new Journeys.Support.Events.EventBus();
             var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);

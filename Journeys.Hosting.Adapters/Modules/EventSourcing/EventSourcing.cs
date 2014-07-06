@@ -1,6 +1,6 @@
 ﻿using System;
 using Journeys.Application.EventSourcing;
-using Implementation = Mors.Support.EventSourcing;
+using Implementation = Journeys.Support.EventSourcing;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {

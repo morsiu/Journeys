@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.Command;
 using Journeys.Data.Queries;
 using Journeys.Hosting.Adapters.Dispatching;
-using Mors.Support.Dispatching;
+using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {

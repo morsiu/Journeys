@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.Client.Wpf;
 using Journeys.Hosting.Service.Client;
 using System;
-using Mors.Support.Dispatching;
+using Journeys.Support.Dispatching;
 using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient

@@ -1,7 +1,7 @@
 ﻿using Journeys.Application.EventSourcing;
 using Journeys.Hosting.Adapters.Modules.Domain;
-using Mors.Support.Transactions;
-using Implementation = Mors.Support.Events;
+using Journeys.Support.Transactions;
+using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
