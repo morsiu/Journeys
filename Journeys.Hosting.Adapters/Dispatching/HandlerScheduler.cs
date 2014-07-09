@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Journeys.Support.Dispatching;
+using Journeys.Support.Synchronization;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
@@ -9,8 +10,8 @@ namespace Journeys.Hosting.Adapters.Dispatching
     {
         private readonly HandlerQueue _commandQueue;
         private readonly HandlerQueue _queryQueue;
-        private readonly CountdownEvent _runningCommandHandlerCount;
-        private readonly CountdownEvent _runningQueueHandlerCount;
+        private readonly Counter _runningCommandHandlerCount;
+        private readonly Counter _runningQueueHandlerCount;
         private readonly WaitHandle[] _queueWaitHandles;
 
         public HandlerScheduler(
@@ -19,8 +20,8 @@ namespace Journeys.Hosting.Adapters.Dispatching
         {
             _commandQueue = commandQueue;
             _queryQueue = queryQueue;
-            _runningCommandHandlerCount = new CountdownEvent(0);
-            _runningQueueHandlerCount = new CountdownEvent(0);
+            _runningCommandHandlerCount = new Counter(0);
+            _runningQueueHandlerCount = new Counter(0);
             _queueWaitHandles = new[] { _commandQueue.WaitHandle, _queryQueue.WaitHandle };
         }
 
@@ -60,10 +61,10 @@ namespace Journeys.Hosting.Adapters.Dispatching
             }
         }
 
-        private void RunHandler(Action handler, CountdownEvent runningCount)
+        private void RunHandler(Action handler, Counter runningCount)
         {
-            runningCount.AddCount(1);
-            Task.Run(handler).ContinueWith(t => runningCount.Signal());
+            runningCount.Increase();
+            Task.Run(handler).ContinueWith(t => runningCount.Decrease());
         }
     }
 }
