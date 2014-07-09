@@ -1,21 +1,22 @@
-﻿using Journeys.Hosting.Adapters.Dispatching;
+﻿using System.Threading.Tasks;
+using Journeys.Hosting.Adapters.Dispatching;
 using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Service
 {
     public class ServiceQueryDispatcher
     {
-        private readonly HandlerDispatcher _handlerDispatcher;
+        private readonly AsyncHandlerDispatcher _handlerDispatcher;
 
-        public ServiceQueryDispatcher(HandlerDispatcher handlerDispatcher)
+        public ServiceQueryDispatcher(AsyncHandlerDispatcher handlerDispatcher)
         {
             _handlerDispatcher = handlerDispatcher;
         }
 
-        public object Dispatch(object query)
+        public Task<object> Dispatch(object querySpecification)
         {
-            var key = new QueryKey(query.GetType());
-            return _handlerDispatcher.Dispatch(key, query);
+            var key = new QueryKey(querySpecification.GetType());
+            return _handlerDispatcher.Dispatch(key, querySpecification);
         }
     }
 }

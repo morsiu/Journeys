@@ -1,15 +1,17 @@
-﻿using Journeys.Hosting.Adapters;
-using Journeys.Hosting.Adapters.Modules.Command;
+﻿using Journeys.Hosting.Adapters.Modules.Command;
 using Journeys.Hosting.Adapters.Modules.Query;
 using Journeys.Hosting.Adapters.Modules.EventSourcing;
 using Journeys.Support.Dispatching;
 using Journeys.Support.Repositories;
 using Journeys.Hosting.Adapters.Modules.Service;
+using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Service
 {
     internal class Bootstrapper
     {
+        private HandlerScheduler _handlerScheduler;
+
         public ServiceQueryDispatcher QueryDispatcher { get; private set; }
 
         public ServiceCommandDispatcher CommandDispatcher { get; private set; }
@@ -20,7 +22,7 @@ namespace Journeys.Hosting.Service
             var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
-
+            
             var queryBootstrapper = new Application.Query.Bootstrapper(
                 new QueryEventBus(eventBus),
                 new QueryDispatcher(handlerDispatcher),
@@ -53,8 +55,16 @@ namespace Journeys.Hosting.Service
             eventSourcingModule.ReplayEvents();
             eventSourcingModule.StoreNewEvents();
 
-            QueryDispatcher = new ServiceQueryDispatcher(handlerDispatcher);
-            CommandDispatcher = new ServiceCommandDispatcher(handlerDispatcher);
+            var commandHandlerQueue = new HandlerQueue();
+            var queryHandlerQueue = new HandlerQueue();
+            QueryDispatcher = new ServiceQueryDispatcher(new AsyncHandlerDispatcher(handlerRegistry, queryHandlerQueue));
+            CommandDispatcher = new ServiceCommandDispatcher(new AsyncHandlerDispatcher(handlerRegistry, commandHandlerQueue));
+            _handlerScheduler = new HandlerScheduler(commandHandlerQueue, queryHandlerQueue);
+        }
+
+        public void RunScheduledHandlers()
+        {
+            _handlerScheduler.Run();
         }
     }
 }

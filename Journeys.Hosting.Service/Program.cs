@@ -2,7 +2,6 @@
 using Journeys.Hosting.Service.Properties;
 using Nancy.Hosting.Self;
 using System;
-using System.Threading;
 
 namespace Journeys.Hosting.Service
 {
@@ -19,13 +18,8 @@ namespace Journeys.Hosting.Service
                 new HostConfiguration { UrlReservations = new UrlReservations { CreateAutomatically = true, User = configuration.UrlReservationUser } },
                 new Uri(configuration.HostUri));
             host.Start();
-            Wait();
-        }
 
-        private static void Wait()
-        {
-            var closeEvent = new ManualResetEvent(false);
-            closeEvent.WaitOne();
+            bootstrapper.RunScheduledHandlers();
         }
     }
 }

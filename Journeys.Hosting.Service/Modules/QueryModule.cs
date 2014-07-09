@@ -2,6 +2,8 @@
 using Journeys.Hosting.Service.Infrastructure;
 using Nancy;
 using System.IO;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace Journeys.Hosting.Service.Modules
 {
@@ -14,13 +16,13 @@ namespace Journeys.Hosting.Service.Modules
         {
             _dispatcher = dispatcher;
 
-            Post["/api/query"] = HandleQueryPost;
+            Post["/api/query", true] = HandleQueryPost;
         }
 
-        private dynamic HandleQueryPost(dynamic parameters)
+        private async Task<dynamic> HandleQueryPost(dynamic parameters, CancellationToken cancellationToken)
         {
             var query = DeserializeRequest();
-            var result = _dispatcher.Dispatch(query);
+            var result = await _dispatcher.Dispatch(query);
             return PrepareResponse(result);
         }
 

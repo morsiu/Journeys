@@ -1,20 +1,21 @@
-﻿using Journeys.Support.Dispatching;
+﻿using System.Threading.Tasks;
+using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Service
 {
     public class ServiceCommandDispatcher
     {
-        private readonly HandlerDispatcher _handlerDispatcher;
+        private readonly AsyncHandlerDispatcher _handlerDispatcher;
 
-        public ServiceCommandDispatcher(HandlerDispatcher handlerDispatcher)
+        public ServiceCommandDispatcher(AsyncHandlerDispatcher handlerDispatcher)
         {
             _handlerDispatcher = handlerDispatcher;
         }
 
-        public void Dispatch<TCommand>(TCommand commandSpecification)
+        public Task Dispatch<TCommand>(TCommand commandSpecification)
         {
-            var command = new Dispatching.Command(commandSpecification);
-            command.Execute(_handlerDispatcher);
+            var command = new Dispatching.AsyncCommand(commandSpecification);
+            return command.Execute(_handlerDispatcher);
         }
     }
 }

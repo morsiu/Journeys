@@ -1,4 +1,6 @@
-﻿using Journeys.Hosting.Adapters.Modules.Service;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Hosting.Service.Infrastructure;
 using Nancy;
 
@@ -13,13 +15,13 @@ namespace Journeys.Hosting.Service.Modules
         {
             _dispatcher = dispatcher;
 
-            Post["/api/command"] = HandleCommandPost;
+            Post["/api/command", true] = HandleCommandPost;
         }
 
-        private dynamic HandleCommandPost(dynamic parameters)
+        private async Task<dynamic> HandleCommandPost(dynamic parameters, CancellationToken cancellationToken)
         {
             var command = DeserializeRequest();
-            _dispatcher.Dispatch(command);
+            await _dispatcher.Dispatch(command);
             return PrepareResponse();
         }
 
