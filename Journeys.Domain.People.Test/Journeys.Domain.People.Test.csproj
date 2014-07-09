@@ -54,6 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
+      <Name>Journeys.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Domain.Infrastructure\Journeys.Domain.Infrastructure.csproj">
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Journeys.Domain.Infrastructure</Name>

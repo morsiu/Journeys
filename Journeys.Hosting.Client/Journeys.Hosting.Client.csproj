@@ -43,6 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Journeys.Data\Journeys.Data.csproj">
+      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
+      <Name>Journeys.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Journeys.Hosting.Adapters\Journeys.Hosting.Adapters.csproj">
       <Project>{84bdb2fa-a16e-4f70-92ef-7cced94a3405}</Project>
       <Name>Journeys.Hosting.Adapters</Name>
