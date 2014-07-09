@@ -1,5 +1,4 @@
-﻿using Journeys.Hosting.Adapters.Dispatching;
-using Journeys.Support.Dispatching;
+﻿using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Service
 {
@@ -12,10 +11,10 @@ namespace Journeys.Hosting.Adapters.Modules.Service
             _handlerDispatcher = handlerDispatcher;
         }
 
-        public void Dispatch<TCommand>(TCommand command)
+        public void Dispatch<TCommand>(TCommand commandSpecification)
         {
-            var commandAdapter = new CommandAdapter(command);
-            commandAdapter.Execute(_handlerDispatcher);
+            var command = new Dispatching.Command(commandSpecification);
+            command.Execute(_handlerDispatcher);
         }
     }
 }

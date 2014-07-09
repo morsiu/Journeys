@@ -42,7 +42,7 @@ namespace Journeys.Hosting.Adapters.Modules.WpfClient
 
         private void DispatchInternal(object command)
         {
-            var commandAdapter = new CommandAdapter(command);
+            var commandAdapter = new Dispatching.Command(command);
             commandAdapter.Execute(_handlerDispatcher);
         }
     }

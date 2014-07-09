@@ -37,10 +37,10 @@ namespace Journeys.Hosting.Adapters.Modules.WpfClient
             return result;
         }
 
-        private TResult DispatchInternal<TResult>(IQuery<TResult> query)
+        private TResult DispatchInternal<TResult>(IQuery<TResult> querySpecification)
         {
-            var queryAdapter = new QueryAdapter<TResult>(query);
-            return queryAdapter.Execute(_handlerDispatcher);
+            var query = new Query<TResult>(querySpecification);
+            return query.Execute(_handlerDispatcher);
         }
 
         private bool IsInternal(Type queryType)

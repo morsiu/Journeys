@@ -5,21 +5,21 @@ using Journeys.Support.Dispatching.Exceptions;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class CommandAdapter
+    public class Command
     {
-        private object _command;
+        private object _commandSpecification;
 
-        public CommandAdapter(object command)
+        public Command(object commandSpecification)
         {
-            _command = command;
+            _commandSpecification = commandSpecification;
         }
 
         public void Execute(HandlerDispatcher dispatcher)
         {
-            var commandKey = CommandKey.From(_command);
+            var commandKey = CommandKey.From(_commandSpecification);
             try
             {
-                dispatcher.Dispatch(commandKey, _command);
+                dispatcher.Dispatch(commandKey, _commandSpecification);
             }
             catch (HandlerNotFoundException)
             {

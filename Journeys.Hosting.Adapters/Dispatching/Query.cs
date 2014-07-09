@@ -6,21 +6,21 @@ using Journeys.Support.Dispatching.Exceptions;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class QueryAdapter<TResult>
+    public class Query<TResult>
     {
-        private IQuery<TResult> _query;
+        private IQuery<TResult> _querySpecification;
 
-        public QueryAdapter(IQuery<TResult> query)
+        public Query(IQuery<TResult> querySpecification)
         {
-            _query = query;
+            _querySpecification = querySpecification;
         }
 
         public TResult Execute(HandlerDispatcher dispatcher)
         {
-            var queryKey = QueryKey.From(_query);
+            var queryKey = QueryKey.From(_querySpecification);
             try
             {
-                return (TResult)dispatcher.Dispatch(queryKey, _query);
+                return (TResult)dispatcher.Dispatch(queryKey, _querySpecification);
             }
             catch (HandlerNotFoundException)
             {

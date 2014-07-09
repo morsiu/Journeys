@@ -13,10 +13,10 @@ namespace Journeys.Hosting.Adapters.Modules.Query
             _handlerDispatcher = handlerDispatcher;
         }
 
-        public TResult Dispatch<TResult>(IQuery<TResult> query)
+        public TResult Dispatch<TResult>(IQuery<TResult> querySpecification)
         {
-            var queryAdapter = new QueryAdapter<TResult>(query);
-            return queryAdapter.Execute(_handlerDispatcher);
+            var query = new Query<TResult>(querySpecification);
+            return query.Execute(_handlerDispatcher);
         }
     }
 }
