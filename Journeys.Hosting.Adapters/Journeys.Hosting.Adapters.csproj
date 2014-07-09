@@ -35,6 +35,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dispatching\AsyncQuery.cs" />
     <Compile Include="Dispatching\HandlerScheduler.cs" />
     <Compile Include="Dispatching\Query.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcingTransactedEventBus.cs" />
