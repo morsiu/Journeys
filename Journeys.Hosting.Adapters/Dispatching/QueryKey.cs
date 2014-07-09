@@ -3,7 +3,7 @@ using System;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    internal class QueryKey
+    internal sealed class QueryKey
     {
         private readonly Type _queryType;
 

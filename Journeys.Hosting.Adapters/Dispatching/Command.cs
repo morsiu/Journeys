@@ -5,7 +5,7 @@ using Journeys.Support.Dispatching.Exceptions;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class Command
+    public sealed class Command
     {
         private object _commandSpecification;
 

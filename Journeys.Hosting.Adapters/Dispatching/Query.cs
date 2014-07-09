@@ -6,7 +6,7 @@ using Journeys.Support.Dispatching.Exceptions;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    public class Query<TResult>
+    public sealed class Query<TResult>
     {
         private IQuery<TResult> _querySpecification;
 

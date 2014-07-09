@@ -2,7 +2,7 @@
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {
-    internal class CommandKey
+    internal sealed class CommandKey
     {
         private readonly Type _commandType;
 
