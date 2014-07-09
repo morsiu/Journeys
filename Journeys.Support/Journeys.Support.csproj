@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Dispatching\Exceptions\HandlerNotFoundException.cs" />
     <Compile Include="Dispatching\HandlerDispatcher.cs" />
+    <Compile Include="Dispatching\HandlerQueue.cs" />
     <Compile Include="Dispatching\HandlerRegistry.cs" />
     <Compile Include="EventSourcing\EventReplayConfigurator.cs" />
     <Compile Include="EventSourcing\EventReplayer.cs" />
