@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dispatching\AsyncQuery.cs" />
+    <Compile Include="Dispatching\Command.cs" />
     <Compile Include="Dispatching\HandlerScheduler.cs" />
     <Compile Include="Dispatching\Query.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcingTransactedEventBus.cs" />
@@ -47,7 +48,7 @@
     <Compile Include="Modules\Service\ServiceCommandDispatcher.cs" />
     <Compile Include="Modules\Service\ServiceQueryDispatcher.cs" />
     <Compile Include="Modules\WpfClient\WpfClientCommandHandlerRegistry.cs" />
-    <Compile Include="Dispatching\Command.cs" />
+    <Compile Include="Dispatching\AsyncCommand.cs" />
     <Compile Include="Modules\Command\CommandEventBus.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcing.cs" />
     <Compile Include="Modules\Command\CommandHandlerRegistry.cs" />
