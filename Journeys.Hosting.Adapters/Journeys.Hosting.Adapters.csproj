@@ -35,6 +35,8 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dispatching\HandlerScheduler.cs" />
+    <Compile Include="Dispatching\QueryAdapter.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcingTransactedEventBus.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcingEventBus.cs" />
     <Compile Include="Modules\EventSourcing\EventSourcingQueryDispatcher.cs" />
@@ -63,7 +65,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Modules\Command\CommandQueryDispatcher.cs" />
-    <Compile Include="Dispatching\QueryAdapter.cs" />
+    <Compile Include="Dispatching\QueryAdapter`1.cs" />
     <Compile Include="Modules\Query\QueryDispatcher.cs" />
     <Compile Include="Modules\Query\QueryEventBus.cs" />
     <Compile Include="Modules\WpfClient\WpfClientQueryHandlerRegistry.cs" />
