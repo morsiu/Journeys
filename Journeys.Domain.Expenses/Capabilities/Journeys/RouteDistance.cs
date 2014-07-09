@@ -1,5 +1,4 @@
 ﻿using Journeys.Domain.Infrastructure.Markers;
-using System;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {
