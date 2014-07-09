@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dispatching\AsyncHandlerDispatcher.cs" />
     <Compile Include="Dispatching\Exceptions\HandlerNotFoundException.cs" />
     <Compile Include="Dispatching\HandlerDispatcher.cs" />
     <Compile Include="Dispatching\HandlerQueue.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\TransactedRepositories.cs" />
     <Compile Include="Repositories\TransactedRepository.cs" />
+    <Compile Include="Synchronization\Counter.cs" />
     <Compile Include="Transactions\IProvideTransactional.cs" />
     <Compile Include="Transactions\ITransactional.cs" />
     <Compile Include="Transactions\ITransactional`1.cs" />
