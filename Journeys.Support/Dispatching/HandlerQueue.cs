@@ -15,7 +15,7 @@ namespace Journeys.Support.Dispatching
             get { return _nonEmptyQueueEvent; }
         }
 
-        public void Queue(Action handler)
+        public void Enqueue(Action handler)
         {
             lock (_accessLock)
             {
