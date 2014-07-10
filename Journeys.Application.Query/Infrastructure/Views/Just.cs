@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Application.Query.Infrastructure.Views
 {
-    internal class Just<T> : IMaybe<T>
+    internal sealed class Just<T> : IMaybe<T>
     {
         public Just(T value)
         {

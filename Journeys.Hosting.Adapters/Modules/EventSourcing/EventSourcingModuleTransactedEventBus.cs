@@ -4,7 +4,7 @@ using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    internal class EventSourcingModuleTransactedEventBus : Journeys.Support.EventSourcing.IEventBus, ITransactional<Journeys.Support.EventSourcing.IEventBus>
+    internal sealed class EventSourcingModuleTransactedEventBus : Journeys.Support.EventSourcing.IEventBus, ITransactional<Journeys.Support.EventSourcing.IEventBus>
     {
         private ITransactional<Implementation.IEventBus> _eventBus;
 

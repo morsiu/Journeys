@@ -7,7 +7,7 @@ namespace Journeys.Application.Query.Infrastructure.Views
     /// Stores values accessible by keys.
     /// The keys may be unrelated to values.
     /// </summary>
-    internal class ValueLookup<TKey, TValue>
+    internal sealed class ValueLookup<TKey, TValue>
     {
         private readonly Dictionary<TKey, TValue> _values = new Dictionary<TKey, TValue>();
 

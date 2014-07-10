@@ -5,7 +5,7 @@ using Journeys.Domain.Infrastructure.Markers;
 namespace Journeys.Domain.Expenses.Policies
 {
     [Policy]
-    public class PassengerLiftCostCalculator : IJourneyCostCalculator
+    public sealed class PassengerLiftCostCalculator : IJourneyCostCalculator
     {
         private readonly object _passengerId;
         private readonly Money _journeyCostPerKilometer;

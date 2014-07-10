@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Application.Client.Wpf.Components.Notifications
 {
-    internal class SuccessNotification
+    internal sealed class SuccessNotification
     {
         public SuccessNotification(string message)
         {

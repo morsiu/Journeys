@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
-    internal class AddJourneyWithLiftsViewModel : INotifyPropertyChanged
+    internal sealed class AddJourneyWithLiftsViewModel : INotifyPropertyChanged
     {
         private readonly ICommandDispatcher _commandDispatcher;
         private readonly IEventBus _eventBus;

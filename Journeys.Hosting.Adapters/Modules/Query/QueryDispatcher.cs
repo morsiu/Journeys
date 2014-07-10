@@ -4,7 +4,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Query
 {
-    public class QueryDispatcher : Application.Query.IQueryDispatcher
+    public sealed class QueryDispatcher : Application.Query.IQueryDispatcher
     {
         private readonly HandlerDispatcher _handlerDispatcher;
 

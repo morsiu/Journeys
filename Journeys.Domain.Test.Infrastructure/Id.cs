@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Test.Infrastructure
 {
-    public class Id
+    public sealed class Id
     {
         private readonly int _id;
 

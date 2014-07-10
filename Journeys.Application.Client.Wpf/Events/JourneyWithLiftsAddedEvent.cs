@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Application.Client.Wpf.Events
 {
-    internal class JourneyWithLiftsAddedEvent
+    internal sealed class JourneyWithLiftsAddedEvent
     {
         public object JourneyId { get; private set; }
 

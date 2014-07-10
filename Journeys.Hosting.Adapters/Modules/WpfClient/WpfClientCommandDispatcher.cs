@@ -6,7 +6,7 @@ using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientCommandDispatcher : ICommandDispatcher
+    public sealed class WpfClientCommandDispatcher : ICommandDispatcher
     {
         private readonly HandlerDispatcher _handlerDispatcher;
         private readonly Uri _commandRequestUri;

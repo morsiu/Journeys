@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Infrastructure.Markers
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Interface)]
-    public class PolicyAttribute : Attribute
+    public sealed class PolicyAttribute : Attribute
     {
     }
 }

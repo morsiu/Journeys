@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Infrastructure.Markers
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class AggregateAttribute : Attribute
+    public sealed class AggregateAttribute : Attribute
     {
     }
 }

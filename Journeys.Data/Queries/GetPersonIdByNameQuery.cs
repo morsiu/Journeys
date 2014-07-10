@@ -3,7 +3,7 @@
 namespace Journeys.Data.Queries
 {
     [DataContract]
-    public class GetPersonIdByNameQuery : IQuery<object>
+    public sealed class GetPersonIdByNameQuery : IQuery<object>
     {
         [DataMember]
         public string PersonName { get; private set; }

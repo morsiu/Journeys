@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class JourneyFinish : IJourneyEvent
+    internal sealed class JourneyFinish : IJourneyEvent
     {
         private readonly RoutePoint _endPoint;
 

@@ -4,7 +4,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Service
 {
-    public class ServiceQueryDispatcher
+    public sealed class ServiceQueryDispatcher
     {
         private readonly AsyncHandlerDispatcher _handlerDispatcher;
 

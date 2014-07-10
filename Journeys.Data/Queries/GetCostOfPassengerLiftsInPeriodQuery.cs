@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries
 {
     [DataContract]
-    public class GetCostOfPassengerLiftsInPeriodQuery : IQuery<PassengerLiftsCost>
+    public sealed class GetCostOfPassengerLiftsInPeriodQuery : IQuery<PassengerLiftsCost>
     {
         public GetCostOfPassengerLiftsInPeriodQuery(object passengerId, Period period)
         {

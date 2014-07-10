@@ -9,7 +9,7 @@ namespace Journeys.Application.Query
 {
     using PersonId = System.Object;
 
-    internal class PersonView
+    internal sealed class PersonView
     {
         private readonly ValueSet<PersonId, PersonName> _peopleNames = new ValueSet<PersonId, PersonName>(personName => personName.OwnerId);
         private readonly ValueSet<string, PersonName> _peopleByName = new ValueSet<string, PersonName>(personName => personName.Name);

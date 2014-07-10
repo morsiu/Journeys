@@ -2,7 +2,7 @@
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientIdFactory : Application.Client.Wpf.IIdFactory
+    public sealed class WpfClientIdFactory : Application.Client.Wpf.IIdFactory
     {
         private readonly GuidIdFactory _idFactory;
 

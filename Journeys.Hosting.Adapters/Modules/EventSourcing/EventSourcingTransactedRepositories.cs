@@ -5,7 +5,7 @@ using Implementation = Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    internal class EventSourcingTransactedRepositories : IRepositories, ITransactional<IRepositories>
+    internal sealed class EventSourcingTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
         private readonly ITransactional<Implementation.IRepositories> _repositories;
 

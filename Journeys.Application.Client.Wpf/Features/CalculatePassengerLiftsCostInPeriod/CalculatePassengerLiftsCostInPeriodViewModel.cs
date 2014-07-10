@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
 {
-    internal class CalculatePassengerLiftsCostInPeriodViewModel : INotifyPropertyChanged
+    internal sealed class CalculatePassengerLiftsCostInPeriodViewModel : INotifyPropertyChanged
     {
         private readonly IQueryDispatcher _queryDispatcher;
         private decimal _totalCost;

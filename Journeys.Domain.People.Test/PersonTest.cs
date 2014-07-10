@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Journeys.Domain.People.Test
 {
     [TestClass]
-    public class PersonTest
+    public sealed class PersonTest
     {
         private static readonly string PersonName = "PersonName";
         private static readonly object PersonId = new Id(0);

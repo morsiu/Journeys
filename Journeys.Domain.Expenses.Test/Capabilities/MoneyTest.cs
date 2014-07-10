@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Journeys.Domain.Expenses.Test.Capabilities
 {
     [TestClass]
-    public class MoneyTest
+    public sealed class MoneyTest
     {
         [TestMethod]
         public void ShouldHaveAmountGivenAtConstruction()

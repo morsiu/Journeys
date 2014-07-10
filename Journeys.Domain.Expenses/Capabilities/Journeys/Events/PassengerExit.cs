@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class PassengerExit : IJourneyEvent
+    internal sealed class PassengerExit : IJourneyEvent
     {
         private readonly object _passengerId;
         private readonly RoutePoint _point;

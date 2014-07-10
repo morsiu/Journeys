@@ -2,7 +2,7 @@
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class JourneyCalendarsControl : Control
+    internal sealed class JourneyCalendarsControl : Control
     {
     }
 }

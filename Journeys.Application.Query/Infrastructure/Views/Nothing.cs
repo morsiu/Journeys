@@ -3,7 +3,7 @@ using Journeys.Application.Query.Messages;
 
 namespace Journeys.Application.Query.Infrastructure.Views
 {
-    internal class Nothing<T> : IMaybe<T>
+    internal sealed class Nothing<T> : IMaybe<T>
     {
         public T Value
         {

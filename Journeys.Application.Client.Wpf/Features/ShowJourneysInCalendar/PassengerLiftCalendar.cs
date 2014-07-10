@@ -4,7 +4,7 @@ using Data = Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class PassengerLiftCalendar
+    internal sealed class PassengerLiftCalendar
     {
         private readonly CalendarContentProvider _contentProvider;
         private readonly Passenger _passenger;

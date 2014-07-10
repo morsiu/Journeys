@@ -3,7 +3,7 @@ using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.Query
 {
-    public class QueryEventBus : Application.Query.IEventBus
+    public sealed class QueryEventBus : Application.Query.IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

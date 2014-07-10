@@ -5,7 +5,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class CommandQueryDispatcher : IQueryDispatcher
+    public sealed class CommandQueryDispatcher : IQueryDispatcher
     {
         private readonly HandlerDispatcher _handlerDispatcher;
 

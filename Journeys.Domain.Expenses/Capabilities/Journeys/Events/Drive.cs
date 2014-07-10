@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class Drive
+    internal sealed class Drive
     {
         public Drive(RouteDistance distance)
         {

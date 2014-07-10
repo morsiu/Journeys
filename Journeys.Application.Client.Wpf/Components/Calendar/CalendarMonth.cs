@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace Journeys.Application.Client.Wpf.Components.Calendar
 {
-    internal class CalendarMonth : INotifyPropertyChanged
+    internal sealed class CalendarMonth : INotifyPropertyChanged
     {
         private readonly CalendarDayCollection _days = new CalendarDayCollection();
         private int _monthOfYear;

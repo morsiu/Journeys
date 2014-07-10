@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Commands
 {
     [DataContract]
-    public class AddJourneyWithLiftsCommand
+    public sealed class AddJourneyWithLiftsCommand
     {
         [DataMember]
         public object JourneyId { get; private set; }

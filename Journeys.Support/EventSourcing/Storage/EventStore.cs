@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Journeys.Support.EventSourcing.Storage
 {
-    internal class EventStore
+    internal sealed class EventStore
     {
         private readonly string _fileName;
         private readonly IEnumerable<Type> _eventTypesToSupport;

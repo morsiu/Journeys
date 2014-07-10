@@ -5,7 +5,7 @@ using Implementation = Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    public class EventSourcingRepositories : IRepositories
+    public sealed class EventSourcingRepositories : IRepositories
     {
         private readonly Implementation.IRepositories _repositories;
 

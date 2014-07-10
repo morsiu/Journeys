@@ -3,7 +3,7 @@ using Journeys.Data.Commands;
 
 namespace Journeys.Application.Command
 {
-    public class Bootstrapper
+    public sealed class Bootstrapper
     {
         private readonly IEventBus _eventBus;
         private readonly IRepositories _repositories;

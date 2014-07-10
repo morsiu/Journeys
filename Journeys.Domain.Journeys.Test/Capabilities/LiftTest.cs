@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Journeys.Domain.Journeys.Test.Capabilities
 {
     [TestClass]
-    public class LiftTest
+    public sealed class LiftTest
     {
         private static readonly object PersonId = new Id(0);
         private static readonly object AnotherPersonId = new Id(1);

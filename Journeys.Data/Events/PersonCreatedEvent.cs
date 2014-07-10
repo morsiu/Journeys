@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Events
 {
     [DataContract]
-    public class PersonCreatedEvent
+    public sealed class PersonCreatedEvent
     {
         public PersonCreatedEvent(object id, string name)
         {

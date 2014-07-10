@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class MonthSelector : INotifyPropertyChanged
+    internal sealed class MonthSelector : INotifyPropertyChanged
     {
         private Month _current;
 

@@ -3,7 +3,7 @@ using Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class CommandIdFactory : IIdFactory
+    public sealed class CommandIdFactory : IIdFactory
     {
         private readonly GuidIdFactory _idFactory;
 

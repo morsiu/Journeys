@@ -4,7 +4,7 @@ using Implementation = Journeys.Support.EventSourcing;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    public class EventSourcing : IEventSourcing
+    public sealed class EventSourcing : IEventSourcing
     {
         private readonly Implementation.Module _eventSourcingModule;
 

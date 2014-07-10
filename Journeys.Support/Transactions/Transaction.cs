@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Support.Transactions
 {
-    public class Transaction
+    public sealed class Transaction
     {
         private HashSet<ITransactional> _transactables = new HashSet<ITransactional>();
 

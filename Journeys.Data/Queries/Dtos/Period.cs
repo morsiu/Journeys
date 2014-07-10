@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class Period
+    public sealed class Period
     {
         public Period(DateTime start, DateTime end)
         {

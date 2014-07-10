@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Journeys.Application.Query
 {
-    internal class JourneysByPassengerThenMonthThenDayView
+    internal sealed class JourneysByPassengerThenMonthThenDayView
     {
         private readonly ValueLookup<Key, Value> _facts = new ValueLookup<Key, Value>();
         private readonly ValueSet<object, JourneyCreatedEvent> _journeys = new ValueSet<object, JourneyCreatedEvent>(journey => journey.JourneyId);

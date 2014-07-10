@@ -6,7 +6,7 @@ using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class CalendarContentProvider
+    internal sealed class CalendarContentProvider
     {
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly Dictionary<Key, JourneyDaySummary> _contents;

@@ -5,7 +5,7 @@ using System;
 
 namespace Journeys.Hosting.Service
 {
-    public class Program
+    public sealed class Program
     {
         public static void Main()
         {

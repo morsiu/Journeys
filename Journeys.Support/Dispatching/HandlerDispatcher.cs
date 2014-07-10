@@ -3,7 +3,7 @@ using Journeys.Support.Dispatching.Exceptions;
 
 namespace Journeys.Support.Dispatching
 {
-    public class HandlerDispatcher
+    public sealed class HandlerDispatcher
     {
         private readonly HandlerRegistry _registry;
 

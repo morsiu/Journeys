@@ -3,7 +3,7 @@
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class Lift
+    public sealed class Lift
     {
         public Lift(object passengerId, decimal distance)
         {

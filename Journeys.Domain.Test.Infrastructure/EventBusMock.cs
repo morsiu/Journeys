@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    public class EventBusMock : IEventBus
+    public sealed class EventBusMock : IEventBus
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 

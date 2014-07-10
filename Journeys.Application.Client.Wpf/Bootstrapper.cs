@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Application.Client.Wpf
 {
-    public class Bootstrapper
+    public sealed class Bootstrapper
     {
         private readonly IEventBus _eventBus;
         private readonly ICommandDispatcher _commandDispatcher;

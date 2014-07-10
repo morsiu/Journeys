@@ -8,7 +8,7 @@ using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Service
 {
-    internal class Bootstrapper
+    internal sealed class Bootstrapper
     {
         private HandlerScheduler _handlerScheduler;
 

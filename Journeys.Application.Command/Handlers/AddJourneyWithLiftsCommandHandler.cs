@@ -7,7 +7,7 @@ using Journeys.Support.Transactions;
 
 namespace Journeys.Application.Command.Handlers
 {
-    internal class AddJourneyWithLiftsCommandHandler
+    internal sealed class AddJourneyWithLiftsCommandHandler
     {
         private readonly Transaction _transaction;
         private readonly IEventBus _eventBus;

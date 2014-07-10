@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Infrastructure.Markers
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class FactoryAttribute : Attribute
+    public sealed class FactoryAttribute : Attribute
     {
     }
 }

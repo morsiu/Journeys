@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Expenses.Capabilities.Journeys.Events
 {
-    internal class JourneyStart : IJourneyEvent
+    internal sealed class JourneyStart : IJourneyEvent
     {
         public void Visit(IJourneyVisitor visitor)
         {

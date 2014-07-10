@@ -2,7 +2,7 @@
 
 namespace Journeys.Application.Query.Infrastructure
 {
-    internal class Period
+    internal sealed class Period
     {
         private readonly DateTime _end;
         private readonly DateTime _start;

@@ -5,7 +5,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class CommandHandlerRegistry : ICommandHandlerRegistry
+    public sealed class CommandHandlerRegistry : ICommandHandlerRegistry
     {
         private readonly HandlerRegistry _handlerRegistry;
 

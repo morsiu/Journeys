@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
-    internal class AddJourneyWithLiftsControl : Control
+    internal sealed class AddJourneyWithLiftsControl : Control
     {
         public AddJourneyWithLiftsControl()
         {

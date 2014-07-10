@@ -8,7 +8,7 @@ using Period = Journeys.Application.Query.Infrastructure.Period;
 
 namespace Journeys.Application.Query
 {
-    internal class JourneyView
+    internal sealed class JourneyView
     {
         private readonly ValueSet<object, JourneyCreatedEvent> _journeys;
         private readonly ValueMultiSet<object, LiftAddedEvent> _lifts;

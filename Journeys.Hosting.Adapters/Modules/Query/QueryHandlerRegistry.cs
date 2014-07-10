@@ -6,7 +6,7 @@ using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Query
 {
-    public class QueryHandlerRegistry : IQueryHandlerRegistry
+    public sealed class QueryHandlerRegistry : IQueryHandlerRegistry
     {
         private readonly Implementation.HandlerRegistry _handlerRegistry;
 

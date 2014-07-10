@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class JourneyDaySummary : INotifyPropertyChanged
+    internal sealed class JourneyDaySummary : INotifyPropertyChanged
     {
         private Value _value;
 

@@ -7,7 +7,7 @@ using Dtos = Journeys.Data.Queries.Dtos;
 
 namespace Journeys.Application.Query
 {
-    internal class PassengerLiftExpensesCalculator
+    internal sealed class PassengerLiftExpensesCalculator
     {
         private readonly IQueryDispatcher _queryDispatcher;
 

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
-    internal class LiftViewModel : INotifyPropertyChanged
+    internal sealed class LiftViewModel : INotifyPropertyChanged
     {
         private string _passengerName;
         private decimal _liftDistance;

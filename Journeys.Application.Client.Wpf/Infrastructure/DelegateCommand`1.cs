@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Infrastructure
 {
-    internal class DelegateCommand<TParameter> : ICommand
+    internal sealed class DelegateCommand<TParameter> : ICommand
     {
         private readonly Action<TParameter> _handler;
 

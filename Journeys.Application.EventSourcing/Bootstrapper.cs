@@ -3,7 +3,7 @@ using Journeys.Data.Events;
 
 namespace Journeys.Application.EventSourcing
 {
-    public class Bootstrapper
+    public sealed class Bootstrapper
     {
         private readonly IEventBus _eventBus;
         private readonly IRepositories _repositories;

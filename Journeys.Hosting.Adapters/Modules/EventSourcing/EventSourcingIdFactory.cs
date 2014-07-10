@@ -3,7 +3,7 @@ using Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    public class EventSourcingIdFactory : IIdFactory
+    public sealed class EventSourcingIdFactory : IIdFactory
     {
         private readonly GuidIdFactory _idFactory;
 

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries
 {
     [DataContract]
-    public class GetPeopleNamesQuery : IQuery<IEnumerable<PersonName>>
+    public sealed class GetPeopleNamesQuery : IQuery<IEnumerable<PersonName>>
     {
     }
 }

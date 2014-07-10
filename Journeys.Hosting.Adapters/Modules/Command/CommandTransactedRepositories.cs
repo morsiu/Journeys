@@ -5,7 +5,7 @@ using Implementation = Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    internal class CommandTransactedRepositories : IRepositories, ITransactional<IRepositories>
+    internal sealed class CommandTransactedRepositories : IRepositories, ITransactional<IRepositories>
     {
         private readonly ITransactional<Implementation.IRepositories> _repositories;
 

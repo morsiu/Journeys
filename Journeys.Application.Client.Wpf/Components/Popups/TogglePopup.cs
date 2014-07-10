@@ -5,7 +5,7 @@ using System.Windows.Controls.Primitives;
 namespace Journeys.Application.Client.Wpf.Components.Popups
 {
     [TemplatePart(Name = "PART_Toggle", Type = typeof(ToggleButton))]
-    internal class TogglePopup : ContentControl
+    internal sealed class TogglePopup : ContentControl
     {
         public static readonly DependencyProperty ToggleContentProperty = DependencyProperty.Register("ToggleContent", typeof(object), typeof(TogglePopup));
         public static readonly DependencyProperty ToggleContentStringFormatProperty = DependencyProperty.Register("ToggleContentStringFormat", typeof(string), typeof(TogglePopup));

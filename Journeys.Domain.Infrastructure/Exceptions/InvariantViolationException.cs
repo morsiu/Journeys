@@ -6,7 +6,7 @@ namespace Journeys.Domain.Infrastructure.Exceptions
     /// Exceptions used by bussiness objects to report failure of performed operation because of invariant violation.
     /// </summary>
     [Serializable]
-    public class InvariantViolationException : Exception
+    public sealed class InvariantViolationException : Exception
     {
         public InvariantViolationException(string message)
             : base(message)

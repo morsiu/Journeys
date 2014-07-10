@@ -2,7 +2,7 @@
 
 namespace Journeys.Application.Client.Wpf.Components.Notifications
 {
-    internal class NotifierControl : ItemsControl
+    internal sealed class NotifierControl : ItemsControl
     {
     }
 }

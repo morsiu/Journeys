@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class Month
+    internal sealed class Month
     {
         public Month(int year, int monthInYear) 
         {

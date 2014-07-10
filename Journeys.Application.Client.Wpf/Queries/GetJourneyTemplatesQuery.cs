@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Application.Client.Wpf.Queries
 {
-    internal class GetJourneyTemplatesQuery : IQuery<IEnumerable<JourneyTemplate>>
+    internal sealed class GetJourneyTemplatesQuery : IQuery<IEnumerable<JourneyTemplate>>
     {
     }
 }

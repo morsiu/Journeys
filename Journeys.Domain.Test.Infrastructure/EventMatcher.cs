@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Domain.Test.Infrastructure
 {
-    public class EventMatcher
+    public sealed class EventMatcher
     {
         private readonly List<object> _receivedEvents = new List<object>();
 

@@ -3,7 +3,7 @@ using Journeys.Data.Events;
 
 namespace Journeys.Application.EventSourcing.EventReplayers
 {
-    internal class PersonCreatedEventReplayer
+    internal sealed class PersonCreatedEventReplayer
     {
         private readonly IRepositories _repositories;
         private readonly IEventBus _eventBus;

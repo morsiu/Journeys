@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class JourneyWithLift
+    public sealed class JourneyWithLift
     {
         public JourneyWithLift(
             object journeyId,

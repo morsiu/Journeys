@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries
 {
     [DataContract]
-    public class GetJourneysByPassengerThenMonthThenDayQuery : IQuery<IEnumerable<Fact>>
+    public sealed class GetJourneysByPassengerThenMonthThenDayQuery : IQuery<IEnumerable<Fact>>
     {
     }
 }

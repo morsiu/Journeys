@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Journeys.Support.EventSourcing.Storage
 {
-    internal class XmlEventWriter
+    internal sealed class XmlEventWriter
     {
         private readonly DataContractSerializer _serializer;
         private readonly XmlWriter _writer;

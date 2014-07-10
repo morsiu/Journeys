@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace Journeys.Application.Client.Wpf.Components.Calendar
 {
-    internal class CalendarDay : INotifyPropertyChanged
+    internal sealed class CalendarDay : INotifyPropertyChanged
     {
         private readonly int _dayOfMonth;
         private object _content;

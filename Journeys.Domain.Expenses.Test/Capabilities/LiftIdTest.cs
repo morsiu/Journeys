@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Journeys.Domain.Expenses.Test.Capabilities
 {
     [TestClass]
-    public class LiftIdTest
+    public sealed class LiftIdTest
     {
         [TestMethod]
         public void EqualsShouldReturnTrueForInstancesWithSameJourneyAndPersonIds()
@@ -44,7 +44,7 @@ namespace Journeys.Domain.Expenses.Test.Capabilities
         public void EqualsShouldReturnFalseForInstancesWhereSecondIsNotLiftId()
         {
             var a = new LiftId(new Id(0), new Id(1));
-            var b = new Id();
+            var b = new Id(0);
 
             var result = a.Equals(b);
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class JourneyCalendarsViewModel
+    internal sealed class JourneyCalendarsViewModel
     {
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly IEventBus _eventBus;

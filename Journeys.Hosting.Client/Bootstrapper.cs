@@ -5,7 +5,7 @@ using Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Client
 {
-    internal class Bootstrapper
+    internal sealed class Bootstrapper
     {
         public void Bootstrap()
         {

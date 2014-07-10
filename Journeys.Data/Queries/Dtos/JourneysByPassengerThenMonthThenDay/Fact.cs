@@ -3,7 +3,7 @@
 namespace Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay
 {
     [DataContract]
-    public class Fact
+    public sealed class Fact
     {
         public Fact(Key key, Value value)
         {

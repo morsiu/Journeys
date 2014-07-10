@@ -3,7 +3,7 @@
 namespace Journeys.Data.Commands.Dtos
 {
     [DataContract]
-    public class Lift
+    public sealed class Lift
     {
         public Lift(string personName, decimal liftDistance)
         {

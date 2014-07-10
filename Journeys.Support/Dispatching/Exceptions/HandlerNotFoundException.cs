@@ -3,7 +3,7 @@
 namespace Journeys.Support.Dispatching.Exceptions
 {
     [Serializable]
-    public class HandlerNotFoundException : Exception
+    public sealed class HandlerNotFoundException : Exception
     {
     }
 }

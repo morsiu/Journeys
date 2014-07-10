@@ -6,7 +6,7 @@ using Implementation = Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientQueryDispatcher : Application.Client.Wpf.IQueryDispatcher
+    public sealed class WpfClientQueryDispatcher : Application.Client.Wpf.IQueryDispatcher
     {
         private readonly Uri _queryRequestUri;
         private readonly Implementation.HandlerDispatcher _handlerDispatcher;

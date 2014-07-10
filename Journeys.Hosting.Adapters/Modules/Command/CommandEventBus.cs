@@ -5,7 +5,7 @@ using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class CommandEventBus : IEventBus
+    public sealed class CommandEventBus : IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

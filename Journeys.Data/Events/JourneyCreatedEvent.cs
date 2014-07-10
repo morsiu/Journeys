@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Events
 {
     [DataContract]
-    public class JourneyCreatedEvent
+    public sealed class JourneyCreatedEvent
     {
         public JourneyCreatedEvent(object journeyId, DateTime dateOfOccurrence, decimal routeDistance)
         {

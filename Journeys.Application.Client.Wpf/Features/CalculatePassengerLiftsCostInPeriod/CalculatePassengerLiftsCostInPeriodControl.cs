@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
 {
-    internal class CalculatePassengerLiftsCostInPeriodControl : Control
+    internal sealed class CalculatePassengerLiftsCostInPeriodControl : Control
     {
         public CalculatePassengerLiftsCostInPeriodControl()
         {

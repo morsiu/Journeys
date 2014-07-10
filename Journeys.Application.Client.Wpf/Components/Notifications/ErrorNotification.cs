@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Application.Client.Wpf.Components.Notifications
 {
-    internal class ErrorNotification
+    internal sealed class ErrorNotification
     {
         public ErrorNotification(string message)
         {

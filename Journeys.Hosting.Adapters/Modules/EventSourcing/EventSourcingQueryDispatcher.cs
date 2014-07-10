@@ -5,7 +5,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
-    public class EventSourcingQueryDispatcher : IQueryDispatcher
+    public sealed class EventSourcingQueryDispatcher : IQueryDispatcher
     {
         private readonly HandlerDispatcher _handlerDispatcher;
 

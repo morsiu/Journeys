@@ -2,7 +2,7 @@
 
 namespace Journeys.Hosting.Adapters.Modules.Domain
 {
-    public class DomainEventBusAdapter : Journeys.Domain.Infrastructure.IEventBus
+    public sealed class DomainEventBusAdapter : Journeys.Domain.Infrastructure.IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

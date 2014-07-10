@@ -6,7 +6,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientQueryHandlerRegistry : IQueryHandlerRegistry
+    public sealed class WpfClientQueryHandlerRegistry : IQueryHandlerRegistry
     {
         private readonly HandlerRegistry _handlerRegistry;
 

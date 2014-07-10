@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries
 {
     [DataContract]
-    public class GetJourneysInPeriodQuery : IQuery<IEnumerable<Journey>>
+    public sealed class GetJourneysInPeriodQuery : IQuery<IEnumerable<Journey>>
     {
         public GetJourneysInPeriodQuery(Period period)
         {

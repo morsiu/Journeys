@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Journeys.Application.Client.Wpf.Components.Calendar
 {
-    internal class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
+    internal sealed class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
     {
         private const int AvailableDaysCount = 31;
         private CalendarDay[] _availableDays;

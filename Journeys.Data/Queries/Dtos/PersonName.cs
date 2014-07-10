@@ -3,7 +3,7 @@
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class PersonName
+    public sealed class PersonName
     {
         public PersonName(object ownerId, string name)
         {

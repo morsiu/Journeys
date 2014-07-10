@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
-    internal class Passenger
+    internal sealed class Passenger
     {
         private readonly PersonName _passengerName;
 

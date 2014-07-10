@@ -9,7 +9,7 @@ using System;
 namespace Journeys.Domain.Journeys.Test.Operations
 {
     [TestClass]
-    public class JourneyTest
+    public sealed class JourneyTest
     {
         private static readonly object JourneyId = new Id(0);
         private static readonly object PersonId = new Id(0);

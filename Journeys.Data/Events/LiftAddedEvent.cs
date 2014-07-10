@@ -3,7 +3,7 @@
 namespace Journeys.Data.Events
 {
     [DataContract]
-    public class LiftAddedEvent
+    public sealed class LiftAddedEvent
     {
         public LiftAddedEvent(object journeyId, object personId, decimal liftDistance)
         {

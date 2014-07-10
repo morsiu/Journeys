@@ -5,7 +5,7 @@ using System;
 namespace Journeys.Domain.Journeys.Test.Capabilities
 {
     [TestClass]
-    public class DistanceTest
+    public sealed class DistanceTest
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]

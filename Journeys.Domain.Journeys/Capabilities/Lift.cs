@@ -3,7 +3,7 @@
 namespace Journeys.Domain.Journeys.Capabilities
 {
     [ValueObject]
-    internal class Lift
+    internal sealed class Lift
     {
         private readonly object _personId;
 

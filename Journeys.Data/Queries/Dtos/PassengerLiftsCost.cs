@@ -3,7 +3,7 @@
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class PassengerLiftsCost
+    public sealed class PassengerLiftsCost
     {
         public PassengerLiftsCost(decimal totalConst)
         {

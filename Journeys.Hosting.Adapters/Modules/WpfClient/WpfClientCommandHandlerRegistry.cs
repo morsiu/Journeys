@@ -4,7 +4,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientCommandHandlerRegistry : Application.Client.Wpf.ICommandHandlerRegistry
+    public sealed class WpfClientCommandHandlerRegistry : Application.Client.Wpf.ICommandHandlerRegistry
     {
         private readonly HandlerRegistry _handlerRegistry;
 

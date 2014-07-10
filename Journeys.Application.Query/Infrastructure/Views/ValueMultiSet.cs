@@ -4,7 +4,7 @@ using Journeys.Application.Query.Messages;
 
 namespace Journeys.Application.Query.Infrastructure.Views
 {
-    internal class ValueMultiSet<TKey, TValue>
+    internal sealed class ValueMultiSet<TKey, TValue>
     {
         private static readonly IReadOnlyCollection<TValue> _emptyList = new List<TValue>();
         private readonly Func<TValue, TKey> _keyGenerator;

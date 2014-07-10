@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Journeys.Domain.Expenses.Test.Capabilities
 {
     [TestClass]
-    public class ExpenseListTest
+    public sealed class ExpenseListTest
     {
         private static object Id = new Id(1);
 

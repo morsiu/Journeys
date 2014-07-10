@@ -4,7 +4,7 @@ using Journeys.Data.Events;
 
 namespace Journeys.Application.EventSourcing.EventReplayers
 {
-    internal class JourneyCreatedEventReplayer
+    internal sealed class JourneyCreatedEventReplayer
     {
         private readonly IRepositories _journeyRepository;
         private readonly IEventBus _eventBus;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Journeys.Support.Dispatching
 {
-    public class HandlerRegistry
+    public sealed class HandlerRegistry
     {
         private readonly Dictionary<object, Func<object, object>> _handlers;
 

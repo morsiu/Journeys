@@ -6,7 +6,7 @@ using JourneysByPassengerThenMonthThenDay = Journeys.Data.Queries.Dtos.JourneysB
 
 namespace Journeys.Application.Query
 {
-    public class Bootstrapper
+    public sealed class Bootstrapper
     {
         private readonly IEventBus _eventBus;
         private readonly IQueryHandlerRegistry _queryHandlerRegistry;

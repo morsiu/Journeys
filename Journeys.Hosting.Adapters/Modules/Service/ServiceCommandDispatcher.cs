@@ -3,7 +3,7 @@ using Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Service
 {
-    public class ServiceCommandDispatcher
+    public sealed class ServiceCommandDispatcher
     {
         private readonly AsyncHandlerDispatcher _handlerDispatcher;
 

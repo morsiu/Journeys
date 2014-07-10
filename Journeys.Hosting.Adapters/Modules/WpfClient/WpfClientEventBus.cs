@@ -3,7 +3,7 @@ using Implementation = Journeys.Support.Events;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {
-    public class WpfClientEventBus : Application.Client.Wpf.IEventBus
+    public sealed class WpfClientEventBus : Application.Client.Wpf.IEventBus
     {
         private readonly Implementation.IEventBus _eventBus;
 

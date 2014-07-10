@@ -2,7 +2,7 @@
 
 namespace Journeys.Application.Client.Wpf.Components.Notifications
 {
-    internal class NotifierViewModel
+    internal sealed class NotifierViewModel
     {
         public NotifierViewModel()
         {

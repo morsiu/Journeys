@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace Journeys.Data.Queries.Dtos
 {
     [DataContract]
-    public class JourneysOnDay
+    public sealed class JourneysOnDay
     {
         public JourneysOnDay(DateTime day, int journeyCount, decimal totalRouteDistance, decimal totalLiftDistance)
         {

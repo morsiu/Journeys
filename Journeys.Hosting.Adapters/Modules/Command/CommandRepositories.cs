@@ -6,7 +6,7 @@ using Implementation = Journeys.Support.Repositories;
 
 namespace Journeys.Hosting.Adapters.Modules.Command
 {
-    public class CommandRepositories : IRepositories
+    public sealed class CommandRepositories : IRepositories
     {
         private readonly Implementation.IRepositories _repositories;
 
