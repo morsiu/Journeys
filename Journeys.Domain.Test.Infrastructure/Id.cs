@@ -1,6 +1,6 @@
 ﻿namespace Journeys.Domain.Test.Infrastructure
 {
-    public struct Id
+    public class Id
     {
         private readonly int _id;
 

@@ -9,7 +9,7 @@ namespace Journeys.Hosting.Client
     {
         public void Bootstrap()
         {
-            var eventBus = new Journeys.Support.Events.EventBus();
+            var eventBus = new Support.Events.EventBus();
             var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);

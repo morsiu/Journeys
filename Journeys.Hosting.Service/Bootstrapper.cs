@@ -18,7 +18,7 @@ namespace Journeys.Hosting.Service
 
         public void Bootstrap(string eventFileName)
         {
-            var eventBus = new Journeys.Support.Events.EventBus();
+            var eventBus = new Support.Events.EventBus();
             var idFactory = new GuidIdFactory();
             var handlerRegistry = new HandlerRegistry();
             var handlerDispatcher = new HandlerDispatcher(handlerRegistry);
@@ -31,7 +31,7 @@ namespace Journeys.Hosting.Service
 
             var repositories = new Repositories();
 
-            var eventSourcingModule = new Journeys.Support.EventSourcing.Module(
+            var eventSourcingModule = new Support.EventSourcing.Module(
                 new EventSourcingModuleEventBus(eventBus),
                 idFactory.IdImplementationType,
                 eventFileName);
