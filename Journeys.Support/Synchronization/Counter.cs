@@ -4,8 +4,8 @@ namespace Journeys.Support.Synchronization
 {
     public sealed class Counter
     {
+        private readonly EventWaitHandle _event;
         private int _count;
-        private EventWaitHandle _event;
 
         public Counter(int initialCount)
         {
