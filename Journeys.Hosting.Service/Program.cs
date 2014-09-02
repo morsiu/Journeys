@@ -15,7 +15,7 @@ namespace Journeys.Hosting.Service
             var hostBoostrapper = new HostBootstrapper(bootstrapper.QueryDispatcher, bootstrapper.CommandDispatcher, configuration.SitePath);
             var host = new NancyHost(
                 hostBoostrapper,
-                new HostConfiguration { UrlReservations = new UrlReservations { CreateAutomatically = true, User = configuration.UrlReservationUser } },
+                new HostConfiguration { UrlReservations = new UrlReservations { CreateAutomatically = configuration.CreateUrlReservation, User = configuration.UrlReservationUser } },
                 new Uri(configuration.HostUri));
             host.Start();
 
