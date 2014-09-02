@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.21730.1
+VisualStudioVersion = 14.0.22013.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Test.Infrastructure", "Journeys.Domain.Test.Infrastructure\Journeys.Domain.Test.Infrastructure.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
@@ -36,13 +36,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Domain.Expenses.Test", "Journeys.Domain.Expenses.Test\Journeys.Domain.Expenses.Test.csproj", "{1863C2F1-A11C-4C1F-A079-A9A27D755193}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Hosting.Service", "Journeys.Hosting.Service\Journeys.Hosting.Service.csproj", "{3AEB7039-C984-4CFE-9143-DD443962E927}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A9654D1E-8C4D-4CBC-9D3B-FE16FAEBE84D}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Journeys.Hosting.Service.Client", "Journeys.Hosting.Service.Client\Journeys.Hosting.Service.Client.csproj", "{74C4EE16-E0A0-45A9-A20A-47C17A60DD16}"
 EndProject
