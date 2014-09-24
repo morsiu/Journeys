@@ -61,7 +61,6 @@
     <Compile Include="Events\TransactedEventBus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Exceptions\EntityNotFoundException.cs" />
-    <Compile Include="Repositories\GuidId.cs" />
     <Compile Include="Repositories\GuidIdFactory.cs" />
     <Compile Include="Repositories\InMemoryRepository.cs" />
     <Compile Include="Repositories\IRepositories.cs" />

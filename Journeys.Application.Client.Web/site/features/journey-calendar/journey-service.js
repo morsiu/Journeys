@@ -8,7 +8,7 @@
         }).success(function (response) {
             var facts = {};
             response.forEach(function (fact) {
-                var passengerId = fact.Key.Passenger.Id._id;
+                var passengerId = fact.Key.Passenger.Id;
                 var month = fact.Key.Month.MonthOfYear - 1;
                 var year = fact.Key.Month.Year;
                 var day = fact.Key.Day.DayOfMonth;

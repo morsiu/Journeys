@@ -32,9 +32,7 @@
             $scope.journeys = {};
             $scope.passenger = {
                 Name: '',
-                OwnerId: {
-                    _id: ''
-                }
+                OwnerId: ''
             };
             $scope.calendar = this;
         }]

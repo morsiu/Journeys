@@ -4,14 +4,14 @@ namespace Journeys.Support.Repositories
 {
     public sealed class GuidIdFactory
     {
-        public GuidId Create()
+        public Guid Create()
         {
-            return new GuidId(Guid.NewGuid());
+            return Guid.NewGuid();
         }
 
         public Type IdImplementationType
         {
-            get { return typeof(GuidId); }
+            get { return typeof(Guid); }
         }
     }
 }
