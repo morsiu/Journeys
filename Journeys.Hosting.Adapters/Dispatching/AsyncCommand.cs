@@ -8,7 +8,7 @@ namespace Journeys.Hosting.Adapters.Dispatching
 {
     public sealed class AsyncCommand
     {
-        private object _commandSpecification;
+        private readonly object _commandSpecification;
 
         public AsyncCommand(object commandSpecification)
         {

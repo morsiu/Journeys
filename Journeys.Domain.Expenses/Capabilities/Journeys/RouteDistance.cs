@@ -1,6 +1,6 @@
 ﻿using Journeys.Domain.Infrastructure.Markers;
 
-namespace Journeys.Domain.Expenses.Capabilities
+namespace Journeys.Domain.Expenses.Capabilities.Journeys
 {
     [ValueObject]
     internal struct RouteDistance

@@ -7,7 +7,7 @@ namespace Journeys.Hosting.Adapters.Dispatching
 {
     public sealed class Command
     {
-        private object _commandSpecification;
+        private readonly object _commandSpecification;
 
         public Command(object commandSpecification)
         {

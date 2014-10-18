@@ -8,7 +8,7 @@ namespace Journeys.Hosting.Adapters.Dispatching
 {
     public sealed class Query<TResult>
     {
-        private IQuery<TResult> _querySpecification;
+        private readonly IQuery<TResult> _querySpecification;
 
         public Query(IQuery<TResult> querySpecification)
         {

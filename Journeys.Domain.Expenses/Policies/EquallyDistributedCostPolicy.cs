@@ -5,18 +5,18 @@ using Journeys.Domain.Infrastructure.Markers;
 namespace Journeys.Domain.Expenses.Policies
 {
     [Policy]
-    public sealed class PassengerLiftCostCalculator : IJourneyCostCalculator
+    public sealed class EquallyDistributedCostPolicy : IJourneyCostPolicy
     {
         private readonly object _passengerId;
         private readonly Money _journeyCostPerKilometer;
 
-        public PassengerLiftCostCalculator(Money journeyCostPerKilometer, object passengerId)
+        public EquallyDistributedCostPolicy(Money journeyCostPerKilometer, object passengerId)
         {
             _journeyCostPerKilometer = journeyCostPerKilometer;
             _passengerId = passengerId;
         }
 
-        public Expense Calculate(Journey journey)
+        public Expense CalculateCost(Journey journey)
         {
             var visitor = new JourneyVisitor(_journeyCostPerKilometer, _passengerId);
             journey.Visit(visitor);

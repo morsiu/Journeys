@@ -5,7 +5,7 @@ namespace Journeys.Support.Transactions
 {
     public sealed class Transaction
     {
-        private HashSet<ITransactional> _transactables = new HashSet<ITransactional>();
+        private readonly HashSet<ITransactional> _transactables = new HashSet<ITransactional>();
 
         public TObject Register<TObject>(IProvideTransactional<TObject> @object)
         {

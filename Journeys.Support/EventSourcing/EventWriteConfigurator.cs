@@ -7,7 +7,7 @@ namespace Journeys.Support.EventSourcing
     {
         private readonly HashSet<Action<IEventBus, IEventWriter>> _eventWriteConfigurators = new HashSet<Action<IEventBus, IEventWriter>>();
 
-        public void Add<TEvent>(Action<TEvent> replayHandler)
+        public void Add<TEvent>()
         {
             _eventWriteConfigurators.Add(ConfigureEventWrite<TEvent>);
         }
@@ -22,7 +22,7 @@ namespace Journeys.Support.EventSourcing
 
         private static void ConfigureEventWrite<TEvent>(IEventBus eventBus, IEventWriter eventWriter)
         {
-            eventBus.RegisterListener<TEvent>(eventWriter.Write<TEvent>);
+            eventBus.RegisterListener<TEvent>(eventWriter.Write);
         }
     }
 }

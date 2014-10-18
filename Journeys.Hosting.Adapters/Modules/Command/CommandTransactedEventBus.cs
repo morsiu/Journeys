@@ -7,7 +7,7 @@ namespace Journeys.Hosting.Adapters.Modules.Command
 {
     internal sealed class CommandTransactedEventBus : IEventBus, ITransactional<IEventBus>
     {
-        private ITransactional<Implementation.IEventBus> _eventBus;
+        private readonly ITransactional<Implementation.IEventBus> _eventBus;
 
         public CommandTransactedEventBus(Implementation.IEventBus eventBus)
         {

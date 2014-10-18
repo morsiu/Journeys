@@ -58,8 +58,8 @@
     <Compile Include="Capabilities\Journeys\Events\PassengerPickup.cs" />
     <Compile Include="Capabilities\Journeys\Events\JourneyStart.cs" />
     <Compile Include="Capabilities\IJourneyVisitor.cs" />
-    <Compile Include="Policies\IJourneyCostCalculator.cs" />
-    <Compile Include="Policies\PassengerLiftCostCalculator.cs" />
+    <Compile Include="Policies\IJourneyCostPolicy.cs" />
+    <Compile Include="Policies\EquallyDistributedCostPolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

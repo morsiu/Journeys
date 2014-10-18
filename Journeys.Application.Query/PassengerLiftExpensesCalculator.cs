@@ -18,7 +18,7 @@ namespace Journeys.Application.Query
         public Data.Queries.Dtos.PassengerLiftsCost Execute(GetCostOfPassengerLiftsInPeriodQuery query)
         {
             var journeysInPeriod = _queryDispatcher.Dispatch(new GetJourneysInPeriodQuery(query.Period));
-            var clerk = new Clerk(new PassengerLiftCostCalculator(new Money(25m / 100m), query.PassengerId));
+            var clerk = new Clerk(new EquallyDistributedCostPolicy(new Money(25m / 100m), query.PassengerId));
 
             var journeys = BuildJourneys(journeysInPeriod);
             var liftsExpenses = clerk.CalculateExpenses(journeys);

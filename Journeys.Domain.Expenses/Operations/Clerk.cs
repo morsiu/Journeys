@@ -8,11 +8,11 @@ namespace Journeys.Domain.Expenses.Operations
     [Service]
     public sealed class Clerk
     {
-        private readonly IJourneyCostCalculator _journeyCostCalculator;
+        private readonly IJourneyCostPolicy _journeyCostPolicy;
 
-        public Clerk(IJourneyCostCalculator journeyCostCalculator)
+        public Clerk(IJourneyCostPolicy journeyCostPolicy)
         {
-            _journeyCostCalculator = journeyCostCalculator;
+            _journeyCostPolicy = journeyCostPolicy;
         }
 
         public ExpenseList CalculateExpenses(IEnumerable<Journey> journeys)
@@ -20,7 +20,7 @@ namespace Journeys.Domain.Expenses.Operations
             var expenseList = new ExpenseList();
             foreach (var journey in journeys)
             {
-                var journeyExpense = _journeyCostCalculator.Calculate(journey);
+                var journeyExpense = _journeyCostPolicy.CalculateCost(journey);
                 expenseList.AddExpense(journeyExpense);
             }
             return expenseList;

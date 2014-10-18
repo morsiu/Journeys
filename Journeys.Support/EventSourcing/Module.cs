@@ -38,8 +38,8 @@ namespace Journeys.Support.EventSourcing
         public void Register<TEvent>(Action<TEvent> replayHandler)
         {
             var eventType = typeof(TEvent);
-            _eventWriteConfigurator.Add<TEvent>(replayHandler);
-            _eventReplayConfigurator.Add<TEvent>(replayHandler);
+            _eventWriteConfigurator.Add<TEvent>();
+            _eventReplayConfigurator.Add(replayHandler);
             _typesOfEventsToStore.Add(eventType);
         }
 

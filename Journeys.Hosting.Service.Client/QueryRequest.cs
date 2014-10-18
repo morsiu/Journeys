@@ -12,7 +12,6 @@ namespace Journeys.Hosting.Service.Client
 
         public QueryRequest(Uri requestUri, object query)
         {
-            var queryType = query.GetType();
             _requestUri = requestUri;
             _query = query;
             _serializer = new NetDataContractSerializer();

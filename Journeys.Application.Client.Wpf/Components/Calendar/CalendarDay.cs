@@ -53,7 +53,7 @@ namespace Journeys.Application.Client.Wpf.Components.Calendar
             get 
             {
                 var dayOfWeek = CultureInfo.CurrentCulture.Calendar.GetDayOfWeek(_date);
-                return dayOfWeek == System.DayOfWeek.Sunday
+                return dayOfWeek == DayOfWeek.Sunday
                     ? 6
                     : (int)dayOfWeek - 1;
             }
@@ -63,8 +63,8 @@ namespace Journeys.Application.Client.Wpf.Components.Calendar
         {
             get
             {
-                var weekOfMonthFirst = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(new DateTime(_date.Year, _date.Month, 1), CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday);
-                var weekOfCurrent = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(_date, CalendarWeekRule.FirstFourDayWeek, System.DayOfWeek.Monday);
+                var weekOfMonthFirst = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(new DateTime(_date.Year, _date.Month, 1), CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+                var weekOfCurrent = CultureInfo.CurrentCulture.Calendar.GetWeekOfYear(_date, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
                 return weekOfCurrent < weekOfMonthFirst
                     ? weekOfCurrent
                     : weekOfCurrent - weekOfMonthFirst;

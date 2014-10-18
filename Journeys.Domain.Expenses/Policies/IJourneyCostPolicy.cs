@@ -4,8 +4,8 @@ using Journeys.Domain.Infrastructure.Markers;
 namespace Journeys.Domain.Expenses.Policies
 {
     [Policy]
-    public interface IJourneyCostCalculator
+    public interface IJourneyCostPolicy
     {
-        Expense Calculate(Journey journey);
+        Expense CalculateCost(Journey journey);
     }
 }

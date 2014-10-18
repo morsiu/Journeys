@@ -28,7 +28,7 @@ namespace Journeys.Hosting.Adapters.Modules.WpfClient
             }
         }
 
-        private bool IsInternal(Type commandType)
+        private static bool IsInternal(Type commandType)
         {
             return !commandType.IsPublic;
         }

@@ -59,8 +59,7 @@ namespace Journeys.Hosting.Service.Infrastructure
         private static string SelectContentType(IEnumerable<Tuple<string,decimal>> contentTypes)
         {
             return contentTypes.Select(ct => ct.Item1)
-                .Where(ct => MatchContentType(ct) != ContentType.Unknown)
-                .FirstOrDefault();
+                .FirstOrDefault(ct => MatchContentType(ct) != ContentType.Unknown);
         }
 
         private static ContentType MatchContentType(string contentType)

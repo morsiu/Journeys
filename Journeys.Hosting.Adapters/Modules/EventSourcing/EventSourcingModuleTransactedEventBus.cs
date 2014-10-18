@@ -6,7 +6,7 @@ namespace Journeys.Hosting.Adapters.Modules.EventSourcing
 {
     internal sealed class EventSourcingModuleTransactedEventBus : Journeys.Support.EventSourcing.IEventBus, ITransactional<Journeys.Support.EventSourcing.IEventBus>
     {
-        private ITransactional<Implementation.IEventBus> _eventBus;
+        private readonly ITransactional<Implementation.IEventBus> _eventBus;
 
         public EventSourcingModuleTransactedEventBus(Implementation.IEventBus eventBus)
         {

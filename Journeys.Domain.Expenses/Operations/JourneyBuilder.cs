@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Journeys.Domain.Expenses.Capabilities;
+using Journeys.Domain.Expenses.Capabilities.Journeys;
 
 namespace Journeys.Domain.Expenses.Operations
 {
