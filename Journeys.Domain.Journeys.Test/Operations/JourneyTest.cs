@@ -1,10 +1,10 @@
-﻿using Journeys.Domain.Infrastructure.Exceptions;
+﻿using System;
+using Journeys.Data.Events;
+using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.Test.Infrastructure;
-using Journeys.Data.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace Journeys.Domain.Journeys.Test.Operations
 {

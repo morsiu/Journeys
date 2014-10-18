@@ -1,6 +1,6 @@
-﻿using Journeys.Application.Client.Wpf.Settings;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Journeys.Application.Client.Wpf.Settings;
 
 namespace Journeys.Application.Client.Wpf.Commands
 {

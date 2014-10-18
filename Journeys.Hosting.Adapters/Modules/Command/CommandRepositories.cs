@@ -1,5 +1,4 @@
-﻿using Journeys.Application;
-using Journeys.Application.Command;
+﻿using Journeys.Application.Command;
 using Journeys.Domain.Infrastructure;
 using Journeys.Support.Transactions;
 using Implementation = Journeys.Support.Repositories;

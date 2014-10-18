@@ -1,8 +1,8 @@
 ﻿using Journeys.Data.Commands;
+using Journeys.Data.Queries;
 using Journeys.Domain.Journeys.Capabilities;
 using Journeys.Domain.Journeys.Operations;
 using Journeys.Domain.People;
-using Journeys.Data.Queries;
 using Journeys.Support.Transactions;
 
 namespace Journeys.Application.Command.Handlers

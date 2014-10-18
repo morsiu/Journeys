@@ -1,6 +1,6 @@
-﻿using Journeys.Domain.Infrastructure.Exceptions;
+﻿using Journeys.Data.Events;
+using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Test.Infrastructure;
-using Journeys.Data.Events;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Journeys.Domain.People.Test

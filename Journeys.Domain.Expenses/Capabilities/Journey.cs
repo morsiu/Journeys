@@ -1,7 +1,7 @@
-﻿using Journeys.Domain.Expenses.Capabilities.Journeys;
+﻿using System.Collections.Generic;
+using Journeys.Domain.Expenses.Capabilities.Journeys;
 using Journeys.Domain.Expenses.Capabilities.Journeys.Events;
 using Journeys.Domain.Infrastructure.Markers;
-using System.Collections.Generic;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {

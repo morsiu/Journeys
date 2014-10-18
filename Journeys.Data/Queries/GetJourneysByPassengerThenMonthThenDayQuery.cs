@@ -1,6 +1,6 @@
-﻿using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Data.Queries
 {

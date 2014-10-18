@@ -1,5 +1,5 @@
-﻿using Journeys.Data.Queries.Dtos;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
+using Journeys.Data.Queries.Dtos;
 
 namespace Journeys.Data.Queries
 {

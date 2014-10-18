@@ -1,11 +1,8 @@
-﻿using Journeys.Application.Client.Wpf.Events;
-using Journeys.Data.Queries;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Journeys.Application.Client.Wpf.Events;
+using Journeys.Data.Queries;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {

@@ -1,7 +1,7 @@
-﻿using Journeys.Data.Queries;
+﻿using System;
+using Journeys.Data.Queries;
 using Journeys.Hosting.Adapters.Dispatching;
 using Journeys.Hosting.Service.Client;
-using System;
 using Implementation = Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient

@@ -1,8 +1,8 @@
-﻿using Journeys.Application.Client.Wpf.Commands;
-using Journeys.Application.Client.Wpf.Queries;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Journeys.Application.Client.Wpf.Commands;
+using Journeys.Application.Client.Wpf.Queries;
 
 namespace Journeys.Application.Client.Wpf.Settings
 {

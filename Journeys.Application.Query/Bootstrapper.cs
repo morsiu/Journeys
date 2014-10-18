@@ -2,7 +2,6 @@
 using Journeys.Data.Events;
 using Journeys.Data.Queries;
 using Journeys.Data.Queries.Dtos;
-using JourneysByPassengerThenMonthThenDay = Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Application.Query
 {
@@ -27,7 +26,7 @@ namespace Journeys.Application.Query
             _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             var journeysByPassengerThenMonthThenDayView = new JourneysByPassengerThenMonthThenDayView();
-            _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<JourneysByPassengerThenMonthThenDay.Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
+            _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay.Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenMonthThenDayView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenMonthThenDayView.Update);
 

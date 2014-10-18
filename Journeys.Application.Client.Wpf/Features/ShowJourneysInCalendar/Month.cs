@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal sealed class Month

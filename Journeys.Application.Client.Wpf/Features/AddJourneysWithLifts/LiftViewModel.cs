@@ -1,6 +1,6 @@
-﻿using Journeys.Data.Commands.Dtos;
+﻿using System.ComponentModel;
 using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
-using System.ComponentModel;
+using Journeys.Data.Commands.Dtos;
 
 namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {

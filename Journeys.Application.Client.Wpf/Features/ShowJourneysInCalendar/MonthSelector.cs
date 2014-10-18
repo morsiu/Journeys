@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Windows.Input;
 using Journeys.Application.Client.Wpf.Infrastructure;
 using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
-using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {

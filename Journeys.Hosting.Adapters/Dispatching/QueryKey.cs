@@ -1,5 +1,5 @@
-﻿using Journeys.Data.Queries;
-using System;
+﻿using System;
+using Journeys.Data.Queries;
 
 namespace Journeys.Hosting.Adapters.Dispatching
 {

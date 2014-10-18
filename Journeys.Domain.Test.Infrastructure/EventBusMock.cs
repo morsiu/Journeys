@@ -1,6 +1,6 @@
-﻿using Journeys.Domain.Infrastructure;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Journeys.Domain.Infrastructure;
 
 namespace Journeys.Domain.Test.Infrastructure
 {

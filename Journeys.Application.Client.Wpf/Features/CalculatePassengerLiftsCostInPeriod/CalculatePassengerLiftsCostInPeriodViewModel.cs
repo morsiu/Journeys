@@ -1,12 +1,12 @@
-﻿using Journeys.Application.Client.Wpf.Infrastructure;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Data.Queries;
-using Journeys.Data.Queries.Dtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
+using Journeys.Application.Client.Wpf.Infrastructure;
+using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos;
 
 namespace Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
 {

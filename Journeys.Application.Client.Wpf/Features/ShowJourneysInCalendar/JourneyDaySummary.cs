@@ -1,6 +1,6 @@
-﻿using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+﻿using System.ComponentModel;
+using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
-using System.ComponentModel;
 
 namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {

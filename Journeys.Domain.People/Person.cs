@@ -1,7 +1,7 @@
-﻿using Journeys.Domain.Infrastructure;
+﻿using Journeys.Data.Events;
+using Journeys.Domain.Infrastructure;
 using Journeys.Domain.Infrastructure.Exceptions;
 using Journeys.Domain.Infrastructure.Markers;
-using Journeys.Data.Events;
 
 namespace Journeys.Domain.People
 {

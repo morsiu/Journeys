@@ -1,9 +1,9 @@
-﻿using Journeys.Hosting.Adapters.Modules.Service;
+﻿using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Hosting.Service.Infrastructure;
 using Nancy;
-using System.IO;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace Journeys.Hosting.Service.Modules
 {

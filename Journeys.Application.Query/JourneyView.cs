@@ -1,9 +1,9 @@
-﻿using Journeys.Data.Events;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Journeys.Application.Query.Infrastructure.Views;
+using Journeys.Data.Events;
 using Journeys.Data.Queries;
 using Journeys.Data.Queries.Dtos;
-using Journeys.Application.Query.Infrastructure.Views;
-using System.Collections.Generic;
-using System.Linq;
 using Period = Journeys.Application.Query.Infrastructure.Period;
 
 namespace Journeys.Application.Query

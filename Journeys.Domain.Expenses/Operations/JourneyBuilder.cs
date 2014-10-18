@@ -1,7 +1,7 @@
-﻿using Journeys.Domain.Expenses.Capabilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Journeys.Domain.Expenses.Capabilities;
 
 namespace Journeys.Domain.Expenses.Operations
 {

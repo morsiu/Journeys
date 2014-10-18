@@ -1,10 +1,10 @@
-﻿using Journeys.Hosting.Adapters.Modules.Command;
-using Journeys.Hosting.Adapters.Modules.Query;
+﻿using Journeys.Hosting.Adapters.Dispatching;
+using Journeys.Hosting.Adapters.Modules.Command;
 using Journeys.Hosting.Adapters.Modules.EventSourcing;
+using Journeys.Hosting.Adapters.Modules.Query;
+using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Support.Dispatching;
 using Journeys.Support.Repositories;
-using Journeys.Hosting.Adapters.Modules.Service;
-using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Service
 {

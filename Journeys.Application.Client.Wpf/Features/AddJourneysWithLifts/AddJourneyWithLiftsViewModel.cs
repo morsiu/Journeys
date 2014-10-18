@@ -1,4 +1,10 @@
-﻿using Journeys.Application.Client.Wpf.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Input;
+using Journeys.Application.Client.Wpf.Commands;
 using Journeys.Application.Client.Wpf.Components.Notifications;
 using Journeys.Application.Client.Wpf.Events;
 using Journeys.Application.Client.Wpf.Infrastructure;
@@ -7,12 +13,6 @@ using Journeys.Application.Client.Wpf.Queries;
 using Journeys.Application.Client.Wpf.Settings;
 using Journeys.Data.Commands;
 using Journeys.Data.Queries;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Windows.Input;
 
 namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {

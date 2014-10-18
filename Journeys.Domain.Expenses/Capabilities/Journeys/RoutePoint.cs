@@ -1,5 +1,5 @@
-﻿using Journeys.Domain.Infrastructure.Markers;
-using System;
+﻿using System;
+using Journeys.Domain.Infrastructure.Markers;
 
 namespace Journeys.Domain.Expenses.Capabilities
 {

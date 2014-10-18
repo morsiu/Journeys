@@ -1,8 +1,8 @@
 ﻿using System;
-using Journeys.Data.Queries;
 using Journeys.Application.Query;
-using Implementation = Journeys.Support.Dispatching;
+using Journeys.Data.Queries;
 using Journeys.Hosting.Adapters.Dispatching;
+using Implementation = Journeys.Support.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.Query
 {

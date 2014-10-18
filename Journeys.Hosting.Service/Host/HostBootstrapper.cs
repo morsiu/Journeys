@@ -1,11 +1,11 @@
-﻿using Journeys.Hosting.Adapters.Modules.Service;
+﻿using System.Collections.Generic;
+using System.IO;
+using Journeys.Hosting.Adapters.Modules.Service;
 using Journeys.Hosting.Service.Modules;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.TinyIoc;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Journeys.Hosting.Service.Host
 {

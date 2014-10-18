@@ -1,8 +1,7 @@
-﻿using Journeys.Application.Client.Wpf;
+﻿using System;
+using Journeys.Application.Client.Wpf;
 using Journeys.Hosting.Service.Client;
-using System;
 using Journeys.Support.Dispatching;
-using Journeys.Hosting.Adapters.Dispatching;
 
 namespace Journeys.Hosting.Adapters.Modules.WpfClient
 {

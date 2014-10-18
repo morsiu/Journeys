@@ -1,7 +1,7 @@
-﻿using Journeys.Application.Client.Wpf.Commands;
+﻿using System.Collections.Generic;
+using Journeys.Application.Client.Wpf.Commands;
 using Journeys.Application.Client.Wpf.Queries;
 using Journeys.Application.Client.Wpf.Settings;
-using System.Collections.Generic;
 
 namespace Journeys.Application.Client.Wpf
 {

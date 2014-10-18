@@ -1,10 +1,10 @@
-﻿using Journeys.Data.Events;
-using Journeys.Data.Queries;
-using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
-using Journeys.Application.Query.Infrastructure.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Journeys.Application.Query.Infrastructure.Views;
+using Journeys.Data.Events;
+using Journeys.Data.Queries;
+using Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
 namespace Journeys.Application.Query
 {

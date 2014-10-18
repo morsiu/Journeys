@@ -1,7 +1,7 @@
-﻿using Journeys.Hosting.Service.Host;
+﻿using System;
+using Journeys.Hosting.Service.Host;
 using Journeys.Hosting.Service.Properties;
 using Nancy.Hosting.Self;
-using System;
 
 namespace Journeys.Hosting.Service
 {
