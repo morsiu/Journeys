@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Mors.Journeys.Domain.Expenses.Capabilities;
 using Mors.Journeys.Domain.Expenses.Capabilities.Journeys;
+using Mors.Journeys.Domain.Infrastructure.Markers;
 
 namespace Mors.Journeys.Domain.Expenses.Operations
 {
+    [Factory]
     public sealed class JourneyBuilder
     {
         private readonly object _journeyId;

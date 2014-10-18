@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9B8FA1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Domain.People", "Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj", "{30B2309F-655F-442F-9210-2A38A8B80949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Application", "Mors.Journeys.Application.Command\Mors.Journeys.Application.csproj", "{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Application", "Mors.Journeys.Application\Mors.Journeys.Application.csproj", "{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Domain.Journeys.Test", "Mors.Journeys.Domain.Journeys.Test\Mors.Journeys.Domain.Journeys.Test.csproj", "{3C1183F7-C94B-4E6A-8487-0D39D52E1F57}"
 EndProject

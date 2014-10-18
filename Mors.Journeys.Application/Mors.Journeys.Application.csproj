@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="QueryHandlers\AddJourneyWithLiftsCommandHandler.cs" />
+    <Compile Include="CommandHandlers\AddJourneyWithLiftsCommandHandler.cs" />
     <Compile Include="EventReplayers\JourneyCreatedEventReplayer.cs" />
     <Compile Include="EventReplayers\LiftAddedEventReplayer.cs" />
     <Compile Include="EventReplayers\PersonCreatedEventReplayer.cs" />
@@ -63,23 +63,23 @@
     <Compile Include="QueryHandlers\PersonView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Journeys.Data\Mors.Journeys.Data.csproj">
+    <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
       <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
       <Name>Mors.Journeys.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj">
+    <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj">
       <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
       <Name>Mors.Journeys.Domain.Expenses</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj">
+    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj">
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Mors.Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj">
+    <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj">
       <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
       <Name>Mors.Journeys.Domain.Journeys</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Journeys.Domain.People\Mors.Journeys.Domain.People.csproj">
+    <ProjectReference Include="..\Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj">
       <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
       <Name>Mors.Journeys.Domain.People</Name>
     </ProjectReference>
@@ -93,9 +93,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommandHandlers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
