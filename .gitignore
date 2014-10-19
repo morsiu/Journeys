@@ -165,3 +165,4 @@ TemporaryGeneratedFile_*.cs
 *.dll
 /Journeys.Hosting.Service/data
 *.ide
+*.nupkg

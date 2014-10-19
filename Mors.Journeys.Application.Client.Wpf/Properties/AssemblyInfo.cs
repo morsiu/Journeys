@@ -8,7 +8,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Mors.Journeys.Application.Client.Wpf")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Łukasz Mrozek")]
 [assembly: AssemblyProduct("Mors.Journeys.Application.Client.Wpf")]
 [assembly: AssemblyCopyright("Copyright © Łukasz Mrozek 2013")]
 [assembly: AssemblyTrademark("")]

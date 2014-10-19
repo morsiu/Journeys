@@ -38,7 +38,8 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mors.AppPlatform.Common">
+    <Reference Include="Mors.AppPlatform.Common, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Mors.AppPlatform.Common.1.2.0.0\lib\net45\Mors.AppPlatform.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -58,11 +59,8 @@
     <Compile Include="Components\Settings\SettingSelector.cs" />
     <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodControl.cs" />
     <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodViewModel.cs" />
-    <Compile Include="ICommandHandlerRegistry.cs" />
     <Compile Include="Infrastructure\DelegateCommand`1.cs" />
-    <Compile Include="IQueryHandlerRegistry.cs" />
     <Compile Include="Queries\GetJourneyTemplatesQuery.cs" />
-    <Compile Include="QueryHandler.cs" />
     <Compile Include="Settings\JourneyTemplate.cs" />
     <Compile Include="Settings\JourneyTemplateCollection.cs" />
     <Compile Include="Settings\LiftTemplate.cs" />
@@ -86,9 +84,6 @@
     <Compile Include="Features\ShowJourneysInCalendar\Passenger.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsViewModel.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.cs" />
-    <Compile Include="ICommandDispatcher.cs" />
-    <Compile Include="IEventBus.cs" />
-    <Compile Include="IIdFactory.cs" />
     <Compile Include="Infrastructure\Extensions\CollectionChangedEventExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\EventExtensions.cs">
       <SubType>Code</SubType>
@@ -99,7 +94,6 @@
     <Compile Include="Components\Notifications\NotifierControl.cs" />
     <Compile Include="Components\Notifications\NotifierViewModel.cs" />
     <Compile Include="Components\Notifications\SuccessNotification.cs" />
-    <Compile Include="IQueryDispatcher.cs" />
     <Page Include="Components\Popups\TogglePopup.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -158,6 +152,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
