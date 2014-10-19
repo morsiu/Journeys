@@ -8,11 +8,11 @@ using Mors.Journeys.Domain.Expenses.Policies;
 
 namespace Mors.Journeys.Application.QueryHandlers
 {
-    internal sealed class PassengerLiftExpensesCalculator
+    internal sealed class PassengerLiftCostCalculator
     {
         private readonly IQueryDispatcher _queryDispatcher;
 
-        public PassengerLiftExpensesCalculator(IQueryDispatcher queryDispatcher)
+        public PassengerLiftCostCalculator(IQueryDispatcher queryDispatcher)
         {
             _queryDispatcher = queryDispatcher;
         }

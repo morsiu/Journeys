@@ -59,7 +59,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="QueryHandlers\PassengerLiftExpensesCalculator.cs" />
+    <Compile Include="QueryHandlers\PassengerLiftCostCalculator.cs" />
     <Compile Include="QueryHandlers\PersonView.cs" />
   </ItemGroup>
   <ItemGroup>

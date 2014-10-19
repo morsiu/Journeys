@@ -76,7 +76,7 @@ namespace Mors.Journeys.Application
             _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
             _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
 
-            var passengerLiftsCostCalculator = new PassengerLiftExpensesCalculator(_queryDispatcher);
+            var passengerLiftsCostCalculator = new PassengerLiftCostCalculator(_queryDispatcher);
             _queryHandlerRegistry.SetHandler<GetCostOfPassengerLiftsInPeriodQuery, PassengerLiftsCost>(passengerLiftsCostCalculator.Execute);
         }
     }
