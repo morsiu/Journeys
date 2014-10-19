@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Journeys.Application.Client.Wpf
+namespace Mors.Journeys.Application.Client.Wpf
 {
     public interface IEventBus
     {

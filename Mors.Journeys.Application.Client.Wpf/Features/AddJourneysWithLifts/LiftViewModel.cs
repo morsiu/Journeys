@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 using Mors.Journeys.Data.Commands.Dtos;
 
-namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
+namespace Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
     internal sealed class LiftViewModel : INotifyPropertyChanged
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 
-namespace Journeys.Application.Client.Wpf.Components.Calendar
+namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
 {
     internal sealed class CalendarDay : INotifyPropertyChanged
     {

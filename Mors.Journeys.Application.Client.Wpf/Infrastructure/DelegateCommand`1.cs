@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Journeys.Application.Client.Wpf.Infrastructure
+namespace Mors.Journeys.Application.Client.Wpf.Infrastructure
 {
     internal sealed class DelegateCommand<TParameter> : ICommand
     {

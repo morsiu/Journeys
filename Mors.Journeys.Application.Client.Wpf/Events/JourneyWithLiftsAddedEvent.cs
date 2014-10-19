@@ -1,4 +1,4 @@
-﻿namespace Journeys.Application.Client.Wpf.Events
+﻿namespace Mors.Journeys.Application.Client.Wpf.Events
 {
     internal sealed class JourneyWithLiftsAddedEvent
     {

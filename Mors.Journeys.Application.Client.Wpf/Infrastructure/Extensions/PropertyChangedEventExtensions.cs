@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 
-namespace Journeys.Application.Client.Wpf.Infrastructure.Extensions
+namespace Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions
 {
     internal static class PropertyChangedEventExtensions
     {

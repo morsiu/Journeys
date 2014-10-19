@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Journeys.Application.Client.Wpf.Settings;
 using Mors.AppPlatform.Common;
+using Mors.Journeys.Application.Client.Wpf.Settings;
 
-namespace Journeys.Application.Client.Wpf.Queries
+namespace Mors.Journeys.Application.Client.Wpf.Queries
 {
     internal sealed class GetJourneyTemplatesQuery : IQuery<IEnumerable<JourneyTemplate>>
     {

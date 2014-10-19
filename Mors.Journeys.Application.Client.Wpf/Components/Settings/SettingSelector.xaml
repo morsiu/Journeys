@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:c="clr-namespace:Journeys.Application.Client.Wpf.Components.Settings">
-    <Style TargetType="c:SettingSelector">
+                    xmlns:settings="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Settings">
+    <Style TargetType="settings:SettingSelector">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="c:SettingSelector">
+                <ControlTemplate TargetType="settings:SettingSelector">
                     <Grid HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                         <Grid.ColumnDefinitions>

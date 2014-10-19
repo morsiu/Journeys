@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Journeys.Application.Client.Wpf.Commands;
-using Journeys.Application.Client.Wpf.Queries;
-using Journeys.Application.Client.Wpf.Settings;
+using Mors.Journeys.Application.Client.Wpf.Commands;
+using Mors.Journeys.Application.Client.Wpf.Queries;
+using Mors.Journeys.Application.Client.Wpf.Settings;
 
-namespace Journeys.Application.Client.Wpf
+namespace Mors.Journeys.Application.Client.Wpf
 {
     public sealed class Bootstrapper
     {
@@ -32,9 +32,8 @@ namespace Journeys.Application.Client.Wpf
 
         public void Bootstrap()
         {
-            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Settings.Settings.Default.Execute);
-
-            _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Settings.Settings.Default.Handle);
+            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Properties.Settings.Default.Execute);
+            _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Properties.Settings.Default.Handle);
         }
 
         public void Run()

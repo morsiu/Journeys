@@ -1,14 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:f="clr-namespace:Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod"
-                    xmlns:s="clr-namespace:Journeys.Application.Client.Wpf.Components.Settings"
                     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-                    xmlns:p="clr-namespace:Journeys.Application.Client.Wpf.Components.Popups">
-    <Style TargetType="f:CalculatePassengerLiftsCostInPeriodControl">
+                    xmlns:calculatePassengerLiftsCostInPeriod="clr-namespace:Mors.Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod"
+                    xmlns:popups="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Popups">
+    <Style TargetType="calculatePassengerLiftsCostInPeriod:CalculatePassengerLiftsCostInPeriodControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="f:CalculatePassengerLiftsCostInPeriodControl">
-                    <p:TogglePopup ToggleContent="Calculate lifts cost">
+                <ControlTemplate TargetType="calculatePassengerLiftsCostInPeriod:CalculatePassengerLiftsCostInPeriodControl">
+                    <popups:TogglePopup ToggleContent="Calculate lifts cost">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition />
@@ -40,7 +39,7 @@
                             <TextBlock Text="{Binding TotalCost, StringFormat='Total lifts cost is {0:F2}.'}" Grid.Row="1" />
                             <Button x:Name="CalculateButton" Content="Calculate" Grid.Row="2" />
                         </Grid>
-                    </p:TogglePopup>
+                    </popups:TogglePopup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Journeys.Application.Client.Wpf.Settings {
+namespace Mors.Journeys.Application.Client.Wpf.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,9 +25,9 @@ namespace Journeys.Application.Client.Wpf.Settings {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection JourneyTemplates {
+        public global::Mors.Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection JourneyTemplates {
             get {
-                return ((global::Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection)(this["JourneyTemplates"]));
+                return ((global::Mors.Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection)(this["JourneyTemplates"]));
             }
             set {
                 this["JourneyTemplates"] = value;

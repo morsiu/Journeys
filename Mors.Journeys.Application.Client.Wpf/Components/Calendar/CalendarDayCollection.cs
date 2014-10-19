@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Application.Client.Wpf.Infrastructure.Interfaces;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Interfaces;
 
-namespace Journeys.Application.Client.Wpf.Components.Calendar
+namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
 {
     internal sealed class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
     {

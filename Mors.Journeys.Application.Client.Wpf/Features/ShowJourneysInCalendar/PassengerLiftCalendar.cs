@@ -1,7 +1,7 @@
 ﻿using System;
-using Journeys.Application.Client.Wpf.Components.Calendar;
+using Mors.Journeys.Application.Client.Wpf.Components.Calendar;
 
-namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
+namespace Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal sealed class PassengerLiftCalendar
     {

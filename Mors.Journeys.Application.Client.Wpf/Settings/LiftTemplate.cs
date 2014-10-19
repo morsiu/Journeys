@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Journeys.Application.Client.Wpf.Settings
+namespace Mors.Journeys.Application.Client.Wpf.Settings
 {
     [Serializable]
     public sealed class LiftTemplate

@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:g="clr-namespace:System.Globalization;assembly=mscorlib"
                     xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
-                    xmlns:c="clr-namespace:Journeys.Application.Client.Wpf.Components.Calendar"
-                    xmlns:f="clr-namespace:Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar">
-    <Style TargetType="f:JourneyCalendarsControl">
+                    xmlns:showJourneysInCalendar="clr-namespace:Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar"
+                    xmlns:c="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Calendar">
+    <Style TargetType="showJourneysInCalendar:JourneyCalendarsControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="f:JourneyCalendarsControl">
+                <ControlTemplate TargetType="showJourneysInCalendar:JourneyCalendarsControl">
                     <ControlTemplate.Resources>
-                        <DataTemplate DataType="{x:Type f:MonthSelector}">
+                        <DataTemplate DataType="{x:Type showJourneysInCalendar:MonthSelector}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
@@ -30,7 +30,7 @@
                                         Content="&gt;" />
                             </Grid>
                         </DataTemplate>
-                        <DataTemplate DataType="{x:Type f:JourneyDaySummary}">
+                        <DataTemplate DataType="{x:Type showJourneysInCalendar:JourneyDaySummary}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
@@ -92,7 +92,7 @@
                                 </ItemsControl.ItemContainerStyle>
                             </ItemsControl>
                         </DataTemplate>
-                        <DataTemplate DataType="{x:Type f:PassengerLiftCalendar}">
+                        <DataTemplate DataType="{x:Type showJourneysInCalendar:PassengerLiftCalendar}">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />

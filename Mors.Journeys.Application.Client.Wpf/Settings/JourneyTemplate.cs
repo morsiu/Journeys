@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Journeys.Application.Client.Wpf.Settings
+namespace Mors.Journeys.Application.Client.Wpf.Settings
 {
     [Serializable]
     public sealed class JourneyTemplate

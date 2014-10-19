@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 
-namespace Journeys.Application.Client.Wpf.Components.Settings
+namespace Mors.Journeys.Application.Client.Wpf.Components.Settings
 {
     [TemplatePart(Name = "PART_Selector", Type = typeof(Selector))]
     [TemplatePart(Name = "PART_Load", Type = typeof(ButtonBase))]

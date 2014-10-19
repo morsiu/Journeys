@@ -1,14 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:f="clr-namespace:Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts"
-                    xmlns:s="clr-namespace:Journeys.Application.Client.Wpf.Components.Settings"
                     xmlns:cm="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-                    xmlns:n="clr-namespace:Journeys.Application.Client.Wpf.Components.Notifications"
-                    xmlns:p="clr-namespace:Journeys.Application.Client.Wpf.Components.Popups">
-    <Style TargetType="f:AddJourneyWithLiftsControl">
+                    xmlns:addJourneysWithLifts="clr-namespace:Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts"
+                    xmlns:popups="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Popups"
+                    xmlns:settings="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Settings"
+                    xmlns:notifications="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Notifications">
+    <Style TargetType="addJourneysWithLifts:AddJourneyWithLiftsControl">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="f:AddJourneyWithLiftsControl">
+                <ControlTemplate TargetType="addJourneysWithLifts:AddJourneyWithLiftsControl">
                     <ControlTemplate.Resources>
                         <Style x:Key="EditableComboBoxStyle" TargetType="ComboBox">
                             <Setter Property="IsEditable" Value="True"/>
@@ -22,8 +22,8 @@
                                                          Converter={StaticResource BooleanToVisibilityConverter}}"/>
                         </DataTemplate>
                     </ControlTemplate.Resources>
-                    <p:TogglePopup ToggleContent="Add journey">
-                        <p:TogglePopup.Content>
+                    <popups:TogglePopup ToggleContent="Add journey">
+                        <popups:TogglePopup.Content>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
@@ -36,7 +36,7 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <s:SettingSelector HorizontalAlignment="Right"
+                                <settings:SettingSelector HorizontalAlignment="Right"
                                                    Grid.ColumnSpan="2"
                                                    SettingNamePath="Name"
                                                    SettingsSource="{Binding JourneyTemplates}"/>
@@ -79,15 +79,15 @@
                                         <ColumnDefinition />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <n:NotifierControl DataContext="{Binding Notification}" />
+                                    <notifications:NotifierControl DataContext="{Binding Notification}" />
                                     <Button x:Name="AddButton"
                                             Grid.Column="1"
                                             HorizontalAlignment="Right"
                                             Content="Add" />
                                 </Grid>
                             </Grid>
-                        </p:TogglePopup.Content>
-                    </p:TogglePopup>
+                        </popups:TogglePopup.Content>
+                    </popups:TogglePopup>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

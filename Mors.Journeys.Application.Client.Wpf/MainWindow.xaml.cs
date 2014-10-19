@@ -1,8 +1,8 @@
-﻿using Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts;
-using Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod;
-using Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar;
+﻿using Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts;
+using Mors.Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod;
+using Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar;
 
-namespace Journeys.Application.Client.Wpf
+namespace Mors.Journeys.Application.Client.Wpf
 {
     internal partial class MainWindow
     {

@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Journeys.Application.Client.Wpf.Events;
+using Mors.Journeys.Application.Client.Wpf.Events;
 using Mors.Journeys.Data.Queries;
 
-namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
+namespace Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal sealed class JourneyCalendarsViewModel
     {

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 using Mors.Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 
-namespace Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
+namespace Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
 {
     internal sealed class JourneyDaySummary : INotifyPropertyChanged
     {

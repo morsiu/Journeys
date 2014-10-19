@@ -1,6 +1,6 @@
 ﻿using System.Collections.Specialized;
 
-namespace Journeys.Application.Client.Wpf.Infrastructure.Extensions
+namespace Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions
 {
     internal static class NotifyCollectionChangedEventExtensions
     {

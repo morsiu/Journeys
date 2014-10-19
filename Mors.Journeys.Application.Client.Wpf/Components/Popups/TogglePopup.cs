@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
-namespace Journeys.Application.Client.Wpf.Components.Popups
+namespace Mors.Journeys.Application.Client.Wpf.Components.Popups
 {
     [TemplatePart(Name = "PART_Toggle", Type = typeof(ToggleButton))]
     internal sealed class TogglePopup : ContentControl

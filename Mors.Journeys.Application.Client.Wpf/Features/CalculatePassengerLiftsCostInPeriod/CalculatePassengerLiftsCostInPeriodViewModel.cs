@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using Journeys.Application.Client.Wpf.Infrastructure;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 using Mors.Journeys.Data.Queries;
 using Mors.Journeys.Data.Queries.Dtos;
 
-namespace Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
+namespace Mors.Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
 {
     internal sealed class CalculatePassengerLiftsCostInPeriodViewModel : INotifyPropertyChanged
     {

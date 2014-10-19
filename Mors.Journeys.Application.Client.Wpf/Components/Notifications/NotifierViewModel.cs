@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace Journeys.Application.Client.Wpf.Components.Notifications
+namespace Mors.Journeys.Application.Client.Wpf.Components.Notifications
 {
     internal sealed class NotifierViewModel
     {

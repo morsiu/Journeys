@@ -4,17 +4,17 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using Journeys.Application.Client.Wpf.Commands;
-using Journeys.Application.Client.Wpf.Components.Notifications;
-using Journeys.Application.Client.Wpf.Events;
-using Journeys.Application.Client.Wpf.Infrastructure;
-using Journeys.Application.Client.Wpf.Infrastructure.Extensions;
-using Journeys.Application.Client.Wpf.Queries;
-using Journeys.Application.Client.Wpf.Settings;
+using Mors.Journeys.Application.Client.Wpf.Commands;
+using Mors.Journeys.Application.Client.Wpf.Components.Notifications;
+using Mors.Journeys.Application.Client.Wpf.Events;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure;
+using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
+using Mors.Journeys.Application.Client.Wpf.Queries;
+using Mors.Journeys.Application.Client.Wpf.Settings;
 using Mors.Journeys.Data.Commands;
 using Mors.Journeys.Data.Queries;
 
-namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
+namespace Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
     internal sealed class AddJourneyWithLiftsViewModel : INotifyPropertyChanged
     {

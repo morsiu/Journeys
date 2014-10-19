@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Journeys.Application.Client.Wpf.Commands;
-using Journeys.Application.Client.Wpf.Queries;
+using Mors.Journeys.Application.Client.Wpf.Commands;
+using Mors.Journeys.Application.Client.Wpf.Queries;
+using Mors.Journeys.Application.Client.Wpf.Settings;
 
-namespace Journeys.Application.Client.Wpf.Settings
+namespace Mors.Journeys.Application.Client.Wpf.Properties
 {
     internal sealed partial class Settings
     {

@@ -3,9 +3,9 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
-using Journeys.Application.Client.Wpf.Components.Settings;
+using Mors.Journeys.Application.Client.Wpf.Components.Settings;
 
-namespace Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
+namespace Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts
 {
     internal sealed class AddJourneyWithLiftsControl : Control
     {

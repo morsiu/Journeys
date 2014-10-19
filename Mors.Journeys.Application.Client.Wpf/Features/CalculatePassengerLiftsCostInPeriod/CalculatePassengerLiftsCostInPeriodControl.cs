@@ -4,7 +4,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 
-namespace Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
+namespace Mors.Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod
 {
     internal sealed class CalculatePassengerLiftsCostInPeriodControl : Control
     {

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace Journeys.Application.Client.Wpf.Components.Settings
+namespace Mors.Journeys.Application.Client.Wpf.Components.Settings
 {
     internal static class SettingsCommands
     {
