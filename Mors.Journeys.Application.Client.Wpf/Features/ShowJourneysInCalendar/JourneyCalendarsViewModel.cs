@@ -22,7 +22,7 @@ namespace Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar
             _calendarContentProvider = new CalendarContentProvider(queryDispatcher);
             _calendars = new ObservableCollection<PassengerLiftCalendar>();
             _calendarsWrapper = new ReadOnlyObservableCollection<PassengerLiftCalendar>(_calendars);
-            _eventBus.Subscribe<JourneyWithLiftsAddedEvent>(Handle);
+            _eventBus.RegisterListener<JourneyWithLiftsAddedEvent>(Handle);
         }
 
         private void Handle(JourneyWithLiftsAddedEvent @event)
