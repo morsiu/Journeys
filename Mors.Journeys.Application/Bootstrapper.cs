@@ -59,7 +59,7 @@ namespace Mors.Journeys.Application
             _eventSourcing.RegisterEventReplayer<PersonCreatedEvent>(new PersonCreatedEventReplayer(_repositories, _eventBus).Replay);
         }
 
-        public void BootstrapQueries()
+        private void BootstrapQueries()
         {
             var personView = new PersonView();
             _queryHandlerRegistry.SetHandler<GetPersonIdByNameQuery, object>(personView.Execute);
