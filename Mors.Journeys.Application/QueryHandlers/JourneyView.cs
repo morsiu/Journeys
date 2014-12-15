@@ -39,16 +39,16 @@ namespace Mors.Journeys.Application.QueryHandlers
         private Journey ToDto(JourneyCreatedEvent journey)
         {
             var lifts = _lifts.GetOrDefault(journey.JourneyId);
-            return new global::Mors.Journeys.Data.Queries.Dtos.Journey(
+            return new Journey(
                 journey.JourneyId,
                 journey.DateOfOccurrence,
                 journey.RouteDistance,
                 lifts.Select(ToDto).ToList());
         }
 
-        private Lift ToDto(LiftAddedEvent lift)
+        private static Lift ToDto(LiftAddedEvent lift)
         {
-            return new global::Mors.Journeys.Data.Queries.Dtos.Lift(
+            return new Lift(
                 lift.PersonId,
                 lift.LiftDistance);
         }

@@ -44,6 +44,7 @@ namespace Mors.Journeys.Domain.Expenses.Test.Capabilities
             Assert.AreEqual(new Money(), result.Value);
         }
 
+        [TestMethod]
         public void TotalExpenseShouldBeZeroAfterConstruction()
         {
             var list = new ExpenseList();
