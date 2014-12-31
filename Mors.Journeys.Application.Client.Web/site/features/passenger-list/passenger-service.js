@@ -3,7 +3,7 @@
         return $http({
             method: 'POST',
             url: '../api/query',
-            data: "{ $type: 'Mors.Journeys.Data.Queries.GetPeopleNamesQuery, Journeys.Data' }"
+            data: "{ $type: 'Mors.Journeys.Data.Queries.GetPeopleNamesQuery, Mors.Journeys.Data' }"
         });
     };
 }];
