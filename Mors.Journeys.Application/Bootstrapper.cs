@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Mors.Journeys.Application;
 using Mors.Journeys.Application.CommandHandlers;
 using Mors.Journeys.Application.EventReplayers;
 using Mors.Journeys.Application.QueryHandlers;
