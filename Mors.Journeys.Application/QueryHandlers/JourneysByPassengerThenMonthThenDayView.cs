@@ -40,7 +40,7 @@ namespace Mors.Journeys.Application.QueryHandlers
             _facts.Set(key, UpdateValue(value, @event));
         }
 
-        private Value UpdateValue(Value value, JourneyCreatedEvent @event)
+        private static Value UpdateValue(Value value, JourneyCreatedEvent @event)
         {
             return new Value(
                 value.JourneyCount + 1,
@@ -49,7 +49,7 @@ namespace Mors.Journeys.Application.QueryHandlers
                 value.LiftDistance);
         }
 
-        private Value UpdateValue(Value value, LiftAddedEvent @event)
+        private static Value UpdateValue(Value value, LiftAddedEvent @event)
         {
             return new Value(
                 value.JourneyCount,

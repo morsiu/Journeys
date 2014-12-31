@@ -12,7 +12,7 @@ namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
     internal sealed class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
     {
         private const int AvailableDaysCount = 31;
-        private CalendarDay[] _availableDays;
+        private readonly CalendarDay[] _availableDays;
         private int _dayCount;
 
         public CalendarDayCollection()
@@ -62,7 +62,7 @@ namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
             }
         }
 
-        private int GetNewDayCount(int year, int monthOfYear)
+        private static int GetNewDayCount(int year, int monthOfYear)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
 
         public IEnumerator<CalendarDay> GetEnumerator()
         {
-            for(int idx = 0; idx < _dayCount; ++idx)
+            for(var idx = 0; idx < _dayCount; ++idx)
             {
                 yield return _availableDays[idx];
             }

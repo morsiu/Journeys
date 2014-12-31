@@ -1,7 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:g="clr-namespace:System.Globalization;assembly=mscorlib"
-                    xmlns:diag="clr-namespace:System.Diagnostics;assembly=WindowsBase"
                     xmlns:showJourneysInCalendar="clr-namespace:Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar"
                     xmlns:c="clr-namespace:Mors.Journeys.Application.Client.Wpf.Components.Calendar">
     <Style TargetType="showJourneysInCalendar:JourneyCalendarsControl">

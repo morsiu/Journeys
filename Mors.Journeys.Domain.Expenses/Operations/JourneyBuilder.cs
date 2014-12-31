@@ -35,7 +35,7 @@ namespace Mors.Journeys.Domain.Expenses.Operations
             return new Journey(_journeyId, _routeDistance, lifts);
         }
 
-        private Lift BuildLift(KeyValuePair<object, Distance> passengerIdAndDistance)
+        private static Lift BuildLift(KeyValuePair<object, Distance> passengerIdAndDistance)
         {
             var liftDistance = new RouteDistance(new RoutePoint(), new RoutePoint(passengerIdAndDistance.Value));
             return new Lift(passengerIdAndDistance.Key, liftDistance);
