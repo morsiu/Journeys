@@ -13,71 +13,49 @@ namespace Mors.Journeys.Application
 {
     public sealed class Bootstrapper
     {
-        private readonly IEventBus _eventBus;
-        private readonly IRepositories _repositories;
-        private readonly IIdFactory _idFactory;
-        private readonly ICommandHandlerRegistry _commandHandlerRegistry;
-        private readonly IQueryDispatcher _queryDispatcher;
-        private readonly IQueryHandlerRegistry _queryHandlerRegistry;
-        private readonly IEventSourcing _eventSourcing;
-
-        public Bootstrapper(
-            IEventBus eventBus,
-            IRepositories repositories,
-            IIdFactory idFactory,
+        public void BootstrapCommands(
             ICommandHandlerRegistry commandHandlerRegistry,
-            IQueryDispatcher queryDispatcher,
+            IRepositories repositories,
+            IEventBus eventBus,
+            IIdFactory idFactory,
+            IQueryDispatcher queryDispatcher)
+        {
+            commandHandlerRegistry.SetHandler<AddJourneyWithLiftsCommand>(
+                new AddJourneyWithLiftsCommandHandler(eventBus, repositories, idFactory, queryDispatcher).Execute);
+        }
+
+        private void BootstrapEventSourcing(
+            IEventSourcing eventSourcing,
+            IRepositories repositories,
+            IEventBus eventBus)
+        {
+            eventSourcing.RegisterEventReplayer<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(repositories, eventBus).Replay);
+            eventSourcing.RegisterEventReplayer<LiftAddedEvent>(new LiftAddedEventReplayer(repositories).Replay);
+            eventSourcing.RegisterEventReplayer<PersonCreatedEvent>(new PersonCreatedEventReplayer(repositories, eventBus).Replay);
+        }
+
+        public void BootstrapQueries(
             IQueryHandlerRegistry queryHandlerRegistry,
-            IEventSourcing eventSourcing)
-        {
-            _eventBus = eventBus;
-            _idFactory = idFactory;
-            _repositories = repositories;
-            _commandHandlerRegistry = commandHandlerRegistry;
-            _queryDispatcher = queryDispatcher;
-            _queryHandlerRegistry = queryHandlerRegistry;
-            _eventSourcing = eventSourcing;
-        }
-
-        public void Bootstrap()
-        {
-            BootstrapEventSourcing();
-            BootstrapQueries();
-            BootstrapCommands();
-        }
-
-        private void BootstrapCommands()
-        {
-            _commandHandlerRegistry.SetHandler<AddJourneyWithLiftsCommand>(
-                new AddJourneyWithLiftsCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).Execute);
-        }
-
-        private void BootstrapEventSourcing()
-        {
-            _eventSourcing.RegisterEventReplayer<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(_repositories, _eventBus).Replay);
-            _eventSourcing.RegisterEventReplayer<LiftAddedEvent>(new LiftAddedEventReplayer(_repositories).Replay);
-            _eventSourcing.RegisterEventReplayer<PersonCreatedEvent>(new PersonCreatedEventReplayer(_repositories, _eventBus).Replay);
-        }
-
-        private void BootstrapQueries()
+            IEventBus eventBus,
+            IQueryDispatcher queryDispatcher)
         {
             var personView = new PersonView();
-            _queryHandlerRegistry.SetHandler<GetPersonIdByNameQuery, object>(personView.Execute);
-            _queryHandlerRegistry.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
-            _eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
+            queryHandlerRegistry.SetHandler<GetPersonIdByNameQuery, object>(personView.Execute);
+            queryHandlerRegistry.SetHandler<GetPeopleNamesQuery, IEnumerable<PersonName>>(personView.Execute);
+            eventBus.RegisterListener<PersonCreatedEvent>(personView.Update);
 
             var journeysByPassengerThenMonthThenDayView = new JourneysByPassengerThenMonthThenDayView();
-            _queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
-            _eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenMonthThenDayView.Update);
-            _eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenMonthThenDayView.Update);
+            queryHandlerRegistry.SetHandler<GetJourneysByPassengerThenMonthThenDayQuery, IEnumerable<Fact>>(journeysByPassengerThenMonthThenDayView.Execute);
+            eventBus.RegisterListener<JourneyCreatedEvent>(journeysByPassengerThenMonthThenDayView.Update);
+            eventBus.RegisterListener<LiftAddedEvent>(journeysByPassengerThenMonthThenDayView.Update);
 
             var journeyView = new JourneyView();
-            _queryHandlerRegistry.SetHandler<GetJourneysInPeriodQuery, IEnumerable<Journey>>(journeyView.Execute);
-            _eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
-            _eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
+            queryHandlerRegistry.SetHandler<GetJourneysInPeriodQuery, IEnumerable<Journey>>(journeyView.Execute);
+            eventBus.RegisterListener<JourneyCreatedEvent>(journeyView.Update);
+            eventBus.RegisterListener<LiftAddedEvent>(journeyView.Update);
 
-            var passengerLiftsCostCalculator = new PassengerLiftCostCalculator(_queryDispatcher);
-            _queryHandlerRegistry.SetHandler<GetCostOfPassengerLiftsInPeriodQuery, PassengerLiftsCost>(passengerLiftsCostCalculator.Execute);
+            var passengerLiftsCostCalculator = new PassengerLiftCostCalculator(queryDispatcher);
+            queryHandlerRegistry.SetHandler<GetCostOfPassengerLiftsInPeriodQuery, PassengerLiftsCost>(passengerLiftsCostCalculator.Execute);
         }
     }
 }
