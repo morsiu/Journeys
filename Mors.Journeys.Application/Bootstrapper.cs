@@ -49,7 +49,7 @@ namespace Mors.Journeys.Application
         private void BootstrapCommands()
         {
             _commandHandlerRegistry.SetHandler<AddJourneyWithLiftsCommand>(
-                new AddJourneyWithLiftsCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).ExecuteTransacted);
+                new AddJourneyWithLiftsCommandHandler(_eventBus, _repositories, _idFactory, _queryDispatcher).Execute);
         }
 
         private void BootstrapEventSourcing()

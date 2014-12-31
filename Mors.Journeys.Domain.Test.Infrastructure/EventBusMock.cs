@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Mors.AppPlatform.Common.Services;
-using Mors.AppPlatform.Common.Transactions;
-
 namespace Mors.Journeys.Domain.Test
 {
     public sealed class EventBusMock : IEventBus
@@ -40,11 +38,6 @@ namespace Mors.Journeys.Domain.Test
         }
 
         public void RegisterListener<TEvent>(Action<TEvent> handler)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ITransactional<IEventBus> Lift()
         {
             throw new NotImplementedException();
         }

@@ -1,5 +1,4 @@
 ﻿using Mors.AppPlatform.Common.Services;
-using Mors.AppPlatform.Common.Transactions;
 using Mors.Journeys.Data.Commands;
 using Mors.Journeys.Data.Queries;
 using Mors.Journeys.Domain.Journeys.Capabilities;
@@ -10,7 +9,6 @@ namespace Mors.Journeys.Application.CommandHandlers
 {
     internal sealed class AddJourneyWithLiftsCommandHandler
     {
-        private readonly Transaction _transaction;
         private readonly IEventBus _eventBus;
         private readonly IQueryDispatcher _queryDispatcher;
         private readonly IRepositories _repositories;
@@ -22,19 +20,13 @@ namespace Mors.Journeys.Application.CommandHandlers
             IIdFactory idFactory,
             IQueryDispatcher queryDispatcher)
         {
-            _transaction = new Transaction();
             _idFactory = idFactory;
-            _repositories = _transaction.Register(repositories);
-            _eventBus = _transaction.Register(eventBus);
             _queryDispatcher = queryDispatcher;
+            _repositories = repositories;
+            _eventBus = eventBus;
         }
 
-        public void ExecuteTransacted(AddJourneyWithLiftsCommand command)
-        {
-            _transaction.Run(() => Execute(command));
-        }
-
-        private void Execute(AddJourneyWithLiftsCommand command)
+        public void Execute(AddJourneyWithLiftsCommand command)
         {
             var routeDistance = new Distance(command.RouteDistance, DistanceUnit.Kilometer);
             var journey = new Journey(command.JourneyId, command.DateOfOccurrence, routeDistance, _eventBus);
