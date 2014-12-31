@@ -24,7 +24,7 @@ namespace Mors.Journeys.Application
                 new AddJourneyWithLiftsCommandHandler(eventBus, repositories, idFactory, queryDispatcher).Execute);
         }
 
-        private void BootstrapEventSourcing(
+        public void BootstrapEventSourcing(
             IEventSourcing eventSourcing,
             IRepositories repositories,
             IEventBus eventBus)
