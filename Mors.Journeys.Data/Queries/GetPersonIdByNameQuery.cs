@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization;
-using Mors.Journeys.Common;
 
 namespace Mors.Journeys.Data.Queries
 {

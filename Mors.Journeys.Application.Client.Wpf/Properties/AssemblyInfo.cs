@@ -6,11 +6,11 @@ using System.Windows;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Mors.Journeys.Application.Client.Wpf")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Desktop client for Journeys application")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Łukasz Mrozek")]
 [assembly: AssemblyProduct("Mors.Journeys.Application.Client.Wpf")]
-[assembly: AssemblyCopyright("Copyright © Łukasz Mrozek 2013")]
+[assembly: AssemblyCopyright("Copyright © Łukasz Mrozek 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,5 +49,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.1.1.0")]
-[assembly: AssemblyFileVersion("1.1.1.0")]
+[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyFileVersion("1.2.0.0")]

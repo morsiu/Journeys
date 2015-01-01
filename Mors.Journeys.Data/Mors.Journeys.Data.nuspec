@@ -11,8 +11,5 @@
     <description>$description$</description>
     <releaseNotes></releaseNotes>
     <copyright>Copyright © Łukasz Mrozek 2015</copyright>
-    <dependencies>
-      <dependency id="Mors.Journeys.Data" version="1.0" />
-    </dependencies>
   </metadata>
 </package>

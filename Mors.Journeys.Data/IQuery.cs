@@ -1,4 +1,4 @@
-﻿namespace Mors.Journeys.Common
+﻿namespace Mors.Journeys.Data
 {
     public interface IQuery<TResult>
     {

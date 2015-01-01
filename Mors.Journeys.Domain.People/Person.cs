@@ -1,7 +1,6 @@
 ﻿using System;
-using Mors.Journeys.Common;
+using Mors.Journeys.Data;
 using Mors.Journeys.Data.Events;
-using Mors.Journeys.Domain.Infrastructure;
 using Mors.Journeys.Domain.Infrastructure.Exceptions;
 using Mors.Journeys.Domain.Infrastructure.Markers;
 

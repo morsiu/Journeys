@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Domain.Test.Infrastructure", "Mors.Journeys.Domain.Test.Infrastructure\Mors.Journeys.Domain.Test.Infrastructure.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
@@ -37,8 +37,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CDA341
 	ProjectSection(SolutionItems) = preProject
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Common", "Mors.Journeys.Common\Mors.Journeys.Common.csproj", "{C3E38E93-9637-466D-ABEB-08BE93A79A93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,10 +92,6 @@ Global
 		{939C3E3F-9717-4D00-8553-634E17881943}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{939C3E3F-9717-4D00-8553-634E17881943}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{939C3E3F-9717-4D00-8553-634E17881943}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C3E38E93-9637-466D-ABEB-08BE93A79A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C3E38E93-9637-466D-ABEB-08BE93A79A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C3E38E93-9637-466D-ABEB-08BE93A79A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C3E38E93-9637-466D-ABEB-08BE93A79A93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +109,5 @@ Global
 		{1863C2F1-A11C-4C1F-A079-A9A27D755193} = {9B8FA184-8E63-4E11-9E0C-C370B07E9096}
 		{7D508A34-5C1A-48AA-A916-6C3EA88C163B} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 		{939C3E3F-9717-4D00-8553-634E17881943} = {BE9BBA8A-99C5-4F3B-8C04-50A2C3017EAF}
-		{C3E38E93-9637-466D-ABEB-08BE93A79A93} = {3B61B7BF-A84E-4843-96CD-752AC4FA4873}
 	EndGlobalSection
 EndGlobal

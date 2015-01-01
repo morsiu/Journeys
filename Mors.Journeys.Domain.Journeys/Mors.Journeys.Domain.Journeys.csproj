@@ -53,10 +53,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mors.Journeys.Common\Mors.Journeys.Common.csproj">
-      <Project>{c3e38e93-9637-466d-abeb-08be93a79a93}</Project>
-      <Name>Mors.Journeys.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
       <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
       <Name>Mors.Journeys.Data</Name>

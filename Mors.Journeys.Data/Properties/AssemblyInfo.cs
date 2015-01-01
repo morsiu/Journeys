@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Mors.Journeys.Data")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Data definitions for Journeys application")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Łukasz Mrozek")]
 [assembly: AssemblyProduct("Mors.Journeys.Data")]
-[assembly: AssemblyCopyright("Copyright © Łukasz Mrozek 2014")]
+[assembly: AssemblyCopyright("Copyright © Łukasz Mrozek 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

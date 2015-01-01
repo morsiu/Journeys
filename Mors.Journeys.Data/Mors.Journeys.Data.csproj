@@ -39,6 +39,8 @@
     <Compile Include="Events\JourneyCreatedEvent.cs" />
     <Compile Include="Events\LiftAddedEvent.cs" />
     <Compile Include="Events\PersonCreatedEvent.cs" />
+    <Compile Include="IHasId.cs" />
+    <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\Dtos\Journey.cs" />
     <Compile Include="Queries\Dtos\JourneysByPassengerThenMonthThenDay\Day.cs" />
@@ -60,10 +62,7 @@
     <Compile Include="Queries\GetPersonIdByNameQuery.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mors.Journeys.Common\Mors.Journeys.Common.csproj">
-      <Project>{c3e38e93-9637-466d-abeb-08be93a79a93}</Project>
-      <Name>Mors.Journeys.Common</Name>
-    </ProjectReference>
+    <None Include="Mors.Journeys.Data.nuspec" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿using Mors.Journeys.Common;
+﻿using Mors.Journeys.Data;
 
 namespace Mors.Journeys.Application.Client.Wpf
 {
