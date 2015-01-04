@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mors.AppPlatform.Common, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Mors.AppPlatform.Common.1.3.0.0\lib\net45\Mors.AppPlatform.Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +50,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mors.Journeys.Common\Mors.Journeys.Common.csproj">
+      <Project>{c3e38e93-9637-466d-abeb-08be93a79a93}</Project>
+      <Name>Mors.Journeys.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
       <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
       <Name>Mors.Journeys.Data</Name>
@@ -62,9 +62,6 @@
       <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
       <Name>Mors.Journeys.Domain.Infrastructure</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

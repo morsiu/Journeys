@@ -1,5 +1,4 @@
-﻿using Mors.AppPlatform.Common.Services;
-using Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts;
+﻿using Mors.Journeys.Application.Client.Wpf.Features.AddJourneysWithLifts;
 using Mors.Journeys.Application.Client.Wpf.Features.CalculatePassengerLiftsCostInPeriod;
 using Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar;
 

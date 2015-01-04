@@ -10,12 +10,12 @@ namespace Mors.Journeys.Domain.People.Test
     {
         private static readonly string PersonName = "PersonName";
         private static readonly object PersonId = new Id(0);
-        private EventBusMock _eventBus;
+        private EventBus _eventBus;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _eventBus = new EventBusMock();
+            _eventBus = new EventBus();
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace Mors.Journeys.Domain.People.Test
         {
             var eventMatcher = _eventBus.Listen(() =>
             {
-                new Person(PersonId, PersonName, _eventBus.Object);
+                new Person(PersonId, PersonName, _eventBus.Publish);
             });
 
             eventMatcher.AssertReceivedOneEvent<PersonCreatedEvent>(
@@ -35,14 +35,14 @@ namespace Mors.Journeys.Domain.People.Test
         [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenCreatingPersonWithEmptyName()
         {
-            new Person(PersonId, string.Empty, _eventBus.Object);
+            new Person(PersonId, string.Empty, _eventBus.Publish);
         }
 
         [TestMethod]
         [ExpectedException(typeof(InvariantViolationException))]
         public void ShouldReportInvariantViolationWhenCreatingPersonWithNullName()
         {
-            new Person(PersonId, null, _eventBus.Object);
+            new Person(PersonId, null, _eventBus.Publish);
         }
     }
 }

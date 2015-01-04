@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Mors.AppPlatform.Common.Services;
 using Mors.Journeys.Application.Client.Wpf.Events;
 using Mors.Journeys.Data.Queries;
 

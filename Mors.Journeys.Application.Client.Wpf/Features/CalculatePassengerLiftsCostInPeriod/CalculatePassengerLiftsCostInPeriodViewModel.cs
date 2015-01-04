@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using Mors.AppPlatform.Common.Services;
 using Mors.Journeys.Application.Client.Wpf.Infrastructure;
 using Mors.Journeys.Application.Client.Wpf.Infrastructure.Extensions;
 using Mors.Journeys.Data.Queries;

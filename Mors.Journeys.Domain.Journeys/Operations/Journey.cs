@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Mors.AppPlatform.Common;
-using Mors.AppPlatform.Common.Services;
+using Mors.Journeys.Common;
 using Mors.Journeys.Data.Events;
+using Mors.Journeys.Domain.Infrastructure;
 using Mors.Journeys.Domain.Infrastructure.Collections;
 using Mors.Journeys.Domain.Infrastructure.Exceptions;
 using Mors.Journeys.Domain.Infrastructure.Markers;
@@ -13,25 +13,25 @@ namespace Mors.Journeys.Domain.Journeys.Operations
     [Aggregate]
     public sealed class Journey : IHasId
     {
-        private readonly IEventBus _eventBus;
         private readonly object _id;
         private readonly DateTime _dateOfOccurrence;
         private readonly Distance _routeDistance;
         private readonly ImmutableList<Lift> _lifts = ImmutableList<Lift>.Empty;
+        private readonly Action<object> _eventPublisher;
 
-        public Journey(object id, DateTime dateOfOccurrence, Distance routeDistance, IEventBus eventBus)
+        public Journey(object id, DateTime dateOfOccurrence, Distance routeDistance, Action<object> eventPublisher)
         {
             _dateOfOccurrence = dateOfOccurrence;
-            _eventBus = eventBus;
+            _eventPublisher = eventPublisher;
             _id = id;
             _routeDistance = routeDistance;
-            _eventBus.Publish(new JourneyCreatedEvent(id, dateOfOccurrence, routeDistance));
+            _eventPublisher(new JourneyCreatedEvent(id, dateOfOccurrence, routeDistance));
         }
 
         private Journey(Journey journey, ImmutableList<Lift> lifts)
         {
             _dateOfOccurrence = journey._dateOfOccurrence;
-            _eventBus = journey._eventBus;
+            _eventPublisher = journey._eventPublisher;
             _id = journey._id;
             _lifts = lifts;
             _routeDistance = journey._routeDistance;
@@ -45,7 +45,7 @@ namespace Mors.Journeys.Domain.Journeys.Operations
                 throw new InvariantViolationException(Messages.CannotAddLiftWithDistanceLargerThanJourneyDistance);
             var lift = new Lift(personId);
             var newLifts = _lifts.Add(lift);
-            _eventBus.Publish(new LiftAddedEvent(_id, personId, liftDistance));
+            _eventPublisher(new LiftAddedEvent(_id, personId, liftDistance));
             return new Journey(this, newLifts);
         }
 

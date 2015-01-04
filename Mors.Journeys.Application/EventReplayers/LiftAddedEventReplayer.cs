@@ -1,4 +1,4 @@
-﻿using Mors.AppPlatform.Common.Services;
+﻿using Mors.Journeys.Application;
 using Mors.Journeys.Data.Events;
 using Mors.Journeys.Domain.Journeys.Capabilities;
 using Mors.Journeys.Domain.Journeys.Operations;

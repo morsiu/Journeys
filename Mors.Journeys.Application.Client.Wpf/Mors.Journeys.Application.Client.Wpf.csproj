@@ -38,10 +38,6 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Mors.AppPlatform.Common, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Mors.AppPlatform.Common.1.3.0.0\lib\net45\Mors.AppPlatform.Common.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,7 +55,13 @@
     <Compile Include="Components\Settings\SettingSelector.cs" />
     <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodControl.cs" />
     <Compile Include="Features\CalculatePassengerLiftsCostInPeriod\CalculatePassengerLiftsCostInPeriodViewModel.cs" />
+    <Compile Include="ICommandDispatcher.cs" />
+    <Compile Include="ICommandHandlerRegistry.cs" />
+    <Compile Include="IEventBus.cs" />
+    <Compile Include="IIdFactory.cs" />
     <Compile Include="Infrastructure\DelegateCommand`1.cs" />
+    <Compile Include="IQueryDispatcher.cs" />
+    <Compile Include="IQueryHandlerRegistry.cs" />
     <Compile Include="Queries\GetJourneyTemplatesQuery.cs" />
     <Compile Include="Settings\JourneyTemplate.cs" />
     <Compile Include="Settings\JourneyTemplateCollection.cs" />
@@ -152,7 +154,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -161,6 +162,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mors.Journeys.Common\Mors.Journeys.Common.csproj">
+      <Project>{c3e38e93-9637-466d-abeb-08be93a79a93}</Project>
+      <Name>Mors.Journeys.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
       <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
       <Name>Mors.Journeys.Data</Name>

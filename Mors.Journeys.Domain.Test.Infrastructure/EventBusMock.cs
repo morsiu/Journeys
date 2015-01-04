@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Mors.AppPlatform.Common.Services;
+using Mors.Journeys.Domain.Infrastructure;
+
 namespace Mors.Journeys.Domain.Test
 {
-    public sealed class EventBusMock : IEventBus
+    public sealed class EventBus
     {
         private readonly List<EventMatcher> _eventMatchers = new List<EventMatcher>();
 
-        public void Publish<TEvent>(TEvent @event)
+        public void Publish(object @event)
         {
             foreach (var eventMatcher in _eventMatchers)
             {
@@ -22,24 +23,6 @@ namespace Mors.Journeys.Domain.Test
             action();
             _eventMatchers.Remove(matcher);
             return matcher;
-        }
-
-        public IEventBus Object
-        {
-            get { return this; }
-        }
-
-        public void Abort()
-        {
-        }
-
-        public void Commit()
-        {
-        }
-
-        public void RegisterListener<TEvent>(Action<TEvent> handler)
-        {
-            throw new NotImplementedException();
         }
     }
 }

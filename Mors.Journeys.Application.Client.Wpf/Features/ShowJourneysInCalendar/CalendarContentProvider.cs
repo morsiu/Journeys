@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mors.AppPlatform.Common.Services;
 using Mors.Journeys.Data.Queries;
 using Mors.Journeys.Data.Queries.Dtos.JourneysByPassengerThenMonthThenDay;
 

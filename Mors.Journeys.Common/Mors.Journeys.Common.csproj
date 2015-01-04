@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE7E30D7-96D8-4469-AC10-D780A62659AF}</ProjectGuid>
+    <ProjectGuid>{C3E38E93-9637-466D-ABEB-08BE93A79A93}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mors.Journeys.Domain.Journeys</RootNamespace>
-    <AssemblyName>Mors.Journeys.Domain.Journeys</AssemblyName>
+    <RootNamespace>Mors.Journeys.Common</RootNamespace>
+    <AssemblyName>Mors.Journeys.Common</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -32,39 +32,17 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Capabilities\Distance.cs" />
-    <Compile Include="Capabilities\DistanceUnit.cs" />
-    <Compile Include="Capabilities\Lift.cs" />
-    <Compile Include="Messages.Designer.cs">
-      <DependentUpon>Messages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Operations\Journey.cs" />
+    <Compile Include="IHasId.cs" />
+    <Compile Include="IQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Messages.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mors.Journeys.Common\Mors.Journeys.Common.csproj">
-      <Project>{c3e38e93-9637-466d-abeb-08be93a79a93}</Project>
-      <Name>Mors.Journeys.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
-      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
-      <Name>Mors.Journeys.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj">
-      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
-      <Name>Mors.Journeys.Domain.Infrastructure</Name>
-    </ProjectReference>
+    <Compile Include="QueryHandler.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

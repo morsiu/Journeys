@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using Mors.AppPlatform.Common.Services;
+﻿using System;
+using System.Collections.Generic;
+using Mors.Journeys.Application;
 using Mors.Journeys.Application.CommandHandlers;
 using Mors.Journeys.Application.EventReplayers;
 using Mors.Journeys.Application.QueryHandlers;
@@ -16,22 +17,22 @@ namespace Mors.Journeys.Application
         public void BootstrapCommands(
             ICommandHandlerRegistry commandHandlerRegistry,
             IRepositories repositories,
-            IEventBus eventBus,
-            IIdFactory idFactory,
+            Action<object> eventPublisher,
+            Func<object> idFactory,
             IQueryDispatcher queryDispatcher)
         {
             commandHandlerRegistry.SetHandler<AddJourneyWithLiftsCommand>(
-                new AddJourneyWithLiftsCommandHandler(eventBus, repositories, idFactory, queryDispatcher).Execute);
+                new AddJourneyWithLiftsCommandHandler(eventPublisher, repositories, idFactory, queryDispatcher).Execute);
         }
 
         public void BootstrapEventSourcing(
             IEventSourcing eventSourcing,
             IRepositories repositories,
-            IEventBus eventBus)
+            Action<object> eventPublisher)
         {
-            eventSourcing.RegisterEventReplayer<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(repositories, eventBus).Replay);
+            eventSourcing.RegisterEventReplayer<JourneyCreatedEvent>(new JourneyCreatedEventReplayer(repositories, eventPublisher).Replay);
             eventSourcing.RegisterEventReplayer<LiftAddedEvent>(new LiftAddedEventReplayer(repositories).Replay);
-            eventSourcing.RegisterEventReplayer<PersonCreatedEvent>(new PersonCreatedEventReplayer(repositories, eventBus).Replay);
+            eventSourcing.RegisterEventReplayer<PersonCreatedEvent>(new PersonCreatedEventReplayer(repositories, eventPublisher).Replay);
         }
 
         public void BootstrapQueries(

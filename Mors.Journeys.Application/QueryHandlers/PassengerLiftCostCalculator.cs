@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Mors.AppPlatform.Common.Services;
+using Mors.Journeys.Application;
 using Mors.Journeys.Data.Queries;
 using Mors.Journeys.Data.Queries.Dtos;
 using Mors.Journeys.Domain.Expenses.Capabilities;
