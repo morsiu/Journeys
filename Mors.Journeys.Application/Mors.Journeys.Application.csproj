@@ -94,9 +94,7 @@
       <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CommandHandlers\EventReplayers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Mors.Journeys.Application.nuspec" />
   </ItemGroup>
