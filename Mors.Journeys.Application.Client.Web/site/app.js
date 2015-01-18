@@ -1,1 +1,1 @@
-﻿app = angular.module('app', ['journeyCalendar', 'passengerList']);
+﻿app = angular.module('app', ['journeyCalendar', 'passengerList', 'addJourneyForm']);

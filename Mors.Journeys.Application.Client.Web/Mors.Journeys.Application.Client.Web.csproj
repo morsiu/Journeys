@@ -48,6 +48,9 @@
     <Content Include="site\components\test\test-directive.js" />
     <Content Include="site\components\test\test-template.html" />
     <Content Include="site\components\test\test.js" />
+    <Content Include="site\features\add-journey-form\add-journey-form-directive.js" />
+    <Content Include="site\features\add-journey-form\add-journey-form-template.html" />
+    <Content Include="site\features\add-journey-form\add-journey-form.js" />
     <Content Include="site\features\journey-calendar\journey-calendar-directive.js" />
     <Content Include="site\features\journey-calendar\journey-calendar-template.html" />
     <Content Include="site\features\journey-calendar\journey-calendar.js" />
@@ -75,12 +78,14 @@
     <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="site\libs\bootstrap\js\bootstrap.min.js" />
     <Content Include="site\libs\jquery-2.1.0.min.js" />
+    <Content Include="site\libs\uuid.js" />
     <Content Include="site\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
