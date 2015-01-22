@@ -1,7 +1,7 @@
 ﻿var JourneyCalendarDirective = function () {
     return {
         templateUrl: 'features/journey-calendar/journey-calendar-template.html',
-        controller: ['$scope', '$rootScope', 'journey', function ($scope, $rootScope, service) {
+        controller: ['$scope', 'journey', function ($scope, service) {
             $scope.month = 3;
             $scope.year = 2014;
 
