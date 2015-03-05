@@ -38,30 +38,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="site\app.js" />
-    <Content Include="site\components\calendar\calendar-item-directive.js" />
-    <Content Include="site\components\calendar\calendar-header-directive.js" />
-    <Content Include="site\components\calendar\calendar-directive.js" />
-    <Content Include="site\components\calendar\calendar-service.js" />
-    <Content Include="site\components\calendar\calendar-template.html" />
-    <Content Include="site\components\calendar\calendar.js" />
-    <Content Include="site\components\test\test-directive.js" />
-    <Content Include="site\components\test\test-template.html" />
-    <Content Include="site\components\test\test.js" />
-    <Content Include="site\features\add-journey-form\add-journey-form-directive.js" />
-    <Content Include="site\features\add-journey-form\add-journey-form-template.html" />
-    <Content Include="site\features\add-journey-form\add-journey-form.js" />
-    <Content Include="site\features\journey-calendar\journey-calendar-directive.js" />
-    <Content Include="site\features\journey-calendar\journey-calendar-template.html" />
-    <Content Include="site\features\journey-calendar\journey-calendar.js" />
-    <Content Include="site\features\journey-calendar\journey-service.js" />
-    <Content Include="site\features\passenger-list\passenger-list-directive.js" />
-    <Content Include="site\features\passenger-list\passenger-list-template.html" />
-    <Content Include="site\features\passenger-list\passenger-list.js" />
-    <Content Include="site\features\passenger-list\passenger-service.js" />
-    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="content\sites\journeys\app.js" />
+    <Content Include="content\sites\journeys\components\calendar\calendar-item-directive.js" />
+    <Content Include="content\sites\journeys\components\calendar\calendar-header-directive.js" />
+    <Content Include="content\sites\journeys\components\calendar\calendar-directive.js" />
+    <Content Include="content\sites\journeys\components\calendar\calendar-service.js" />
+    <Content Include="content\sites\journeys\components\calendar\calendar-template.html" />
+    <Content Include="content\sites\journeys\components\calendar\calendar.js" />
+    <Content Include="content\sites\journeys\components\test\test-directive.js" />
+    <Content Include="content\sites\journeys\components\test\test-template.html" />
+    <Content Include="content\sites\journeys\components\test\test.js" />
+    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form-directive.js" />
+    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form-template.html" />
+    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form.js" />
+    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar-directive.js" />
+    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar-template.html" />
+    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar.js" />
+    <Content Include="content\sites\journeys\features\journey-calendar\journey-service.js" />
+    <Content Include="content\sites\journeys\features\passenger-list\passenger-list-directive.js" />
+    <Content Include="content\sites\journeys\features\passenger-list\passenger-list-template.html" />
+    <Content Include="content\sites\journeys\features\passenger-list\passenger-list.js" />
+    <Content Include="content\sites\journeys\features\passenger-list\passenger-service.js" />
+    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,16 +70,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="site\index.html" />
-    <Content Include="site\libs\angular\angular-route.min.js" />
-    <Content Include="site\libs\angular\angular.min.js" />
-    <Content Include="site\libs\bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="site\libs\bootstrap\css\bootstrap.min.css" />
-    <Content Include="site\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="site\libs\bootstrap\js\bootstrap.min.js" />
-    <Content Include="site\libs\jquery-2.1.0.min.js" />
-    <Content Include="site\libs\uuid.js" />
-    <Content Include="site\style.css" />
+    <Content Include="content\sites\journeys\index.html" />
+    <Content Include="content\sites\journeys\libs\angular\angular-route.min.js" />
+    <Content Include="content\sites\journeys\libs\angular\angular.min.js" />
+    <Content Include="content\sites\journeys\libs\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="content\sites\journeys\libs\bootstrap\css\bootstrap.min.css" />
+    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="content\sites\journeys\libs\bootstrap\js\bootstrap.min.js" />
+    <Content Include="content\sites\journeys\libs\jquery-2.1.0.min.js" />
+    <Content Include="content\sites\journeys\libs\uuid.js" />
+    <Content Include="content\sites\journeys\style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
