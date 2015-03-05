@@ -62,6 +62,7 @@
     <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Mors.Journeys.Application.Client.Web.nuspec" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
