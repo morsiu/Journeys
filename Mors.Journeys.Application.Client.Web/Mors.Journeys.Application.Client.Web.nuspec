@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Mors.Journeys.Application.Client.Web</id>
-    <version>1.0.0.0</version>
+    <version>1.0.0.1</version>
     <title>Journeys Web Application</title>
     <authors>Łukasz Mrozek</authors>
     <projectUrl>https://github.com/morsiu/Journeys</projectUrl>
