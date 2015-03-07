@@ -1,11 +1,8 @@
-﻿var JourneyService = ['$http', '$q', function ($http, $q) {
+﻿var JourneyService = ['api', '$q', function (api, $q) {
     this.getAll = function () {
         var result = $q.defer();
-        $http({
-            method: 'POST',
-            url: '../api/query',
-            data: "{ $type: 'Mors.Journeys.Data.Queries.GetJourneysByPassengerThenMonthThenDayQuery, Mors.Journeys.Data' }"
-        }).success(function (response) {
+        api.query('Mors.Journeys.Data.Queries.GetJourneysByPassengerThenMonthThenDayQuery')
+        .success(function (response) {
             var facts = {};
             response.forEach(function (fact) {
                 var passengerId = fact.Key.Passenger.Id;
