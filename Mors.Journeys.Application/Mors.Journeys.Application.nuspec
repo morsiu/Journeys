@@ -12,7 +12,7 @@
     <releaseNotes></releaseNotes>
     <copyright>Copyright © Łukasz Mrozek 2015</copyright>
     <dependencies>
-      <dependency id="Mors.Journeys.Data" version="1.0" />
+      <dependency id="Mors.Journeys.Data" version="2.0" />
     </dependencies>
   </metadata>
 </package>
