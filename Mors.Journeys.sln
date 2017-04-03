@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Domain.Test.Infrastructure", "Mors.Journeys.Domain.Test.Infrastructure\Mors.Journeys.Domain.Test.Infrastructure.csproj", "{0867E115-6B32-4CE5-8091-9DF005C088EF}"
 EndProject
@@ -32,11 +32,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Application.Client.Web", "Mors.Journeys.Application.Client.Web\Mors.Journeys.Application.Client.Web.csproj", "{7D508A34-5C1A-48AA-A916-6C3EA88C163B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mors.Journeys.Data", "Mors.Journeys.Data\Mors.Journeys.Data.csproj", "{939C3E3F-9717-4D00-8553-634E17881943}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{CDA34110-CD1D-4BA1-9B11-3CFF7140F37B}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\packages.config = .nuget\packages.config
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
