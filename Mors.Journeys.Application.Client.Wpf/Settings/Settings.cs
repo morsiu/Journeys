@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Mors.Journeys.Application.Client.Wpf.Commands;
 using Mors.Journeys.Application.Client.Wpf.Queries;
-using Mors.Journeys.Application.Client.Wpf.Settings;
 
-namespace Mors.Journeys.Application.Client.Wpf.Properties
+namespace Mors.Journeys.Application.Client.Wpf.Settings
 {
     internal sealed partial class Settings
     {

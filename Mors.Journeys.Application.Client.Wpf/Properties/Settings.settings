@@ -1,8 +1,8 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Journeys.Application.Client.Wpf.Settings" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Mors.Journeys.Application.Client.Wpf.Settings" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="JourneyTemplates" Type="Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection" Scope="User">
+    <Setting Name="JourneyTemplates" Type="Mors.Journeys.Application.Client.Wpf.Settings.JourneyTemplateCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

@@ -32,8 +32,8 @@ namespace Mors.Journeys.Application.Client.Wpf
 
         public void Bootstrap()
         {
-            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Properties.Settings.Default.Execute);
-            _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Properties.Settings.Default.Handle);
+            _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Settings.Settings.Default.Execute);
+            _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Settings.Settings.Default.Handle);
         }
 
         public void Run()
