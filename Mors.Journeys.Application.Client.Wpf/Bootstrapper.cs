@@ -2,6 +2,7 @@
 using Mors.Journeys.Application.Client.Wpf.Commands;
 using Mors.Journeys.Application.Client.Wpf.Queries;
 using Mors.Journeys.Application.Client.Wpf.Settings;
+using System.Windows;
 
 namespace Mors.Journeys.Application.Client.Wpf
 {
@@ -30,22 +31,15 @@ namespace Mors.Journeys.Application.Client.Wpf
             _idFactory = idFactory;
         }
 
-        public void Bootstrap()
+        public UIElement Bootstrap()
         {
             _queryHandlerRegistry.SetHandler<GetJourneyTemplatesQuery, IEnumerable<JourneyTemplate>>(Settings.Settings.Default.Execute);
             _commandHandlerRegistry.SetHandler<StoreJourneyTemplatesCommand>(Settings.Settings.Default.Handle);
-        }
-
-        public void Run()
-        {
-            var application = new Application();
-            application.InitializeComponent();
-            var window = new MainWindow(
+            return new MainPanel(
                 _commandDispatcher,
                 _queryDispatcher,
                 _eventBus,
                 _idFactory);
-            application.Run(window);
         }
     }
 }

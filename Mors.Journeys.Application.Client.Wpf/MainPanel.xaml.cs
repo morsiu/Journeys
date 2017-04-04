@@ -4,9 +4,9 @@ using Mors.Journeys.Application.Client.Wpf.Features.ShowJourneysInCalendar;
 
 namespace Mors.Journeys.Application.Client.Wpf
 {
-    internal partial class MainWindow
+    internal partial class MainPanel
     {
-        public MainWindow(
+        public MainPanel(
             ICommandDispatcher commandDispatcher,
             IQueryDispatcher queryDispatcher,
             IEventBus eventBus,
