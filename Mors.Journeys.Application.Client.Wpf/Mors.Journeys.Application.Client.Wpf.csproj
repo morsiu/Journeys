@@ -50,7 +50,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\StoreJourneyTemplates.cs" />
+    <Compile Include="Commands\StoreJourneyTemplatesCommand.cs" />
     <Compile Include="Components\Popups\TogglePopup.cs" />
     <Compile Include="Components\Settings\SettingsCommands.cs" />
     <Compile Include="Components\Settings\SettingSelector.cs" />
