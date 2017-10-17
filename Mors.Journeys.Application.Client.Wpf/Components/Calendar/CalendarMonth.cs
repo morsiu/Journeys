@@ -11,7 +11,7 @@ namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
         private int _monthOfYear;
         private int _year;
 
-        public IChangeNotifyReadOnlyList<CalendarDay> Days { get { return _days; } }
+        public INotifyCollectionChangedReadOnlyList<CalendarDay> Days { get { return _days; } }
 
         public int MonthOfYear
         {

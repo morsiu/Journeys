@@ -9,7 +9,7 @@ using Mors.Journeys.Application.Client.Wpf.Infrastructure.Interfaces;
 
 namespace Mors.Journeys.Application.Client.Wpf.Components.Calendar
 {
-    internal sealed class CalendarDayCollection : IChangeNotifyReadOnlyList<CalendarDay>
+    internal sealed class CalendarDayCollection : INotifyCollectionChangedReadOnlyList<CalendarDay>
     {
         private const int AvailableDaysCount = 31;
         private readonly CalendarDay[] _availableDays;

@@ -87,12 +87,12 @@
     <Compile Include="Features\ShowJourneysInCalendar\Passenger.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsViewModel.cs" />
     <Compile Include="Features\ShowJourneysInCalendar\JourneyCalendarsControl.cs" />
-    <Compile Include="Infrastructure\Extensions\CollectionChangedEventExtensions.cs" />
+    <Compile Include="Infrastructure\Extensions\NotifyCollectionChangedEventExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\EventExtensions.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrastructure\Extensions\PropertyChangedEventExtensions.cs" />
-    <Compile Include="Infrastructure\Interfaces\IChangeNotifyReadOnlyList.cs" />
+    <Compile Include="Infrastructure\Interfaces\INotifyCollectionChangedReadOnlyList.cs" />
     <Compile Include="Components\Notifications\ErrorNotification.cs" />
     <Compile Include="Components\Notifications\NotifierControl.cs" />
     <Compile Include="Components\Notifications\NotifierViewModel.cs" />
