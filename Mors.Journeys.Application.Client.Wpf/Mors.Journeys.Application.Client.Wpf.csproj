@@ -159,7 +159,7 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>Journeys.Application.Client.Wpf.Settings</CustomToolNamespace>
+      <CustomToolNamespace>Mors.Journeys.Application.Client.Wpf.Settings</CustomToolNamespace>
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
