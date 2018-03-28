@@ -1,108 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4257BA76-4CEE-47BA-BA0E-AB5F07094AE3}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mors.Journeys.Application</RootNamespace>
-    <AssemblyName>Mors.Journeys.Application</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
+    <TargetFramework>net46</TargetFramework>
+    <Version>2.0.0</Version>
+    <Copyright>Copyright © Łukasz Mrozek 2015</Copyright>
+    <Authors>Łukasz Mrozek</Authors>
+    <Description>Journeys application</Description>
+    <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
+    <PackageReference Include="Mors.Journeys.Data" Version="2.0.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="CommandHandlers\AddJourneyWithLiftsCommandHandler.cs" />
-    <Compile Include="EventReplayers\JourneyCreatedEventReplayer.cs" />
-    <Compile Include="EventReplayers\LiftAddedEventReplayer.cs" />
-    <Compile Include="EventReplayers\PersonCreatedEventReplayer.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Period.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\IMaybe.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\Just.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\Nothing.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\ObjectExtensions.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\ValueLookup.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\ValueMultiSet.cs" />
-    <Compile Include="QueryHandlers\Infrastructure\Views\ValueSet.cs" />
-    <Compile Include="QueryHandlers\JourneysByPassengerThenMonthThenDayView.cs" />
-    <Compile Include="QueryHandlers\JourneyView.cs" />
-    <Compile Include="QueryHandlers\Messages\FailureMessages.Designer.cs">
-      <DependentUpon>FailureMessages.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="QueryHandlers\PassengerLiftCostCalculator.cs" />
-    <Compile Include="QueryHandlers\PersonView.cs" />
-    <Compile Include="ICommandHandlerRegistry.cs" />
-    <Compile Include="IEventBus.cs" />
-    <Compile Include="IEventSourcing.cs" />
-    <Compile Include="IQueryDispatcher.cs" />
-    <Compile Include="IQueryHandlerRegistry.cs" />
-    <Compile Include="IRepositories.cs" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj">
-      <Project>{939c3e3f-9717-4d00-8553-634e17881943}</Project>
-      <Name>Mors.Journeys.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj">
-      <Project>{32ee131b-7831-4f51-b349-921aebeff896}</Project>
-      <Name>Mors.Journeys.Domain.Expenses</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj">
-      <Project>{c83ea12c-2495-4b03-9c0a-1d2795a33f3e}</Project>
-      <Name>Mors.Journeys.Domain.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj">
-      <Project>{fe7e30d7-96d8-4469-ac10-d780a62659af}</Project>
-      <Name>Mors.Journeys.Domain.Journeys</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj">
-      <Project>{30b2309f-655f-442f-9210-2a38a8b80949}</Project>
-      <Name>Mors.Journeys.Domain.People</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="QueryHandlers\Messages\FailureMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>FailureMessages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Mors.Journeys.Application.nuspec" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

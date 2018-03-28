@@ -1,86 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D508A34-5C1A-48AA-A916-6C3EA88C163B}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mors.Journeys.Application.Client.Web</RootNamespace>
-    <AssemblyName>Mors.Journeys.Application.Client.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
+    <TargetFramework>net46</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Copyright>Copyright © Łukasz Mrozek 2014</Copyright>
+    <Description>Journeys web application</Description>
+    <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
+    <Company>Łukasz Mrozek</Company>
+    <Authors>Łukasz Mrozek</Authors>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Content Include="content\sites\journeys\app.js" />
-    <Content Include="content\sites\journeys\components\api\api-service.js" />
-    <Content Include="content\sites\journeys\components\api\api.js" />
-    <Content Include="content\sites\journeys\components\calendar\calendar-item-directive.js" />
-    <Content Include="content\sites\journeys\components\calendar\calendar-header-directive.js" />
-    <Content Include="content\sites\journeys\components\calendar\calendar-directive.js" />
-    <Content Include="content\sites\journeys\components\calendar\calendar-service.js" />
-    <Content Include="content\sites\journeys\components\calendar\calendar-template.html" />
-    <Content Include="content\sites\journeys\components\calendar\calendar.js" />
-    <Content Include="content\sites\journeys\components\test\test-directive.js" />
-    <Content Include="content\sites\journeys\components\test\test-template.html" />
-    <Content Include="content\sites\journeys\components\test\test.js" />
-    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form-directive.js" />
-    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form-template.html" />
-    <Content Include="content\sites\journeys\features\add-journey-form\add-journey-form.js" />
-    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar-directive.js" />
-    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar-template.html" />
-    <Content Include="content\sites\journeys\features\journey-calendar\journey-calendar.js" />
-    <Content Include="content\sites\journeys\features\journey-calendar\journey-service.js" />
-    <Content Include="content\sites\journeys\features\passenger-list\passenger-list-directive.js" />
-    <Content Include="content\sites\journeys\features\passenger-list\passenger-list-template.html" />
-    <Content Include="content\sites\journeys\features\passenger-list\passenger-list.js" />
-    <Content Include="content\sites\journeys\features\passenger-list\passenger-service.js" />
-    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Mors.Journeys.Application.Client.Web.nuspec" />
+    <Content Include="content\**" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="content\sites\journeys\index.html" />
-    <Content Include="content\sites\journeys\libs\angular\angular-route.min.js" />
-    <Content Include="content\sites\journeys\libs\angular\angular.min.js" />
-    <Content Include="content\sites\journeys\libs\bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="content\sites\journeys\libs\bootstrap\css\bootstrap.min.css" />
-    <Content Include="content\sites\journeys\libs\bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="content\sites\journeys\libs\bootstrap\js\bootstrap.min.js" />
-    <Content Include="content\sites\journeys\libs\jquery-2.1.0.min.js" />
-    <Content Include="content\sites\journeys\libs\uuid.js" />
-    <Content Include="content\sites\journeys\style.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
