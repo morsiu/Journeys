@@ -8,6 +8,7 @@
     <Description>Journeys application</Description>
     <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,10 +16,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj" />
-    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj" />
-    <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj" />
-    <ProjectReference Include="..\Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Mors.Journeys.Domain.People\Mors.Journeys.Domain.People.csproj" PrivateAssets="all" />
   </ItemGroup>
-
+  
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="ResolveReferences">
+    <ItemGroup>
+      <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference'))" />
+    </ItemGroup>
+  </Target>
 </Project>
