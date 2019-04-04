@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>mors.journeys.application.client.web</id>
+    <version>1.0.0</version>
+    <authors>Łukasz Mrozek</authors>
+    <owners>Łukasz Mrozek</owners>
+    <projectUrl>https://github.com/morsiu/Journeys</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Journeys web application</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright © Łukasz Mrozek 2014</copyright>
+    <contentFiles>
+      <files include="any/any/**" buildAction="Content" copyToOutput="true" />
+    </contentFiles>
+  </metadata>
+</package>
