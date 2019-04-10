@@ -12,10 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mors.Journeys.Data" Version="2.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj" />
     <ProjectReference Include="..\Mors.Journeys.Domain.Expenses\Mors.Journeys.Domain.Expenses.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\Mors.Journeys.Domain.Infrastructure\Mors.Journeys.Domain.Infrastructure.csproj" PrivateAssets="all" />
     <ProjectReference Include="..\Mors.Journeys.Domain.Journeys\Mors.Journeys.Domain.Journeys.csproj" PrivateAssets="all" />

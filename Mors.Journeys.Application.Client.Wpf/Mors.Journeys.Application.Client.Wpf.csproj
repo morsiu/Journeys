@@ -19,8 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mors.Journeys.Data" Version="2.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mors.Journeys.Data\Mors.Journeys.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
