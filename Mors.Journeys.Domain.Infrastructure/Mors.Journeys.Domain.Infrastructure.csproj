@@ -1,7 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.0.0</Version>
+    <Copyright>Copyright © Łukasz Mrozek 2019</Copyright>
+    <Authors>Łukasz Mrozek</Authors>
+    <Description>Infrastructure for domains of journeys application</Description>
+    <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>

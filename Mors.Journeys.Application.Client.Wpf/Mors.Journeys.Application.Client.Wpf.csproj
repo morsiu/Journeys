@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
-    <Copyright>Copyright © Łukasz Mrozek 2015</Copyright>
+    <TargetFramework>net472</TargetFramework>
+    <Copyright>Copyright © Łukasz Mrozek 2019</Copyright>
     <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
-    <Version>3.0.0-alpha1</Version>
+    <Version>3.0.0</Version>
     <Description>Desktop client for Journeys application</Description>
     <Authors>Łukasz Mrozek</Authors>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -16,10 +16,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
   </ItemGroup>
 
   <ItemGroup>

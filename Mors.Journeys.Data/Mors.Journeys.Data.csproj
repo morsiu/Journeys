@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net46</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Description>Data definitions for Journeys application</Description>
-    <Copyright>Copyright © Łukasz Mrozek 2015</Copyright>
+    <Copyright>Copyright © Łukasz Mrozek 2019</Copyright>
     <PackageProjectUrl>https://github.com/morsiu/Journeys</PackageProjectUrl>
     <Authors>Łukasz Mrozek</Authors>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
