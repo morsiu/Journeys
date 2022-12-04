@@ -1,1 +1,0 @@
-nuget pack Mors.Journeys.Application.Client.Web.nuspec
